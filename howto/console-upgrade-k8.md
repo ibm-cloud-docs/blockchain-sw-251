@@ -698,6 +698,7 @@ rules:
   - rolebindings
   - serviceaccounts
   - nodes
+  - jobs
   verbs:
   - '*'
 - apiGroups:
@@ -1595,6 +1596,7 @@ rules:
   - rolebindings
   - serviceaccounts
   - nodes
+  - jobs
   verbs:
   - '*'
 - apiGroups:

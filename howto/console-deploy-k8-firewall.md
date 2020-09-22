@@ -937,6 +937,7 @@ rules:
   - rolebindings
   - serviceaccounts
   - nodes
+  - jobs
   verbs:
   - '*'
 - apiGroups:
