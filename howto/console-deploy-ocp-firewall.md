@@ -947,6 +947,7 @@ rules:
   - rolebindings
   - serviceaccounts
   - nodes
+  - jobs
   - routes
   - routes/custom-host
   verbs:
