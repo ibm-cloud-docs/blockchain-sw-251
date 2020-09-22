@@ -17,6 +17,7 @@ subcollection: blockchain-sw-251
 {:pre: .pre}
 {:tip: .tip}
 
+
 # Glossary
 {: #glossary}
 
