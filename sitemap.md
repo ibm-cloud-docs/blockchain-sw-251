@@ -240,6 +240,11 @@ subcollection: blockchain-sw-251
   * [Creating a channel: `channel2`](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-build-network-create-channel1)
 * [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-next-steps)
 
+
+## Deploy a smart contract
+{: #sitemap_deploy_a_smart_contract}
+
+
 [Deploy a smart contract on the network](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts)
 * [Sample network tutorial series](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-structure)
 * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-before)

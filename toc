@@ -15,7 +15,12 @@ IBM Blockchain Platform 2.5.1
 	Getting started tutorials
 		howto/ibp-console-build-network.md
 		howto/ibp-console-join-network.md
-		howto/ibp-console-smart-contracts.md
+
+		{: .topicgroup}
+		Deploy a smart contract
+			howto/ibp-console-smart-contracts.md
+			howto/ibp-console-smart-contracts-v2.md
+			howto/ibp-console-smart-contracts-v14.md
 		howto/ibp-console-create-app.md
 		reference/videos.md
 
@@ -111,4 +116,3 @@ IBM Blockchain Platform 2.5.1
 	ibmblockchain_support.md
 	sitemap.md
 	{: .navgroup-end}
-	
