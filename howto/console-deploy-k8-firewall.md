@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, firewall, on-premises, air-gapped, on-prem, multicloud, on-prem
 
@@ -10,14 +10,85 @@ subcollection: blockchain-sw-251
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
+{:android: data-hd-operatingsystem="android"}
+{:apikey: data-credential-placeholder='apikey'}
+{:app_key: data-hd-keyref="app_key"}
+{:app_name: data-hd-keyref="app_name"}
+{:app_secret: data-hd-keyref="app_secret"}
+{:app_url: data-hd-keyref="app_url"}
+{:authenticated-content: .authenticated-content}
+{:beta: .beta}
+{:c#: data-hd-programlang="c#"}
 {:codeblock: .codeblock}
-{:note: .note}
+{:curl: .ph data-hd-programlang='curl'}
+{:deprecated: .deprecated}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:download: .download}
+{:external: target="_blank" .external}
+{:faq: data-hd-content-type='faq'}
+{:fuzzybunny: .ph data-hd-programlang='fuzzybunny'}
+{:generic: data-hd-operatingsystem="generic"}
+{:generic: data-hd-programlang="generic"}
+{:gif: data-image-type='gif'}
+{:go: .ph data-hd-programlang='go'}
+{:help: data-hd-content-type='help'}
+{:hide-dashboard: .hide-dashboard}
+{:hide-in-docs: .hide-in-docs}
 {:important: .important}
-{:tip: .tip}
+{:ios: data-hd-operatingsystem="ios"}
+{:java: #java .ph data-hd-programlang='java'}
+{:java: .ph data-hd-programlang='java'}
+{:java: data-hd-programlang="java"}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:javascript: data-hd-programlang="javascript"}
+{:new_window: target="_blank"}
+{:note: .note}
+{:objectc data-hd-programlang="objectc"}
+{:org_name: data-hd-keyref="org_name"}
+{:php: data-hd-programlang="php"}
 {:pre: .pre}
+{:preview: .preview}
+{:python: .ph data-hd-programlang='python'}
+{:python: data-hd-programlang="python"}
+{:route: data-hd-keyref="route"}
+{:row-headers: .row-headers}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:ruby: data-hd-programlang="ruby"}
+{:runtime: architecture="runtime"}
+{:runtimeIcon: .runtimeIcon}
+{:runtimeIconList: .runtimeIconList}
+{:runtimeLink: .runtimeLink}
+{:runtimeTitle: .runtimeTitle}
+{:screen: .screen}
+{:script: data-hd-video='script'}
+{:service: architecture="service"}
+{:service_instance_name: data-hd-keyref="service_instance_name"}
+{:service_name: data-hd-keyref="service_name"}
+{:shortdesc: .shortdesc}
+{:space_name: data-hd-keyref="space_name"}
+{:step: data-tutorial-type='step'}
+{:subsection: outputclass="subsection"}
+{:support: data-reuse='support'}
+{:swift: #swift .ph data-hd-programlang='swift'}
+{:swift: .ph data-hd-programlang='swift'}
+{:swift: data-hd-programlang="swift"}
+{:table: .aria-labeledby="caption"}
+{:term: .term}
+{:tip: .tip}
+{:tooling-url: data-tooling-url-placeholder='tooling-url'}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tsSymptoms: .tsSymptoms}
+{:tutorial: data-hd-content-type='tutorial'}
+{:unity: .ph data-hd-programlang='unity'}
+{:url: data-credential-placeholder='url'}
+{:user_ID: data-hd-keyref="user_ID"}
+{:vb.net: .ph data-hd-programlang='vb.net'}
+{:video: .video}
+
 
 # Deploying {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 behind a firewall
 {: #deploy-k8-firewall}
@@ -94,11 +165,13 @@ When you purchase the {{site.data.keyword.blockchainfull_notm}} Platform from PP
 
 1. The {{site.data.keyword.blockchainfull_notm}} Platform can be installed only on the [Supported Platforms](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about#console-ocp-about-prerequisites){: external}.
 
-2. You cannot deploy both an {{site.data.keyword.blockchainfull_notm}} Platform v2.1.x and 2.5 instance to the same cluster. If you need to run both instances of the product, then they must be running in separate clusters.
+2. You cannot deploy both an {{site.data.keyword.blockchainfull_notm}} Platform v2.1.x and 2.5.x instance to the same cluster. If you need to run both instances of the product, then they must be running in separate clusters.
 
 3. You need to install and connect to your cluster by using the [kubectl CLI](https://kubernetes.io/docs/tasks/tools/install-kubectl){: external} to deploy the platform.
 
 4. If you are not running the platform on Red Hat OpenShift Container Platform or Red Hat Open Kubernetes Distribution then you need to set up the NGINX Ingress controller and it needs to be running in [SSL passthrough mode](https://kubernetes.github.io/ingress-nginx/user-guide/tls/#ssl-passthrough){: external}. For more information, see [Considerations when using Kubernetes distributions](#console-deploy-k8-considerations).
+
+5. If you have a Hardware Security Module (HSM) that you plan to use to generate and store the private key for your CA, peer, or ordering nodes, you need to create an HSM client image and push it to your container registry. Follow instructions in the [advanced deployment](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker) topic to build the image. You will need to provide the container registry image URL in a subsequent step when you deploy the operator. If the image is not public, you also need to create a Kubernetes image pull secret that contains the registry username and password (or access token).
 
 ## Pull the {{site.data.keyword.blockchainfull_notm}} Platform images
 {: #deploy-k8-images-firewall}
@@ -1037,7 +1110,7 @@ kubectl -n <NAMESPACE> create rolebinding ibp-operator-rolebinding --clusterrole
 ## Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator
 {: #deploy-k8-operator-firewall}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform uses an operator to install the {{site.data.keyword.blockchainfull_notm}} Platform console. You can deploy the operator on your cluster by adding a custom resource to your namespace by using the kubectl CLI. The custom resource pulls the operator image from the Docker registry and starts it on your cluster.
+The {{site.data.keyword.blockchainfull_notm}} Platform uses an operator to install the {{site.data.keyword.blockchainfull_notm}} Platform console. You can deploy the operator on your cluster by adding a custom resource to your namespace by using the kubectl CLI. The custom resource pulls the operator image from the Docker registry and starts it on your cluster. If you have already configured an HSM and published an HSM client image to your container registry, follow instructions under [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator with HSM](#deploy-k8-operator-fw-hsm) instead.  
 
 Copy the following text to a file on your local system and save the file as `ibp-operator.yaml`.
 
@@ -1162,9 +1235,189 @@ You can confirm that the operator deployed by running the command `kubectl get d
 NAME           READY   UP-TO-DATE   AVAILABLE   AGE
 ibp-operator   1/1     1            1           1m
 ```
+### Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator with HSM
+{: #deploy-k8-operator-fw-hsm}
+
+Optionally, an HSM can be configured to generate and store the private key of your peer or ordering nodes. There are two ways to configure an HSM with the platform: by [publishing an HSM client image to a container registry](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker), or by configuring a PKCS #11 proxy, which is now deprecated. The following steps are optional depending on your requirements:
+- If you have already configured an HSM and published the HSM client image to your container registry, you need to complete these steps to deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator.
+- If you have an existing operator deployment and want to enable it for HSM support you need to complete the following steps.
+- If you have already deployed the operator and do not need HSM, you can skip ahead to [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console](#deploy-k8-fw-console).
+- If you are using an HSM with the deprecated PKCS #11 proxy to communicate with your HSM, you need to following these [instructions](#deploy-k8-operator-firewall) instead to deploy your operator.
+
+These instructions assume that you have already [published your HSM Client image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker) to a container registry.
+
+Copy the following text to a file on your local system and save the file as `ibp-operator.yaml`:
+
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ibp-operator
+  labels:
+    release: "operator"
+    helm.sh/chart: "ibm-ibp"
+    app.kubernetes.io/name: "ibp"
+    app.kubernetes.io/instance: "ibp"
+    app.kubernetes.io/managed-by: "ibp-operator"
+spec:
+  replicas: 1
+  strategy:
+    type: "Recreate"
+  selector:
+    matchLabels:
+      name: ibp-operator
+  template:
+    metadata:
+      labels:
+        name: ibp-operator
+        release: "operator"
+        helm.sh/chart: "ibm-ibp"
+        app.kubernetes.io/name: "ibp"
+        app.kubernetes.io/instance: "ibp"
+        app.kubernetes.io/managed-by: "ibp-operator"  
+      annotations:
+        productName: "IBM Blockchain Platform"
+        productID: "54283fa24f1a4e8589964e6e92626ec4"
+        productVersion: "2.5"
+        productChargedContainers: ""
+        productMetric: "VIRTUAL_PROCESSOR_CORE"
+    spec:
+      hostIPC: false
+      hostNetwork: false
+      hostPID: false
+      serviceAccountName: default
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: beta.kubernetes.io/arch
+                operator: In
+                values:
+                - amd64
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 1001
+        fsGroup: 2000
+      imagePullSecrets:
+        - name: docker-key-secret
+        - name: hsm-docker-secret
+      initContainers:
+        - name: "hsm-client"
+          image: <HSM_CLIENT_IMAGE_URL>
+          imagePullPolicy: Always
+          command:
+            - "sh"
+            - "-c"
+            - "cp $ENV_FILE /hsm/.env && source /hsm/.env && src=($SOURCE) && trgt=($TARGET) && for i in ${!src[@]}; do filename=$(basename -- ${src[i]}) dst=\"/hsm/$filename\"; echo \"Copying ${src[i]} to ${dst}\"; mkdir -p $(dirname $dst); cp -r ${src[i]} $dst; done"
+          securityContext:
+            privileged: true
+            allowPrivilegeEscalation: true
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+            runAsUser: 0
+          volumeMounts:
+            - name: "hsm-volume"
+              mountPath: "/hsm"
+          resources:
+            requests:
+              cpu: 100m
+              memory: 200Mi
+            limits:
+              cpu: 100m
+              memory: 200Mi
+      containers:
+        - name: ibp-operator
+          image: cp.icr.io/cp/ibp-operator:2.5.0-20200825-amd64
+          command:
+            - "sh"
+            - "-c"
+            - "source /hsm/.env && ibp-operator"
+          imagePullPolicy: Always
+          securityContext:
+            privileged: false
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: false
+            runAsNonRoot: false
+            runAsUser: 1001
+            capabilities:
+              drop:
+              - ALL
+              add:
+              - CHOWN
+              - FOWNER
+          livenessProbe:
+            tcpSocket:
+              port: 8383
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            failureThreshold: 5
+          readinessProbe:
+            tcpSocket:
+              port: 8383
+            initialDelaySeconds: 10
+            timeoutSeconds: 5
+            periodSeconds: 5
+          volumeMounts:
+            - name: "hsm-volume"
+              mountPath: "/hsm"
+            - name: "hsm-volume"
+              mountPath: "/etc/Chrystoki.conf"
+              subPath: "Chrystoki.conf"
+          env:
+            - name: WATCH_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: POD_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
+            - name: OPERATOR_NAME
+              value: "ibp-operator"
+            - name: CLUSTERTYPE
+              value: OPENSHIFT
+            - name: HSM_CLIENT_IMAGE
+              value: <HSM_CLIENT_IMAGE_URL>
+          resources:
+            requests:
+              cpu: 100m
+              memory: 200Mi
+            limits:
+              cpu: 100m
+              memory: 200Mi
+      volumes:
+      - name: hsm-volume
+        emptyDir:
+          medium: Memory
+```
+{: codeblock}
+
+- Because you are using an HSM, replace both occurrences of `<HSM_CLIENT_IMAGE_URL>` with the URL of the HSM client image from your container registry.
+- If your HSM Client image is public, you can remove the line `name: hsm-docker-secret` under `spec.spec.imagePullSecrets`.
+- If you changed the name of the Docker key secret, then you need to edit the field `name: docker-key-secret`.
+- If you are on Kubernetes, change `spec.template.spec.containers.env.CLUSTERTYPE` from `OPENSHIFT` to `K8S`.
+- If you are using OpenShift Container Platform on LinuxONE, you need to make the following additional customizations:
+   1. In the `spec.affinity` section, change `amd64` to `s390x`.
+   2. In the `spec.containers` section, replace `amd64` in the operator `images` tag with `s390x`.  
+
+Then, use the `kubectl` CLI to add the custom resource to your project. If you have previously deployed the operator, it is replaced with this specification.
+
+```
+kubectl apply -f ibp-operator.yaml -n <PROJECT_NAME>
+```
+{:codeblock}
+Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project or Kubernetes namespace.
+
+You can confirm that the operator deployed by running the command `kubectl get deployment -n <PROJECT_NAME>`. If your operator deployment is successful, then you can see the following tables with four ones displayed. The operator takes about a minute to deploy.
+```
+NAME           READY     UP-TO-DATE   AVAILABLE   AGE
+ibp-operator   1/1       1            1           46s
+```
+
 
 ## Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console
-{: #deploy-k8-console}
+{: #deploy-k8-fw-console}
 
 When the operator is running on your namespace, you can apply a custom resource to start the {{site.data.keyword.blockchainfull_notm}} Platform console on your cluster. You can then access the console from your browser. You can deploy only one console per Kubernetes namespace.
 

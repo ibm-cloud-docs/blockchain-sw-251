@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-23"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -463,6 +463,7 @@ subcollection: blockchain-sw-251
 * [Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-docker-registry-secret)
 * [Add security and access policies](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-scc)
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-operator)
+  * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator with HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-operator-hsm)
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-console)
   * [Advanced deployment options](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#console-deploy-ocp-advanced)
   * [Use your own TLS Certificates (Optional)](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#console-deploy-ocp-use-your-own-tls-certificates-optional)
@@ -490,6 +491,7 @@ subcollection: blockchain-sw-251
   * [Apply the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-clusterrole-firewall)
   * [Apply the ClusterRoleBinding](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-clusterrolebinding-firewall)
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-operator-fw)
+  * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator with HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-operator-fw-hsm)
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-console-fw)
   * [Advanced deployment options](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#console-deploy-ocp-advanced-firewall)
 * [Log in to the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-log-in)
@@ -591,6 +593,7 @@ subcollection: blockchain-sw-251
   * [Apply the ClusterRoleBinding](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-clusterrolebinding)
   * [Create the role binding](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-rolebinding)
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-operator)
+  * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator with HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-operator-hsm)
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-console)
   * [Advanced deployment options](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#console-deploy-k8-advanced)
   * [Use your own TLS Certificates (Optional)](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-tls)
@@ -625,7 +628,8 @@ subcollection: blockchain-sw-251
   * [Apply the ClusterRoleBinding](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-clusterrolebinding-fw)
   * [Create the role binding](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-createrole-fw)
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-operator-firewall)
-* [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-console)
+  * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator with HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-operator-fw-hsm)
+* [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-fw-console)
   * [Advanced deployment options](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#console-deploy-k8-advanced-firewall)
   * [Use your own TLS Certificates (Optional)](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-tls-fw)
   * [Verifying the console installation](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-verify-fw)
