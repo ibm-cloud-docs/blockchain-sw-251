@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-24"
 
 keywords: network components, Kubernetes, OpenShift, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB, ordering nodes, ordering, add and remove, governance
 
@@ -23,6 +23,7 @@ subcollection: blockchain-sw-251
 # Managing deployed components
 {: #ibp-console-govern-components}
 
+
 <div style="background-color: #f4f4f4; padding-left: 20px; border-bottom: 2px solid #0f62fe; padding-top: 12px; padding-bottom: 4px; margin-bottom: 16px;">
   <p style="line-height: 10px;">
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
@@ -36,7 +37,9 @@ subcollection: blockchain-sw-251
 After creating CAs, peers, and ordering nodes, you need to monitor the resources used by the nodes and potentially reallocate resources.
 {:shortdesc}
 
-**Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing their components in the blockchain network.
+**Target audience:** This topic is designed for network operators who are responsible for creating, monitoring, and managing< their components in the blockchain network.
+
+
 
 ## Considerations when reallocating resources
 {: #ibp-console-govern-components-reallocate-resources}
@@ -66,6 +69,7 @@ Note that you do not need to adjust the CPU, memory, or storage for your smart c
 
 ## Deleting components
 {: #ibp-console-govern-components-delete}
+
 The best practice for deleting components is to delete them using the console. This will also delete all of the artifacts associated with a node including your ledger data in persistent storage and the keys that are stored as secrets. Deleting a peer will not, however, delete any smart contract pods associated with it. These must be deleted separately. Deleting a component is usually achieved by logging onto the console where a component was created or installed, clicking on the component and finding the related **trash can** icon. You will typically be prompted to type the name of the component and to confirm your decision. You can also delete nodes by using the {{site.data.keyword.blockchainfull_notm}} Platform APIs.
 
 However, there are cases in which this type of deletion will not be successful. For example, occasionally when a node fails to deploy it will not be possible to delete it using the console. The same can be true if the console loses connection with the cluster for some reason.
