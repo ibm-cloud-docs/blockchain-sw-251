@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-09-23"
+lastupdated: "2020-09-24"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -125,7 +125,6 @@ subcollection: blockchain-sw-251
 
 
 [About {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about)
-* [Video script](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about#video-transcript-key-concepts)
 
 [What {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 offers](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about#console-ocp-about-offers)
 
@@ -198,14 +197,12 @@ subcollection: blockchain-sw-251
 * [Sample network tutorial series](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-sample-tutorial)
   * [The structure of this network](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-structure)
 * [Step one: Create a peer organization and a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-peer-org1)
-  * [Video script](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#video-transcript-peer)
   * [Creating your peer organization's CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-CA-org1CA)
   * [Associating the CA admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-ca-admin)
   * [Using your CA to register identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-use-CA-org1)
   * [Creating the peer organization MSP definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-peers-org1)
   * [Creating a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-peer-create)
 * [Step two: Create the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-orderer)
-  * [Video script](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#video-transcript-orderer)
   * [Ordering in the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-ordering-console)
   * [Creating your ordering service organization CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-orderer-ca)
   * [Associating the CA admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-orderer-ca-admin)
@@ -213,7 +210,6 @@ subcollection: blockchain-sw-251
   * [Creating the ordering service organization MSP definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-orderer-org-msp)
   * [Deploy the ordering nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-an-orderer)
 * [Step three: Join the consortium hosted by the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-add-org)
-  * [Video script](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#video-transcript-channel)
   * [Add the organization to the consortium](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-add-org-consortium)
 * [Step four: Create a channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-channel)
   * [Creating a channel: `channel1`](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-channel1)
