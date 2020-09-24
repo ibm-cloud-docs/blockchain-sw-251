@@ -384,6 +384,8 @@ subcollection: blockchain-sw-251
 
 [What ports are used by the {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-ports)
 
+[How can I estimate the {{site.data.keyword.blockchainfull_notm}} Platform sizing requirements for my development, test, and production environments?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-sizing)
+
 [Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-raft-tls)
 
 [Can {{site.data.keyword.blockchainfull_notm}} Platform components interoperate with Hyperledger Fabric components on the same network? And vice versa? And what is the support policy for networks that include both {{site.data.keyword.blockchainfull_notm}} Platform components and open source components?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-interoperability)
@@ -850,7 +852,6 @@ subcollection: blockchain-sw-251
   * [Step five: Update channel member on ordering service system channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#cert-mgmt-manual-update-os-channel-member)
   * [Step six: Update ordering service admin on ordering service system channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#cert-mgmt-manual-update-os-admin)
   * [Step seven: Update orderer organization MSP on channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#cert-mgmt-manual-update-channel)
-* [Bulk admin certificate renewal with Ansible playbooks](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#cert-mgmt-bulk-ansible)
 * [Expired certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#ibp-console-identities-expired-certs)
   * [How to fix expired Admin certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#ibp-console-identities-expired-certs-admin)
   * [How to fix expired enrollment and TLS certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#ibp-console-identities-expired-certs-ecerts)
