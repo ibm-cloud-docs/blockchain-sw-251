@@ -623,7 +623,6 @@ subcollection: blockchain-sw-251
   * [Apply the ClusterRoleBinding](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-clusterrolebinding-fw)
   * [Create the role binding](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-createrole-fw)
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-operator-firewall)
-  * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator with HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-operator-fw-hsm)
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-fw-console)
   * [Advanced deployment options](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#console-deploy-k8-advanced-firewall)
   * [Use your own TLS Certificates (Optional)](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-tls-fw)

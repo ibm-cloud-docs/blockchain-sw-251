@@ -1235,16 +1235,6 @@ You can confirm that the operator deployed by running the command `kubectl get d
 NAME           READY   UP-TO-DATE   AVAILABLE   AGE
 ibp-operator   1/1     1            1           1m
 ```
-### Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator with HSM
-{: #deploy-k8-operator-fw-hsm}
-
-Optionally, an HSM can be configured to generate and store the private key of your peer or ordering nodes. There are two ways to configure an HSM with the platform: by [publishing an HSM client image to a container registry](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker), or by configuring a PKCS #11 proxy, which is now deprecated. The following steps are optional depending on your requirements:
-- If you have already configured an HSM and published the HSM client image to your container registry, you need to complete these steps to deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator.
-- If you have an existing operator deployment and want to enable it for HSM support you need to complete the following steps.
-- If you have already deployed the operator and do not need HSM, you can skip ahead to [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console](#deploy-k8-fw-console).
-- If you are using an HSM with the deprecated PKCS #11 proxy to communicate with your HSM, you need to following these [instructions](#deploy-k8-operator-firewall) instead to deploy your operator.
-
-{[hsm-deploy-operator.md]}
 
 ## Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console
 {: #deploy-k8-fw-console}
