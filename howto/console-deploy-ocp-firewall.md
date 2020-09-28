@@ -945,7 +945,6 @@ fsGroup:
   type: RunAsAny
 groups:
 - system:serviceaccounts: <PROJECT_NAME>
-- system:authenticated
 kind: SecurityContextConstraints
 metadata:
   name: <PROJECT_NAME>
