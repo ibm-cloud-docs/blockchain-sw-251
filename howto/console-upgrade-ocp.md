@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-09-28"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -212,8 +212,7 @@ defaultAddCapabilities: []
 fsGroup:
   type: RunAsAny
 groups:
-- system:cluster-admins
-- system:authenticated
+- system:serviceaccounts:ibpinfra
 kind: SecurityContextConstraints
 metadata:
   name: ibpinfra
@@ -1111,8 +1110,7 @@ defaultAddCapabilities: []
 fsGroup:
   type: RunAsAny
 groups:
-- system:cluster-admins
-- system:authenticated
+- system:serviceaccounts:ibpinfra
 kind: SecurityContextConstraints
 metadata:
   name: ibpinfra
