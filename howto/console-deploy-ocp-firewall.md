@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-09-28"
+lastupdated: "2020-09-29"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, firewall, on-premises, air-gapped, on-prem, multicloud, on-prem
 
@@ -1516,7 +1516,7 @@ You can also find your console URL by logging in to your OpenShift cluster and r
 ```
 oc get routes -n <PROJECT_NAME>
 ```
-In the output of the command, you can see the URLs for the proxy and the console. You need to add `https://` to the beginning console URL to to access the console. You do not need to add a port to the URL.
+In the output of the command, you can see the URLs for the proxy and the console. You need to add `https://` to the beginning console URL to access the console. You do not need to add a port to the URL.
 
 In your browser, you can see the console log in screen:
 - For the **User ID**, use the value you provided for the `email:` field in the `ibp-console.yaml` file.
