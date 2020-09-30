@@ -731,7 +731,7 @@ subcollection: blockchain-sw-251
   * [Viewing your console logs](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-console-logs)
   * [Viewing your node logs](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-node-logs)
   * [Viewing your smart contract container logs](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-container-logs)
-* [Installing patches for your nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#ibp-console-manage-patch)
+* [Upgrading your nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#ibp-console-manage-patch)
 
 [Advanced deployment options](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment)
 * [What types of advanced deployment options are available?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-options)
