@@ -849,7 +849,7 @@ subcollection: blockchain-sw-251
   * [Step six: Update ordering service admin on ordering service system channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#cert-mgmt-manual-update-os-admin)
   * [Step seven: Update orderer organization MSP on channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#cert-mgmt-manual-update-channel)
 * [Expired certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#ibp-console-identities-expired-certs)
-  * [How to fix expired Admin certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#ibp-console-identities-expired-certs-admin)
+  * [How to fix expired organization admin certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#ibp-console-identities-expired-certs-admin)
   * [How to fix expired enrollment and TLS certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#ibp-console-identities-expired-certs-ecerts)
 * [Using the command line to view certificate expiration](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#ibp-console-identities-cli-expiration)
 * [Export an MSP](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#cert-mgmt-export-msp)

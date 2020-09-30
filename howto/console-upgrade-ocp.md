@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-09-28"
+lastupdated: "2020-09-30"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -847,12 +847,12 @@ If you experience a problem while you are upgrading the operator, go to this [tr
 ## Step six: Upgrade your blockchain nodes
 {: #upgrade-ocp-nodes}
 
-After you upgrade your console, you can use the console UI to upgrade the nodes of your blockchain network. Browse to the console UI and open the nodes overview tab. You can find the **Patch available** text on a node tile if there is an update available for the component. You can install this patch whenever you are ready. These patches are optional, but they are recommended. You cannot patch nodes that were imported into the console.
+After you upgrade your console, you can use the console UI to upgrade the nodes of your blockchain network. Browse to the console UI and open the nodes overview tab. You can find the **Upgrade available** text on a node tile if there is an update available for the component. You can install this upgrade whenever you are ready. These upgrades are optional, but they are recommended. You cannot upgrade nodes that were imported into the console.
 
-Apply patches to nodes one at a time. Your nodes are unavailable to process requests or transactions while the patch is being applied. Therefore, to avoid any disruption of service, you need to ensure that another node of the same type is available to process requests whenever possible. Installing patches on a node takes about a minute to complete and when the update is complete, the node is ready to process requests.
+Apply upgrades to nodes one at a time. Your nodes are unavailable to process requests or transactions while the patch is being applied. Therefore, to avoid any disruption of service, you need to ensure that another node of the same type is available to process requests whenever possible. Installing upgrades on a node takes about a minute to complete and when it is complete, the node is ready to process requests.
 {:important}
 
-To apply a patch to a node, open the node tile and click the **Install patch** button. You cannot patch nodes that you imported to the console.
+To upgrade a node, open the node tile and click the **Upgrade available** button. You cannot upgrade nodes that you imported to the console.
 
 ## Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall
 {: #upgrade-ocp-firewall}
