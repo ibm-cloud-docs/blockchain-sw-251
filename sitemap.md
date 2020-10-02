@@ -510,12 +510,17 @@ subcollection: blockchain-sw-251
 
 [{{site.data.keyword.blockchainfull_notm}} Platform overview](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-platform-overview)
 
+[Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-before)
+
 [Platform limitations](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-platform)
 
-[Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps)
-* [Roll back an upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-rollback)
+[Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 2.5.1 from 2.5](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251)
+* [Step one: Update the webhook image](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-webhook)
+* [Step two: Update the CRDs](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-crds)
+* [Step three: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-clusterrole)
+* [Step four: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-operator)
 
-[Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-before)
+[Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 2.5.1 from 2.1.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-21x)
 
 [Step one: Create the `ibpinfra` project for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#deploy-ocp-ibpinfra)
 
@@ -534,7 +539,7 @@ subcollection: blockchain-sw-251
 
 [Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-operator)
 
-[Step six: Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-nodes)
+[Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-nodes)
 
 [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-firewall)
 * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-begin-firewall)
@@ -545,6 +550,8 @@ subcollection: blockchain-sw-251
 * [Step five: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-clusterrole-firewall)
 * [Step six: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-operator-firewall)
 * [Step seven: Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-nodes-firewall)
+
+[Roll back an upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-rollback)
 
 
 ## Removing your deployment
@@ -635,9 +642,14 @@ subcollection: blockchain-sw-251
 
 [Upgrading your console and components](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8)
 * [{{site.data.keyword.blockchainfull_notm}} Platform overview](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-platform-overview)
-* [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps)
-  * [Roll back an upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-rollback)
 * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-before)
+* [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 2.5.1 from 2.5](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251)
+  * [Step one: Update the webhook image](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-webhook)
+  * [Step two: Update the CRDs](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-crds)
+  * [Step three: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-clusterrole)
+  * [Step four: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-operator)
+* [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps)
+  * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-before)
 * [Step one: Create the `ibpinfra` namespace for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-ibpinfra)
 * [Step two: Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-secret-ibpinfra)
 * [Step three: Deploy the webhook and custom resource definitions to your Kubernetes cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-webhook-crd)
@@ -650,7 +662,7 @@ subcollection: blockchain-sw-251
   * [8. Create the console custom resource definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#deploy-crd-console)
 * [Step four: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-clusterrole)
 * [Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-operator)
-* [Step six: Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-nodes)
+* [Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-nodes)
 * [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-firewall)
   * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-begin-firewall)
   * [Step one: Pull the latest {{site.data.keyword.blockchainfull_notm}} Platform images](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-images-firewall)
@@ -660,6 +672,7 @@ subcollection: blockchain-sw-251
   * [Step five: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-clusterrole-firewall)
   * [Step six: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-operator-firewall)
   * [Step seven: Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-nodes-firewall)
+* [Roll back an upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-rollback)
 
 [Removing your deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-Removing-k8)
 * [Step one: Use the console to delete your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-Removing-k8#Removing-k8-step-one)
