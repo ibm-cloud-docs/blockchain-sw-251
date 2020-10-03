@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-02"
+lastupdated: "2020-10-03"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -43,7 +43,7 @@ Use these instructions to upgrade to the {{site.data.keyword.blockchainfull_notm
 
 | Version | Release date | Image tags | New features |
 |----|----|----|----|
-| [{{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020) | 20 Oct 2020| **Console and tools** <ul><li>2.5.1-20201020-amd64</li></ul> **Fabric nodes** <ul><li>1.4.9-20201020-amd64<li>2.2.1-20201020-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20201020-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.9 and 2.2.1</ul> **Improvements to the Console UI** <ul><li>Support for Fabric v2.x Lifecycle.</li><li>Upgrade CA, peer, ordering nodes from Fabric v1.4 to Fabric v2.x.</li><li>Certificate renewal enhancements added the console.</li></ul> |
+| [{{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020) | 20 Oct 2020| **Console and tools** <ul><li>2.5.1-20201020-amd64</li></ul> **Fabric nodes** <ul><li>1.4.9-20201020-amd64<li>2.2.1-20201020-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20201020-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.9 and 2.2.1</ul> **Improvements to the Console UI** <ul><li>Support for Fabric v2.x Lifecycle.</li><li>Upgrade CA, peer, and ordering nodes from Fabric v1.4 to Fabric v2.x.</li><li>Certificate renewal enhancements added to the console.</li></ul> |
 | [{{site.data.keyword.blockchainfull_notm}} Platform 2.5](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#08-25-2020) | 9 Sept 2020| **Console and tools** <ul><li>2.5.0-20200825-amd64</li><li>2.5.0-20200714-amd64</li><li>2.5.0-20200618-amd64</li></ul> **Fabric nodes** <ul><li>1.4.7-20200825-amd64</li><li>1.4.7-20200714-amd64</li><li>1.4.7-20200618-amd64</li><li>2.1.1-20200825-amd64</li><li>2.1.1-20200714-amd64</li><li>2.1.1-20200618-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20200825-amd64</li><li>2.3.1-20200714-amd64</li><li>2.3.1-20200618-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.7 and 2.1.1</ul> **Improvements to the Console UI** <ul><li>Ability to select Fabric version when you deploy a new peer or ordering node.</li></ul> |
 | [{{site.data.keyword.blockchainfull_notm}} Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-whats-new#whats-new-03-24-2020) | 24 March 2020| **Console and tools** <ul><li>2.1.3-20200520-amd64</li><li>2.1.3-20200416-amd64</li><li>2.1.3-20200324-amd64</li></ul> **Fabric nodes** <ul><li>1.4.6-20200520-amd64</li><li>1.4.6-20200416-amd64</li><li>1.4.6-20200324-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20200520-amd64</li><li>2.3.1-20200416-amd64</li><li>2.3.1-20200324-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.6</ul> **Improvements to the Console UI** <ul><li>Hardware Security Module (HSM) support for node identities</li><li>Ability to override CA, peer, and ordering node configuration</li><li>Ability to add and remove Raft ordering nodes</li><li>Java smart contract instantiation</li><li>Updated create channel and create organization panels</ul> |
 | [{{site.data.keyword.blockchainfull_notm}} Platform v2.1.2](/docs/blockchain-sw?topic=blockchain-sw-whats-new#whats-new-12-17-2019) | 17 December 2019 | **Console and tools** <ul><li>2.1.2-20191217-amd64</li><li>2.1.2-20200213-amd64</li></ul> **Fabric nodes** <ul><li>1.4.4-20191217-amd64</li><li>1.4.4-20200213-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20191217-amd64</li><li>2.3.1-20200213-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.4</ul> **Additional platforms** <ul><li>Platform can be deployed on the OpenShift Container Platform 4.1 and 4.2</ul> **Improvements to the Console UI** <ul><li>Simplified component creation flows</li><li>Zone selection for ordering nodes</li><li>Add peer to a channel from Channels tab</li><li>Anchor peer during join</li><li>Export/Import all</ul> |
@@ -74,10 +74,10 @@ Updating the Operator triggers a restart of all components managed by this insta
 It is a best practice to upgrade your SDK to the latest version as part of a general upgrade of your network. While the SDK will always be compatible with equivalent releases of Fabric and lower, it might be necessary to upgrade to the latest SDK to leverage the latest Fabric features. Also, after upgrading, it's possible your client application may experience errors. Consult the your Fabric SDK documentation for information about how to upgrade.
 {: tip}
 
-## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 2.5.1 from 2.5
+## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.5
 {: #upgrade-k8-steps-251}
 
-When you upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.5  you need to update the webhook, the custom resource definitions (CRDs), the ClusterRole, and the operator using the following steps. The same steps can be followed even if your deployment is behind a firewall.
+When you upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.5  you need to update the webhook, the custom resource definitions (CRDs), the ClusterRole, and the operator using the following steps. **These same steps can be followed even if your deployment is behind a firewall.**
 
 1. [Update webhook image.](#upgrade-k8-steps-251-webhook)
 2. [Update the CRDs.](#upgrade-k8-steps-251-crds)

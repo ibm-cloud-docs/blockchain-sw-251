@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-02"
+lastupdated: "2020-10-03"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -43,7 +43,7 @@ Use these instruction to upgrade to the {{site.data.keyword.blockchainfull_notm}
 
 | Version | Release date | Image tags | New features |
 |----|----|----|----|
-| [{{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020) | 20 Oct 2020| **Console and tools** <ul><li>2.5.1-20201020-amd64</li></ul> **Fabric nodes** <ul><li>1.4.9-20201020-amd64<li>2.2.1-20201020-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20201020-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.9 and 2.2.1</ul> **Improvements to the Console UI** <ul><li>Support for Fabric v2.x Lifecycle.</li><li>Upgrade CA, peer, ordering nodes from Fabric v1.4 to Fabric v2.x.</li><li>Certificate renewal enhancements added the console.</li></ul> |
+| [{{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020) | 20 Oct 2020| **Console and tools** <ul><li>2.5.1-20201020-amd64</li></ul> **Fabric nodes** <ul><li>1.4.9-20201020-amd64<li>2.2.1-20201020-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20201020-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.9 and 2.2.1</ul> **Improvements to the Console UI** <ul><li>Support for Fabric v2.x Lifecycle.</li><li>Upgrade CA, peer, and ordering nodes from Fabric v1.4 to Fabric v2.x.</li><li>Certificate renewal enhancements added to the console.</li></ul> |
 | [{{site.data.keyword.blockchainfull_notm}} Platform 2.5](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#08-25-2020) | 9 Sept 2020| **Console and tools** <ul><li>2.5.0-20200825-amd64</li><li>2.5.0-20200714-amd64</li><li>2.5.0-20200618-amd64</li></ul> **Fabric nodes** <ul><li>1.4.7-20200825-amd64</li><li>1.4.7-20200714-amd64</li><li>1.4.7-20200618-amd64</li><li>2.1.1-202000825-amd64</li><li>2.1.1-20200714-amd64</li><li>2.1.1-20200618-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20200825-amd64</li><li>2.3.1-20200714-amd64</li><li>2.3.1-20200618-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.7 and 2.1.1</ul> **Improvements to the Console UI** <ul><li>Ability to select Fabric version when you deploy a new peer or ordering node.</li></ul> |
 | [{{site.data.keyword.blockchainfull_notm}} Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-whats-new#whats-new-03-24-2020) | 24 March 2020| **Console and tools** <ul><li>2.1.3-20200520-amd64</li><li>2.1.3-20200416-amd64</li><li>2.1.3-20200324-amd64</li></ul> **Fabric nodes** <ul><li>1.4.6-20200520-amd64</li><li>1.4.6-20200416-amd64</li><li>1.4.6-20200324-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20200520-amd64</li><li>2.3.1-20200416-amd64</li><li>2.3.1-20200324-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.6</ul> **Additional platforms** <ul><li>Platform can be deployed on the OpenShift Container Platform 4.2 on LinuxONE (s390x)</ul> **Improvements to the Console UI** <ul><li>Hardware Security Module (HSM) support for node identities</li><li>Ability to override CA, peer, and ordering node configuration</li><li>Ability to add and remove Raft ordering nodes</li><li>Java smart contract instantiation</li><li>Updated create channel and create organization panels</ul> |
 | [{{site.data.keyword.blockchainfull_notm}} Platform v2.1.2](/docs/blockchain-sw?topic=blockchain-sw-whats-new#whats-new-12-17-2019) | 17 December 2019 | **Console and tools** <ul><li>2.1.2-20191217-amd64</li><li>2.1.2-20200213-amd64</li></ul> **Fabric nodes** <ul><li>1.4.4-20191217-amd64</li><li>1.4.4-20200213-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20191217-amd64</li><li>2.3.1-20200213-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.4</ul> **Additional platforms** <ul><li>Platform can be deployed on the OpenShift Container Platform 4.1 and 4.2</ul> **Improvements to the Console UI** <ul><li>Simplified component creation flows</li><li>Zone selection for ordering nodes</li><li>Add peer to a channel from Channels tab</li><li>Anchor peer during join</li><li>Export/Import all</ul> |
@@ -80,10 +80,10 @@ It is a best practice to upgrade your SDK to the latest version as part of a gen
 If your {{site.data.keyword.blockchainfull_notm}} Platform is running on OpenShift Container Platform 3.11, you cannot upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 unless you first upgrade your OpenShift cluster from 3.11 to 4.5. For more information, see [Migrating OpenShift Container Platform to 4.3](https://docs.openshift.com/container-platform/4.5/migration/migrating_3_4/planning-migration-3-to-4.html).
 
 
-## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 2.5.1 from 2.5
+## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.5
 {: #upgrade-ocp-steps-251}
 
-When you upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.5  you need to update the webhook, the custom resource definitions (CRDs), the ClusterRole, and the operator using the following steps. The same steps can be followed even if your deployment is behind a firewall.
+When you upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.5  you need to update the webhook, the custom resource definitions (CRDs), the ClusterRole, and the operator using the following steps. **These same steps can be followed even if your deployment is behind a firewall.**
 
 1. [Update webhook image.](#upgrade-ocp-steps-251-webhook)
 2. [Update the CRDs.](#upgrade-ocp-steps-251-crds)
@@ -480,7 +480,7 @@ ibpconsole     1/1       1            1           4m
 
 You can now follow the [steps](#upgrade-ocp-nodes) to upgrade your blockchain nodes. Be aware that after the nodes are upgraded, there is no way to roll back the upgrade from 2.5.1 to 2.5. After you upgrade to 2.5.1, you can take advantage of the the new Fabric v2.x Lifecycle deployment process for your  smart contracts. But to avoid your peers crashing, you need to ensure that you upgrade your peers before you upgrade your channels. Learn more about considerations when  [Upgrading to a new version of Fabric](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade).
 
-## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 2.5.1 from 2.1.x
+## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x
 {: #upgrade-ocp-steps-21x}
 
 To upgrade your network, you need to [retrieve your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-entitlement-key) from the My {{site.data.keyword.IBM_notm}} Dashboard, and you should have already [created a Kubernetes secret](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-docker-registry-secret) to store the key on your OpenShift project. If the Entitlement key secret was removed from your cluster, or if your key is expired, then you need to download another key and create a new secret.  

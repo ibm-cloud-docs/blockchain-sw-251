@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-02"
+lastupdated: "2020-10-03"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -514,13 +514,13 @@ subcollection: blockchain-sw-251
 
 [Platform limitations](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-platform)
 
-[Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 2.5.1 from 2.5](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251)
+[Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.5](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251)
 * [Step one: Update the webhook image](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-webhook)
 * [Step two: Update the CRDs](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-crds)
 * [Step three: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-clusterrole)
 * [Step four: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-operator)
 
-[Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 2.5.1 from 2.1.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-21x)
+[Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-21x)
 
 [Step one: Create the `ibpinfra` project for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#deploy-ocp-ibpinfra)
 
@@ -643,7 +643,7 @@ subcollection: blockchain-sw-251
 [Upgrading your console and components](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8)
 * [{{site.data.keyword.blockchainfull_notm}} Platform overview](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-platform-overview)
 * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-before)
-* [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 2.5.1 from 2.5](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251)
+* [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.5](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251)
   * [Step one: Update the webhook image](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-webhook)
   * [Step two: Update the CRDs](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-crds)
   * [Step three: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-clusterrole)
