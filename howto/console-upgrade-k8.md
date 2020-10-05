@@ -62,7 +62,7 @@ The upgrade process that you follow depends on the version of the platform that 
 
 Or, if you are upgrading from behind a firewall
 - [Upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from v2.5](#upgrade-k8-steps-251).
-- [Upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from v2.1.x](#upgrade-k8-firewall) from behind a firewall
+- [Upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from v2.1.x](#upgrade-k8-firewall).
 
 After you upgrade the {{site.data.keyword.blockchainfull_notm}} Platform Operator, the Operator will automatically upgrade the console that is deployed on your Kubernetes namespace. You can then use the upgraded console to upgrade your blockchain nodes.
 
@@ -102,262 +102,261 @@ kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook="us.icr.io/ibp-temp
 
 1. Get the existing 2.5 webhook TLS certificate from the `ibpinfra` namespace by running the following command:
 
-```
-TLS_CERT=$(kubectl get secret/webhook-tls-cert -n ibpinfra -o jsonpath={'.data.cert\.pem'})
-```
-{: codeblock}
-
+  ```
+  TLS_CERT=$(kubectl get secret/webhook-tls-cert -n ibpinfra -o jsonpath={'.data.cert\.pem'})
+  ```
+  {: codeblock}
 2. When you originally deployed {{site.data.keyword.blockchainfull_notm}} Platform 2.5 you created four CRDs for the CA, peer, orderer, and console. Before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate. Run the following four commands to update each CRD.
 
-Run this command to update the CA CRD:  
+  Run this command to update the CA CRD:  
 
 
-```
-cat <<EOF | kubectl apply  -f -
-#*******************************************************************************
-# IBM Confidential
-# OCO Source Materials
-# 5737-J29, 5737-B18
-# (C) Copyright IBM Corp. 2020 All Rights Reserved.
-# The source code for this program is not  published or otherwise divested of
-# its trade secrets, irrespective of what has been deposited with
-# the U.S. Copyright Office.
-#*******************************************************************************
-apiVersion: apiextensions.k8s.io/v1beta1
-kind: CustomResourceDefinition
-metadata:
-  labels:
-    app.kubernetes.io/instance: ibpca
-    app.kubernetes.io/managed-by: ibp-operator
-    app.kubernetes.io/name: ibp
-    helm.sh/chart: ibm-ibp
-    release: operator
-  name: ibpcas.ibp.com
-spec:
-  preserveUnknownFields: false
-  conversion:
-    strategy: Webhook
-    webhookClientConfig:
-      service:
-        namespace: ibpinfra
-        name: ibp-webhook
-        path: /crdconvert
-      caBundle: "${TLS_CERT}"
-  validation:
-    openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
-  group: ibp.com
-  names:
-    kind: IBPCA
-    listKind: IBPCAList
-    plural: ibpcas
-    singular: ibpca
-  scope: Namespaced
-  subresources:
-    status: {}
-  version: v1beta1
-  versions:
-  - name: v1beta1
-    served: true
-    storage: true
-  - name: v1alpha2
-    served: true
-    storage: false
-  - name: v210
-    served: false
-    storage: false
-  - name: v212
-    served: false
-    storage: false
-  - name: v1alpha1
-    served: true
-    storage: false
-EOF
-```
-{: codeblock}
+  ```
+  cat <<EOF | kubectl apply  -f -
+  #*******************************************************************************
+  # IBM Confidential
+  # OCO Source Materials
+  # 5737-J29, 5737-B18
+  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
+  # The source code for this program is not  published or otherwise divested of
+  # its trade secrets, irrespective of what has been deposited with
+  # the U.S. Copyright Office.
+  #*******************************************************************************
+  apiVersion: apiextensions.k8s.io/v1beta1
+  kind: CustomResourceDefinition
+  metadata:
+    labels:
+      app.kubernetes.io/instance: ibpca
+      app.kubernetes.io/managed-by: ibp-operator
+      app.kubernetes.io/name: ibp
+      helm.sh/chart: ibm-ibp
+      release: operator
+    name: ibpcas.ibp.com
+  spec:
+    preserveUnknownFields: false
+    conversion:
+      strategy: Webhook
+      webhookClientConfig:
+        service:
+          namespace: ibpinfra
+          name: ibp-webhook
+          path: /crdconvert
+        caBundle: "${TLS_CERT}"
+    validation:
+      openAPIV3Schema:
+        x-kubernetes-preserve-unknown-fields: true
+    group: ibp.com
+    names:
+      kind: IBPCA
+      listKind: IBPCAList
+      plural: ibpcas
+      singular: ibpca
+    scope: Namespaced
+    subresources:
+      status: {}
+    version: v1beta1
+    versions:
+    - name: v1beta1
+      served: true
+      storage: true
+    - name: v1alpha2
+      served: true
+      storage: false
+    - name: v210
+      served: false
+      storage: false
+    - name: v212
+      served: false
+      storage: false
+    - name: v1alpha1
+      served: true
+      storage: false
+  EOF
+  ```
+  {: codeblock}
 
-Run this command to update the peer CRD:  
+  Run this command to update the peer CRD:  
 
-```
-cat <<EOF | kubectl apply  -f -
-#*******************************************************************************
-# IBM Confidential
-# OCO Source Materials
-# 5737-J29, 5737-B18
-# (C) Copyright IBM Corp. 2020 All Rights Reserved.
-# The source code for this program is not  published or otherwise divested of
-# its trade secrets, irrespective of what has been deposited with
-# the U.S. Copyright Office.
-#*******************************************************************************
+  ```
+  cat <<EOF | kubectl apply  -f -
+  #*******************************************************************************
+  # IBM Confidential
+  # OCO Source Materials
+  # 5737-J29, 5737-B18
+  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
+  # The source code for this program is not  published or otherwise divested of
+  # its trade secrets, irrespective of what has been deposited with
+  # the U.S. Copyright Office.
+  #*******************************************************************************
 
-apiVersion: apiextensions.k8s.io/v1beta1
-kind: CustomResourceDefinition
-metadata:
-  name: ibppeers.ibp.com
-  labels:
-    release: "operator"
-    helm.sh/chart: "ibm-ibp"
-    app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
-    app.kubernetes.io/managed-by: "ibp-operator"
-spec:
-  preserveUnknownFields: false
-  conversion:
-    strategy: Webhook
-    webhookClientConfig:
-      service:
-        namespace: ibpinfra
-        name: ibp-webhook
-        path: /crdconvert
-      caBundle: "${TLS_CERT}"
-  validation:
-    openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
-  group: ibp.com
-  names:
-    kind: IBPPeer
-    listKind: IBPPeerList
-    plural: ibppeers
-    singular: ibppeer
-  scope: Namespaced
-  subresources:
-    status: {}
-  version: v1beta1
-  versions:
-  - name: v1beta1
-    served: true
-    storage: true
-  - name: v1alpha2
-    served: true
-    storage: false
-  - name: v1alpha1
-    served: true
-    storage: false
-EOF
-```
-{: codeblock}
+  apiVersion: apiextensions.k8s.io/v1beta1
+  kind: CustomResourceDefinition
+  metadata:
+    name: ibppeers.ibp.com
+    labels:
+      release: "operator"
+      helm.sh/chart: "ibm-ibp"
+      app.kubernetes.io/name: "ibp"
+      app.kubernetes.io/instance: "ibpca"
+      app.kubernetes.io/managed-by: "ibp-operator"
+  spec:
+    preserveUnknownFields: false
+    conversion:
+      strategy: Webhook
+      webhookClientConfig:
+        service:
+          namespace: ibpinfra
+          name: ibp-webhook
+          path: /crdconvert
+        caBundle: "${TLS_CERT}"
+    validation:
+      openAPIV3Schema:
+        x-kubernetes-preserve-unknown-fields: true
+    group: ibp.com
+    names:
+      kind: IBPPeer
+      listKind: IBPPeerList
+      plural: ibppeers
+      singular: ibppeer
+    scope: Namespaced
+    subresources:
+      status: {}
+    version: v1beta1
+    versions:
+    - name: v1beta1
+      served: true
+      storage: true
+    - name: v1alpha2
+      served: true
+      storage: false
+    - name: v1alpha1
+      served: true
+      storage: false
+  EOF
+  ```
+  {: codeblock}
 
-Run this command to update the console CRD:   
+  Run this command to update the console CRD:   
 
-```
-cat <<EOF | kubectl apply  -f -
-#*******************************************************************************
-# IBM Confidential
-# OCO Source Materials
-# 5737-J29, 5737-B18
-# (C) Copyright IBM Corp. 2020 All Rights Reserved.
-# The source code for this program is not  published or otherwise divested of
-# its trade secrets, irrespective of what has been deposited with
-# the U.S. Copyright Office.
-#*******************************************************************************
+  ```
+  cat <<EOF | kubectl apply  -f -
+  #*******************************************************************************
+  # IBM Confidential
+  # OCO Source Materials
+  # 5737-J29, 5737-B18
+  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
+  # The source code for this program is not  published or otherwise divested of
+  # its trade secrets, irrespective of what has been deposited with
+  # the U.S. Copyright Office.
+  #*******************************************************************************
 
-apiVersion: apiextensions.k8s.io/v1beta1
-kind: CustomResourceDefinition
-metadata:
-  name: ibpconsoles.ibp.com
-  labels:
-    release: "operator"
-    helm.sh/chart: "ibm-ibp"
-    app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
-    app.kubernetes.io/managed-by: "ibp-operator"
-spec:
-  preserveUnknownFields: false
-  conversion:
-    strategy: Webhook
-    webhookClientConfig:
-      service:
-        namespace: ibpinfra
-        name: ibp-webhook
-        path: /crdconvert
-      caBundle: "${TLS_CERT}"
-  validation:
-    openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
-  group: ibp.com
-  names:
-    kind: IBPConsole
-    listKind: IBPConsoleList
-    plural: ibpconsoles
-    singular: ibpconsole
-  scope: Namespaced
-  subresources:
-    status: {}
-  version: v1beta1
-  versions:
-  - name: v1beta1
-    served: true
-    storage: true
-  - name: v1alpha2
-    served: true
-    storage: false
-  - name: v1alpha1
-    served: true
-    storage: false
-EOF
-```
-{: codeblock}
+  apiVersion: apiextensions.k8s.io/v1beta1
+  kind: CustomResourceDefinition
+  metadata:
+    name: ibpconsoles.ibp.com
+    labels:
+      release: "operator"
+      helm.sh/chart: "ibm-ibp"
+      app.kubernetes.io/name: "ibp"
+      app.kubernetes.io/instance: "ibpca"
+      app.kubernetes.io/managed-by: "ibp-operator"
+  spec:
+    preserveUnknownFields: false
+    conversion:
+      strategy: Webhook
+      webhookClientConfig:
+        service:
+          namespace: ibpinfra
+          name: ibp-webhook
+          path: /crdconvert
+        caBundle: "${TLS_CERT}"
+    validation:
+      openAPIV3Schema:
+        x-kubernetes-preserve-unknown-fields: true
+    group: ibp.com
+    names:
+      kind: IBPConsole
+      listKind: IBPConsoleList
+      plural: ibpconsoles
+      singular: ibpconsole
+    scope: Namespaced
+    subresources:
+      status: {}
+    version: v1beta1
+    versions:
+    - name: v1beta1
+      served: true
+      storage: true
+    - name: v1alpha2
+      served: true
+      storage: false
+    - name: v1alpha1
+      served: true
+      storage: false
+  EOF
+  ```
+  {: codeblock}
 
-Run this command to update the orderer CRD:  
+  Run this command to update the orderer CRD:  
 
-```
-cat <<EOF | kubectl apply  -f -
-#*******************************************************************************
-# IBM Confidential
-# OCO Source Materials
-# 5737-J29, 5737-B18
-# (C) Copyright IBM Corp. 2020 All Rights Reserved.
-# The source code for this program is not  published or otherwise divested of
-# its trade secrets, irrespective of what has been deposited with
-# the U.S. Copyright Office.
-#*******************************************************************************
+  ```
+  cat <<EOF | kubectl apply  -f -
+  #*******************************************************************************
+  # IBM Confidential
+  # OCO Source Materials
+  # 5737-J29, 5737-B18
+  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
+  # The source code for this program is not  published or otherwise divested of
+  # its trade secrets, irrespective of what has been deposited with
+  # the U.S. Copyright Office.
+  #*******************************************************************************
 
-apiVersion: apiextensions.k8s.io/v1beta1
-kind: CustomResourceDefinition
-metadata:
-  name: ibporderers.ibp.com
-  labels:
-    release: "operator"
-    helm.sh/chart: "ibm-ibp"
-    app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
-    app.kubernetes.io/managed-by: "ibp-operator"
-spec:
-  preserveUnknownFields: false
-  conversion:
-    strategy: Webhook
-    webhookClientConfig:
-      service:
-        namespace: ibpinfra
-        name: ibp-webhook
-        path: /crdconvert
-      caBundle: "${TLS_CERT}"
-  validation:
-    openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
-  group: ibp.com
-  names:
-    kind: IBPOrderer
-    listKind: IBPOrdererList
-    plural: ibporderers
-    singular: ibporderer
-  scope: Namespaced
-  subresources:
-    status: {}
-  version: v1beta1
-  versions:
-  - name: v1beta1
-    served: true
-    storage: true
-  - name: v1alpha2
-    served: true
-    storage: false
-  - name: v1alpha1
-    served: true
-    storage: false
-EOF
-```
-{: codeblock}
+  apiVersion: apiextensions.k8s.io/v1beta1
+  kind: CustomResourceDefinition
+  metadata:
+    name: ibporderers.ibp.com
+    labels:
+      release: "operator"
+      helm.sh/chart: "ibm-ibp"
+      app.kubernetes.io/name: "ibp"
+      app.kubernetes.io/instance: "ibpca"
+      app.kubernetes.io/managed-by: "ibp-operator"
+  spec:
+    preserveUnknownFields: false
+    conversion:
+      strategy: Webhook
+      webhookClientConfig:
+        service:
+          namespace: ibpinfra
+          name: ibp-webhook
+          path: /crdconvert
+        caBundle: "${TLS_CERT}"
+    validation:
+      openAPIV3Schema:
+        x-kubernetes-preserve-unknown-fields: true
+    group: ibp.com
+    names:
+      kind: IBPOrderer
+      listKind: IBPOrdererList
+      plural: ibporderers
+      singular: ibporderer
+    scope: Namespaced
+    subresources:
+      status: {}
+    version: v1beta1
+    versions:
+    - name: v1beta1
+      served: true
+      storage: true
+    - name: v1alpha2
+      served: true
+      storage: false
+    - name: v1alpha1
+      served: true
+      storage: false
+  EOF
+  ```
+  {: codeblock}
 
 ### Step three: Update the ClusterRole
 {: #upgrade-k8-steps-251-clusterrole}
@@ -540,13 +539,13 @@ The name of the secret that you are creating is `docker-key-secret`. It is requi
 
 Before you can upgrade an existing network to 2.5, or deploy a new instance of the platform to your Kubernetes cluster, you need to create the conversion webhook by completing the steps in this section. The webhook is deployed to its own namespace or project, referred to `ibpinfra` throughout these instructions.
 
-The first three steps are for deployment of the webhook. The last five steps are for the custom resource definitions for the CA, peer, orderer, and console components that the {{site.data.keyword.blockchainfull_notm}} Platform requires. You only have to deploy the webhook and custom resource definitions **once per cluster**. If you have already deployed this webhook and custom resource definitions to your cluster, you can skip these eight steps below.
+The first three steps are for deployment of the webhook. The last five steps are for creation of the custom resource definitions for the CA, peer, orderer and console components that the {{site.data.keyword.blockchainfull_notm}} Platform requires. You only have to deploy the webhook and custom resource definitions **once per cluster**. If you have already deployed this webhook and custom resource definitions to your cluster, you can skip these eight steps below.
 {: important}
 
-### 1. Configure role-based access control (RBAC) for the webhook
-{: #webhook-rbac}
+#### 1. Configure role-based access control (RBAC) for the webhook
+{: #upgrade-webhook-rbac}
 
-First, copy the following text to a file on your local system and save the file as `rbac.yaml`. This step allows the webhook to read and create a TLS secret in its own project.
+Copy the following text to a file on your local system and save the file as `rbac.yaml`. This step allows the webhook to read and create a TLS secret in its own project.
 
 ```yaml
 apiVersion: v1
@@ -594,8 +593,8 @@ serviceaccount/webhook created
 role.rbac.authorization.k8s.io/webhook created
 rolebinding.rbac.authorization.k8s.io/ibpinfra created
 ```
-### 2. (OpenShift cluster only) Apply the Security Context Constraint
-{: #webhook-scc}
+#### 2.(OpenShift cluster only) Apply the Security Context Constraint
+{: #upgrade-webhook-scc}
 
 The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`.
 
@@ -652,13 +651,13 @@ securitycontextconstraints.security.openshift.io/ibpinfra created
 scc "ibpinfra" added to: ["system:serviceaccounts:ibpinfra"]
 ```
 
-### 3. Deploy the webhook
-{: #webhook-deploy}
+#### 3. Deploy the webhook
+{: #upgrade-webhook-deploy}
 
 In order to deploy the webhook, you need to create two `.yaml` files and apply them to your Kubernetes cluster.
 
-#### deployment.yaml
-{: #webhook-deployment-yaml}
+##### deployment.yaml
+{: #upgrade-webhook-deployment-yaml}
 
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform 4.3 on LinuxONE, you need to replace `amd64` with `s390x`.
 
@@ -751,21 +750,21 @@ spec:
 {: codeblock}
 
 
-Run the following command to add the file to your cluster definition:
+Run the following command to add the configuration to your cluster definition:
 ```
 kubectl apply -n ibpinfra -f deployment.yaml
 ```
 {: codeblock}
 
-When the command completes successfully, you should see something similar to:
+When the command completes successfully you should see something similar to:
 ```
 deployment.apps/ibp-webhook created
 ```
 
-#### service.yaml
-{: #webhook-service-yaml}
+##### service.yaml
+{: #upgrade-webhook-service-yaml}
 
-Second, copy the following text to a file on your local system and save the file as `service.yaml`.
+Secondly, copy the following text to a file on your local system and save the file as `service.yaml`.
 ```yaml
 apiVersion: v1
 kind: Service
@@ -788,20 +787,21 @@ spec:
 ```
 {: codeblock}
 
-Run the following command to add the file to your cluster definition:
+Run the following command to add the configuration to your cluster definition:
 ```
 kubectl apply -n ibpinfra -f service.yaml
 ```
 {: codeblock}
 
-When the command completes successfully, you should see something similar to:
+When the command completes successfully you should see something similar to:
 ```
 service/ibp-webhook created
 ```
 
-### 4. Extract the certificate
+#### 4. Extract the certificate
+{: #upgrade-webhook-extract-cert}
 
-Next, we need to extract the TLS certificate that was generated by the webhook deployment so that it can be used in the custom resource definitions in the next steps. Run the following command to extract the secret to a base64 encoded string:
+Next, we need to extract the TLS certificate that was generated by the webhook deployment so that it can be used in the next steps. Run the following command to extract the secret to a base64 encoded string:
 
 ```
 kubectl get secret webhook-tls-cert -n ibpinfra -o json | jq -r .data.\"cert.pem\"
@@ -816,8 +816,8 @@ LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJoRENDQVNtZ0F3SUJBZ0lRZDNadkhZalN0KytK
 Save the base64 encoded string that is returned by this command to be used in the next steps when you create the custom resource definitions.
 {: important}
 
-### 5. Create the CA custom resource definition
-{: #deploy-crd-ca}
+#### 5. Create the CA custom resource definition
+{: #upgrade-crd-ca}
 
 Copy the following text to a file on your local system and save the file as `ibpca-crd.yaml`.
 ```yaml
@@ -873,7 +873,7 @@ spec:
 
 Replace the value of `<CABUNDLE>` with the base64 encoded string that you extracted in step three after the webhook deployment.  
 
-Then, use the `kubectl` CLI to add the custom resource definition to your project.
+Then, use the `kubectl` CLI to add the custom resource definition to your namespace or project.
 
 ```
 kubectl apply -f ibpca-crd.yaml
@@ -885,8 +885,8 @@ You should see the following output when it is successful:
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
 ```
 
-### 6. Create the peer custom resource definition
-{: #deploy-crd-peer}
+#### 6. Create the peer custom resource definition
+{: #upgrade-crd-peer}
 
 Copy the following text to a file on your local system and save the file as `ibppeer-crd.yaml`.
 ```yaml
@@ -934,9 +934,10 @@ spec:
 {:codeblock}
 
 
+
 Replace the value of `<CABUNDLE>` with the base64 encoded string that you extracted in step three after the webhook deployment.  
 
-Then, use the `kubectl` CLI to add the custom resource definition to your project.
+Then, use the `kubectl` CLI to add the custom resource definition to your namespace or project.
 
 ```
 kubectl apply -f ibppeer-crd.yaml
@@ -948,8 +949,8 @@ You should see the following output when it is successful:
 customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com created
 ```
 
-### 7. Create the orderer custom resource definition
-{: #deploy-crd-orderer}
+#### 7. Create the orderer custom resource definition
+{: #upgrade-crd-orderer}
 
 Copy the following text to a file on your local system and save the file as `ibporderer-crd.yaml`.
 
@@ -997,10 +998,11 @@ spec:
 ```
 {:codeblock}
 
+{:codeblock}
 
 Replace the value of `<CABUNDLE>` with the base64 encoded string that you extracted in step three after the webhook deployment.
 
-Then, use the `kubectl` CLI to add the custom resource definition to your project.
+Then, use the `kubectl` CLI to add the custom resource definition to your namespace or project.
 
 ```
 kubectl apply -f ibporderer-crd.yaml
@@ -1012,8 +1014,8 @@ You should see the following output when it is successful:
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com created
 ```
 
-### 8. Create the console custom resource definition
-{: #deploy-crd-console}
+#### 8. Create the console custom resource definition
+{: #upgrade-crd-console}
 
 Copy the following text to a file on your local system and save the file as `ibpconsole-crd.yaml`.
 ```yaml
@@ -1060,9 +1062,10 @@ spec:
 ```
 {:codeblock}
 
+{:codeblock}
 
 Replace the value of `<CABUNDLE>` with the base64 encoded string that you extracted in step three after the webhook deployment.  
-Then, use the `kubectl` CLI to add the custom resource definition to your project.
+Then, use the `kubectl` CLI to add the custom resource definition to your namespace or project.
 
 ```
 kubectl apply -f ibpconsole-crd.yaml
@@ -1249,16 +1252,6 @@ ibpconsole     1         1         1            1           8m
 ```
 
 If you experience a problem while you are upgrading the operator, go to this [troubleshooting topic](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-cr) for a list of commonly encountered problems. You can run the command to apply the original operator file, `kubectl apply -f operator.yaml` to restore your original operator deployment.
-
-## Upgrade your blockchain nodes
-{: #upgrade-k8-nodes}
-
-After you upgrade your console, you can use the console UI to upgrade the nodes of your blockchain network. Browse to the console UI and open the nodes overview tab. You can find the **Upgrade available** text on a node tile if there is an upgrade available for the component. You can install this upgrade whenever you are ready. These upgrades are optional, but they are recommended. You cannot upgrade nodes that were imported into the console.
-
-Apply upgrades to nodes one at a time. Your nodes are unavailable to process requests or transactions while the patch is being applied. Therefore, to avoid any disruption of service, you need to ensure that another node of the same type is available to process requests whenever possible. Installing upgrades on a node takes about a minute to complete and when it is complete, the node is ready to process requests.
-{:important}
-
-To update a node, open the node tile and click the **Upgrade available** button. You cannot update nodes that you imported to the console.
 
 ## Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall
 {: #upgrade-k8-firewall}
@@ -2178,3 +2171,13 @@ After you upgrade your console, you can use the console UI to upgrade the nodes 
 When you upgrade your operator, it saves the secrets, deployment spec, and network information of your console before it the operator attempts to upgrade the console. If your upgrade fails for any reason, {{site.data.keyword.IBM_notm}} Support can roll back your upgrade and restore your previous deployment by using the information on your cluster. If you need to roll back your upgrade, you can submit a support case from the [mysupport](https://www.ibm.com/support/pages/node/1072956){: external} page.
 
 You can roll back an upgrade after you use the console to operate your network. However, after you use the console to upgrade your blockchain nodes, you can no longer roll back your console to a previous version of the platform.
+
+## Upgrade your blockchain nodes
+{: #upgrade-k8-nodes}
+
+After you upgrade your console, you can use the console UI to upgrade the nodes of your blockchain network. Browse to the console UI and open the nodes overview tab. You can find the **Upgrade available** text on a node tile if there is an upgrade available for the component. You can install this upgrade whenever you are ready. These upgrades are optional, but they are recommended. You cannot upgrade nodes that were imported into the console.
+
+Apply upgrades to nodes one at a time. Your nodes are unavailable to process requests or transactions while the patch is being applied. Therefore, to avoid any disruption of service, you need to ensure that another node of the same type is available to process requests whenever possible. Installing upgrades on a node takes about a minute to complete and when it is complete, the node is ready to process requests.
+{:important}
+
+To update a node, open the node tile and click the **Upgrade available** button. You cannot update nodes that you imported to the console.
