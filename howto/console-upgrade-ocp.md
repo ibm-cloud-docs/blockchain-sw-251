@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-03"
+lastupdated: "2020-10-05"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -91,7 +91,7 @@ When you upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 fro
 4. [Update the operator.](#upgrade-ocp-steps-251-operator)
 5. [Use your console to upgrade your running blockchain nodes.](#upgrade-ocp-nodes)
 
-You need to complete steps 3-5 for each network that that runs on a separate project. If you experience any problems, see the instructions for [rolling back an upgrade](#upgrade-ocp-rollback). If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](#upgrade-ocp-firewall).
+You need to repeat steps 3-5 for each network that that runs on a separate project. If you experience any problems, see the instructions for [rolling back an upgrade](#upgrade-ocp-rollback). If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](#upgrade-ocp-firewall).
 
 ### Step one: Update the webhook image
 {: #upgrade-ocp-steps-251-webhook}
@@ -109,12 +109,16 @@ If you are running the platform on LinuxONE, replace `-amd64` with `-s390x`.
 {: #upgrade-ocp-steps-251-crds}
 
 1. Get the existing 2.5 webhook TLS certificate from the `ibpinfra` project by running the following command:
+
 ```
 TLS_CERT=$(kubectl get secret/webhook-tls-cert -n ibpinfra -o jsonpath={'.data.cert\.pem'})
 ```
 {: codeblock}
 
 2. When you originally deployed {{site.data.keyword.blockchainfull_notm}} Platform 2.5 you created four CRDs for the CA, peer, orderer, and console. Before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate. Run the following four commands to update each CRD.
+
+Run this command to update the CA CRD:  
+
 
 ```
 cat <<EOF | kubectl apply  -f -
@@ -180,6 +184,8 @@ EOF
 ```
 {: codeblock}
 
+Run this command to update the peer CRD:  
+
 ```
 cat <<EOF | kubectl apply  -f -
 #*******************************************************************************
@@ -239,6 +245,8 @@ EOF
 ```
 {: codeblock}
 
+Run this command to update the console CRD:  
+
 ```
 cat <<EOF | kubectl apply  -f -
 #*******************************************************************************
@@ -297,6 +305,8 @@ spec:
 EOF
 ```
 {: codeblock}
+
+Run this command to update the orderer CRD:  
 
 ```
 cat <<EOF | kubectl apply  -f -
@@ -449,7 +459,7 @@ rules:
 ```
 {:codeblock}
 
-After you save and edit the file, run the following commands. Replace `<PROJECT_NAME>` with the name of your project.
+After you edit and save the file, run the following commands. Replace `<PROJECT_NAME>` with the name of your project.
 ```
 oc apply -f ibp-clusterrole.yaml
 oc adm policy add-scc-to-group <PROJECT_NAME> system:serviceaccounts:<PROJECT_NAME>
@@ -467,9 +477,9 @@ kubectl set image deploy/ibp-operator -n <PROJECT-NAME> ibp-operator=us.icr.io/i
 {: codeblock}
 
 
-You can use the `kubectl get deployment ibp-operator -o yaml` command to confirm that the command updated the operator spec.
-
 After you apply the `operator-upgrade.yaml` operator spec to your OpenShift project, the operator will restart and pull the latest image. The upgrade takes about a minute. While the upgrade is taking place, you can still access your console UI. However, you cannot use the console to install and instantiate chaincode, or use the console or the APIs to create or remove a node.
+
+Run the command `kubectl get deployment ibp-operator -o yaml` command to confirm that the command updated the operator spec.
 
 You can check that the upgrade is complete by running `kubectl get deployment`. If the upgrade is successful, then you can see the following tables with four ones displayed for your operator and your console.
 ```
@@ -478,7 +488,7 @@ ibp-operator   1/1       1            1           1m
 ibpconsole     1/1       1            1           4m
 ```
 
-You can now follow the [steps](#upgrade-ocp-nodes) to upgrade your blockchain nodes. Be aware that after the nodes are upgraded, there is no way to roll back the upgrade from 2.5.1 to 2.5. After you upgrade to 2.5.1, you can take advantage of the the new Fabric v2.x Lifecycle deployment process for your  smart contracts. But to avoid your peers crashing, you need to ensure that you upgrade your peers before you upgrade your channels. Learn more about considerations when  [Upgrading to a new version of Fabric](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade).
+You can now follow the [steps](#upgrade-ocp-nodes) to upgrade your blockchain nodes. Be aware that after the nodes are upgraded, there is no way to roll back the upgrade from 2.5.1 to 2.5. After you upgrade to 2.5.1, you can take advantage of the the new Fabric v2.x Lifecycle deployment process for your  smart contracts. But to avoid your peers crashing, you need to ensure that you upgrade your peers before you upgrade your channels. Learn more about considerations when [Upgrading to a new version of Fabric](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade).
 
 ## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x
 {: #upgrade-ocp-steps-21x}

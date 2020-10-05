@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-03"
+lastupdated: "2020-10-05"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -85,7 +85,7 @@ When you upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 fro
 4. [Update the operator.](#upgrade-k8-steps-251-operator)
 5. [Use your console to upgrade your running blockchain nodes.](#upgrade-k8-nodes)
 
-You need to complete steps 3-5 for each network that that runs in a separate namespace. If you experience any problems, see the instructions for [rolling back an upgrade](#upgrade-ocp-rollback). If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](#upgrade-ocp-firewall).
+You need to repeat steps 3-5 for each network that that runs in a separate namespace. If you experience any problems, see the instructions for [rolling back an upgrade](#upgrade-ocp-rollback). If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](#upgrade-ocp-firewall).
 
 ### Step one: Update the webhook image
 {: #upgrade-k8-steps-251-webhook}
@@ -101,12 +101,16 @@ kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook="us.icr.io/ibp-temp
 {: #upgrade-k8-steps-251-crds}
 
 1. Get the existing 2.5 webhook TLS certificate from the `ibpinfra` namespace by running the following command:
+
 ```
 TLS_CERT=$(kubectl get secret/webhook-tls-cert -n ibpinfra -o jsonpath={'.data.cert\.pem'})
 ```
 {: codeblock}
 
 2. When you originally deployed {{site.data.keyword.blockchainfull_notm}} Platform 2.5 you created four CRDs for the CA, peer, orderer, and console. Before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate. Run the following four commands to update each CRD.
+
+Run this command to update the CA CRD:  
+
 
 ```
 cat <<EOF | kubectl apply  -f -
@@ -172,6 +176,8 @@ EOF
 ```
 {: codeblock}
 
+Run this command to update the peer CRD:  
+
 ```
 cat <<EOF | kubectl apply  -f -
 #*******************************************************************************
@@ -231,6 +237,8 @@ EOF
 ```
 {: codeblock}
 
+Run this command to update the console CRD:   
+
 ```
 cat <<EOF | kubectl apply  -f -
 #*******************************************************************************
@@ -289,6 +297,8 @@ spec:
 EOF
 ```
 {: codeblock}
+
+Run this command to update the orderer CRD:  
 
 ```
 cat <<EOF | kubectl apply  -f -
@@ -437,7 +447,7 @@ rules:
 ```  
 {:codeblock}
 
-After you save and edit the file, run the following commands.
+After you edit and save the file, run the following commands.
 ```
 oc apply -f ibp-clusterrole.yaml
 oc adm policy add-scc-to-group <NAMESPACE> system:serviceaccounts:<NAMESPACE>
@@ -454,9 +464,9 @@ kubectl set image deploy/ibp-operator -n <NAMESPACE> ibp-operator=us.icr.io/ibp-
 ```
 {: codeblock}
 
-You can use the `kubectl get deployment ibp-operator -o yaml` command to confirm that the command updated the operator spec.
-
 After you apply the `operator-upgrade.yaml` operator spec to your Kubernetes namespace, the operator will restart and pull the latest image. The upgrade takes about a minute. While the upgrade is taking place, you can still access your console UI. However, you cannot use the console to install and instantiate chaincode, or use the console or the APIs to create or remove a node.
+
+Run the `kubectl get deployment ibp-operator -o yaml` command to confirm that the command updated the operator spec.
 
 You can check that the upgrade is complete by running `kubectl get deployment`. If the upgrade is successful, then you can see the following tables with four ones displayed for your operator and your console.
 ```
