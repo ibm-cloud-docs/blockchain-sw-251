@@ -446,8 +446,8 @@ subcollection: blockchain-sw-251
 * [Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm#deploy-ocp-rhm-project)
 
 [Deploy {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 manually](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp)
-* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-prerequisites)
 * [Get your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-entitlement-key)
+* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-prerequisites)
 * [Log in to your OpenShift cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-login)
 * [Create the `ibpinfra` project for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-ibpinfra)
 * [Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-secret-ibpinfra)
@@ -470,8 +470,8 @@ subcollection: blockchain-sw-251
 * [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#console-deploy-ocp-next-steps)
 
 [Deploy {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 on-prem manually](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall)
-* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-prerequisites-firewall)
 * [Get your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-entitlement-key-firewall)
+* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-prerequisites-firewall)
 * [Log in to your OpenShift cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-login-firewall)
 * [Create the `ibpinfra` project for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-ibpinfra)
 * [Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-secret-ibpinfra)
