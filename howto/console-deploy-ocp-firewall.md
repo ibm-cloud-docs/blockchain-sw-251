@@ -157,6 +157,7 @@ docker pull cp.icr.io/cp/ibp-grpcweb:2.5.1-20201020-amd64
 docker pull cp.icr.io/cp/ibp-deployer:2.5.1-20201020-amd64
 docker pull cp.icr.io/cp/ibp-fluentd:2.5.1-20201020-amd64
 docker pull cp.icr.io/cp/ibp-couchdb:2.3.1-20201020-amd64
+docker pull cp.icr.io/cp/ibp-couchdb:3.1.0-20201020-amd64
 docker pull cp.icr.io/cp/ibp-peer:1.4.9-20201020-amd64
 docker pull cp.icr.io/cp/ibp-orderer:1.4.9-20201020-amd64
 docker pull cp.icr.io/cp/ibp-ca:1.4.9-20201020-amd64
@@ -175,6 +176,7 @@ docker pull cp.icr.io/cp/ibp-ccenv:1.4.9-20201020-amd64
 docker pull cp.icr.io/cp/ibp-goenv:1.4.9-20201020-amd64
 docker pull cp.icr.io/cp/ibp-nodeenv:1.4.9-20201020-amd64
 docker pull cp.icr.io/cp/ibp-javaenv:1.4.9-20201020-amd64
+docker pull cp.icr.io/cp/ibp-enroller:2.5.1-20201020-amd64
 ```
 {:codeblock}
 
@@ -190,6 +192,7 @@ docker tag cp.icr.io/cp/ibp-grpcweb:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-gr
 docker tag cp.icr.io/cp/ibp-deployer:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-deployer:2.5.1-20201020-amd64
 docker tag cp.icr.io/cp/ibp-fluentd:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-fluentd:2.5.1-20201020-amd64
 docker tag cp.icr.io/cp/ibp-couchdb:2.3.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-couchdb:2.3.1-20201020-amd64
+docker tag cp.icr.io/cp/ibp-couchdb:3.1.0-20201020-amd64 <LOCAL_REGISTRY>/ibp-couchdb:3.1.0-20201020-amd64
 docker tag cp.icr.io/cp/ibp-peer:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-peer:1.4.9-20201020-amd64
 docker tag cp.icr.io/cp/ibp-orderer:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-orderer:1.4.9-20201020-amd64
 docker tag cp.icr.io/cp/ibp-ca:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-ca:1.4.9-20201020-amd64
@@ -209,6 +212,7 @@ docker tag cp.icr.io/cp/ibp-ccenv:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-ccen
 docker tag cp.icr.io/cp/ibp-goenv:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-goenv:1.4.9-20201020-amd64
 docker tag cp.icr.io/cp/ibp-nodeenv:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-nodeenv:1.4.9-20201020-amd64
 docker tag cp.icr.io/cp/ibp-javaenv:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-javaenv:1.4.9-20201020-amd64
+docker tag cp.icr.io/cp/ibp-enroller:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-enroller:2.5.1-20201020-amd64
 ```
 {:codeblock}
 
@@ -231,6 +235,7 @@ docker push <LOCAL_REGISTRY>/ibp-grpcweb:2.5.1-20201020-amd64
 docker push <LOCAL_REGISTRY>/ibp-deployer:2.5.1-20201020-amd64
 docker push <LOCAL_REGISTRY>/ibp-fluentd:2.5.1-20201020-amd64
 docker push <LOCAL_REGISTRY>/ibp-couchdb:2.3.1-20201020-amd64
+docker push <LOCAL_REGISTRY>/ibp-couchdb:3.1.0-20201020-amd64
 docker push <LOCAL_REGISTRY>/ibp-peer:1.4.9-20201020-amd64
 docker push <LOCAL_REGISTRY>/ibp-orderer:1.4.9-20201020-amd64
 docker push <LOCAL_REGISTRY>/ibp-ca:1.4.9-20201020-amd64
@@ -249,6 +254,7 @@ docker push <LOCAL_REGISTRY>/ibp-ccenv:1.4.9-20201020-amd64
 docker push <LOCAL_REGISTRY>/ibp-goenv:1.4.9-20201020-amd64
 docker push <LOCAL_REGISTRY>/ibp-nodeenv:1.4.9-20201020-amd64
 docker push <LOCAL_REGISTRY>/ibp-javaenv:1.4.9-20201020-amd64
+docker push <LOCAL_REGISTRY>/ibp-enroller:2.5.1-20201020-amd64
 ```
 {:codeblock}
 
@@ -291,7 +297,7 @@ kubectl get pods
 ## Create the `ibpinfra` project for the webhook
 {: #deploy-ocp-ibpinfra}
 
-Because the platform has updated the internal apiversion from `v1alpha1` in previous versions to `v1alpha2` in 2.5, a Kubernetes conversion webhook is required to update the CA, peer, operator, and console to the new API version. This webhook will continue to be used in the future, so new deployments of the platform are required to deploy it as well.  The webhook is deployed to its own project, referred to as  `ibpinfra` throughout these instructions. **Webhooks are supported in Kubernetes v1.15 and higher. If your cluster is running Kubernetes v1.14 or lower, you need to upgrade it now to take advantage of this release of the {{site.data.keyword.blockchainfull_notm}} Platform.**
+Because the platform has updated the internal apiversion from `v1alpha1` in previous versions to `v1beta1` in 2.5.1, a Kubernetes conversion webhook is required to update the CA, peer, operator, and console to the new API version. This webhook will continue to be used in the future, so new deployments of the platform are required to deploy it as well.  The webhook is deployed to its own project, referred to as  `ibpinfra` throughout these instructions. **Webhooks are supported in Kubernetes v1.15 and higher. If your cluster is running Kubernetes v1.14 or lower, you need to upgrade it now to take advantage of this release of the {{site.data.keyword.blockchainfull_notm}} Platform.**
 
 After you log in to your cluster, you can create the new `ibpinfra` project for the Kubernetes conversion webhook using the kubectl CLI. The new project needs to be created by a cluster administrator.  
 
@@ -590,280 +596,266 @@ When the command completes successfully, you should see something similar to:
 service/ibp-webhook created
 ```
 
-### 4. Extract the certificate
+### 4. Extract the certificate and create the custom resource definitions
 
-Next, we need to extract the TLS certificate that was generated by the webhook deployment so that it can be used in the custom resource definitions in the next steps. Run the following command to extract the secret to a base64 encoded string:
+1. Get the webhook TLS certificate from the `ibpinfra` namespace by running the following command:
 
-```
-kubectl get secret webhook-tls-cert -n ibpinfra -o json | jq -r .data.\"cert.pem\"
-```
-{: codeblock}
+  ```
+  TLS_CERT=$(kubectl get secret/webhook-tls-cert -n ibpinfra -o jsonpath={'.data.cert\.pem'})
+  ```
+  {: codeblock}
+2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
-The output of this command is a base64 encoded string and looks similar to:
-```
-LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tCk1JSUJoRENDQVNtZ0F3SUJBZ0lRZDNadkhZalN0KytKdTJXbFMvVDFzakFLQmdncWhrak9QUVFEQWpBU01SQXcKRGdZRFZRUUtFd2RKUWswZ1NVSlFNQjRYRFRJd01EWXdPVEUxTkRrME5sFORGsxTVZvdwpFakVRTUE0R0ExVUVDaE1IU1VKTklFbENVREJaTUJGcVRyV0Z4WFBhTU5mSUkrYUJ2RG9DQVFlTW3SUZvREFUQmdOVkhTVUVEREFLQmdncgpCZ0VGQlFjREFUQU1CZ05WSFJNQkFmOEVBakFBTUNvR0ExVWRFUVFqTUNHQ0gyTnlaQzEzWldKb2IyOXJMWE5sCmNuWnBZMlV1ZDJWaWFHOXZheTV6ZG1Nd0NnWUlLb1pJemowRUF3SURTUUF3UmdJaEFNb29kLy9zNGxYaTB2Y28KVjBOMTUrL0h6TkI1cTErSTJDdU9lb1c1RnR4MUFpRUEzOEFlVktPZnZSa0paN0R2THpCRFh6VmhJN2lBQVV3ZAo3ZStrOTA3TGFlTT0KLS0tLS1FTkQgQ0VSVElGSUNBVEUtLS0tLQo=
-```
-
-Save the base64 encoded string that is returned by this command to be used in the next steps when you create the custom resource definitions.
-{: important}
-
-### 5. Create the CA custom resource definition
-{: #deploy-crd-ca}
-
-Copy the following text to a file on your local system and save the file as `ibpca-crd.yaml`.
-```yaml
-apiVersion: apiextensions.k8s.io/v1beta1
-kind: CustomResourceDefinition
-metadata:
-  labels:
-    app.kubernetes.io/instance: ibpca
-    app.kubernetes.io/managed-by: ibp-operator
-    app.kubernetes.io/name: ibp
-    helm.sh/chart: ibm-ibp
-    release: operator
-  name: ibpcas.ibp.com
-spec:
-  preserveUnknownFields: false
-  conversion:
-    strategy: Webhook
-    webhookClientConfig:
-      service:
-        namespace: ibpinfra
-        name: ibp-webhook
-        path: /crdconvert
-      caBundle: "<CABUNDLE>"
-  validation:
-    openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true    
-  group: ibp.com
-  names:
-    kind: IBPCA
-    listKind: IBPCAList
-    plural: ibpcas
-    singular: ibpca
-  scope: Namespaced
-  subresources:
-    status: {}
-  version: v1alpha2
-  versions:
-  - name: v1alpha2
-    served: true
-    storage: true
-  - name: v210
-    served: false
-    storage: false
-  - name: v212
-    served: false
-    storage: false
-  - name: v1alpha1
-    served: true
-    storage: false
-```
-{:codeblock}
+  Run this command to update the CA CRD:  
 
 
-Replace the value of `<CABUNDLE>` with the base64 encoded string that you extracted in step three after the webhook deployment.  
+  ```
+  cat <<EOF | kubectl apply  -f -
+  #*******************************************************************************
+  # IBM Confidential
+  # OCO Source Materials
+  # 5737-J29, 5737-B18
+  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
+  # The source code for this program is not  published or otherwise divested of
+  # its trade secrets, irrespective of what has been deposited with
+  # the U.S. Copyright Office.
+  #*******************************************************************************
+  apiVersion: apiextensions.k8s.io/v1beta1
+  kind: CustomResourceDefinition
+  metadata:
+    labels:
+      app.kubernetes.io/instance: ibpca
+      app.kubernetes.io/managed-by: ibp-operator
+      app.kubernetes.io/name: ibp
+      helm.sh/chart: ibm-ibp
+      release: operator
+    name: ibpcas.ibp.com
+  spec:
+    preserveUnknownFields: false
+    conversion:
+      strategy: Webhook
+      webhookClientConfig:
+        service:
+          namespace: ibpinfra
+          name: ibp-webhook
+          path: /crdconvert
+        caBundle: "${TLS_CERT}"
+    validation:
+      openAPIV3Schema:
+        x-kubernetes-preserve-unknown-fields: true
+    group: ibp.com
+    names:
+      kind: IBPCA
+      listKind: IBPCAList
+      plural: ibpcas
+      singular: ibpca
+    scope: Namespaced
+    subresources:
+      status: {}
+    version: v1beta1
+    versions:
+    - name: v1beta1
+      served: true
+      storage: true
+    - name: v1alpha2
+      served: true
+      storage: false
+    - name: v210
+      served: false
+      storage: false
+    - name: v212
+      served: false
+      storage: false
+    - name: v1alpha1
+      served: true
+      storage: false
+  EOF
+  ```
+  {: codeblock}
 
-Then, use the `kubectl` CLI to add the custom resource definition to your project.
+  Run this command to update the peer CRD:  
 
-```
-kubectl apply -f ibpca-crd.yaml
-```
-{:codeblock}
+  ```
+  cat <<EOF | kubectl apply  -f -
+  #*******************************************************************************
+  # IBM Confidential
+  # OCO Source Materials
+  # 5737-J29, 5737-B18
+  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
+  # The source code for this program is not  published or otherwise divested of
+  # its trade secrets, irrespective of what has been deposited with
+  # the U.S. Copyright Office.
+  #*******************************************************************************
 
-You should see the following output when it is successful:
-```
-customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
-```
+  apiVersion: apiextensions.k8s.io/v1beta1
+  kind: CustomResourceDefinition
+  metadata:
+    name: ibppeers.ibp.com
+    labels:
+      release: "operator"
+      helm.sh/chart: "ibm-ibp"
+      app.kubernetes.io/name: "ibp"
+      app.kubernetes.io/instance: "ibpca"
+      app.kubernetes.io/managed-by: "ibp-operator"
+  spec:
+    preserveUnknownFields: false
+    conversion:
+      strategy: Webhook
+      webhookClientConfig:
+        service:
+          namespace: ibpinfra
+          name: ibp-webhook
+          path: /crdconvert
+        caBundle: "${TLS_CERT}"
+    validation:
+      openAPIV3Schema:
+        x-kubernetes-preserve-unknown-fields: true
+    group: ibp.com
+    names:
+      kind: IBPPeer
+      listKind: IBPPeerList
+      plural: ibppeers
+      singular: ibppeer
+    scope: Namespaced
+    subresources:
+      status: {}
+    version: v1beta1
+    versions:
+    - name: v1beta1
+      served: true
+      storage: true
+    - name: v1alpha2
+      served: true
+      storage: false
+    - name: v1alpha1
+      served: true
+      storage: false
+  EOF
+  ```
+  {: codeblock}
 
-### 6. Create the peer custom resource definition
-{: #deploy-crd-peer}
+  Run this command to update the console CRD:   
 
-Copy the following text to a file on your local system and save the file as `ibppeer-crd.yaml`.
-```yaml
-apiVersion: apiextensions.k8s.io/v1beta1
-kind: CustomResourceDefinition
-metadata:
-  name: ibppeers.ibp.com
-  labels:
-    release: "operator"
-    helm.sh/chart: "ibm-ibp"
-    app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibppeer"
-    app.kubernetes.io/managed-by: "ibp-operator"
-spec:
-  preserveUnknownFields: false
-  conversion:
-    strategy: Webhook
-    webhookClientConfig:
-      service:
-        namespace: ibpinfra
-        name: ibp-webhook
-        path: /crdconvert
-      caBundle: "<CABUNDLE>"
-  validation:
-    openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true    
-  group: ibp.com
-  names:
-    kind: IBPPeer
-    listKind: IBPPeerList
-    plural: ibppeers
-    singular: ibppeer
-  scope: Namespaced
-  subresources:
-    status: {}
-  version: v1alpha2
-  versions:
-  - name: v1alpha2
-    served: true
-    storage: true
-  - name: v1alpha1
-    served: true
-    storage: false
-```
-{:codeblock}
+  ```
+  cat <<EOF | kubectl apply  -f -
+  #*******************************************************************************
+  # IBM Confidential
+  # OCO Source Materials
+  # 5737-J29, 5737-B18
+  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
+  # The source code for this program is not  published or otherwise divested of
+  # its trade secrets, irrespective of what has been deposited with
+  # the U.S. Copyright Office.
+  #*******************************************************************************
 
+  apiVersion: apiextensions.k8s.io/v1beta1
+  kind: CustomResourceDefinition
+  metadata:
+    name: ibpconsoles.ibp.com
+    labels:
+      release: "operator"
+      helm.sh/chart: "ibm-ibp"
+      app.kubernetes.io/name: "ibp"
+      app.kubernetes.io/instance: "ibpca"
+      app.kubernetes.io/managed-by: "ibp-operator"
+  spec:
+    preserveUnknownFields: false
+    conversion:
+      strategy: Webhook
+      webhookClientConfig:
+        service:
+          namespace: ibpinfra
+          name: ibp-webhook
+          path: /crdconvert
+        caBundle: "${TLS_CERT}"
+    validation:
+      openAPIV3Schema:
+        x-kubernetes-preserve-unknown-fields: true
+    group: ibp.com
+    names:
+      kind: IBPConsole
+      listKind: IBPConsoleList
+      plural: ibpconsoles
+      singular: ibpconsole
+    scope: Namespaced
+    subresources:
+      status: {}
+    version: v1beta1
+    versions:
+    - name: v1beta1
+      served: true
+      storage: true
+    - name: v1alpha2
+      served: true
+      storage: false
+    - name: v1alpha1
+      served: true
+      storage: false
+  EOF
+  ```
+  {: codeblock}
 
-Replace the value of `<CABUNDLE>` with the base64 encoded string that you extracted in step three after the webhook deployment.  
+  Run this command to update the orderer CRD:  
 
-Then, use the `kubectl` CLI to add the custom resource definition to your project.
+  ```
+  cat <<EOF | kubectl apply  -f -
+  #*******************************************************************************
+  # IBM Confidential
+  # OCO Source Materials
+  # 5737-J29, 5737-B18
+  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
+  # The source code for this program is not  published or otherwise divested of
+  # its trade secrets, irrespective of what has been deposited with
+  # the U.S. Copyright Office.
+  #*******************************************************************************
 
-```
-kubectl apply -f ibppeer-crd.yaml
-```
-{:codeblock}
+  apiVersion: apiextensions.k8s.io/v1beta1
+  kind: CustomResourceDefinition
+  metadata:
+    name: ibporderers.ibp.com
+    labels:
+      release: "operator"
+      helm.sh/chart: "ibm-ibp"
+      app.kubernetes.io/name: "ibp"
+      app.kubernetes.io/instance: "ibpca"
+      app.kubernetes.io/managed-by: "ibp-operator"
+  spec:
+    preserveUnknownFields: false
+    conversion:
+      strategy: Webhook
+      webhookClientConfig:
+        service:
+          namespace: ibpinfra
+          name: ibp-webhook
+          path: /crdconvert
+        caBundle: "${TLS_CERT}"
+    validation:
+      openAPIV3Schema:
+        x-kubernetes-preserve-unknown-fields: true
+    group: ibp.com
+    names:
+      kind: IBPOrderer
+      listKind: IBPOrdererList
+      plural: ibporderers
+      singular: ibporderer
+    scope: Namespaced
+    subresources:
+      status: {}
+    version: v1beta1
+    versions:
+    - name: v1beta1
+      served: true
+      storage: true
+    - name: v1alpha2
+      served: true
+      storage: false
+    - name: v1alpha1
+      served: true
+      storage: false
+  EOF
+  ```
+  {: codeblock}
 
-You should see the following output when it is successful:
-```
-customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com created
-```
-
-### 7. Create the orderer custom resource definition
-{: #deploy-crd-orderer}
-
-Copy the following text to a file on your local system and save the file as `ibporderer-crd.yaml`.
-
-```yaml
-apiVersion: apiextensions.k8s.io/v1beta1
-kind: CustomResourceDefinition
-metadata:
-  name: ibporderers.ibp.com
-  labels:
-    release: "operator"
-    helm.sh/chart: "ibm-ibp"
-    app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibporderer"
-    app.kubernetes.io/managed-by: "ibp-operator"
-spec:
-  preserveUnknownFields: false
-  conversion:
-    strategy: Webhook
-    webhookClientConfig:
-      service:
-        namespace: ibpinfra
-        name: ibp-webhook
-        path: /crdconvert
-      caBundle: "<CABUNDLE>"
-  validation:
-    openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true    
-  group: ibp.com
-  names:
-    kind: IBPOrderer
-    listKind: IBPOrdererList
-    plural: ibporderers
-    singular: ibporderer
-  scope: Namespaced
-  subresources:
-    status: {}
-  version: v1alpha2
-  versions:
-  - name: v1alpha2
-    served: true
-    storage: true
-  - name: v1alpha1
-    served: true
-    storage: false
-```
-{:codeblock}
-
-
-Replace the value of `<CABUNDLE>` with the base64 encoded string that you extracted in step three after the webhook deployment.
-
-Then, use the `kubectl` CLI to add the custom resource definition to your project.
-
-```
-kubectl apply -f ibporderer-crd.yaml
-```
-{:codeblock}
-
-You should see the following output when it is successful:
-```
-customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com created
-```
-
-### 8. Create the console custom resource definition
-{: #deploy-crd-console}
-
-Copy the following text to a file on your local system and save the file as `ibpconsole-crd.yaml`.
-```yaml
-apiVersion: apiextensions.k8s.io/v1beta1
-kind: CustomResourceDefinition
-metadata:
-  name: ibpconsoles.ibp.com
-  labels:
-    release: "operator"
-    helm.sh/chart: "ibm-ibp"
-    app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpconsole"
-    app.kubernetes.io/managed-by: "ibp-operator"
-spec:
-  preserveUnknownFields: false
-  conversion:
-    strategy: Webhook
-    webhookClientConfig:
-      service:
-        namespace: ibpinfra
-        name: ibp-webhook
-        path: /crdconvert
-      caBundle: "<CABUNDLE>"
-  validation:
-    openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
-  group: ibp.com
-  names:
-    kind: IBPConsole
-    listKind: IBPConsoleList
-    plural: ibpconsoles
-    singular: ibpconsole
-  scope: Namespaced
-  subresources:
-    status: {}
-  version: v1alpha2
-  versions:
-  - name: v1alpha2
-    served: true
-    storage: true
-  - name: v1alpha1
-    served: true
-    storage: false
-```
-{:codeblock}
-
-
-Replace the value of `<CABUNDLE>` with the base64 encoded string that you extracted in step three after the webhook deployment.  
-Then, use the `kubectl` CLI to add the custom resource definition to your project.
-
-```
-kubectl apply -f ibpconsole-crd.yaml
-```
-{:codeblock}
-
-You should see the following output when it is successful:
-```
-customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
-```
 
 
 ## Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment
@@ -1255,7 +1247,7 @@ When the operator is running on your namespace, you can apply a custom resource 
 Save the custom resource definition below as `ibp-console.yaml` on your local system. If you changed the name of the entitlement key secret, then you need to edit the field of `name: docker-key-secret`.
 
 ```yaml
-apiVersion: ibp.com/v1alpha2
+apiVersion: ibp.com/v1beta1
 kind: IBPConsole
 metadata:
   name: ibpconsole
@@ -1321,7 +1313,7 @@ Replace `<PROJECT_NAME>` with the name of your project. Before you install the c
 You can edit the `ibp-console.yaml` file to allocate more resources to your console or use zones for high availability in a multizone cluster. To take advantage of these deployment options, you can use the console resource definition with the `resources:` and `clusterdata:` sections added:
 
 ```yaml
-apiVersion: ibp.com/v1alpha2
+apiVersion: ibp.com/v1beta1
 kind: IBPConsole
 metadata:
   name: ibpconsole
@@ -1426,7 +1418,7 @@ kubectl create secret generic console-tls-secret --from-file=tls.crt=./tlscert.p
 After you create the secret, add the `tlsSecretName` field to the `spec:` section of `ibp-console.yaml` with one indent added, at the same level as the `resources:` and `clusterdata:` sections of the advanced deployment options. You must provide the name of the TLS secret that you created to the field. The following example deploys a console with the TLS certificate and key stored in a secret named `"console-tls-secret"`:
 
 ```yaml
-apiVersion: ibp.com/v1alpha2
+apiVersion: ibp.com/v1beta1
 kind: IBPConsole
 metadata:
   name: ibpconsole
