@@ -39,7 +39,7 @@ You can upgrade the {{site.data.keyword.blockchainfull}} Platform without disrup
 ## {{site.data.keyword.blockchainfull_notm}} Platform overview
 {: #upgrade-ocp-platform-overview}
 
-Use these instruction to upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from v2.1.3, v2.1.2, v2.1.1, and v2.1.0. The table provides an overview of the current and past releases.
+Use these instruction to upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from versions 2.5, 2.1.3, 2.1.2, 2.1.1, and 2.1.0. The table provides an overview of the current and past releases.
 
 | Version | Release date | Image tags | New features |
 |----|----|----|----|
@@ -509,7 +509,7 @@ You need to complete steps 4-6 for each network that that runs on a separate pro
 Occasionally, a five node ordering service that was deployed using v2.1.2 will be deleted by the Kubernetes garbage collector because it considers the nodes a resource that needs to be cleaned up. This process is both random and unrecoverable --- if the ordering service is deleted, all of the channels hosted on it are permanently lost. To prevent this, the `ownerReferences` field in the configuration of each ordering node must be removed **before upgrading to 2.5.1**. For the steps about how to pull the configuration file, remove `ordererReferences`, and apply the change, see [Known issues](/docs/blockchain-sw?topic=blockchain-sw-sw-known-issues#sw-known-issues-ordering-service-delete) in the v2.1.2 documentation.
 {:important}
 
-## Step one: Create the `ibpinfra` project for the webhook
+### Step one: Create the `ibpinfra` project for the webhook
 {: #deploy-ocp-ibpinfra}
 
 Because the platform has updated the internal apiversion from `v1alpha1` in previous versions to `v1alpha2` in 2.5, a Kubernetes conversion webhook is required to update the CA, peer, operator, and console to the new API version. This webhook will continue to be used in the future, so new deployments of the platform are required to deploy it as well.  The webhook is deployed to its own project, referred to as  `ibpinfra` throughout these instructions.
@@ -528,7 +528,7 @@ $ oc get namespace
 NAME                                STATUS    AGE
 ibpinfra                            Active    2m
 ```
-## Step two: Create a secret for your entitlement key
+### Step two: Create a secret for your entitlement key
 {: #deploy-ocp-secret-ibpinfra}
 
 After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
@@ -545,7 +545,7 @@ The name of the secret that you are creating is `docker-key-secret`. It is requi
 {: note}
 
 
-## Step three: Deploy the webhook and custom resource definitions to your OpenShift cluster
+### Step three: Deploy the webhook and custom resource definitions to your OpenShift cluster
 {: #webhook}
 Before you can upgrade an existing network to 2.5, or deploy a new instance of the platform to your Kubernetes cluster, you need to create the conversion webhook by completing the steps in this section. The webhook is deployed to its own namespace or project, referred to `ibpinfra` throughout these instructions.
 
@@ -1084,7 +1084,7 @@ customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
 ```
 
 
-## Step four: Update the ClusterRole
+### Step four: Update the ClusterRole
 {: #upgrade-ocp-clusterrole}
 
 You need to update the ClusterRole that is applied to your project. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<PROJECT_NAME>` with the name of your project.
@@ -1184,7 +1184,7 @@ oc adm policy add-scc-to-group <PROJECT_NAME> system:serviceaccounts:<PROJECT_NA
 {:codeblock}
 
 
-## Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator
+### Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator
 {: #upgrade-ocp-operator}
 
 You can upgrade the {{site.data.keyword.blockchainfull_notm}} operator by fetching the operator deployment spec from your OpenShift project. When the operator upgrade is complete, the operator will upgrade your console and download the latest images for your blockchain nodes.

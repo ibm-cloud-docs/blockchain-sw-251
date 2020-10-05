@@ -134,8 +134,10 @@ The resources for the CA, peer, and ordering nodes need to be multiplied by the 
 {: #deploy-k8-browsers}
 The {{site.data.keyword.blockchainfull_notm}} Platform console has been successfully tested on the following browsers:
 
+
 - Chrome Version 83.0.4103.97 (Official Build) (64-bit)
 - Safari Version 13.0.3 (15608.3.10.1.4)
+
 
 
 ## Storage

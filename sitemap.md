@@ -521,12 +521,9 @@ subcollection: blockchain-sw-251
 * [Step four: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-operator)
 
 [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-21x)
-
-[Step one: Create the `ibpinfra` project for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#deploy-ocp-ibpinfra)
-
-[Step two: Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#deploy-ocp-secret-ibpinfra)
-
-[Step three: Deploy the webhook and custom resource definitions to your OpenShift cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#webhook)
+* [Step one: Create the `ibpinfra` project for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#deploy-ocp-ibpinfra)
+* [Step two: Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#deploy-ocp-secret-ibpinfra)
+* [Step three: Deploy the webhook and custom resource definitions to your OpenShift cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#webhook)
 * [1. Configure role-based access control (RBAC) for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#webhook-rbac)
 * [2. (OpenShift cluster only) Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#webhook-scc)
 * [3. Deploy the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#webhook-deploy)
@@ -534,10 +531,8 @@ subcollection: blockchain-sw-251
 * [6. Create the peer custom resource definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#deploy-crd-peer)
 * [7. Create the orderer custom resource definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#deploy-crd-orderer)
 * [8. Create the console custom resource definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#deploy-crd-console)
-
-[Step four: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-clusterrole)
-
-[Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-operator)
+* [Step four: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-clusterrole)
+* [Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-operator)
 
 [Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-nodes)
 
@@ -650,9 +645,9 @@ subcollection: blockchain-sw-251
   * [Step four: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-operator)
 * [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps)
   * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-before)
-* [Step one: Create the `ibpinfra` namespace for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-ibpinfra)
-* [Step two: Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-secret-ibpinfra)
-* [Step three: Deploy the webhook and custom resource definitions to your Kubernetes cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-webhook-crd)
+  * [Step one: Create the `ibpinfra` namespace for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-ibpinfra)
+  * [Step two: Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-secret-ibpinfra)
+  * [Step three: Deploy the webhook and custom resource definitions to your Kubernetes cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-webhook-crd)
   * [1. Configure role-based access control (RBAC) for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#webhook-rbac)
   * [2. (OpenShift cluster only) Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#webhook-scc)
   * [3. Deploy the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#webhook-deploy)
@@ -660,8 +655,8 @@ subcollection: blockchain-sw-251
   * [6. Create the peer custom resource definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#deploy-crd-peer)
   * [7. Create the orderer custom resource definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#deploy-crd-orderer)
   * [8. Create the console custom resource definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#deploy-crd-console)
-* [Step four: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-clusterrole)
-* [Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-operator)
+  * [Step four: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-clusterrole)
+  * [Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-operator)
 * [Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-nodes)
 * [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-firewall)
   * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-begin-firewall)
