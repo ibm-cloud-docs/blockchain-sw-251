@@ -149,10 +149,6 @@ subcollection: blockchain-sw-251
 
 [What's new](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new)
 
-[August 27, 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-08-19-2020)
-
-[June 18, 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-06-18-2020)
-
 
 ## Pricing
 {: #sitemap_pricing}
@@ -1144,16 +1140,6 @@ subcollection: blockchain-sw-251
 
 
 [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20)
-
-[9 Sept 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#08-25-2020)
-
-[14 July 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#07-14-2020)
-
-[18 June 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#06-18-2020)
-* [Fabric peer and ordering node images](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#06-18-2020-images)
-* [Elimination of Docker daemon dependency](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#06-18-2020-docker)
-* [Multizone-capable storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#06-18-2020-Multizone)
-* [Kubernetes version upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#06-18-2020-k8s)
 
 
 ## Known issues
