@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-05"
+lastupdated: "2020-10-06"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -690,7 +690,7 @@ spec:
       annotations:
         productName: "IBM Blockchain Platform"
         productID: "54283fa24f1a4e8589964e6e92626ec4"
-        productVersion: "2.5.0"
+        productVersion: "2.5.1"
     spec:
       serviceAccountName: webhook
       imagePullSecrets:
@@ -704,7 +704,7 @@ spec:
         fsGroup: 2000
       containers:
         - name: "ibp-webhook"
-          image: "cp.icr.io/cp/ibp-crdwebhook:2.5.0-20200825-amd64"
+          image: "cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201020-amd64"
           imagePullPolicy: Always
           securityContext:
             privileged: false
@@ -1565,7 +1565,7 @@ spec:
       annotations:
         productName: "IBM Blockchain Platform"
         productID: "54283fa24f1a4e8589964e6e92626ec4"
-        productVersion: "2.5.0"
+        productVersion: "2.5.1"
     spec:
       serviceAccountName: webhook
       imagePullSecrets:
@@ -1579,7 +1579,7 @@ spec:
         fsGroup: 2000
       containers:
         - name: "ibp-webhook"
-          image: "cp.icr.io/cp/ibp-crdwebhook:2.5.0-20200825-amd64"
+          image: "cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201020-amd64"
           imagePullPolicy: Always
           securityContext:
             privileged: false
