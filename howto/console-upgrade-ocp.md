@@ -77,7 +77,7 @@ It is a best practice to upgrade your SDK to the latest version as part of a gen
 ## Platform limitations
 {: #upgrade-ocp-platform}
 
-If your {{site.data.keyword.blockchainfull_notm}} Platform is running on OpenShift Container Platform 3.11, you cannot upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 unless you first upgrade your OpenShift cluster from 3.11 to 4.5. For more information, see [Migrating OpenShift Container Platform to 4.3](https://docs.openshift.com/container-platform/4.5/migration/migrating_3_4/planning-migration-3-to-4.html).
+If your {{site.data.keyword.blockchainfull_notm}} Platform is running on OpenShift Container Platform 3.11, you cannot upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 unless you first upgrade your OpenShift cluster from 3.11 to 4.5. For more information, see [Planning your migrationn](https://docs.openshift.com/container-platform/4.5/migration/migrating_3_4/planning-migration-3-to-4.html).
 
 
 ## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.5
@@ -704,7 +704,7 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 ##### deployment.yaml
 {: #upgrade-webhook-deployment-yaml}
 
-Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform 4.3 on LinuxONE, you need to replace `amd64` with `s390x`.
+Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
 
 ```yaml
 apiVersion: apps/v1
@@ -1622,7 +1622,7 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 ##### deployment.yaml
 {: #upgrade-webhook-deployment-yaml}
 
-Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform 4.3 on LinuxONE, you need to replace `amd64` with `s390x`.
+Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
 
 ```yaml
 apiVersion: apps/v1
