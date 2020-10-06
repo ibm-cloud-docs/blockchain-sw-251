@@ -465,7 +465,7 @@ service/ibp-webhook created
 
 ### 4. Extract the certificate and create the custom resource definitions
 
-1. Get the webhook TLS certificate from the `ibpinfra` namespace by running the following command:
+1. Extract the webhook TLS certificate from the `ibpinfra` namespace by running the following command:
 
   ```
   TLS_CERT=$(kubectl get secret/webhook-tls-cert -n ibpinfra -o jsonpath={'.data.cert\.pem'})
@@ -540,6 +540,15 @@ service/ibp-webhook created
   ```
   {: codeblock}
 
+  Depending on whether you are creating or updating the CRD, when successful, you should see:
+  ```
+  customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
+  ```
+  or
+  ```
+  customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
+  ```
+
   Run this command to update the peer CRD:  
 
   ```
@@ -600,6 +609,14 @@ service/ibp-webhook created
   EOF
   ```
   {: codeblock}
+  When successful, you should see:
+  ```
+  customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com created
+  ```
+  or
+  ```
+  customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
+  ```
 
   Run this command to update the console CRD:   
 
@@ -662,6 +679,15 @@ service/ibp-webhook created
   ```
   {: codeblock}
 
+  When successful, you should see:
+  ```
+  customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
+  ```
+  or
+  ```
+  customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
+  ```
+
   Run this command to update the orderer CRD:  
 
   ```
@@ -722,6 +748,15 @@ service/ibp-webhook created
   EOF
   ```
   {: codeblock}
+
+  When successful, you should see:
+  ```
+  customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com created
+  ```
+  or
+  ```
+  customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
+  ```
 
 
 
