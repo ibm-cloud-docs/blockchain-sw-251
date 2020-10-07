@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-06"
+lastupdated: "2020-10-07"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -200,7 +200,7 @@ The name of the secret that you are creating is `docker-key-secret`. It is requi
 
 
 ## Deploy the webhook and custom resource definitions (CRDs) to your OpenShift cluster
-{: #deploy-k8s-webhook-crd}
+{: #deploy-ocp-webhook-crd}
 
 Before you can upgrade an existing 2.1.x network to 2.5.1, or deploy a new instance of the platform to your Kubernetes cluster, you need to create the conversion webhook by completing the steps in this section. The webhook is deployed to its own namespace or project, referred to `ibpinfra` throughout these instructions.
 
