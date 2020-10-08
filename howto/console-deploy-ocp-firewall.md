@@ -614,15 +614,6 @@ service/ibp-webhook created
 
   ```yaml
   cat <<EOF | kubectl apply  -f -
-  #*******************************************************************************
-  # IBM Confidential
-  # OCO Source Materials
-  # 5737-J29, 5737-B18
-  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
-  # The source code for this program is not  published or otherwise divested of
-  # its trade secrets, irrespective of what has been deposited with
-  # the U.S. Copyright Office.
-  #*******************************************************************************
   apiVersion: apiextensions.k8s.io/v1beta1
   kind: CustomResourceDefinition
   metadata:
@@ -689,16 +680,6 @@ service/ibp-webhook created
 
   ```yaml
   cat <<EOF | kubectl apply  -f -
-  #*******************************************************************************
-  # IBM Confidential
-  # OCO Source Materials
-  # 5737-J29, 5737-B18
-  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
-  # The source code for this program is not  published or otherwise divested of
-  # its trade secrets, irrespective of what has been deposited with
-  # the U.S. Copyright Office.
-  #*******************************************************************************
-
   apiVersion: apiextensions.k8s.io/v1beta1
   kind: CustomResourceDefinition
   metadata:
@@ -758,16 +739,6 @@ service/ibp-webhook created
 
   ```yaml
   cat <<EOF | kubectl apply  -f -
-  #*******************************************************************************
-  # IBM Confidential
-  # OCO Source Materials
-  # 5737-J29, 5737-B18
-  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
-  # The source code for this program is not  published or otherwise divested of
-  # its trade secrets, irrespective of what has been deposited with
-  # the U.S. Copyright Office.
-  #*******************************************************************************
-
   apiVersion: apiextensions.k8s.io/v1beta1
   kind: CustomResourceDefinition
   metadata:
@@ -828,16 +799,6 @@ service/ibp-webhook created
 
   ```yaml
   cat <<EOF | kubectl apply  -f -
-  #*******************************************************************************
-  # IBM Confidential
-  # OCO Source Materials
-  # 5737-J29, 5737-B18
-  # (C) Copyright IBM Corp. 2020 All Rights Reserved.
-  # The source code for this program is not  published or otherwise divested of
-  # its trade secrets, irrespective of what has been deposited with
-  # the U.S. Copyright Office.
-  #*******************************************************************************
-
   apiVersion: apiextensions.k8s.io/v1beta1
   kind: CustomResourceDefinition
   metadata:
