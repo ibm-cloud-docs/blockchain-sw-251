@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-06"
+lastupdated: "2020-10-08"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -111,7 +111,7 @@ kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook="cp.icr.io/cp/ibp-c
   Run this command to update the CA CRD:  
 
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -186,7 +186,7 @@ kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook="cp.icr.io/cp/ibp-c
 
   Run this command to update the peer CRD:  
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -255,7 +255,7 @@ kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook="cp.icr.io/cp/ibp-c
 
   Run this command to update the console CRD:   
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -325,7 +325,7 @@ kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook="cp.icr.io/cp/ibp-c
 
   Run this command to update the orderer CRD:  
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -848,7 +848,7 @@ service/ibp-webhook created
   Run this command to update the CA CRD:  
 
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -923,7 +923,7 @@ service/ibp-webhook created
 
   Run this command to update the peer CRD:  
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -992,7 +992,7 @@ service/ibp-webhook created
 
   Run this command to update the console CRD:   
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -1062,7 +1062,7 @@ service/ibp-webhook created
 
   Run this command to update the orderer CRD:  
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -1758,7 +1758,7 @@ service/ibp-webhook created
   Run this command to update the CA CRD:  
 
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -1833,7 +1833,7 @@ service/ibp-webhook created
 
   Run this command to update the peer CRD:  
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -1902,7 +1902,7 @@ service/ibp-webhook created
 
   Run this command to update the console CRD:   
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -1972,7 +1972,7 @@ service/ibp-webhook created
 
   Run this command to update the orderer CRD:  
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-06"
+lastupdated: "2020-10-08"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -44,6 +44,7 @@ subcollection: blockchain-sw-251
 {:javascript: .ph data-hd-programlang='javascript'}
 {:javascript: data-hd-programlang="javascript"}
 {:new_window: target="_blank"}
+{:note .note}
 {:note: .note}
 {:objectc data-hd-programlang="objectc"}
 {:org_name: data-hd-keyref="org_name"}
@@ -507,7 +508,7 @@ service/ibp-webhook created
   Run this command to update the CA CRD:  
 
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -582,7 +583,7 @@ service/ibp-webhook created
 
   Run this command to update the peer CRD:  
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -651,7 +652,7 @@ service/ibp-webhook created
 
   Run this command to update the console CRD:   
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
@@ -721,7 +722,7 @@ service/ibp-webhook created
 
   Run this command to update the orderer CRD:  
 
-  ```
+  ```yaml
   cat <<EOF | kubectl apply  -f -
   #*******************************************************************************
   # IBM Confidential
