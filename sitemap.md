@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-10-09"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -485,6 +485,10 @@ subcollection: blockchain-sw-251
 * [Log in to the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-log-in)
 * [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#console-deploy-ocp-next-steps-fw)
 
+[IBM Blockchain Platform for anywhere](/docs/blockchain-sw-251?topic=blockchain-sw-251-kc-content)
+* [IBM Blockchain Platform (v2.5.x)](/docs/blockchain-sw-251?topic=blockchain-sw-251-kc-content#kc-content-1)
+* [Support](/docs/blockchain-sw-251?topic=blockchain-sw-251-kc-content#kc-content-support)
+
 [Deploy the service from an Ansible playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp)
 * [Prerequisites](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-prereqs)
   * [Gather your Kubernetes cluster details](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-k8s-cluster)
@@ -931,6 +935,10 @@ subcollection: blockchain-sw-251
 * [Getting started](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-getting-started)
 * [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-next-steps)
 * [Where to find support](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-support)
+
+[IBM Blockchain Platform for anywhere](/docs/blockchain-sw-251?topic=blockchain-sw-251-kc-content)
+* [IBM Blockchain Platform (v2.5.x)](/docs/blockchain-sw-251?topic=blockchain-sw-251-kc-content#kc-content-1)
+* [Support](/docs/blockchain-sw-251?topic=blockchain-sw-251-kc-content#kc-content-support)
 
 [Deploy the service from an Ansible playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp)
 * [Prerequisites](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-prereqs)
