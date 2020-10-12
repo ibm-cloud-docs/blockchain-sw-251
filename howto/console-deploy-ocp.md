@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-08"
+lastupdated: "2020-10-12"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -1115,7 +1115,8 @@ metadata:
 spec:
   arch:
   - amd64
-  license: accept
+  license:
+    accept: true
   serviceAccountName: default
   email: "<EMAIL>"
   password: "<PASSWORD>"
@@ -1179,7 +1180,8 @@ metadata:
 spec:
   arch:
   - amd64
-  license: accept
+  license:
+    accept: true
   serviceAccountName: default
   proxyIP:
   email: "<EMAIL>"
@@ -1288,7 +1290,8 @@ metadata:
 spec:
   arch:
   - amd64
-  license: accept
+  license:
+    accept: true
   serviceAccountName: default
   proxyIP:
   email: "<EMAIL>"
