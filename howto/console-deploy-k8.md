@@ -172,6 +172,11 @@ If you prefer not to choose a persistent storage option, the default storage cla
 | **Multi-zone capable storage** | {{site.data.keyword.cloud_notm}} includes the ability to create a single Kubernetes cluster across multiple data centers or "zones". Portworx offers multi-zone capable storage that can be used to potentially reduce the number of peers required. Consider a scenario where you build two zones with two peers for redundancy, one zone can go down and you still have two peers up in another zone. With multi-zone capable storage, you could instead have two zones with one peer each. If one zone goes down, the peer comes up in the other zone with its storage intact, reducing the overall redundant peer requirements. |
 
 
+## Filesystem permissions
+{: #deploy-k8-fs-perm}
+
+{{site.data.keyword.blockchainfull_notm}} Platform uses Kubernetes [init containers](https://kubernetes.io/docs/concepts/workloads/pods/init-containers/){: externnal} to set the correct filesystem permissions for the mounted volumes. The init containers run as the root user. The volumes are mounted on the init container which then changes the owner of the mounted folder to be the non-root user of the container that will use it. Learn  more about [how to give non-root users write permission on the volume mount path](/docs/containers?topic=containers-cs_troubleshoot_storage#nonroot){: external}.
+
 ## Get your entitlement key
 {: #deploy-k8-entitlement-key}
 

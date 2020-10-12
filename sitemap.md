@@ -425,6 +425,7 @@ subcollection: blockchain-sw-251
 * [Resources required](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-resources-required)
 * [Browsers](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-browsers)
 * [Storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-storage)
+* [Filesystem permissions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-fs-perm)
 * [Choose your deployment option](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-choose)
 
 [Deploy from Red Hat Marketplace](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm)
@@ -559,6 +560,7 @@ subcollection: blockchain-sw-251
 * [Resources required](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-resources-required)
 * [Browsers](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-browsers)
 * [Storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-storage)
+* [Filesystem permissions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-fs-perm)
 * [Get your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-entitlement-key)
 * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-prerequisites)
 * [Log in to your cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-login)
