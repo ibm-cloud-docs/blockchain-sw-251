@@ -1233,3 +1233,10 @@ subcollection: blockchain-sw-251
 [Resources and support forums](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-support#blockchain-support-resources)
 
 [Submitting support cases](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-support#blockchain-support-cases)
+
+
+## Signed images
+{: #sitemap_signed_images}
+
+
+[Signed images](/docs/blockchain-sw-251?topic=blockchain-sw-251-signed-images)
