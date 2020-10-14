@@ -256,6 +256,9 @@ subcollection: blockchain-sw-251
 
 [Creating applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app)
 * [Learning resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-learning-resources)
+* [Application compatibility](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat)
+  * [SDKs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sdk)
+  * [Smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sc)
 * [Registering an application identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-identities)
 * [Downloading your connection profile](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-profile)
 * [Enrolling by using the SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-enroll)
