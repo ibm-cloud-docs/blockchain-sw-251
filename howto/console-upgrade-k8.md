@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-12"
+lastupdated: "2020-10-14"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -455,7 +455,7 @@ oc adm policy add-scc-to-group <NAMESPACE> system:serviceaccounts:<NAMESPACE>
 Run the following command to upgrade the operator. Replace `<NAMESPACE>` with the Kubernetes namespace for the platform.
 
 ```
-kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook="cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201020-amd64"
+kubectl set image deploy/ibp-webhook -n <NAMESPACE> ibp-webhook="cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201020-amd64"
 ```
 {: codeblock}
 
