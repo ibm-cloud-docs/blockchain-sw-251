@@ -240,21 +240,8 @@ subcollection: blockchain-sw-251
 {: #sitemap_deploy_a_smart_contract}
 
 
-[Deploy a smart contract on the network](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts)
+[Deploy a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts)
 * [Sample network tutorial series](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-structure)
-* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-before)
-* [Step one: Write and package your smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package)
-  * [Vendoring smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-write-package-vendor)
-* [Step two: Install a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-install)
-* [Step three: Instantiate a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-instantiate)
-* [Step four: Send transactions by using your client applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK)
-  * [Connect with SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-connect-to-SDK-panel)
-* [Specifying an endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse)
-  * [What does the user type have to do with the smart contract endorsement policy?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-endorse-user-type)
-* [Upgrading a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade)
-  * [How to upgrade a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade-howto)
-  * [Considerations when you upgrade smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-upgrade-considerations)
-* [Private data](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-private-data)
 
 [Creating applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app)
 * [Learning resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-learning-resources)
@@ -366,9 +353,13 @@ subcollection: blockchain-sw-251
 
 [Does {{site.data.keyword.blockchainfull_notm}} Platform v2.1.x and 2.5 run on OpenShift on {{site.data.keyword.cloud_notm}}?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-saas-ocp)
 
+[What benefits are available with the new smart contract lifecycle available on nodes and channels running on Fabric v2.x?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-new-lifecycle)
+
 [How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-version)
 
 [What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
+
+[How do I get the latest Fabric version and Fabric functionalities on my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-v2-fabric-upgrade)
 
 [What database do the peers use for their ledger?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-v2-IBP-Overview-1-3)
 
@@ -1185,6 +1176,13 @@ subcollection: blockchain-sw-251
 
 
 [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20)
+
+[20 October 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020)
+* [Fabric v2.x node upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020-upgrade)
+* [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020-lc)
+* [Improvements for HSM support](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020-hsm)
+* [Certificate renewal enhancements](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020-cert-renew)
+* [Remove registered user from CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020-delete-user)
 
 
 ## Known issues

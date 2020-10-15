@@ -40,8 +40,10 @@ subcollection: blockchain-sw-251
 - [What is the value of using {{site.data.keyword.blockchainfull_notm}} Platform over native Hyperledger Fabric?](#ibp-v2-faq-v2-IBP-Overview-1-7)
 - [Where can a customer deploy the {{site.data.keyword.blockchainfull_notm}} Platform and how will {{site.data.keyword.IBM_notm}} support those deployment environments?](#ibp-v2-faq-sw-support)
 - [Does {{site.data.keyword.blockchainfull_notm}} Platform v2.1.x and 2.5 run on OpenShift on {{site.data.keyword.cloud_notm}}?](#ibp-v2-faq-saas-ocp)
+- [What benefits are available with the new smart contract lifecycle available on nodes and channels running on Fabric v2.x?](#ibp-v2-faq-new-lifecycle)
 - [How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?](#ibp-v2-faq-version)
 - [What version of Hyperledger Fabric is being used with {{site.data.keyword.blockchainfull_notm}} Platform?](#ibp-v2-faq-v2-Hyperledger-Fabric-3-1)
+- [How do I get the latest Fabric version and Fabric functionalities on my {{site.data.keyword.blockchainfull_notm}} Platform network?](#ibp-v2-faq-v2-fabric-upgrade)
 - [What database do the peers use for their ledger?](#ibp-v2-faq-v2-IBP-Overview-1-3)
 - [Do you support using certificates from non-IBM Certificate Authorities (CAs)?](#ibp-v2-faq-v2-external-certs)
 - [I am currently using Hyperledger Fabric v1.4 and want to move to {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}} or Multicloud. Can I continue to use Raft?](#ibp-v2-faq-migrate-raft)
@@ -83,7 +85,7 @@ Hyperledger Fabric is a powerful, versatile, pluggable, open source, distributed
 ## Where can a customer deploy the {{site.data.keyword.blockchainfull_notm}} Platform and how will {{site.data.keyword.IBM_notm}} support those deployment environments?
 {: #ibp-v2-faq-sw-support}
 
-For an updated list of all the {{site.data.keyword.blockchainfull_notm}} Platform deployment options check out the [Supported Platforms](/docs/blockchain-sw-25?topic=blockchain-sw-25-console-ocp-about#console-ocp-about-prerequisites).
+For an updated list of all the {{site.data.keyword.blockchainfull_notm}} Platform deployment options check out the [Supported Platforms](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about#console-ocp-about-prerequisites).
 
 It is important to note that the {{site.data.keyword.blockchainfull_notm}} support only spans across Hyperledger Fabric based component issues for customers who have purchased the Blockchain Platform. Some examples include assistance in Fabric upgrades, chaincode instantiation, adding peers to channels, etc.
 
@@ -95,11 +97,21 @@ On the other hand, {{site.data.keyword.blockchainfull_notm}} will not provide de
 
 Yes. The {{site.data.keyword.blockchainfull_notm}} Platform can be purchased and deployed in three ways on OpenShift:
 - [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/services/blockchain-platform){: external} is deployed and runs on [IBM Cloud](https://cloud.ibm.com/kubernetes/catalog/openshiftcluster){: external}.
-- {{site.data.keyword.blockchainfull_notm}} Platform is also available as a software offering that can be deployed on Red Hat OpenShift and can run in all environments where OpenShift Container Platform (OCP) is supported. Read more about running OpenShift Container Platform  [here](/docs/blockchain-sw-25?topic=blockchain-sw-25-console-ocp-about).
-- Finally, experienced Hyperledger Fabric customers also have the option to download and use the peer, CA, orderer, and smart contract container  [images](/docs/blockchain-sw-25?topic=blockchain-sw-25-blockchain-images).
+- {{site.data.keyword.blockchainfull_notm}} Platform is also available as a software offering that can be deployed on Red Hat OpenShift and can run in all environments where OpenShift Container Platform (OCP) is supported. Read more about running OpenShift Container Platform [here](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about).
+- Finally, experienced Hyperledger Fabric customers also have the option to download and use the peer, CA, orderer, and smart contract container [images](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-images).
 
 
+## What benefits are available with the new smart contract lifecycle available on nodes and channels running on Fabric v2.x?
+{: #ibp-v2-faq-new-lifecycle}
+{: faq}
 
+The new smart contract lifecycle allows channel members to collaborate in the decision making process about smart contracts like never before. Where previously smart contracts were instantiated on a channel by a single channel member and other organizations only had the ability to choose whether to install the smart contract, the new lifecycle allows organizations to propose and approve smart contracts at an organizational level.
+
+This separation of concerns opens exciting new opportunities for collaborating organizations. For example, different organizations can install smart contracts on their peers that contain only the code relevant to their business role and make minor updates to these smart contracts where necessary, without needing to seek new approvals from other organizations.
+
+For a tutorial on how this process is handled by the console, check out [Deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
+
+For information about to take advantage of the new lifecycle when writing a smart contract, check out [Writing powerful smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts).
 
 ## How can I find what version of the {{site.data.keyword.blockchainfull_notm}} Platform that I am running?
 {: #ibp-v2-faq-version}
@@ -120,7 +132,17 @@ Refer to the following table for information on which version of Fabric is used 
 | 2.1.3 | v1.4.6|
 | 2.1.2 | v1.4.4|
 
+## How do I get the latest Fabric version and Fabric functionalities on my {{site.data.keyword.blockchainfull_notm}} Platform network?
+{: #ibp-v2-faq-v2-fabric-upgrade}
+{: faq}
 
+Depending on the contents of a Fabric release and {{site.data.keyword.blockchainfull_notm}} Platform, it might only be necessary to upgrade nodes to get access to the latest features. However, often it is necessary to update channel configurations with the latest capabilities in order to get access to the latest Fabric features. In these cases, it is important to upgrade components and channels in a particular order:
+
+1. Upgrade nodes to the latest Fabric versions. Note that nodes are always backward compatible with earlier versions and earlier capabilities. For more information about upgrading nodes, see [Upgrading to a new version of Fabric](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade).
+2. Update channels with any new channel capabilities. If you update capabilities to a capability level (such as 2.0) before upgrading nodes to the Fabric version corresponding to a capability, the node may crash. For more information, see [Capabilities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern#ibp-console-govern-capabilities).
+
+If you are moving from v1.4.x to v2.x, you may have to update your smart contracts to conform to new smart contract lifecycle. For more information, see [Upgrading to a new version of Fabric](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts#ibp-console-smart-contracts-v2).
+{: tip}
 
 ## What database do the peers use for their ledger?
 {: #ibp-v2-faq-v2-IBP-Overview-1-3}
@@ -139,7 +161,7 @@ Yes, you can bring your own certificates if they are issued by a CA that is X.50
 {: #ibp-v2-faq-migrate-raft}
 {: faq}
 
-Yes. The {{site.data.keyword.blockchainfull_notm}} Platform v2.1.x or 2.5 uses Raft consensus. All of the applications and smart contracts that you are using on Fabric v1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-faq#ibp-v2-faq-interoperability).
+Yes. The {{site.data.keyword.blockchainfull_notm}} Platform v2.1.x or 2.5 uses Raft consensus. All of the applications and smart contracts that you are using on Fabric v1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-interoperability).
 
 ## Is it possible to deploy blockchain nodes to multiple clouds from a single blockchain console?
 {: #ibp-v2-faq-multicloud}
