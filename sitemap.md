@@ -829,8 +829,13 @@ subcollection: blockchain-sw-251
 * [Export an MSP](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#cert-mgmt-export-msp)
 * [Import an MSP](/docs/blockchain-sw-251?topic=blockchain-sw-251-cert-mgmt#cert-mgmt-import-msp)
 
-[Managing deployed components](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components)
+[Upgrading and deleting deployed nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components)
 * [Considerations when reallocating resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-reallocate-resources)
+* [Upgrading to a new version of Fabric](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade)
+  * [Step one: Backup your ledger](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-one-ledger)
+  * [Step two: Upgrade your nodes one at a time](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-two-rolling-upgrade)
+  * [Step three: Update SDKs and smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-three)
+  * [Step four: Update capabilities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-two-rolling-upgrade)
 * [Deleting components](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-delete)
 
 
