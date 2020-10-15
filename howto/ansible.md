@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-09-22"
+lastupdated: "2020-10-15"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy,
 
@@ -41,7 +41,7 @@ Ansible Content Collections, or simply **collections**, are the mechanism for di
 
 {{site.data.keyword.blockchainfull_notm}} Platform offers an Ansible collection that includes the pertinent roles, modules, and documentation for rapidly deploying, replicating, and tearing down blockchain networks in a reproducible fashion.
 
-The collection includes two main types of playbooks. The first type of playbook provides the ability to automate the installation of the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 or 2.5 service on a Kubernetes or OpenShift cluster, not in {{site.data.keyword.cloud_notm}}. By configuring a few simple parameters in a `.yml` file you can automate the installation of the platform. The second set of playbooks can be used to automate the tasks that you would otherwise perform from the console UI or by using the APIs, for example deploy a Certificate Authority (CA). But the playbooks are more robust than just that. The playbooks automate a logical series of tasks that you would repeatedly perform in the console, for example create a CA, register identities, create an organization MSP definition, and create a peer. And all of these steps can be performed by running a single playbook.
+The collection includes two main types of playbooks. The first type of playbook provides the ability to automate the installation of the {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3 or 2.5.x service on a Kubernetes or OpenShift cluster, not in {{site.data.keyword.cloud_notm}}. By configuring a few simple parameters in a `.yml` file you can automate the installation of the platform. The second set of playbooks can be used to automate the tasks that you would otherwise perform from the console UI or by using the APIs, for example deploy a Certificate Authority (CA). But the playbooks are more robust than just that. The playbooks automate a logical series of tasks that you would repeatedly perform in the console, for example create a CA, register identities, create an organization MSP definition, and create a peer. And all of these steps can be performed by running a single playbook.
 
 
 This tutorial series is designed for users who are unfamiliar with how to use Ansible playbooks. Experienced Ansible users can go directly to the collection [documentation](https://ibm-blockchain.github.io/ansible-collection/){: external} to get started.
