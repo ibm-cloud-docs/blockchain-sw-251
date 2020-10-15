@@ -1058,6 +1058,8 @@ subcollection: blockchain-sw-251
 
 [Glossary](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary)
 
+[Approve](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-propose)
+
 [Asset](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-asset)
 
 [Block](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-block)
@@ -1071,6 +1073,8 @@ subcollection: blockchain-sw-251
 [Channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-channel)
 
 [Client](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-client)
+
+[Commit](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-commit)
 
 [Connection profile](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-connection-profile)
 
@@ -1110,6 +1114,8 @@ subcollection: blockchain-sw-251
 
 [LevelDB](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-leveldb)
 
+[Lifecycle endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-lifecycle-ep)
+
 [Member](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-member)
 
 [MSP](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-msp)
@@ -1126,9 +1132,13 @@ subcollection: blockchain-sw-251
 
 [Organization](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-organization)
 
+[Out of band](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-out-of-band)
+
 [Participant](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-participant)
 
 [Peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-peer)
+
+[Propose](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-propose)
 
 [Quorum](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-quorum)
 
@@ -1143,6 +1153,12 @@ subcollection: blockchain-sw-251
 [SignCert](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-sign-cert)
 
 [Smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-smart-contracts)
+
+[Smart contract definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-smart-contract-def)
+
+[Smart contract endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-transaction-ep)
+
+[Smart contract package](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-smart-contract-pkg)
 
 [State database](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-state-database)
 
