@@ -138,10 +138,8 @@ Ensure that your Kubernetes cluster has sufficient resources for the {{site.data
 {: #deploy-k8-browsers-firewall}
 The {{site.data.keyword.blockchainfull_notm}} Platform console has been successfully tested on the following browsers:
 
-
-- Chrome Version 83.0.4103.97 (Official Build) (64-bit)
+- Chrome Version 85.0.4183.121 (Official Build) (64-bit)
 - Safari Version 13.0.3 (15608.3.10.1.4)
-
 
 
 ## Storage
