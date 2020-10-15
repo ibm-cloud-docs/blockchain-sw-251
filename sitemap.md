@@ -1257,7 +1257,7 @@ subcollection: blockchain-sw-251
 
 [Why did my smart contract installation, instantiation or upgrade fail?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-console-smart-contracts-troubleshoot-entry1)
 
-[Why is my smart contract installation failing with a timeout?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
+[Why is my smart contract installation failing with an error on my peer?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
 
 [Why is my Node.js smart contract instantiation failing?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-instantiate)
 
