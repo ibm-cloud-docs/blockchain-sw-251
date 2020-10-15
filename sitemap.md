@@ -764,7 +764,8 @@ subcollection: blockchain-sw-251
 * [Configuring a node to use a Hardware Security Module (HSM)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm)
   * [What capability does HSM add to my blockchain node?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-capability)
   * [Considerations when using HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-considerations)
-  * [Setting up a PKCS #11 proxy for your HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-pkcs11-proxy)
+  * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-before)
+  * [Build a Docker image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker)
   * [Configuring a CA, peer, or ordering node to use the HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node)
 
 [Advanced channel deployment and management](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern)
@@ -943,8 +944,7 @@ subcollection: blockchain-sw-251
   * [Part One: Set up the HSM device and HSM client](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-one)
   * [Part Two: Configure communications between the HSM server and client](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-two)
   * [Part Three: Register the client with the HSM server](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-three)
-  * [Part Four: Build a Docker image that contains the HSM client and PKCS #11 proxy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-four)
-  * [Part Five: Deploy the Docker image onto your Kubernetes cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-five)
+  * [Part Four: Build a Docker image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-four)
   * [What's next](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
 * [Using multiple partitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
 
@@ -1091,6 +1091,20 @@ subcollection: blockchain-sw-251
 [Manual integration of License Service](/docs/blockchain-sw-251?topic=blockchain-sw-251-metering#metering-manual-integration)
 
 [Archiving license information data before you decommission the cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-metering#metering-archive)
+
+
+## HSM PKCS #11 proxy
+{: #sitemap_hsm_pkcs_#11_proxy}
+
+
+[HSM PKCS #11 proxy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy)
+
+
+## IBM Cloud HSM PKCS #11 proxy
+{: #sitemap_ibm_cloud_hsm_pkcs_#11_proxy}
+
+
+[IBM Cloud HSM PKCS #11 proxy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy-ic)
 
 
 ## Glossary

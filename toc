@@ -105,6 +105,8 @@ IBM Blockchain Platform 2.5.1
 	/blockchain/blockchain-hyperledger-fabric
 	/blockchain/blockchain-k8s-overview
 	reference/metering.md
+	reference/hsm-pkcs11.md
+	reference/hsm-pkcs11-ic.md
 	glossary.md
 	{: .navgroup-end}
 
