@@ -150,6 +150,8 @@ subcollection: blockchain-sw-251
 
 [What's new](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new)
 
+[October 20, 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-10-20-2020)
+
 
 ## Pricing
 {: #sitemap_pricing}
@@ -868,6 +870,15 @@ subcollection: blockchain-sw-251
   * [Invoke a smart contract that has been instantiated on your channels](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-connecting-ibp-invoke)
   * [Install and instantiate  a smart contract from VS Code](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-connecting-ibp-install-instantiate)
   * [Adding wallets and users](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-add-a-wallet)
+
+[Writing powerful smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts)
+* [What's new in the new lifecycle](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts#write-powerful-smart-contracts-new-vs-old)
+* [Packages and definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts#write-powerful-smart-contracts-packages-definitions)
+  * [Taking advantage of the ability for each organization to use a separate package](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts#write-powerful-smart-contracts-packages-definitions-separate)
+* [Updating smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts#write-powerful-smart-contracts-updating)
+* [Putting it all together](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts#write-powerful-smart-contracts-summary)
+* [Smart contract development tooling](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts#write-powerful-smart-contracts-tooling)
+* [Installing a package and proposing a definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts#write-powerful-smart-contracts-installing-proposing)
 
 [Best practices for application development](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app)
 * [Application connectivity and availability](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-connectivity-availability)
