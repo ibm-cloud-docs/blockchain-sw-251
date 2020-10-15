@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-10-15"
 keywords: troubleshooting, debug, why, what does this mean, how can I, when I
 
 subcollection: blockchain-sw-251
@@ -272,8 +272,6 @@ You may receive this error if this version of the smart contract already exists 
 - If you are still experiencing problems after the node is up,  [check your node logs](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-node-logs) for errors.
 {: tsResolve}
 
-
-
 ## Why is my smart contract installation failing with a timeout?
 {: #ibp-v2-troubleshooting-sc-install}
 
@@ -306,8 +304,6 @@ You need to override the peer configuration to extend the time out.
   {: codeblock}
 
 The peer restarts and then you can retry the smart contract installation.
-
-
 
 ## Why is my Node.js smart contract instantiation failing?
 {: #ibp-v2-troubleshooting-nodejs-instantiate}

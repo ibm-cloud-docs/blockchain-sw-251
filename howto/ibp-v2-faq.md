@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-01"
+lastupdated: "2020-10-15"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions, multicloud
 
@@ -116,7 +116,7 @@ Refer to the following table for information on which version of Fabric is used 
 
 | {{site.data.keyword.blockchainfull_notm}} Platform | Hyperledger Fabric |
 |----------------------------------------------------| -------------------|
-| 2.5 | v1.4.7 and v2.x |
+| 2.5 | v1.4.9 and v2.2.1 |
 | 2.1.3 | v1.4.6|
 | 2.1.2 | v1.4.4|
 
