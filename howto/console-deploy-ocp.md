@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-12"
+lastupdated: "2020-10-16"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -749,6 +749,8 @@ You can also use the CLI to find the available storage classes for your namespac
 kubectl get storageclasses
 ```
 {:codeblock}
+
+If you are not using the default storage class, additional configuration is required. See [Storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-storage) for the considerations.
 
 ## Create a secret for your entitlement key
 {: #deploy-ocp-docker-registry-secret}

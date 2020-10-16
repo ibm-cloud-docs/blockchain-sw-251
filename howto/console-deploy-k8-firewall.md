@@ -819,6 +819,8 @@ kubectl get storageclasses
 ```
 {:codeblock}
 
+If you are not using the default storage class, additional configuration is required. See [Storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-storage) for the considerations.
+
 ## Create a secret for your entitlement key
 {: #deploy-k8s-docker-registry-secret-fw}
 
