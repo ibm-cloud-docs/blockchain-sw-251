@@ -157,7 +157,7 @@ When you upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 fro
 4. [Update the operator.](#upgrade-k8-steps-251-operator)
 5. [Use your console to upgrade your running blockchain nodes.](#upgrade-k8-nodes)
 
-You need to repeat steps 3-5 for each network that that runs in a separate namespace. If you experience any problems, see the instructions for [rolling back an upgrade](#upgrade-ocp-rollback). If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](#upgrade-ocp-firewall).
+You need to repeat steps 3-5 for each network that that runs in a separate namespace. If you experience any problems, see the instructions for [rolling back an upgrade](#upgrade-k8-rollback). If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](#upgrade-k8-firewall).
 
 ### Step one: Update the webhook image
 {: #upgrade-k8-steps-251-webhook}
@@ -545,7 +545,7 @@ ibpconsole     1/1       1            1           4m
 You can now follow the [steps](#upgrade-k8-nodes) to upgrade your blockchain nodes. Be aware that after the nodes are upgraded, there is no way to roll back the upgrade from 2.5.1 to 2.5. After you upgrade to 2.5.1, you can take advantage of the the new Fabric v2.x Lifecycle deployment process for your smart contracts. But to avoid your peers crashing, you need to ensure that you upgrade your peers before you upgrade your channels. Learn more about considerations when  [Upgrading to a new version of Fabric](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade).
 
 ## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x
-{: #upgrade-k8-steps}
+{: #upgrade-k8-steps-21x}
 
 You can upgrade an {{site.data.keyword.blockchainfull_notm}} Platform network by using the following steps:
 

@@ -666,7 +666,7 @@ subcollection: blockchain-sw-251
   * [Step two: Update the CRDs](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-crds)
   * [Step three: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-clusterrole)
   * [Step four: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-operator)
-* [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps)
+* [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-21x)
   * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-before)
   * [Step one: Create the `ibpinfra` namespace for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-ibpinfra)
   * [Step two: Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-secret-ibpinfra)
