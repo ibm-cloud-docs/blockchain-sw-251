@@ -186,7 +186,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 **OPERATE --- Total control of your deployments**
 - **Host or join a network**. Deploy peers that are hosted in your cluster to multiple channels on multiple clouds, or invite other organizations to join your consortium or channels while the organizations manage their nodes independently across infrastructures.
 - **Maintain complete control of your identities**. Store and manage the keys that are used to administer your nodes. Optionally, use a [Hardware Security Module (HSM)](#x6704988){: term} to generate and store the private key of your nodes.
-- **Run Anywhere**. Thanks to the **unified codebase** of the {{site.data.keyword.blockchainfull_notm}} Platform console, it is possible to run your components on any Kubernetes v1.16 - v1.18 container platform on x86_64 or s390x.
+- **Run Anywhere**. Thanks to the **unified codebase** of the {{site.data.keyword.blockchainfull_notm}} Platform console, it is possible to run your components on any Kubernetes v1.16 - v1.19 container platform on x86_64 or s390x.
 - **Unified operation**. The {{site.data.keyword.blockchainfull_notm}} Platform console allows you to deploy and manage all of your organizations and nodes in **one console**. You can also add or remove members from a blockchain consortium, create and join channels, and install and instantiate smart contracts from your console.
 - **Dynamic signature collection** that allows better control over collaborative governance over channel configurations.
 - **Elimination of Docker-in-Docker for smart contracts** allows smart contract pods to be run more securely, without peers needing privileged access.
@@ -212,12 +212,11 @@ The {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 can be deployed wit
 
 | Kubernetes distribution | Version | Hardware |  Tested configuration|
 |----|----|----|-----|
-| OpenShift Container Platform | 4.5|  x86_64 | 4.5|
-| OpenShift Container Platform on {{site.data.keyword.cloud_notm}} | 4.4, 4.5 | x86_64 | 4.4  |
-| OpenShift Container Platform on LinuxONE | 4.5, 4.6 | s390x |4.5,4.6 |
-| Kubernetes ***   | v1.16 - v1.18 | x86_64 | v1.16-v1.18 |
+| OpenShift Container Platform | 4.5, 4.6|  x86_64 | 4.5, 4.6|
+| OpenShift Container Platform on {{site.data.keyword.cloud_notm}} | 4.4, 4.5 | x86_64 | 4.4, 4.5 |
+| OpenShift Container Platform on LinuxONE | 4.5 | s390x |4.5 |
+| Kubernetes ***   | v1.16 - v1.19 | x86_64 | v1.16, v1.17, v1.19 |
 {: caption="Table 1. Supported platforms" caption-side="bottom"}
-
 *** If you want to use {{site.data.keyword.IBM_notm}} Kubernetes Service, we recommend that you check out the [{{site.data.keyword.blockchainfull_notm}} Platform for IBM Cloud](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks){: external} offering unless you specifically require this offering. See [Is IBM Blockchain Platform 2.5.1 suitable for you](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp#get-started-console-ocp-suitable).    
 
 If you are running on Azure Kubernetes Service, Amazon Web Services, Rancher, Amazon Elastic Kubernetes Service, or Google Kubernetes Engine, then you need to set up the NGINX Ingress controller and it needs to be running in [SSL passthrough mode](https://kubernetes.github.io/ingress-nginx/user-guide/tls/#ssl-passthrough){: external}. For more information, see [Considerations when using Kubernetes distributions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#console-deploy-k8-considerations).

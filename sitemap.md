@@ -875,7 +875,7 @@ subcollection: blockchain-sw-251
   * [Step one: Backup your ledger](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-one-ledger)
   * [Step two: Upgrade your nodes one at a time](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-two-rolling-upgrade)
   * [Step three: Update SDKs and smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-three)
-  * [Step four: Update capabilities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-two-rolling-upgrade)
+  * [Step four: Update capabilities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade-step-four-rolling-upgrade)
 * [Deleting components](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-delete)
 
 
@@ -1252,6 +1252,8 @@ subcollection: blockchain-sw-251
 
 
 [Known issues](/docs/blockchain-sw-251?topic=blockchain-sw-251-sw-known-issues)
+
+[Nil pointer when creating HSM-configmap](/docs/blockchain-sw-251?topic=blockchain-sw-251-sw-known-issues#known-issues-hsm-configmap)
 
 [Smart contract instantiation timeout](/docs/blockchain-sw-251?topic=blockchain-sw-251-sw-known-issues#sw-known-issues-instantiation-timeout)
 

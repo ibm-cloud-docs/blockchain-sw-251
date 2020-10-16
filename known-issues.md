@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-10-16"
 
 keywords: catalina, chrome, external CA, TLS, orderer, error, multicloud
 
@@ -37,8 +37,10 @@ This page describes known issues that you might encounter when you use {{site.da
 
 
 
+
+
 ## Nil pointer when creating HSM-configmap
-{: known-issues-hsm-configmap}
+{: #known-issues-hsm-configmap}
 
 Creating the HSM configmap fails with the error:
 ```
@@ -53,7 +55,7 @@ Creating the HSM configmap fails with the error:
 2020-10-13T15:13:17.324147032Z      src/github.ibm.com/ibp/operator/pkg/initializer/common/config/hsmconfig.go:97
 ```
 
-This error is caused by not specifying a value for the `<IMAGE_PULL_SECRET>` in the [HSM configmap](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-configmap). Even if your HSM client image is public and no image pull secret is required, you still need to provide a value of `""` for the `<IMAGE_PULL_SECRET>` field.
+This error is caused by not specifying a value for the `<IMAGE_PULL_SECRET>` in the [HSM configmap](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-configmap). Even if your HSM client image is public and no image pull secret is required, you still need to provide a value of `""` for the `<IMAGE_PULL_SECRET>` field.
 
 
 
