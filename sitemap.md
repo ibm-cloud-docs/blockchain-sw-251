@@ -608,7 +608,7 @@ subcollection: blockchain-sw-251
 * [Log in to your cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-login)
 * [Create the `ibpinfra` namespace for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-ibpinfra)
 * [Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-secret-ibpinfra)
-* [Deploy the webhook and custom resource definitions (CRDS) to your OpenShift cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8s-webhook-crd)
+* [Deploy the webhook and custom resource definitions (CRDS) to your Kubernetes cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8s-webhook-crd)
   * [1. Configure role-based access control (RBAC) for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#webhook-rbac)
   * [2. (OpenShift cluster only) Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#webhook-scc)
   * [3. Deploy the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#webhook-deploy)
