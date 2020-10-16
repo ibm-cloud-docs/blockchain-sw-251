@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-15"
+lastupdated: "2020-10-16"
 
 
 keywords: release note, latest changes, Hyperledger Fabric, multicloud
@@ -56,12 +56,12 @@ For information about upgrading nodes, check out [Upgrading to a new version of 
 ### Support for Fabric v2.x smart contract lifecycle
 {: #10-20-2020-lc}
 
-The platform has been updated to include support for Fabric v2.x smart contract lifecycle process, which enables the distributed governance of smart contracts. Learn mode about how to [Deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2).
+The platform has been updated to include support for Fabric v2.x smart contract lifecycle process, which enables the distributed governance of smart contracts. Learn mode about how to [Deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2).
 
 ### Improvements for HSM support
 {: #10-20-2020-hsm}
 
-A new [process](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker) is available to configure an HSM for your blockchain nodes, delivering faster performance.
+A new [process](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker) is available to configure an HSM for your blockchain nodes, delivering faster performance.
 
 ### Certificate renewal enhancements
 {: #10-20-2020-cert-renew}
