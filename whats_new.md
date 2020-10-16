@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-15"
+lastupdated: "2020-10-16"
 
 keywords: IBM Blockchain Platform, release, new features, multicloud
 
@@ -44,11 +44,11 @@ subcollection: blockchain-sw-251
 
 The series of processes around installing, managing, and using smart contracts, collectively known as the "lifecycle" of the smart contract, has been updated. This new lifecycle allows organizations to collaborate in the channel-level decision making process regarding smart contracts, eliminate the need for smart contract fingerprint matches, and allow smart contracts to be written with only the code relevant to an organization's business role.
 
-The {{site.data.keyword.IBM_notm}} Developer tooling has been updated to support generation of Fabric v2.x smart contract packages as well as testing smart contracts by using the new lifecycle process. Learn more about how to [deploy a smart contract using Fabric v2.x](/docs/blockchain?topic=blockchain-ibp-console-smart-contracts-v2) and [how to write powerful smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts) that leverage the new governance.
+The {{site.data.keyword.IBM_notm}} Developer tooling has been updated to support generation of Fabric v2.x smart contract packages as well as testing smart contracts by using the new lifecycle process. Learn more about how to [deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2) and [how to write powerful smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts) that leverage the new governance.
 
 **New process for enabling Hardware Security Module (HSM) support**
 
-A new process for configuring an HSM to work with your blockchain nodes is available and offers faster performance over the use of the existing HSM PKCS #11 proxy which is now deprecated. Current customers who are using the PKCS #11 proxy should check out the new process in the [Advanced deployment](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker) options.
+A new process for configuring an HSM to work with your blockchain nodes is available and offers faster performance over the use of the existing HSM PKCS #11 proxy which is now deprecated. Current customers who are using the PKCS #11 proxy should check out the new process in the [Advanced deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker) options.
 
 **Ability to upgrade existing nodes and channel application capability to Fabric v2.x**
 
@@ -67,7 +67,7 @@ If you have an existing {{site.data.keyword.blockchainfull_notm}} Platform v2.1.
 - [Upgrading the {{site.data.keyword.blockchainfull_notm}} images](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-images#blockchain-images-upgrade)
 
 
-See the [Release notes](/docs/blockchain?topic=blockchain-release-notes-saas-20#10-20-2020) for more details on the new features that are included in this release.
+See the [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020) for more details on the new features that are included in this release.
 
 
 
