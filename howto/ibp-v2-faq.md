@@ -96,7 +96,7 @@ On the other hand, {{site.data.keyword.blockchainfull_notm}} will not provide de
 {: faq}
 
 Yes. The {{site.data.keyword.blockchainfull_notm}} Platform can be purchased and deployed in three ways on OpenShift:
-- [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/services/blockchain-platform){: external} is deployed and runs on [IBM Cloud](https://cloud.ibm.com/kubernetes/catalog/openshiftcluster){: external}.
+- [{{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/services/blockchain-platform){: external} is deployed and runs on [IBM Cloud](https://cloud.ibm.com/kubernetes/catalog/about?platformType=openshift){: external}.
 - {{site.data.keyword.blockchainfull_notm}} Platform is also available as a software offering that can be deployed on Red Hat OpenShift and can run in all environments where OpenShift Container Platform (OCP) is supported. Read more about running OpenShift Container Platform [here](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about).
 - Finally, experienced Hyperledger Fabric customers also have the option to download and use the peer, CA, orderer, and smart contract container [images](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-images).
 
@@ -201,7 +201,7 @@ See the port information in the [Security topic](/docs/blockchain-sw-251?topic=b
 {: #ibp-v2-faq-sizing}
 {: faq}
 
-After you understand how many CAs, peers, and ordering nodes are required, you can examine the default resource allocations table for  [OpenShift](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-resources-required) or [Kubernetes](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-resources-required) to get an approximate estimate of the CPUs (VPCs) required for your network.  If you plan to deploy the platform outside of {{site.data.keyword.cloud_notm}}, you will need to buy licenses per VPC (CPU) based on expected usage. As a reminder, these are only sold per VPC so you should always round up the number of VPCs if you plan to use fractional parts. For example, if you estimate that you will need 11.2 VPCs then you should license 12 VPCs.
+After you understand how many CAs, peers, and ordering nodes are required, you can examine the default resource allocations table for  [OpenShift](/docs/blockchain-sw-251?topic=blockchain-sw-251-ddeploy-ocp-getting-started#deploy-ocp-resources-required) or [Kubernetes](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-resources-required) to get an approximate estimate of the CPUs (VPCs) required for your network.  If you plan to deploy the platform outside of {{site.data.keyword.cloud_notm}}, you will need to buy licenses per VPC (CPU) based on expected usage. As a reminder, these are only sold per VPC so you should always round up the number of VPCs if you plan to use fractional parts. For example, if you estimate that you will need 11.2 VPCs then you should license 12 VPCs.
 
 ## Do ordering service Raft nodes use Transport Layer Security (TLS) for communication?
 {: #ibp-v2-faq-raft-tls}

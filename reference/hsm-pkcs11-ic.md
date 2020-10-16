@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-15"
+lastupdated: "2020-10-16"
 
 keywords: HSM, PKCS11 proxy, IBM Cloud HSM
 subcollection: blockchain-sw-251
@@ -374,7 +374,7 @@ After the local test in the previous step is successful, you are ready to deploy
 
   Replace
   - `<LABEL>` with same value you specified in the `service.yaml`.
-  - `<DOCKER-IMAGE>` with Docker image that you created in [Part Four](#ibp-hsm-gemalto-part-four), step 3, for example `mydockerhub/ibp-pkcs11proxy:latest`.
+  - `<DOCKER-IMAGE>` with Docker image that you created in [Part Four of the IBM Cloud Hardware Security Module (HSM) instructions](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-four). For example: `mydockerhub/ibp-pkcs11proxy:latest`.
   - `<DOCKER-PULL-SECRET>` the name of the Kubernetes secret you created in the previous step.
   - `<HSM_ADDRESS>` with the IP address of the HSM.
   - `<CLIENT_ADDRESS>` with either the IP address or fully qualified host name of the client.
