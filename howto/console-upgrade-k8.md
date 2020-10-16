@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-14"
+lastupdated: "2020-10-16"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -10,14 +10,86 @@ subcollection: blockchain-sw-251
 
 ---
 
-{:external: target="_blank" .external}
-{:shortdesc: .shortdesc}
-{:screen: .screen}
+{:DomainName: data-hd-keyref="APPDomain"}
+{:DomainName: data-hd-keyref="DomainName"}
+{:android: data-hd-operatingsystem="android"}
+{:apikey: data-credential-placeholder='apikey'}
+{:app_key: data-hd-keyref="app_key"}
+{:app_name: data-hd-keyref="app_name"}
+{:app_secret: data-hd-keyref="app_secret"}
+{:app_url: data-hd-keyref="app_url"}
+{:authenticated-content: .authenticated-content}
+{:beta: .beta}
+{:c#: data-hd-programlang="c#"}
 {:codeblock: .codeblock}
-{:note: .note}
+{:curl: .ph data-hd-programlang='curl'}
+{:deprecated: .deprecated}
+{:dotnet-standard: .ph data-hd-programlang='dotnet-standard'}
+{:download: .download}
+{:external: target="_blank" .external}
+{:faq: data-hd-content-type='faq'}
+{:fuzzybunny: .ph data-hd-programlang='fuzzybunny'}
+{:generic: data-hd-operatingsystem="generic"}
+{:generic: data-hd-programlang="generic"}
+{:gif: data-image-type='gif'}
+{:go: .ph data-hd-programlang='go'}
+{:help: data-hd-content-type='help'}
+{:hide-dashboard: .hide-dashboard}
+{:hide-in-docs: .hide-in-docs}
 {:important: .important}
-{:tip: .tip}
+{:ios: data-hd-operatingsystem="ios"}
+{:java: #java .ph data-hd-programlang='java'}
+{:java: .ph data-hd-programlang='java'}
+{:java: data-hd-programlang="java"}
+{:javascript: .ph data-hd-programlang='javascript'}
+{:javascript: data-hd-programlang="javascript"}
+{:new_window: target="_blank"}
+{:note .note}
+{:note: .note}
+{:objectc data-hd-programlang="objectc"}
+{:org_name: data-hd-keyref="org_name"}
+{:php: data-hd-programlang="php"}
 {:pre: .pre}
+{:preview: .preview}
+{:python: .ph data-hd-programlang='python'}
+{:python: data-hd-programlang="python"}
+{:route: data-hd-keyref="route"}
+{:row-headers: .row-headers}
+{:ruby: .ph data-hd-programlang='ruby'}
+{:ruby: data-hd-programlang="ruby"}
+{:runtime: architecture="runtime"}
+{:runtimeIcon: .runtimeIcon}
+{:runtimeIconList: .runtimeIconList}
+{:runtimeLink: .runtimeLink}
+{:runtimeTitle: .runtimeTitle}
+{:screen: .screen}
+{:script: data-hd-video='script'}
+{:service: architecture="service"}
+{:service_instance_name: data-hd-keyref="service_instance_name"}
+{:service_name: data-hd-keyref="service_name"}
+{:shortdesc: .shortdesc}
+{:space_name: data-hd-keyref="space_name"}
+{:step: data-tutorial-type='step'}
+{:subsection: outputclass="subsection"}
+{:support: data-reuse='support'}
+{:swift: #swift .ph data-hd-programlang='swift'}
+{:swift: .ph data-hd-programlang='swift'}
+{:swift: data-hd-programlang="swift"}
+{:table: .aria-labeledby="caption"}
+{:term: .term}
+{:tip: .tip}
+{:tooling-url: data-tooling-url-placeholder='tooling-url'}
+{:troubleshoot: data-hd-content-type='troubleshoot'}
+{:tsCauses: .tsCauses}
+{:tsResolve: .tsResolve}
+{:tsSymptoms: .tsSymptoms}
+{:tutorial: data-hd-content-type='tutorial'}
+{:unity: .ph data-hd-programlang='unity'}
+{:url: data-credential-placeholder='url'}
+{:user_ID: data-hd-keyref="user_ID"}
+{:vb.net: .ph data-hd-programlang='vb.net'}
+{:video: .video}
+
 
 # Upgrading your console and components
 {: #upgrade-k8}
@@ -1254,119 +1326,52 @@ To upgrade your network, you need to [retrieve your entitlement key](/docs/block
 
 To upgrade your network, download the latest set of {{site.data.keyword.blockchainfull_notm}} Platform images and push them to a docker registry that you can access from behind your firewall.
 
-Use the following command to log in to the {{site.data.keyword.IBM_notm}} Entitlement Registry:
-```
-docker login --username cp --password <KEY> cp.icr.io
-```
-{:codeblock}
+The platform requires that you use the `skopeo` utility to download and copy your images to your local container registry. [skopeo](https://www.redhat.com/en/blog/skopeo-10-released){: external} is a tool for moving container images between different types of container storages. In order to download the platform images and copy them to your container registry behind a firewall, you first need to [install skopeo](https://github.com/containers/skopeo/blob/master/install.md){: external}.
 
-- Replace `<KEY>` with your entitlement key.
+Before attempting these instructions, you need to have your IBM Blockchain Platform entitlement key and container registry user id and password available. After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You can then use this key to access the {{site.data.keyword.blockchainfull_notm}} Platform images.
 
-After you log in, use the following command to pull the images for {{site.data.keyword.blockchainfull_notm}} Platform v2.1.3:
-```
-docker pull cp.icr.io/cp/ibp-operator:2.5.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-init:2.5.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-console:2.5.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-grpcweb:2.5.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-deployer:2.5.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-fluentd:2.5.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-couchdb:2.3.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-couchdb:3.1.0-20201020-amd64
-docker pull cp.icr.io/cp/ibp-peer:1.4.9-20201020-amd64
-docker pull cp.icr.io/cp/ibp-orderer:1.4.9-20201020-amd64
-docker pull cp.icr.io/cp/ibp-ca:1.4.9-20201020-amd64
-docker pull cp.icr.io/cp/ibp-dind:1.4.9-20201020-amd64
-docker pull cp.icr.io/cp/ibp-utilities:1.4.9-20201020-amd64
-docker pull cp.icr.io/cp/ibp-peer:2.2.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-orderer:2.2.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-chaincode-launcher:2.2.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-utilities:2.2.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-ccenv:2.2.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-goenv:2.2.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-nodeenv:2.2.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-javaenv:2.2.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201020-amd64
-docker pull cp.icr.io/cp/ibp-ccenv:1.4.9-20201020-amd64
-docker pull cp.icr.io/cp/ibp-goenv:1.4.9-20201020-amd64
-docker pull cp.icr.io/cp/ibp-nodeenv:1.4.9-20201020-amd64
-docker pull cp.icr.io/cp/ibp-javaenv:1.4.9-20201020-amd64
-docker pull cp.icr.io/cp/ibp-enroller:2.5.1-20201020-amd64
-```
-{:codeblock}
+Run the following set of commands to download the images and push them to your registry.  
 
-After you download the images, you must change the image tags to refer to your docker registry. Replace `<LOCAL_REGISTRY>` with the URL of your local registry and run the following commands:
-```
-docker tag cp.icr.io/cp/ibp-operator:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-init:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-init:2.5.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-console:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-console:2.5.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-grpcweb:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-grpcweb:2.5.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-deployer:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-deployer:2.5.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-fluentd:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-fluentd:2.5.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-couchdb:2.3.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-couchdb:2.3.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-couchdb:3.1.0-20201020-amd64 <LOCAL_REGISTRY>/ibp-couchdb:3.1.0-20201020-amd64
-docker tag cp.icr.io/cp/ibp-peer:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-peer:1.4.9-20201020-amd64
-docker tag cp.icr.io/cp/ibp-orderer:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-orderer:1.4.9-20201020-amd64
-docker tag cp.icr.io/cp/ibp-ca:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-ca:1.4.9-20201020-amd64
-docker tag cp.icr.io/cp/ibp-dind:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-dind:1.4.9-20201020-amd64
-docker tag cp.icr.io/cp/ibp-utilities:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-utilities:1.4.9-20201020-amd64
-docker tag cp.icr.io/cp/ibp-peer:2.2.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-peer:2.2.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-orderer:2.2.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-orderer:2.2.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-chaincode-launcher:2.2.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-chaincode-launcher:2.2.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-utilities:2.2.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-utilities:2.2.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-ccenv:2.2.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-ccenv:2.2.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-goenv:2.2.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-goenv:2.2.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-nodeenv:2.2.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-nodeenv:2.2.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-javaenv:2.2.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-javaenv:2.2.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-crdwebhook:2.5.1-20201020-amd64
-docker tag cp.icr.io/cp/ibp-ccenv:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-ccenv:1.4.9-20201020-amd64
-docker tag cp.icr.io/cp/ibp-goenv:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-goenv:1.4.9-20201020-amd64
-docker tag cp.icr.io/cp/ibp-nodeenv:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-nodeenv:1.4.9-20201020-amd64
-docker tag cp.icr.io/cp/ibp-javaenv:1.4.9-20201020-amd64 <LOCAL_REGISTRY>/ibp-javaenv:1.4.9-20201020-amd64
-docker tag cp.icr.io/cp/ibp-enroller:2.5.1-20201020-amd64 <LOCAL_REGISTRY>/ibp-enroller:2.5.1-20201020-amd64
-```
-{:codeblock}
+Replace
+- `<ENTITLEMENT_KEY>` with your entitlement key.
+- `<LOCAL_REGISTRY_USER>` with the userid with access to your container registry.
+- `<LOCAL_REGISTRY_PASSWORD>` with the password to your container registry.
+- `amd64` - with `s390x` if you are installing on LinuxONE.
 
-You can use the `docker images` command to check that the new tags were added. You can then push the images with the new tags to your docker registry. Log in to your registry by using the following command:
-```
-docker login --username <USER> --password <LOCAL_REGISTRY_PASSWORD> <LOCAL_REGISTRY>
-```
-{:codeblock}
+Depending on the level of permissions required for the target location for the images, you might need to prefix each command with `sudo`.
+{: note}
 
-- Replace `<USER>` with your username
-- Replace `<LOCAL_REGISTRY_PASSWORD>` with the password to your registry.
-- Replace `<LOCAL_REGISTRY>` with the URL of your local registry.
+```
+skopeo copy docker://cp.icr.io/cp/ibp-operator:2.5.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-init:2.5.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-console:2.5.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-grpcweb:2.5.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-deployer:2.5.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-fluentd:2.5.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-couchdb:2.3.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-couchdb:3.1.0-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-peer:1.4.9-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-orderer:1.4.9-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-ca:1.4.9-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-dind:1.4.9-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-utilities:1.4.9-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-peer:2.2.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-orderer:2.2.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-chaincode-launcher:2.2.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-utilities:2.2.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-ccenv:2.2.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-goenv:2.2.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-nodeenv:2.2.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-javaenv:2.2.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-ccenv:1.4.9-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-goenv:1.4.9-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-nodeenv:1.4.9-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-javaenv:1.4.9-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-enroller:2.5.1-20201020-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+```
+{: codeblock}
 
-Then, run the following command to push the images. Replace `<LOCAL_REGISTRY>` with the URL of your local registry.
-```
-docker push <LOCAL_REGISTRY>/ibp-operator:2.5.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-init:2.5.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-console:2.5.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-grpcweb:2.5.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-deployer:2.5.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-fluentd:2.5.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-couchdb:2.3.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-couchdb:3.1.0-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-peer:1.4.9-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-orderer:1.4.9-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-ca:1.4.9-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-dind:1.4.9-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-utilities:1.4.9-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-peer:2.2.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-orderer:2.2.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-chaincode-launcher:2.2.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-utilities:2.2.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-ccenv:2.2.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-goenv:2.2.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-nodeenv:2.2.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-javaenv:2.2.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-crdwebhook:2.5.1-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-ccenv:1.4.9-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-goenv:1.4.9-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-nodeenv:1.4.9-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-javaenv:1.4.9-20201020-amd64
-docker push <LOCAL_REGISTRY>/ibp-enroller:2.5.1-20201020-amd64
-```
-{:codeblock}
 
 After you complete these steps, you can use the following instructions to deploy the {{site.data.keyword.blockchainfull_notm}} Platform with the images in your registry.
 
