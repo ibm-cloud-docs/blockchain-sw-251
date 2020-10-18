@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-15"
+lastupdated: "2020-10-18"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy,
 
@@ -52,7 +52,7 @@ This tutorial series is designed for users who are unfamiliar with how to use An
 
 The {{site.data.keyword.blockchainfull_notm}} Platform Ansible collection uses the [IBM Blockchain Platform REST APIs](https://cloud.ibm.com/apidocs/blockchain). The collection includes a playbook that automates the installation of the {{site.data.keyword.blockchainfull_notm}} Platform software into a Kubernetes or Red Hat OpenShift cluster.
 
-It also includes an entire set of playbooks that can be used to deploy your peer, Certificate Authority (CA), and ordering service nodes, create organizations, identities, channels, and install and instantiate smart contracts. And when you need to start over, there are scripts for tearing it all back down. These playbooks will run on your blockchain network that is running on {{site.data.keyword.cloud_notm}} or on your own Kubernetes cluster where the {{site.data.keyword.blockchainfull_notm}} Platform is installed.
+It also includes an entire set of playbooks that can be used to deploy your peer, Certificate Authority (CA), and ordering service nodes, create organizations, identities, channels, and deploy smart contracts. And when you need to start over, there are scripts for tearing it all back down. These playbooks will run on your blockchain network that is running on {{site.data.keyword.cloud_notm}} or on your own Kubernetes cluster where the {{site.data.keyword.blockchainfull_notm}} Platform is installed.
 
 ## Why would I want to use an Ansible playbook?
 {: #ansible-why}
