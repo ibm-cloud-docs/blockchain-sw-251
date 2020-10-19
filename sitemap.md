@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-19"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -283,6 +283,9 @@ subcollection: blockchain-sw-251
 
 [Creating applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app)
 * [Learning resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-learning-resources)
+  * [High-Level Fabric contract APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-high-level)
+  * [Low-Level Fabric SDK APIs**](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level)
+  * [Network considerations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-networking)
 * [Application compatibility](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat)
   * [SDKs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sdk)
   * [Smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sc)
