@@ -172,26 +172,26 @@ There are three ways to resolve this problem:
 1.  Use a different [supported browser](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-browsers) with Catalina.
 2. Use your own [TLS certificates when deploying on OpenShift Contain Platform](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#console-deploy-ocp-use-your-own-tls-certificates-optional) or [TLS certificates when deploying on Kubernetes](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-tls).
 3. Run the following commands to generate a new key and certificate pair for the console that will fix the problem.
-   1. Run the following command to get the pod that corresponds to the console:
-      ```
-      kubectl get po
-      ```
-      {: codeblock}
-   2. Exec into the pod by running the command:
-      ```
-      kubectl get po <pod-name> -c optools bash
-      ```
-      {: codeblock}
-   3. Delete the console key and certificate by running the command:
-      ```
-      rm -f /certs/tls.key rm -f /certs/tls.crt
-      ```
-      {: codeblock}
-   4. Delete the console pod which causes it to restart by running the command:
-      ```
-      kubectl delete po <pod-name>
-      ```
-      {: codeblock}
+      - Run the following command to get the pod that corresponds to the console:
+        ```
+        kubectl get po
+        ```
+        {: codeblock}
+      - Exec into the pod by running the command:
+        ```
+        kubectl get po <pod-name> -c optools bash
+        ```
+        {: codeblock}
+      - Delete the console key and certificate by running the command:
+        ```
+        rm -f /certs/tls.key rm -f /certs/tls.crt
+        ```
+        {: codeblock}
+      - Delete the console pod which causes it to restart by running the command:
+        ```
+        kubectl delete po <pod-name>
+        ```
+        {: codeblock}
    When the pod restart completes, you should now be able to log in to your console URL from a Chrome Browser.
 
 ## Why is my channel creation failing or I am unable to add a new organization to my ordering service with the error "Unable to get system channel"?
@@ -204,7 +204,6 @@ If you are not using your own TLS certificates to secure communications in your 
 This problem occurs when the blockchain console is deployed without the advanced deployment option to [use your own TLS certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#console-deploy-ocp-use-your-own-tls-certificates-optional).
 {: tsCauses}
 
-!!!
 To resolve this problem, you need to accept the self-signed certificate in your browser.
 {: tsResolve}
 
@@ -274,6 +273,8 @@ You may receive this error if this version of the smart contract already exists 
 
 ## Why is my smart contract installation failing with an error on my peer?
 {: #ibp-v2-troubleshooting-sc-install}
+{: troubleshoot}
+{: support}
 
 {: tsSymptoms}
 Installing a smart contract on a peer fails with an error similar to the following:

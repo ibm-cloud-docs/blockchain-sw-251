@@ -117,7 +117,7 @@ A key benefit of using these images over the open source community version is th
 
 The {{site.data.keyword.blockchainfull_notm}} images must be deployed using a container environment on x86_64 or s390x hardware. Refer to the list of [Supported Platforms](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about#console-ocp-about-prerequisites).
 
-Although you can deploy the {{site.data.keyword.blockchainfull_notm}} images on Mac OS for testing purposes, the permissions on Mac OS might prevent you from instantiating a chaincode.
+Although you can deploy the {{site.data.keyword.blockchainfull_notm}} images on Mac OS for testing purposes, the permissions on Mac OS might prevent you from instantiating a smart contract.
 {: note}
 
 ## Supported Fabric versions
