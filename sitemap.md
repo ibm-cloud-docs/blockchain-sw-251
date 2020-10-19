@@ -449,7 +449,7 @@ subcollection: blockchain-sw-251
 
 [How often do updates get rolled out for the CodeReady Workspace extension?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-codeready-updates)
 
-[How can I test out my smart contracts?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-test-smart-contracts)
+[How can I test my smart contract that are running in CodeReady workspace?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-test-smart-contracts)
 
 [How can I find the examples and tutorials within the VSCode extension?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-vscode-tutorials)
 
