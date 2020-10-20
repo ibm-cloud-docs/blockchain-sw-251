@@ -30,11 +30,11 @@ The platform contains multiple key features to support your various business req
 - **OPERATE** - Total control of your deployments. In the IBM Blockchain Platform console, you can easily create, manage, operate, and monitor identities, user accesses, and network components in your network.
 - **GROW** - Scalability and flexibility. You can choose the environment and compute to build and scale your network. High availability (HA) can be configured to ensure the resilience of your network.
 
-For more information about IBM Blockchain Platform, see [About IBM Blockchain Platform ](https://cloud.ibm.com/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about)
-and [Getting Started with IBM Blockchain Platform](https://cloud.ibm.com/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp).
+For more information about IBM Blockchain Platform, see [About IBM Blockchain Platform ](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about)
+and [Getting Started with IBM Blockchain Platform](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp).
 
 If you are an experienced Hyperledger Fabric customer and prefer to deploy and manage the containers yourself, you can download and use the container images without the management console.
-For more information about using the downloading just the images, see [Using the IBM Blockchain images for Hyperledger Fabric](https://cloud.ibm.com/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-images).
+For more information about using the downloading just the images, see [Using the IBM Blockchain images for Hyperledger Fabric](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-images).
 
 ## Support
 {: #kc-content-support}
