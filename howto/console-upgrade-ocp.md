@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-22"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -539,7 +539,7 @@ oc adm policy add-scc-to-group <PROJECT_NAME> system:serviceaccounts:<PROJECT_NA
 Run the following command to upgrade the operator. Replace `<PROJECT_NAME>` with the name of your project.
 
 ```
-kubectl set image deploy/ibp-webhook -n <PROJECT_NAME> ibp-webhook="cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201020-amd64"
+kubectl set image deploy/ibp-operator -n <PROJECT_NAME> ibp-operator="cp.icr.io/cp/ibp-operator:2.5.1-20201020-amd64"
 ```
 {: codeblock}
 
