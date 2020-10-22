@@ -150,7 +150,7 @@ subcollection: blockchain-sw-251
 
 [What's new](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new)
 
-[October 20, 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-10-20-2020)
+[November 02, 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-11-02-2020)
 
 
 ## Pricing
@@ -1249,12 +1249,12 @@ subcollection: blockchain-sw-251
 
 [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20)
 
-[20 October 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020)
-* [Fabric v2.x node upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020-upgrade)
-* [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020-lc)
-* [Improvements for HSM support](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020-hsm)
-* [Certificate renewal enhancements](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020-cert-renew)
-* [Remove registered user from CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020-delete-user)
+[02 Nov 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020)
+* [Fabric v2.x node upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020-upgrade)
+* [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020-lc)
+* [Improvements for HSM support](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020-hsm)
+* [Certificate renewal enhancements](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020-cert-renew)
+* [Remove registered user from CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020-delete-user)
 
 
 ## Known issues

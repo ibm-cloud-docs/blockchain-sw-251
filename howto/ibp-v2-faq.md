@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-22"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions, multicloud
 
@@ -33,7 +33,6 @@ subcollection: blockchain-sw-251
     <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-faq">2.5</a>
     </p>
 </div>
-
 
 **General**   
 
@@ -68,7 +67,7 @@ subcollection: blockchain-sw-251
 - [How do I get support for running the IBM Blockchain Platform Ansible playbook?](#ibp-v2-faq-ansible-support)
 - [Do I need OpenShift to run CodeReady Workspace?](#ibp-v2-faq-codeready-openshift)
 - [How often do updates get rolled out for the CodeReady Workspace extension?](#ibp-v2-faq-codeready-updates)
-- [How can I test out my smart contracts?](#ibp-v2-faq-test-smart-contracts)
+- [How can I test my smart contracts?](#ibp-v2-faq-test-smart-contracts)
 - [How can I find the examples and tutorials within the VSCode extension?](#ibp-v2-faq-vscode-tutorials)
 - [Can the {{site.data.keyword.blockchainfull_notm}} Platform monitor the health of a client application?](#ibp-v2-faq-mon-client-app)
 
@@ -307,6 +306,5 @@ The {{site.data.keyword.blockchainfull_notm}} Platform extension provides guided
 {: faq}
 
 The {{site.data.keyword.blockchainfull_notm}} Platform console does not monitor the health of blockchain client applications, but {{site.data.keyword.cloud_notm}} does offer tooling such as [{{site.data.keyword.la_full_notm}}](/catalog/services/ibm-log-analysis-with-logdna){: external} and [{{site.data.keyword.mon_full_notm}}](/catalog/services/ibm-cloud-monitoring-with-sysdig){: external} that can be used for their health monitoring.
-
 
 

@@ -104,7 +104,6 @@ subcollection: blockchain-sw-251
 </div>
 
 
-
 You can upgrade the {{site.data.keyword.blockchainfull}} Platform without disrupting a running network. Because the platform is deployed by using a Kubernetes operator, you can pull the latest {{site.data.keyword.blockchainfull_notm}} Platform images from the {{site.data.keyword.IBM_notm}} Entitlement registry without having to reinstall the platform. You can use these instructions to upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1.
 {:shortdesc}
 
@@ -115,7 +114,7 @@ Use these instructions to upgrade to the {{site.data.keyword.blockchainfull_notm
 
 | Version | Release date | Image tags | New features |
 |----|----|----|----|
-| [{{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020) | 20 Oct 2020| **Console and tools** <ul><li>2.5.1-20201020-amd64</li></ul> **Fabric nodes** <ul><li>1.4.9-20201020-amd64<li>2.2.1-20201020-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20201020-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.9 and 2.2.1</ul> **Improvements to the Console UI** <ul><li>Support for Fabric v2.x Lifecycle.</li><li>Upgrade CA, peer, and ordering nodes from Fabric v1.4 to Fabric v2.x.</li><li>Certificate renewal enhancements added to the console.</li></ul> |
+| [{{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020) | 20 Oct 2020| **Console and tools** <ul><li>2.5.1-20201020-amd64</li></ul> **Fabric nodes** <ul><li>1.4.9-20201020-amd64<li>2.2.1-20201020-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20201020-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.9 and 2.2.1</ul> **Improvements to the Console UI** <ul><li>Support for Fabric v2.x Lifecycle.</li><li>Upgrade CA, peer, and ordering nodes from Fabric v1.4 to Fabric v2.x.</li><li>Certificate renewal enhancements added to the console.</li></ul> |
 | [{{site.data.keyword.blockchainfull_notm}} Platform 2.5](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#08-25-2020) | 9 Sept 2020| **Console and tools** <ul><li>2.5.0-20200825-amd64</li><li>2.5.0-20200714-amd64</li><li>2.5.0-20200618-amd64</li></ul> **Fabric nodes** <ul><li>1.4.7-20200825-amd64</li><li>1.4.7-20200714-amd64</li><li>1.4.7-20200618-amd64</li><li>2.1.1-20200825-amd64</li><li>2.1.1-20200714-amd64</li><li>2.1.1-20200618-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20200825-amd64</li><li>2.3.1-20200714-amd64</li><li>2.3.1-20200618-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.7 and 2.1.1</ul> **Improvements to the Console UI** <ul><li>Ability to select Fabric version when you deploy a new peer or ordering node.</li></ul> |
 | [{{site.data.keyword.blockchainfull_notm}} Platform v2.1.3](/docs/blockchain-sw-213?topic=blockchain-sw-213-whats-new#whats-new-03-24-2020) | 24 March 2020| **Console and tools** <ul><li>2.1.3-20200520-amd64</li><li>2.1.3-20200416-amd64</li><li>2.1.3-20200324-amd64</li></ul> **Fabric nodes** <ul><li>1.4.6-20200520-amd64</li><li>1.4.6-20200416-amd64</li><li>1.4.6-20200324-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20200520-amd64</li><li>2.3.1-20200416-amd64</li><li>2.3.1-20200324-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.6</ul> **Improvements to the Console UI** <ul><li>Hardware Security Module (HSM) support for node identities</li><li>Ability to override CA, peer, and ordering node configuration</li><li>Ability to add and remove Raft ordering nodes</li><li>Java smart contract instantiation</li><li>Updated create channel and create organization panels</ul> |
 | [{{site.data.keyword.blockchainfull_notm}} Platform v2.1.2](/docs/blockchain-sw?topic=blockchain-sw-whats-new#whats-new-12-17-2019) | 17 December 2019 | **Console and tools** <ul><li>2.1.2-20191217-amd64</li><li>2.1.2-20200213-amd64</li></ul> **Fabric nodes** <ul><li>1.4.4-20191217-amd64</li><li>1.4.4-20200213-amd64</li></ul> **CouchDB** <ul><li>2.3.1-20191217-amd64</li><li>2.3.1-20200213-amd64</li></ul> | **Fabric Version Upgrade** <ul><li>Fabric version 1.4.4</ul> **Additional platforms** <ul><li>Platform can be deployed on the OpenShift Container Platform 4.1 and 4.2</ul> **Improvements to the Console UI** <ul><li>Simplified component creation flows</li><li>Zone selection for ordering nodes</li><li>Add peer to a channel from Channels tab</li><li>Anchor peer during join</li><li>Export/Import all</ul> |
@@ -425,7 +424,6 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 ```
 
-
 ### Step three: Update the ClusterRole
 {: #upgrade-k8-steps-251-clusterrole}
 
@@ -601,7 +599,6 @@ kubectl create secret docker-registry docker-key-secret --docker-server=cp.icr.i
 The name of the secret that you are creating is `docker-key-secret`. It is required by the webhook that you will deploy later. You can only use the key once per deployment. You can refresh the key before you attempt another deployment and use that value here.
 {: note}
 
-
 ### Step three: Deploy the webhook and custom resource definitions to your Kubernetes cluster
 {: #upgrade-k8s-webhook-crd}
 
@@ -703,7 +700,6 @@ volumes:
 priority: 1
 ```
 {:codeblock}
-
 
 After you save the file, run the following commands to add the file to your cluster and add the policy to your project.
 
@@ -816,7 +812,6 @@ spec:
               memory: "100Mi"
 ```
 {: codeblock}
-
 
 Run the following command to add the configuration to your cluster definition:
 ```
@@ -1121,8 +1116,6 @@ or
 ```
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 ```
-
-
 
 ### Step four: Update the ClusterRole
 {: #upgrade-k8-clusterrole}
@@ -1372,7 +1365,6 @@ skopeo copy docker://cp.icr.io/cp/ibp-enroller:2.5.1-20201020-amd64 docker://<LO
 ```
 {: codeblock}
 
-
 After you complete these steps, you can use the following instructions to deploy the {{site.data.keyword.blockchainfull_notm}} Platform with the images in your registry.
 
 ### Step two: Create the `ibpinfra` namespace for the webhook
@@ -1403,7 +1395,6 @@ kubectl create secret docker-registry docker-key-secret --docker-server=cp.icr.i
 
 The name of the secret that you are creating is `docker-key-secret`. It is required by the webhook that you will deploy later. You can only use the key once per deployment. You can refresh the key before you attempt another deployment and use that value here.
 {: note}
-
 
 ### Step four: Deploy the webhook and custom resource definitions to your Kubernetes cluster
 {: #upgrade-webhook-fw}
@@ -1506,7 +1497,6 @@ volumes:
 priority: 1
 ```
 {:codeblock}
-
 
 After you save the file, run the following commands to add the file to your cluster and add the policy to your project.
 
@@ -1619,7 +1609,6 @@ spec:
               memory: "100Mi"
 ```
 {: codeblock}
-
 
 Run the following command to add the configuration to your cluster definition:
 ```
@@ -1924,8 +1913,6 @@ or
 ```
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 ```
-
-
 
 ### Step five: Update the ClusterRole
 {: #upgrade-k8-clusterrole-firewall}

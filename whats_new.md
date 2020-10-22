@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-22"
 
 keywords: IBM Blockchain Platform, release, new features, multicloud
 
@@ -31,9 +31,8 @@ subcollection: blockchain-sw-251
     </p>
 </div>
 
-
-## October 20, 2020
-{: #whats-new-10-20-2020}
+## November 02, 2020
+{: #whats-new-11-02-2020}
 
 
 {{site.data.keyword.blockchainfull}} Platform 2.5.1 is now available.
@@ -67,7 +66,6 @@ If you have an existing {{site.data.keyword.blockchainfull_notm}} Platform v2.1.
 - [Upgrading the {{site.data.keyword.blockchainfull_notm}} images](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-images#blockchain-images-upgrade)
 
 
-See the [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020) for more details on the new features that are included in this release.
-
+See the [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020) for more details on the new features that are included in this release.
 
 
