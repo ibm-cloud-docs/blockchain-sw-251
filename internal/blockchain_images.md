@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-19"
+lastupdated: "2020-10-23"
 
 keywords: IBM Blockchain Platform, images, multicloud
 
@@ -102,7 +102,6 @@ subcollection: blockchain-sw-251
     <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-blockchain-images">2.5</a>
     </p>
 </div>
-
 
 
 For experienced Hyperledger Fabric customers, the {{site.data.keyword.blockchainfull}} Platform provides images for peer, CA, ordering service, and smart contract containers that are signed and supported by {{site.data.keyword.IBM_notm}}. These images are the commercial distribution of Hyperledger Fabric v1.4.7 and v2.x.
@@ -678,7 +677,7 @@ Nodes that are deployed by using the {{site.data.keyword.blockchainfull_notm}} i
 ## Upgrading to new versions
 {: #blockchain-images-upgrade}
 
-You can upgrade your deployment to the latest version of the {{site.data.keyword.blockchainfull_notm}} images. The latest images normally contain security or stability improvements, or use a higher version Hyperledger Fabric, allowing you to take advantage of the latest Fabric features. To upgrade your network, you need to back up the ledger and MSP data for each node and then manually upgrade the node binaries. For more information about upgrading a network that you deployed using the {{site.data.keyword.blockchainfull_notm}} images, see [Upgrading Your Network Components](https://hyperledger-fabric.readthedocs.io/en/release-2.2/upgrading_your_network_tutorial.html){: external} in the Hyperleder Fabric documentation.
+You can upgrade your deployment to the latest version of the {{site.data.keyword.blockchainfull_notm}} images. The latest images normally contain security or stability improvements, or use a higher version Hyperledger Fabric, allowing you to take advantage of the latest Fabric features. To upgrade your network, you need to back up the ledger and MSP data for each node and then manually upgrade the node binaries. For more information about upgrading a network that you deployed using the {{site.data.keyword.blockchainfull_notm}} images, see [Upgrading Your Network Components](https://hyperledger-fabric.readthedocs.io/en/release-2.2/upgrade.html){: external} in the Hyperleder Fabric documentation.
 
 ## Getting support
 {: #blockchain-images-support}
