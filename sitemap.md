@@ -246,6 +246,7 @@ subcollection: blockchain-sw-251
 [Deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2)
 * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before)
   * [Ensure peer is running Fabric v2.x image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-fabimage)
+  * [Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-update-consortium)
   * [Create channel and join peers](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-peer)
   * [Export and Import Membership Service Providers (MSPs)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-msps)
   * [Peer admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-peer-admin)
@@ -559,6 +560,7 @@ subcollection: blockchain-sw-251
 * [Step two: Update the CRDs](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-crds)
 * [Step three: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-clusterrole)
 * [Step four: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-251-operator)
+* [Step seven: Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-update-consortium)
 
 [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-steps-21x)
 * [Step one: Create the `ibpinfra` project for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#deploy-ocp-ibpinfra)
@@ -566,6 +568,7 @@ subcollection: blockchain-sw-251
 * [Step three: Deploy the webhook and custom resource definitions to your OpenShift cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#webhook)
 * [Step four: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-clusterrole)
 * [Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-operator)
+* [Step seven: Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-update-nodes-consortium)
 
 [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x from behind a firewall](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-firewall)
 * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-begin-firewall)
@@ -576,10 +579,7 @@ subcollection: blockchain-sw-251
 * [Step five: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-clusterrole-firewall)
 * [Step six: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-operator-firewall)
 * [Step seven: Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-nodes-firewall)
-
-[Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-nodes)
-
-[Roll back an upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-rollback)
+* [Step eight: Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-nodes-firewall-update-consortium)
 
 
 ## Removing your deployment
@@ -669,13 +669,15 @@ subcollection: blockchain-sw-251
   * [Step two: Update the CRDs](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-crds)
   * [Step three: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-clusterrole)
   * [Step four: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-251-operator)
+  * [Step six: Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-update-consortium)
 * [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-steps-21x)
-  * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-before)
+  * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-before-steps-21x)
   * [Step one: Create the `ibpinfra` namespace for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-ibpinfra)
   * [Step two: Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-secret-ibpinfra)
   * [Step three: Deploy the webhook and custom resource definitions to your Kubernetes cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-webhook-crd)
   * [Step four: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-clusterrole)
   * [Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-operator)
+  * [Step seven: Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-before-steps-21x-update-consortium)
 * [Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x from behind a firewall](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-firewall)
   * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-begin-firewall)
   * [Step one: Pull the latest {{site.data.keyword.blockchainfull_notm}} Platform images](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-images-firewall)
@@ -687,6 +689,7 @@ subcollection: blockchain-sw-251
   * [Step seven: Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-nodes-firewall)
 * [Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-nodes)
 * [Roll back an upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-rollback)
+  * [Step eight: Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-nodes-firewall-update-consortium)
 
 [Removing your deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-Removing-k8)
 * [Step one: Use the console to delete your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-Removing-k8#Removing-k8-step-one)

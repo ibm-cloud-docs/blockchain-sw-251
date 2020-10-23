@@ -155,8 +155,9 @@ When you upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 fro
 3. [Update the ClusterRole.](#upgrade-k8-steps-251-clusterrole)
 4. [Update the operator.](#upgrade-k8-steps-251-operator)
 5. [Use your console to upgrade your running blockchain nodes.](#upgrade-k8-nodes)
+6. [Update MSPs in consortium to add organization-level endorsement policy.](#upgrade-k8s-update-consortium)
 
-You need to repeat steps 3-5 for each network that that runs in a separate namespace. If you experience any problems, see the instructions for [rolling back an upgrade](#upgrade-k8-rollback). If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](#upgrade-k8-firewall).
+You need to repeat steps 3-6 for each network that that runs in a separate namespace. If you experience any problems, see the instructions for [rolling back an upgrade](#upgrade-k8-rollback). If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](#upgrade-k8-firewall).
 
 ### Step one: Update the webhook image
 {: #upgrade-k8-steps-251-webhook}
@@ -540,7 +541,18 @@ ibp-operator   1/1       1            1           1m
 ibpconsole     1/1       1            1           4m
 ```
 
-You can now follow the [steps](#upgrade-k8-nodes) to upgrade your blockchain nodes. Be aware that after the nodes are upgraded, there is no way to roll back the upgrade from 2.5.1 to 2.5. After you upgrade to 2.5.1, you can take advantage of the the new Fabric v2.x Lifecycle deployment process for your smart contracts. But to avoid your peers crashing, you need to ensure that you upgrade your peers before you upgrade your channels. Learn more about considerations when  [Upgrading to a new version of Fabric](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade).
+### Step five: Upgrade your nodes
+
+You can now follow the [steps](#upgrade-k8-nodes) to upgrade your blockchain nodes. Be aware that after the nodes are upgraded, there is no way to roll back the upgrade from 2.5.1 to 2.5. After you upgrade to 2.5.1, you can take advantage of the the new Fabric v2.x lifecycle deployment process for your smart contracts. But to avoid your peers crashing, you need to ensure that you upgrade your peers before you upgrade your channels. Learn more about considerations when  [Upgrading to a new version of Fabric](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade).
+
+After upgrading your nodes and updating your channels, make sure you update your organizations to [add an organization-level endorsement policy](#upgrade-k8s-update-consortium).
+
+### Step six: Update MSPs in consortium to add organization-level endorsement policy
+{: #upgrade-k8s-update-consortium}
+
+To use the 2.x smart contract lifecycle, an organization must have an endorsement policy defined. If any organization in the consortium (the list of organizations maintained by the ordering service that are allowed to create channels) do not have an endorsement policy defined, a warning message will appear on the **Details** page of the ordering service with a list of organization MSPs that must be updated.
+
+The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsment policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of deploying the smart contract.
 
 ## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x
 {: #upgrade-k8-steps-21x}
@@ -553,7 +565,7 @@ You can upgrade an {{site.data.keyword.blockchainfull_notm}} Platform network by
 4. [Update the ClusterRole](#upgrade-k8-clusterrole)
 5. [Upgrade the {{site.data.keyword.blockchainfull_notm}} Platform operator](#upgrade-k8-operator)
 6. [Use your console to upgrade your running blockchain nodes](#upgrade-k8-nodes)
-
+7. [Update MSPs in consortium to add organization-level endorsement policy](#upgrade-k8-before-steps-21x-update-consortium)
 
 You need to complete steps 4-6 for each network that that runs on a separate namespace. If you experience any problems, see the instructions for [rolling back an upgrade](#upgrade-k8-rollback). If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Upgrading the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall](#upgrade-k8-firewall).
 
@@ -563,7 +575,7 @@ It is a best practice to upgrade your SDK to the latest version as part of a gen
 {: tip}
 
 ### Before you begin
-{: #upgrade-k8-before}
+{: #upgrade-k8-before-steps-21x}
 
 To upgrade your network, you need to [retrieve your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-entitlement-key) from the My {{site.data.keyword.IBM_notm}} Dashboard, and [create a Kubernetes secret](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-docker-registry-secret) to store the key on your namespace. If the Entitlement key secret was removed from your cluster, or if your key is expired, then you need to download another key and create a new secret.
 
@@ -1212,7 +1224,6 @@ kubectl apply -f ibp-clusterrole.yaml -n <NAMESPACE>
 {:codeblock}
 Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
-
 ### Step five: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator
 {: #upgrade-k8-operator}
 
@@ -1292,7 +1303,18 @@ ibpconsole     1         1         1            1           8m
 
 If you experience a problem while you are upgrading the operator, go to this [troubleshooting topic](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-cr) for a list of commonly encountered problems. You can run the command to apply the original operator file, `kubectl apply -f operator.yaml` to restore your original operator deployment.
 
+### Step six: Upgrade your nodes
+
 After you upgrade your console, you can use the console UI to upgrade the nodes of your blockchain network. For more information, see [Upgrade your blockchain nodes](#upgrade-k8-nodes).
+
+After upgrade your nodes, make sure you update the MSPs in the consortium to [add an organization-level endorsement policy](#upgrade-k8-before-steps-21x-update-consortium).
+
+### Step seven: Update MSPs in consortium to add organization-level endorsement policy
+{: #upgrade-k8-before-steps-21x-update-consortium}
+
+To use the 2.x smart contract lifecycle, an organization must have an endorsement policy defined. If any organization in the consortium (the list of organizations maintained by the ordering service that are allowed to create channels) do not have an endorsement policy defined, a warning message will appear on the **Details** page of the ordering service with a list of organization MSPs that must be updated.
+
+The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsment policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of deploying the smart contract.
 
 ## Upgrade to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from 2.1.x from behind a firewall
 {: #upgrade-k8-firewall}
@@ -1306,6 +1328,7 @@ If you deployed the {{site.data.keyword.blockchainfull_notm}} Platform behind a 
 5. [Update the ClusterRole](#upgrade-k8-clusterrole-firewall)
 6. [Upgrade the {{site.data.keyword.blockchainfull_notm}} Platform operator](#upgrade-k8-operator-firewall)
 7. [Use your console to upgrade your running blockchain nodes](#upgrade-k8-nodes-firewall)
+8. [Update MSPs in consortium to add organization-level endorsement policy](#upgrade-k8s-nodes-firewall-update-consortium)
 
 You can continue to submit transactions to your network while you are upgrading your network. However, you cannot use the console to deploy new nodes, deploy smart contracts, or create new channels during the upgrade process.
 
@@ -2133,3 +2156,10 @@ To update a node, open the node tile and click the **Upgrade available** button.
 When you upgrade your operator, it saves the secrets, deployment spec, and network information of your console before it the operator attempts to upgrade the console. If your upgrade fails for any reason, {{site.data.keyword.IBM_notm}} Support can roll back your upgrade and restore your previous deployment by using the information on your cluster. If you need to roll back your upgrade, you can submit a support case from the [mysupport](https://www.ibm.com/support/pages/node/1072956){: external} page.
 
 You can roll back an upgrade after you use the console to operate your network. However, after you use the console to upgrade your blockchain nodes, you can no longer roll back your console to a previous version of the platform.
+
+### Step eight: Update MSPs in consortium to add organization-level endorsement policy
+{: #upgrade-k8s-nodes-firewall-update-consortium}
+
+To use the 2.x smart contract lifecycle, an organization must have an endorsement policy defined. If any organization in the consortium (the list of organizations maintained by the ordering service that are allowed to create channels) do not have an endorsement policy defined, a warning message will appear on the **Details** page of the ordering service with a list of organization MSPs that must be updated.
+
+The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsment policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of deploying the smart contract.
