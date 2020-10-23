@@ -529,7 +529,7 @@ kubectl set image deploy/ibp-operator -n <NAMESPACE> ibp-operator="cp.icr.io/cp/
 ```
 {: codeblock}
 
-After you apply the `operator-upgrade.yaml` operator spec to your Kubernetes namespace, the operator will restart and pull the latest image. The upgrade takes about a minute. While the upgrade is taking place, you can still access your console UI. However, you cannot use the console to deploy smart contracts, or use the console or the APIs to create or remove a node.
+After applying the new image to the operator deployment, the operator will restart and pull the latest image. The upgrade takes about a minute. While the upgrade is taking place, you can still access your console UI. However, you cannot use the console to deploy smart contracts, or use the console or the APIs to create or remove a node.
 
 Run the `kubectl get deployment ibp-operator -o yaml` command to confirm that the command updated the operator spec.
 
