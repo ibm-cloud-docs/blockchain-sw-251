@@ -581,6 +581,10 @@ subcollection: blockchain-sw-251
 * [Step seven: Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-nodes-firewall)
 * [Step eight: Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-nodes-firewall-update-consortium)
 
+[Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-nodes)
+
+[Roll back an upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#upgrade-ocp-rollback)
+
 
 ## Removing your deployment
 {: #sitemap_removing_your_deployment}
@@ -687,9 +691,9 @@ subcollection: blockchain-sw-251
   * [Step five: Update the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-clusterrole-firewall)
   * [Step six: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-operator-firewall)
   * [Step seven: Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-nodes-firewall)
+  * [Step eight: Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-nodes-firewall-update-consortium)
 * [Upgrade your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-nodes)
 * [Roll back an upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8-rollback)
-  * [Step eight: Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-k8#upgrade-k8s-nodes-firewall-update-consortium)
 
 [Removing your deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-Removing-k8)
 * [Step one: Use the console to delete your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-Removing-k8#Removing-k8-step-one)

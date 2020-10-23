@@ -2159,7 +2159,14 @@ kubectl apply -f console-upgrade.yaml
 
 After you upgrade your console, you can use the console UI to upgrade the nodes of your blockchain network. For more information, see [Upgrade your blockchain nodes](#upgrade-ocp-nodes).
 
-#### Upgrade your blockchain nodes
+### Step eight: Update MSPs in consortium to add organization-level endorsement policy
+{: #upgrade-ocp-nodes-firewall-update-consortium}
+
+To use the 2.x smart contract lifecycle, an organization must have an endorsement policy defined. If any organization in the consortium (the list of organizations maintained by the ordering service that are allowed to create channels) do not have an endorsement policy defined, a warning message will appear on the **Details** page of the ordering service with a list of organization MSPs that must be updated.
+
+The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsment policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of deploying the smart contract.
+
+## Upgrade your blockchain nodes
 {: #upgrade-ocp-nodes}
 
 After you upgrade your console, you can use the console UI to upgrade the nodes of your blockchain network. Browse to the console UI and open the nodes overview tab. You can find the **Upgrade available** text on a node tile if there is an update available for the component. You can install this upgrade whenever you are ready. These upgrades are optional, but they are recommended. You cannot upgrade nodes that were imported into the console.
@@ -2169,16 +2176,9 @@ Apply upgrades to nodes one at a time. Your nodes are unavailable to process req
 
 To upgrade a node, open the node tile and click the **Upgrade available** button. You cannot upgrade nodes that you imported to the console. Learn more about considerations when [Upgrading to a new version of Fabric](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade).
 
-#### Roll back an upgrade
+## Roll back an upgrade
 {: #upgrade-ocp-rollback}
 
 When you upgrade your operator, the operator saves the secrets, deployment spec, and network information of your console before attempting to upgrade the console. If your upgrade fails for any reason, the {{site.data.keyword.IBM_notm}} Support can roll back your upgrade and restore your previous deployment by using the information on your cluster. If you need to roll back your upgrade, you can submit a support case from the [mysupport](https://www.ibm.com/support/pages/node/1072956){: external} page.
 
 You can roll back an upgrade after you use the console to operate your network. However, after you use the console to upgrade your blockchain nodes, you can no longer roll back your console to a previous version of the platform.
-
-### Step eight: Update MSPs in consortium to add organization-level endorsement policy
-{: #upgrade-ocp-nodes-firewall-update-consortium}
-
-To use the 2.x smart contract lifecycle, an organization must have an endorsement policy defined. If any organization in the consortium (the list of organizations maintained by the ordering service that are allowed to create channels) do not have an endorsement policy defined, a warning message will appear on the **Details** page of the ordering service with a list of organization MSPs that must be updated.
-
-The best practice to add this endorsement policy to the MSP is to delete the MSP from the system channel and then re-add the MSP. The console detects the fact that the MSP does not contain the endorsment policy and automatically adds it. Note that this action can only be completed by an ordering service administrator. You do not need to delete and re-add the MSPs in the configuration of any application channels that have already been created. For these MSPs, the endorsement policy is added as part of the process of deploying the smart contract.
