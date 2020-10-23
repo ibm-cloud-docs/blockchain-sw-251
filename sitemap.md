@@ -1283,6 +1283,8 @@ subcollection: blockchain-sw-251
 
 [Extracting the TLS certificate from the Kubernetes webhook fails](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-wh-extract)
 
+[Why is my console upgrade from 2.5 to 2.5.1 failing?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshootingconsole-upgrade-fails)
+
 [Why are my console actions failing in my Chrome browser Version 77.0.3865.90 (Official Build) (64-bit)?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-chrome-v77)
 
 [Why am I not able to log in to the console from my Chrome browser on Mac OS Catalina?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-console-catalina)
