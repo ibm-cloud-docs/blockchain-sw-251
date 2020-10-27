@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-15"
+lastupdated: "2020-10-27"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -157,7 +157,6 @@ The resources for the CA, peer, and ordering nodes need to be multiplied by the 
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
 | **Webhook**                    | 0.1           | 0.2                   | 0                      |
-
 {: caption="Table 1. Default resource allocations" caption-side="bottom"}
 ** These values can vary slightly. Actual VPC allocations are visible in the blockchain console when a node is deployed.  
 
@@ -170,7 +169,6 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console has been successf
 
 - Chrome Version 85.0.4183.121 (Official Build) (64-bit)
 - Safari Version 13.0.3 (15608.3.10.1.4)
-
 
 ## Storage
 {: #deploy-ocp-storage}
@@ -205,7 +203,6 @@ If you prefer not to choose a persistent storage option, the default storage cla
 | **High Availability (HA)** | There should be redundancy in the storage to avoid a single point of failure. |
 | **Multi-zone capable storage** | {{site.data.keyword.cloud_notm}} includes the ability to create a single Kubernetes cluster across multiple data centers or "zones". Portworx offers multi-zone capable storage that can be used to potentially reduce the number of peers required. Consider a scenario where you build two zones with two peers for redundancy, one zone can go down and you still have two peers up in another zone. With multi-zone capable storage, you could instead have two zones with one peer each. If one zone goes down, the peer comes up in the other zone with its storage intact, reducing the overall redundant peer requirements. |
 
-
 ## Filesystem permissions
 {: #deploy-ocp-fs-perm}
 
@@ -221,7 +218,15 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four d
     <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm">
       <div>
         <p><strong><img src="../images/logo_redhat.png" alt="Red Hat icon" width="50" style="width:50px; border-style: none"/> Deploy from Red Hat Marketplace</p>
-        <p class="bx--type-caption">Use the Red Hat Marketplace to deploy the service to your OpenShift cluster in the cloud or on-prem.</p>
+        <p class="bx--type-caption">Use the Red Hat Marketplace to deploy the service to your OpenShift cluster in the cloud.</p>
+      </div>
+    </a>
+  </div>
+  <div class="solutionBox">
+    <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm-fw">
+      <div>
+        <p><strong><img src="../images/logo_redhat.png" alt="Red Hat icon" width="50" style="width:50px; border-style: none"/> Deploy from Red Hat Marketplace (airgap install)</p>
+        <p class="bx--type-caption">Use the Red Hat Marketplace to deploy the service to your OpenShift cluster behind a firewall.</p>
       </div>
     </a>
   </div>
