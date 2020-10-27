@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-23"
+lastupdated: "2020-10-27"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -2135,7 +2135,7 @@ NAME                          READY     STATUS              RESTARTS   AGE
 ibp-operator-b9446759-6tmls   1/1       Running             0          1m
 ibpconsole-57ff4bcbb7-79dhn   0/4       Init:ErrImagePull   0          1m
 ```
-This can happen if you have changed your regsitry URL between deployments. Run the following command to download the deployment spec of the console:
+This can happen if you have changed your regsitry URL between deployments. Run the following command to download the CR spec of the console:
 ```
 kubectl get ibpconsole ibpconsole -o yaml > console.yaml
 ```

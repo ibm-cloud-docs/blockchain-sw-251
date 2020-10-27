@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-23"
+lastupdated: "2020-10-27"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -2116,7 +2116,7 @@ ibpconsole     1         1         1            1           8m
 
 If you experience a problem while you are upgrading the operator, go to this [troubleshooting topic](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-cr) for a list of commonly encountered problems.
 
-If your console experiences an image pull error, you may need to update the console deployment spec with local registry that you used to download the images. Run the following command to download the deployment spec of the console:
+If your console experiences an image pull error, you may need to update the console CR spec with local registry that you used to download the images. Run the following command to download the deployment spec of the console:
 ```
 kubectl get ibpconsole ibpconsole -o yaml > console.yaml
 ```
