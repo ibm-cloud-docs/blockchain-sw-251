@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-27"
+lastupdated: "2020-10-28"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -535,13 +535,21 @@ oc adm policy add-scc-to-group <PROJECT_NAME> system:serviceaccounts:<PROJECT_NA
 ### Step four: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator
 {: #upgrade-ocp-steps-251-operator}
 
-Run the following command to upgrade the operator. Replace `<PROJECT_NAME>` with the name of your project.
+Before updating the operator image, you need to stop the ibpconsole by running the following command. Replace <PROJECT_NAME> with the name of your project:
+```
+kubectl patch ibpconsole ibpconsole -n <PROJECT_NAME> -p='[{"op": "replace", "path":"/spec/replicas", "value":0}]' --type=json
+```
+{: codeblock}
+
+Wait a few minutes for the console to stop. While the console is stopped you are unable to deploy or manage your blockchain components.
+{: note}
+
+Run the following command to upgrade the operator. Replace <PROJECT_NAME> with the name of your project:
 
 ```
 kubectl set image deploy/ibp-operator -n <PROJECT_NAME> ibp-operator="cp.icr.io/cp/ibp-operator:2.5.1-20201020-amd64"
 ```
 {: codeblock}
-
 
 After applying the new image to the operator deployment, the operator will restart and pull the latest image. The upgrade takes about a minute. While the upgrade is taking place, you can still access your console UI. However, you cannot use the console to deploy smart contracts, or use the console or the APIs to create or remove a node.
 
@@ -553,6 +561,13 @@ NAME           READY     UP-TO-DATE   AVAILABLE   AGE
 ibp-operator   1/1       1            1           1m
 ibpconsole     1/1       1            1           4m
 ```
+
+After the operator restarts, you can now restart the console by running the following command:
+
+```
+kubectl patch ibpconsole ibpconsole -n <PROJECT_NAME> -p='[{"op": "replace", "path":"/spec/replicas", "value":1}]' --type=json
+```
+{: codeblock}
 
 ### Step six: Upgrade your nodes
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-27"
+lastupdated: "2020-10-28"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -523,6 +523,15 @@ oc adm policy add-scc-to-group <NAMESPACE> system:serviceaccounts:<NAMESPACE>
 ### Step four: Upgrade the {{site.data.keyword.blockchainfull_notm}} operator
 {: #upgrade-k8-steps-251-operator}
 
+Before updating the operator image, you need to stop the ibpconsole by running the following command. Replace <NAMESPACE> with the name of your Kubernetes namespace:
+```
+kubectl patch ibpconsole ibpconsole -n <NAMESPACE> -p='[{"op": "replace", "path":"/spec/replicas", "value":0}]' --type=json
+```
+{: codeblock}
+
+Wait a few minutes for the console to stop. While the console is stopped you are unable to deploy or manage your blockchain components.
+{: note}
+
 Run the following command to upgrade the operator. Replace `<NAMESPACE>` with the Kubernetes namespace for the platform.
 
 ```
@@ -540,6 +549,13 @@ NAME           READY     UP-TO-DATE   AVAILABLE   AGE
 ibp-operator   1/1       1            1           1m
 ibpconsole     1/1       1            1           4m
 ```
+
+After the operator restarts, you can now restart the console by running the following command:
+
+```
+kubectl patch ibpconsole ibpconsole -n <NAMESPACE> -p='[{"op": "replace", "path":"/spec/replicas", "value":1}]' --type=json
+```
+{: codeblock}
 
 ### Step five: Upgrade your nodes
 
