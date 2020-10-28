@@ -541,7 +541,9 @@ kubectl patch ibpconsole ibpconsole -n <PROJECT_NAME> -p='[{"op": "replace", "pa
 ```
 {: codeblock}
 
-Wait a few minutes for the console to stop. While the console is stopped you are unable to deploy or manage your blockchain components.
+Wait a few minutes for the console to stop.
+
+While the console is stopped you are unable to deploy or manage your blockchain components.
 {: note}
 
 Run the following command to upgrade the operator. Replace <PROJECT_NAME> with the name of your project:
