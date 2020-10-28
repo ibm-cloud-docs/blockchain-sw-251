@@ -220,7 +220,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four d
     <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm">
       <div>
         <p><strong><img src="../images/logo_redhat.png" alt="Red Hat icon" width="50" style="width:50px; border-style: none"/> Red Hat Marketplace</p>
-        <p class="bx--type-caption">Use the Red Hat Marketplace to deploy the service to your OpenShift cluster in the <br>cloud.</p>
+        <p class="bx--type-caption">Use the Red Hat Marketplace to deploy the service to your OpenShift cluster in the cloud.</p>
       </div>
     </a>
   </div>
@@ -228,7 +228,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four d
     <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp">
       <div>
         <p><strong><img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/> OpenShift</p>
-        <p class="bx--type-caption"> Manually deploy the IBM Blockchain  Platform service to your OpenShift cluster in <br>your cloud.</p>
+        <p class="bx--type-caption"> Manually deploy the IBM Blockchain  Platform service to your OpenShift cluster in your cloud.</p>
       </div>
     </a>
   </div>
@@ -236,7 +236,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four d
       <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall">
         <div>
           <p><strong><img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/>OpenShift on-prem</p>
-          <p class="bx--type-caption"> Manually deploy the IBM Blockchain Platform to your OpenShift cluster on-prem <br>behind a firewall.</p>
+          <p class="bx--type-caption"> Manually deploy the IBM Blockchain Platform to your OpenShift cluster on-prem behind a firewall.</p>
         </div>
       </a>
   </div>    
