@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-28"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -104,7 +104,6 @@ subcollection: blockchain-sw-251
 </div>
 
 
-
 You can use the following instructions to deploy the {{site.data.keyword.blockchainfull}} Platform 2.5.1 on any x86_64 Kubernetes cluster running at v1.16 - v1.19 or on s390x on OpenShift Container Platform running LinuxONE. The {{site.data.keyword.blockchainfull_notm}} Platform uses a [Kubernetes Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/){: external} to install the {{site.data.keyword.blockchainfull_notm}} Platform console on your cluster and manage the deployment and your blockchain nodes. When the {{site.data.keyword.blockchainfull_notm}} Platform console is running on your cluster, you can use the console to create blockchain nodes and operate a multicloud blockchain network.
 {:shortdesc}
 
@@ -124,7 +123,6 @@ The resources for the CA, peer, and ordering nodes need to be multiplied by the 
 | **Operator**                   | 0.1           | 0.2                   | 0                      |
 | **Console**                    | 1.2           | 2.4                   | 10                     |
 | **Webhook**                    | 0.1           | 0.2                   | 0                      |
-
 {: caption="Table 1. Default resource allocations" caption-side="bottom"}
 ** These values can vary slightly. Actual VPC allocations are visible in the blockchain console when a node is deployed.
 
@@ -135,11 +133,10 @@ The {{site.data.keyword.blockchainfull_notm}} Platform console has been successf
 - Chrome Version 85.0.4183.121 (Official Build) (64-bit)
 - Safari Version 13.0.3 (15608.3.10.1.4)
 
-
 ## Storage
 {: #deploy-k8-storage}
 
-In addition to a small amount of storage (10GB) required by the {{site.data.keyword.blockchainfull_notm}} console, persistent storage is required for each CA, peer, and ordering node that you deploy. Because blockchain components do not use the Kubernetes node local storage, network-attached remote storage is required so that blockchain nodes can failover to a different Kubernetes worker node in the event of a node outage.  And because you cannot change your storage type after deploying peer, CA, or ordering nodes, you need to decide the type of persistent storage that you want to use _before_ you deploy any blockchain nodes.
+In addition to a small amount of storage (10 GB) required by the {{site.data.keyword.blockchainfull_notm}} console, persistent storage is required for each CA, peer, and ordering node that you deploy. Because blockchain components do not use the Kubernetes node local storage, network-attached remote storage is required so that blockchain nodes can fail over to a different Kubernetes worker node in the event of a node outage.  And because you cannot change your storage type after deploying peer, CA, or ordering nodes, you need to decide the type of persistent storage that you want to use _before_ you deploy any blockchain nodes.
 
 The {{site.data.keyword.blockchainfull_notm}} Platform console uses dynamic provisioning to allocate storage for each blockchain node that you deploy by using a pre-defined storage class. You can choose your persistent storage from the available Kubernetes storage options.
 
@@ -163,12 +160,11 @@ If you prefer not to choose a persistent storage option, the default storage cla
 |---------------|------|
 | **Type** | Fabric supports three types of storage for your nodes: File, Block, and Portworx.  All three types support snapshots, which are important for backups and disaster recovery. Portworx is also useful when you have multiple zones in your cluster. Object storage is not supported by Fabric but can be used for backups. |
 | **Performance**| When you choose your storage, you need to factor in the read/write speed (IOPS/GB). {{site.data.keyword.blockchainfull_notm}} Platform suggests at least 2 IOPS/GB for a development or test environment and 4 IOPS/GB for production networks. Your results may vary depending on your use case and how your client application is written. |
-| **Scalability **| When a node runs out of storage it ceases to operate. Even if Kubernetes attempts to redeploy the node elsewhere, when the storage is full, the node cannot operate. Because the ledger is immutable and can only grow over time, expandable storage is nice to have for blockchain networks whenever available. At some point, you will run out of storage on your peers and ordering nodes and expandable storage helps to avoid this situation. If the storage is not expandable, when a peer or ordering runs out of storage, you need to provision a new node with a larger storage capacity and then delete the old one. When the new node is deployed, it must replicate the ledger, which can take time depending on the depth of the block history. |
+| **Scalability **| When a node runs out of storage, it ceases to operate. Even if Kubernetes attempts to redeploy the node elsewhere, when the storage is full, the node cannot operate. Because the ledger is immutable and can only grow over time, expandable storage is nice to have for blockchain networks whenever available. At some point, you will run out of storage on your peers and ordering nodes and expandable storage helps to avoid this situation. If the storage is not expandable, when a peer or ordering runs out of storage, you need to provision a new node with a larger storage capacity and then delete the old one. When the new node is deployed, it must replicate the ledger, which can take time depending on the depth of the block history. |
 | **Monitoring** | It's critical to monitor the storage consumption by your nodes. Consider the scenario where you deploy five ordering nodes, all with the same amount of storage. They are all replicating the same ledgers so they will all run out of storage at approximately the same time and you will lose consensus, causing the network to stop functioning. Therefore, you might want to consider varying the storage across the nodes and monitoring it as the ledger grows to avoid this situation. Before storage is exhausted on a node, you can expand it or provision a new node. |
 | **Encryption** | Fabric does not require storage to be encrypted but it is a best practice for Security. You need to decide whether encryption is important for your business. If you have the option of encrypting the persistent volume, there may be some performance implications with encryption to consider.  |
 | **High Availability (HA)** | There should be redundancy in the storage to avoid a single point of failure. |
 | **Multi-zone capable storage** | {{site.data.keyword.cloud_notm}} includes the ability to create a single Kubernetes cluster across multiple data centers or "zones". Portworx offers multi-zone capable storage that can be used to potentially reduce the number of peers required. Consider a scenario where you build two zones with two peers for redundancy, one zone can go down and you still have two peers up in another zone. With multi-zone capable storage, you could instead have two zones with one peer each. If one zone goes down, the peer comes up in the other zone with its storage intact, reducing the overall redundant peer requirements. |
-
 
 ## Filesystem permissions
 {: #deploy-k8-fs-perm}
@@ -232,7 +228,6 @@ kubectl create secret docker-registry docker-key-secret --docker-server=cp.icr.i
 
 The name of the secret that you are creating is `docker-key-secret`. It is required by the webhook that you will deploy later. You can only use the key once per deployment. You can refresh the key before you attempt another deployment and use that value here.
 {: note}
-
 
 ## Deploy the webhook and custom resource definitions (CRDS) to your Kubernetes cluster
 {: #deploy-k8s-webhook-crd}
@@ -335,7 +330,6 @@ volumes:
 priority: 1
 ```
 {:codeblock}
-
 
 After you save the file, run the following commands to add the file to your cluster and add the policy to your project.
 
@@ -448,7 +442,6 @@ spec:
               memory: "100Mi"
 ```
 {: codeblock}
-
 
 Run the following command to add the file to your cluster definition:
 ```
@@ -753,8 +746,6 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 ```
 
-
-
 ## Create a new namespace for your {{site.data.keyword.blockchainfull_notm}} Platform deployment
 {: #deploy-k8-namespace}
 
@@ -795,7 +786,6 @@ kubectl create secret docker-registry docker-key-secret --docker-server=cp.icr.i
 
 The name of the secret that you are creating is `docker-key-secret`. This value is used by the operator to deploy the offering in future steps. If you change the name of any of secrets that you create, you need to change the corresponding name in future steps.
 {: note}
-
 
 ## Add security and access policies
 {: #deploy-k8-scc}
@@ -1447,6 +1437,5 @@ Before you attempt to install the {{site.data.keyword.blockchainfull_notm}} Plat
     {: codeblock}
 
 7. Verify that all pods are running before you attempt to install the {{site.data.keyword.blockchainfull_notm}} Platform.
-
 
 You can now [resume your installation](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-login).

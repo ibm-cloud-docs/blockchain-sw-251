@@ -483,11 +483,10 @@ subcollection: blockchain-sw-251
   * [Use your own TLS Certificates (Optional)](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm#console-deploy-ocp-use-your-own-tls-certificates-optional)
 * [Step three: Verify the console installation](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm#console-deploy-ocp-verify-install)
 * [Step four: Log in to the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm#deploy-ocp-rhm-log-in)
-* [Upgrading your deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm#console-deploy-ocp-rhm-upgrade-deployment)
 * [Removing your deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm#console-deploy-ocp-rhm-remove-deployment)
 * [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm#console-deploy-ocp-rhm-next-steps)
 * [Support](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm#deploy-ocp-rhm-support)
-* [Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm#deploy-ocp-rhm-project)
+* [Create a project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm#deploy-ocp-rhm-project)
 
 [Deploy {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 manually](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp)
 * [Get your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-entitlement-key)
