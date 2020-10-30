@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-10-28"
+lastupdated: "2020-10-30"
 
 keywords: IBM Blockchain Platform, release, new features, multicloud
 
@@ -31,7 +31,7 @@ subcollection: blockchain-sw-251
     </p>
 </div>
 
-## November 02, 2020
+## October 30, 2020
 {: #whats-new-11-02-2020}
 
 

@@ -150,7 +150,7 @@ subcollection: blockchain-sw-251
 
 [What's new](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new)
 
-[November 02, 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-11-02-2020)
+[October 30, 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-11-02-2020)
 
 
 ## Pricing
@@ -1255,7 +1255,7 @@ subcollection: blockchain-sw-251
 
 [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20)
 
-[02 Nov 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020)
+[30 Oct 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020)
 * [Fabric v2.x node upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020-upgrade)
 * [Support for Fabric v2.x smart contract lifecycle](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020-lc)
 * [Improvements for HSM support](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020-hsm)

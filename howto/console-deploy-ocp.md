@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-10-30"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -103,7 +103,6 @@ subcollection: blockchain-sw-251
     </p>
 </div>
 
-
 You can use the following instructions to deploy the {{site.data.keyword.blockchainfull}} Platform 2.5.1 onto a Kubernetes cluster that is running on OpenShift Container Platform. The {{site.data.keyword.blockchainfull_notm}} Platform uses a [Kubernetes Operator](https://www.openshift.com/learn/topics/operators){: external} to install the {{site.data.keyword.blockchainfull_notm}} Platform console on your cluster and manage the deployment and your blockchain nodes. After the {{site.data.keyword.blockchainfull_notm}} Platform console is running on your cluster, you can use the console to create blockchain nodes and operate a multicloud blockchain network.
 {:shortdesc}
 
@@ -198,7 +197,6 @@ kubectl create secret docker-registry docker-key-secret --docker-server=cp.icr.i
 
 The name of the secret that you are creating is `docker-key-secret`. It is required by the webhook that you will deploy later. You can only use the key once per deployment. You can refresh the key before you attempt another deployment and use that value here.
 {: note}
-
 
 ## Deploy the webhook and custom resource definitions (CRDs) to your OpenShift cluster
 {: #deploy-ocp-webhook-crd}
@@ -302,7 +300,6 @@ priority: 1
 ```
 {:codeblock}
 
-
 After you save the file, run the following commands to add the file to your cluster and add the policy to your project.
 
 ```
@@ -369,7 +366,7 @@ spec:
         fsGroup: 2000
       containers:
         - name: "ibp-webhook"
-          image: "cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201020-amd64"
+          image: "cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201030-amd64"
           imagePullPolicy: Always
           securityContext:
             privileged: false
@@ -414,7 +411,6 @@ spec:
               memory: "100Mi"
 ```
 {: codeblock}
-
 
 Run the following command to add the file to your cluster definition:
 ```
@@ -719,8 +715,6 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 ```
 
-
-
 ## Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment
 {: #deploy-ocp-project}
 
@@ -769,7 +763,6 @@ kubectl create secret docker-registry docker-key-secret --docker-server=cp.icr.i
 The name of the secret that you are creating is `docker-key-secret`. This value is used by the operator to deploy the offering in future steps. If you change the name of any of secrets that you create, you need to change the corresponding name in future steps.
 {: note}
 
-
 ## Add security and access policies
 {: #deploy-ocp-scc}
 
@@ -816,7 +809,6 @@ volumes:
 priority: 1
 ```
 {:codeblock}
-
 
 After you save and edit the file, run the following commands to add the file to your cluster and add the policy to your project.
 ```
@@ -1032,7 +1024,7 @@ spec:
         - name: docker-key-secret
       containers:
         - name: ibp-operator
-          image: cp.icr.io/cp/ibp-operator:2.5.1-20201020-amd64
+          image: cp.icr.io/cp/ibp-operator:2.5.1-20201030-amd64
           command:
           - ibp-operator
           imagePullPolicy: Always

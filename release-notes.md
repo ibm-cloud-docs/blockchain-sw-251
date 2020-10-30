@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-22"
+lastupdated: "2020-10-30"
 
 
 keywords: release note, latest changes, Hyperledger Fabric, multicloud
@@ -35,7 +35,7 @@ Use these release notes that are grouped by date to learn about the latest chang
 
 See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.7-1`, are available for a node, you should always select the latest patch, `1.4.7-1` in this case, wherever possible because it includes the fixes from the previous patches as well.
 
-## 02 Nov 2020
+## 30 Oct 2020
 {: #11-02-2020}
 
 **Certificate Authority (CA) patch 1.4.9-1, Peer and ordering node patch 1.4.9-1, 2.2.1-1**
@@ -55,7 +55,7 @@ For information about upgrading nodes, check out [Upgrading to a new version of 
 ### Support for Fabric v2.x smart contract lifecycle
 {: #11-02-2020-lc}
 
-The platform has been updated to include support for Fabric v2.x smart contract lifecycle process, which enables the distributed governance of smart contracts. Learn mode about how to [Deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2).
+The platform has been updated to include support for Fabric v2.x smart contract lifecycle process, which enables the distributed governance of smart contracts. Learn mode about how to [Deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp).
 
 ### Improvements for HSM support
 {: #11-02-2020-hsm}
