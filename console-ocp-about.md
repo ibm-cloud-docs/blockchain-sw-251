@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-10-30"
 
 keywords: IBM Blockchain Platform, system requirements, Kubernetes, behind a firewall, azure, multicloud
 
@@ -103,7 +103,6 @@ subcollection: blockchain-sw-251
     </p>
 </div>
 
-
 The {{site.data.keyword.blockchainfull}} Platform 2.5.1 enables a consortium of organizations to easily build and join a blockchain network [on-prem](#x4561212){: term}, or on any private, public, or hybrid multicloud that uses Kubernetes. Customers can deploy their nodes on the cloud platform of their choice and connect to any {{site.data.keyword.blockchainfull_notm}} Platform network, whether it is deployed on your own Kubernetes cluster or with the {{site.data.keyword.blockchainfull_notm}} Platform for {{site.data.keyword.cloud_notm}}. The {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 leverages Hyperledger Fabric v1.4.9 and v2.2.1 and supports deployment on multiple Kubernetes distributions.
 {:shortdesc}
 
@@ -153,7 +152,6 @@ Because you only pay for the compute you use, it’s painless to transition from
 
 The world is moving too fast to keep doing things the old way. Go to cloud dot IBM dot com today and check out the IBM blockchain platform.
 
-
 ## What {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 offers
 {: #console-ocp-about-offers}
 
@@ -178,7 +176,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 - **Up-to-date Fabric key features**. Choose which version of Hyperledger Fabric you want to use when deploying peers or ordering nodes. Leverage the latest features of Hyperledger Fabric v1.4.9 and v2.2.1:
   - [Smart contract lifecycle](https://hyperledger-fabric.readthedocs.io/en/release-2.2/chaincode_lifecycle.html){: external}
   - [Raft ordering service](https://hyperledger-fabric.readthedocs.io/en/release-2.2/orderer/ordering_service.html#raft){: external}
-  - [Private data collections](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
+  - [Private data collections](/docs/blockchain-sw-251?topic=blockchain-sw-251-upgrade-ocp#ibp-console-smart-contracts-v2-private-data) that provide increased data privacy by ensuring that ledger data is shared to only authorized peers via the gossip protocol.
   - [Fabric Node OUs](https://hyperledger-fabric.readthedocs.io/en/release-2.2/membership/membership.html#node-ou-roles-and-msps){: external}
   - [Service discovery](https://hyperledger-fabric.readthedocs.io/en/release-2.2/discovery-overview.html){: external}, allowing you to dynamically discover and update how your application interacts with your network.
   - [Channel access control lists](https://hyperledger-fabric.readthedocs.io/en/release-2.2/access_control.html){: external} that allow you additional control of the governance of your channels and smart contracts.
@@ -201,7 +199,6 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 - **Scale** up and down the resources in your Kubernetes cluster, paying for only what you need. For more information, see [Pricing](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-sw-pricing).
 - **Disaster recovery and multi-region high availability (HA).** This option duplicates your Kubernetes deployment across  regions, enabling high availability (HA) of your components and disaster recovery (DR).
 - **Connect to other Fabric networks**: Join {{site.data.keyword.blockchainfull_notm}} Platform peers to any network running Hyperledger Fabric components. Similarly, you can invite Fabric peers to join channels hosted on an ordering service deployed on the {{site.data.keyword.blockchainfull_notm}} Platform. Note that you will need to use Hyperledger Fabric APIs or the CLI.
-
 
 Have questions and want to speak to an {{site.data.keyword.blockchainfull_notm}} Platform expert? [Schedule a consult](https://www.ibm.com/cloud/blockchain-platform/developer?schedulerform){: external} now to learn more about how blockchain can transform your business.
 
@@ -252,7 +249,7 @@ For more information, see [Pricing](/docs/blockchain-sw-251?topic=blockchain-sw-
 ## Installing {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1
 {: #console-ocp-about-install}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 uses a [Kubernetes Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/){: external} to install the {{site.data.keyword.blockchainfull_notm}} Platform console on your cluster and manage the deployment of your nodes. When you purchase the {{site.data.keyword.blockchainfull_notm}} Platform license from Passport Advantage Online, you receive a token that provides access to {{site.data.keyword.IBM_notm}} Entitlement registry. You can use your token with the commands and files that are provided in the installation guide to automatically download the Docker images and start the operator and console on your cluster. When you are ready to get started, see [Deploying {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 on the OpenShift Container Platform](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp). If you are deploying the platform on other Kubernetes distributions, see [Deploying {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 on Kubernetes](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8).
+The {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 uses a [Kubernetes Operator](https://kubernetes.io/docs/concepts/extend-kubernetes/operator/){: external} to install the {{site.data.keyword.blockchainfull_notm}} Platform console on your cluster and manage the deployment of your nodes. When you purchase the {{site.data.keyword.blockchainfull_notm}} Platform license from Passport Advantage Online, you receive a token that provides access to {{site.data.keyword.IBM_notm}} Entitlement registry. You can use your token with the commands and files that are provided in the installation guide to automatically download the Docker images and start the operator and console on your cluster. When you are ready to get started, see [Deploy {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 on the OpenShift Container Platform](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp). If you are deploying the platform on other Kubernetes distributions, see [Deploy {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 on Kubernetes](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8).
 
 It is also possible to deploy the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall, without having access to the public internet. For more information, see [Deploying IBM Blockchain Platform 2.5.1 on the OpenShift Container Platform behind a firewall](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall). Otherwise, for other Kubernetes distributions see [Deploying IBM Blockchain Platform 2.5.1 on Kubernetes behind a firewall](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall).
 
