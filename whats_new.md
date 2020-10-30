@@ -69,3 +69,4 @@ If you have an existing {{site.data.keyword.blockchainfull_notm}} Platform v2.1.
 See the [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020) for more details on the new features that are included in this release.
 
 
+
