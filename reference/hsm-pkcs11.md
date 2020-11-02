@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-23"
+lastupdated: "2020-11-02"
 
 keywords: HSM, PKCS11 proxy
 subcollection: blockchain-sw-251
@@ -97,7 +97,7 @@ subcollection: blockchain-sw-251
 Learn how to configure a PKCS #11 proxy to work with any HSM that supports the PKCS #11 standard.
 {: shortdesc}
 
-Use of this process has been deprecated in favor of using an [HSM client image](/docs/blockchain?topic=blockchain-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker).
+Use of this process has been deprecated in favor of using an [HSM client image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker).
 {: deprecated}
 
 ## Setting up a PKCS #11 proxy for your HSM
