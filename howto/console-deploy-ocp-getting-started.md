@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-10-28"
+lastupdated: "2020-11-06"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -213,21 +213,30 @@ If you prefer not to choose a persistent storage option, the default storage cla
 
 The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four different ways depending on your business goals. Red Hat customers may prefer to deploy the service directly from the Red Hat Marketplace to their OpenShift cluster in the cloud or on-prem. If you prefer to step through the process manually, you can deploy it to your cloud or on-prem  behind a firewall. Finally, an Ansible playbook is available to automate the deployment of the service to your OpenShift cluster.
 
-
-
 <div class=solutionBoxContainer>
   <div class="solutionBox">
     <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm">
       <div>
-        <p><strong><img src="../images/logo_redhat.png" alt="Red Hat icon" width="50" style="width:50px; border-style: none"/> Red Hat Marketplace</p>
+        <img src="../images/logo_redhat.png" alt="Red Hat icon" width="50" style="width:50px; border-style: none"/>
+        <p><strong> Red Hat Marketplace</strong></p>
         <p class="bx--type-caption">Use the Red Hat Marketplace to deploy the service to your OpenShift cluster in the cloud.</p>
+      </div>
+    </a>
+  </div>
+  <div class="solutionBox">
+    <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-rhm-fw">
+      <div>
+        <img src="../images/logo_redhat.png" alt="Red Hat icon" width="50" style="width:50px; border-style: none"/>
+        <p><strong> Red Hat Marketplace</strong></p>
+        <p class="bx--type-caption">(Airgap install) Use the Red Hat Marketplace to deploy the service to your OpenShift cluster behind a firewall.</p>
       </div>
     </a>
   </div>
   <div class="solutionBox">
     <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp">
       <div>
-        <p><strong><img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/> OpenShift</p>
+        <img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/>
+        <p><strong>OpenShift</strong></p>
         <p class="bx--type-caption"> Manually deploy the IBM Blockchain  Platform service to your OpenShift cluster in your cloud.</p>
       </div>
     </a>
@@ -235,7 +244,8 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four d
   <div class="solutionBox">
       <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall">
         <div>
-          <p><strong><img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/>OpenShift on-prem</p>
+          <img src="../images/logo_openshift.svg" alt="OpenShift icon" width="25" style="width:25px; border-style: none"/>
+          <p><strong>OpenShift on-prem</strong></p>
           <p class="bx--type-caption"> Manually deploy the IBM Blockchain Platform to your OpenShift cluster on-prem behind a firewall.</p>
         </div>
       </a>
@@ -243,12 +253,10 @@ The {{site.data.keyword.blockchainfull_notm}} Platform can be deployed in four d
   <div class="solutionBox">
         <a href = "/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp">
           <div>
-            <p><strong><img src="../images/ansible.png" alt="Ansible icon" width="25" style="width:50px; border-style: none"/> Ansible</p>
-            <p class="bx--type-caption"> Automate the deployment of the IBM Blockchain  Platform to your OpenShift cluster  using an Ansible playbook.</p>
+            <img src="../images/ansible.png" alt="Ansible icon" width="25" style="width:25px; border-style: none"/>
+            <p><strong>Ansible</strong></p>
+            <p class="bx--type-caption"> Automate the deployment of the IBM Blockchain Platform to your OpenShift cluster using an Ansible playbook.</p>
           </div>
         </a>
   </div>
 </div>
-
-
-
