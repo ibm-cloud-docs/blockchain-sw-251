@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-06"
+lastupdated: "2020-11-11"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, Red Hat Marketplace, subscription, operators, on-prem, firewall, airgap environment, container registry, portable storage, Bastion server
 
@@ -1072,7 +1072,7 @@ The YAML view shows a sample **console** specification of parameters that you ne
 {: important}
 
 ```yaml
-apiVersion: ibp.com/v1alpha2
+apiVersion: ibp.com/v1beta1
 kind: IBPConsole
 metadata:
   name: ibpconsole
@@ -1153,7 +1153,7 @@ After the console has been created, you can verify that the console deployment s
 Before you deploy the console, you can edit console specification to allocate more resources to your console or use zones for high availability in a multizone cluster. To take advantage of these deployment options, you can use the console resource definition with the `resources:` and `clusterdata:` sections added:
 
 ```yaml
-apiVersion: ibp.com/v1alpha2
+apiVersion: ibp.com/v1beta1
 kind: IBPConsole
 metadata:
   name: ibpconsole
