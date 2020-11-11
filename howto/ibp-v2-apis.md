@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-11-11"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -33,7 +33,6 @@ subcollection: blockchain-sw-251
     <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-apis">2.5</a>
     </p>
 </div>
-
 
 
 The {{site.data.keyword.blockchainfull}} Platform exposes RESTful APIs for you to create, import, edit, and delete your blockchain components, as well as to manage logging, notifications, and console settings. You can use the APIs, and the corresponding SDKs, to develop applications that interact with your blockchain network.
@@ -1249,3 +1248,10 @@ If you want to use the {{site.data.keyword.blockchainfull_notm}} Platform consol
 
 After you import your admin identity, you can associate this identity with the components that you create. You can then use the console to operate your network.
 
+## Prior versions of the APIs
+{: #ibp-v2-apis-priors}
+
+The current version of the API is `v2`. If you need to access the `v1` version of the APIs, a Swagger `.yaml` file is available that can be imported into the [Swagger editor](http://editor.swagger.io){: external}.
+
+- [v1](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v1.yaml)
+- [v2](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v2.yaml)

@@ -1126,6 +1126,8 @@ subcollection: blockchain-sw-251
 * [Completing the configuration file](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-config-file)
 * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-admin-console)
 
+[Prior versions of the APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-priors)
+
 
 ## Tracking license consumption
 {: #sitemap_tracking_license_consumption}
