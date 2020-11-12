@@ -1081,6 +1081,8 @@ subcollection: blockchain-sw-251
 
 [Using the {{site.data.keyword.blockchainfull_notm}} Platform APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis)
 
+[Swagger](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-swagger)
+
 [Prerequisites](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-prereq)
 
 [Connect to your console using API keys](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#console-icp-manage-api-key)
@@ -1125,8 +1127,6 @@ subcollection: blockchain-sw-251
 * [Retrieve the CA connection information](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-config-connx-info)
 * [Completing the configuration file](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-config-file)
 * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-admin-console)
-
-[Prior versions of the APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-priors)
 
 
 ## Tracking license consumption
