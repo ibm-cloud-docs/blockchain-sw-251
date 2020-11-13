@@ -125,5 +125,3 @@ For more information, see [Developing smart contracts with {{site.data.keyword.b
 {: #write-powerful-smart-contracts-installing-proposing}
 
 For information about how to use the console to install smart contract packages and propose and commit smart contract definitions on a channel, see <blockchain>[Deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2).<blockchain>[Deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2).
-
-![Blockchain instances available in Red Hat Marketplace](../images/bar.png "Blockchain instances available in Red Hat Marketplace"){: caption="Figure 1. Blockchain instances available in Red Hat Marketplace" caption-side="bottom"}
