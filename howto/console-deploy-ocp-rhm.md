@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-11-12"
+lastupdated: "2020-11-13"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -136,7 +136,7 @@ scc "blockchain-project" added to: ["system:serviceaccounts:blockchain-project"]
 There are four instances available listed under "Provided APIs":
 
 
-![Blockchain instances available in Red Hat Marketplace](../images/rhm-operators.png "Blockchain instances available in Red Hat Marketplace"){: caption="Figure 1. Blockchain instances available in Red Hat Marketplace" caption-side="bottom"}
+![Blockchain instances available in Red Hat Marketplace](images/rhm-operators.png "Blockchain instances available in Red Hat Marketplace"){: caption="Figure 1. Blockchain instances available in Red Hat Marketplace" caption-side="bottom"}
 
 - **IBP CA** - (Advanced users) Deploys an instance of an {{site.data.keyword.blockchainfull_notm}} Platform CA.
 - **IBP Console** - The {{site.data.keyword.blockchainfull_notm}} Platform console UI, or "console", is an award-winning user interface for building your blockchain network.
@@ -151,7 +151,7 @@ Note that this tutorial only includes instructions for deploying an instance of 
 {: important}
 
 Click **Create Instance** on the **IBPConsole** tile.
-![Blockchain instances available in Red Hat Marketplace](../images/IBPConsole.png "Create instance on the IBPConsole tile"){: caption="Figure 2. Click Create Instance on the IBP Console tile" caption-side="bottom"}
+![Blockchain instances available in Red Hat Marketplace](images/IBPConsole.png "Create instance on the IBPConsole tile"){: caption="Figure 2. Click Create Instance on the IBP Console tile" caption-side="bottom"}
 
 The YAML view shows a sample **console** specification of parameters that you need to customize. The spec is abbreviated to _only the required parameters_.  Be aware that some fields can show up differently based on your configuration. Before you install the console, you should also review the Advanced deployment options in the next section in case any of the other options are relevant to your configuration. For example, if you are deploying your console on a multizone cluster, you need to configure that before you install the console.
 {: important}
