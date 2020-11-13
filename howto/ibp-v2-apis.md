@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-12"
+lastupdated: "2020-11-13"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -43,7 +43,7 @@ This tutorial introduces the generic flow to build a blockchain network with {{s
 ## Swagger
 {: #ibp-v2-apis-swagger}
 
-After you review the instructions in this topic on how to use the APIs, you can also access a swagger version of the APIs. The current version of the [APIs in {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/apidocs/blockchain){:external} is `v2`. If you need to access the `v1` version of the APIs, you can import the `v1` version into the [Swagger editor](http://editor.swagger.io){: external}.
+After you review the instructions in this topic on how to use the APIs, you can alternatively access a Swagger version of the APIs instead of the [APIs in {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/apidocs/blockchain){:external} where the current version is `v2`. If you need to access the `v1` version of the APIs, you can import the `v1` version into the [Swagger editor](http://editor.swagger.io){: external}.
 
 - [v1](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v1.yaml){: external}
 - [v2](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v2.yaml){: external}
