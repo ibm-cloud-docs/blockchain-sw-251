@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-11-13"
 
 
 keywords: release note, latest changes, Hyperledger Fabric, multicloud
@@ -37,7 +37,7 @@ See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-co
 
 
 ## 30 Oct 2020
-{: #10-20-2020}
+{: #10-30-2020}
 
 
 **Certificate Authority (CA) patch 1.4.9-1, Peer and ordering node patch 1.4.9-1, 2.2.1-1**

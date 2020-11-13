@@ -330,8 +330,8 @@ Use these steps if you plan to download the images to a portable compute device 
 {: #deploy-ocp-rhm-fw-portable-overview}
 
 - [Copy the images to the local container registry on portable compute device](#deploy-ocp-rhm-fw-portable-compute)
-- [Copy the images to the container registry behind the firewall](#deploy-ocp-rhm-fw-portable-fw)
-- [Configure global pull secret and insecure registry on the cluster](#deploy-ocp-rhm-fw-protable-global)
+- [Copy the images to the container registry behind the firewall](#deploy-ocp-rhm-fw-portable-compute)
+- [Configure global pull secret and insecure registry on the cluster](#deploy-ocp-rhm-fw-portable-global)
 - [Install {{site.data.keyword.blockchainfull_notm}} operator catalog](#deploy-ocp-rhm-fw-portable-operator)
 
 ### Copy the images to the local container registry on portable compute device
