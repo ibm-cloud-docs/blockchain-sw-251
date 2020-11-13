@@ -129,7 +129,7 @@ Use these instructions to upgrade to the {{site.data.keyword.blockchainfull_notm
 
 The upgrade process that you follow depends on the version of the platform that you are upgrading from, v2.1.x or v2.5.
 - [Upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from v2.5](#upgrade-k8-steps-251)
-- [Upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from v2.1.x](#upgrade-k8s-steps-21x)  
+- [Upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from v2.1.x](#upgrade-k8-steps-21x)  
 
 Or, if you are upgrading from behind a firewall
 - [Upgrade to {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 from v2.5](#upgrade-k8-steps-251)
