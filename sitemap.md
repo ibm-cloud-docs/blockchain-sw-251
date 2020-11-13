@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-11-13"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -1080,6 +1080,8 @@ subcollection: blockchain-sw-251
 
 
 [Using the {{site.data.keyword.blockchainfull_notm}} Platform APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis)
+
+[Swagger](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-swagger)
 
 [Prerequisites](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-prereq)
 

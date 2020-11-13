@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-11-06"
+lastupdated: "2020-11-13"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -159,6 +159,8 @@ The resources for the CA, peer, and ordering nodes need to be multiplied by the 
 | **Webhook**                    | 0.1           | 0.2                   | 0                      |
 {: caption="Table 1. Default resource allocations" caption-side="bottom"}
 ** These values can vary slightly. Actual VPC allocations are visible in the blockchain console when a node is deployed.  
+
+Note that when smart contracts are installed on peers that run a Fabric v2.x image, the smart contract is launched in its own pod instead of a separate container on the peer, which accounts for the smaller amount of resources required on the peer.
 
 If you are deploying the OpenShift platform on {{site.data.keyword.cloud_notm}}, you must create a 4x16 cluster with multiple nodes. This cluster provides sufficient resources to get started by deploying a basic network. Note that one core in OpenShift is equivalent to one CPU (or vCPU) in {{site.data.keyword.blockchainfull_notm}} Platform.
 {: important}

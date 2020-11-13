@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-18"
+lastupdated: "2020-11-13"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -35,11 +35,18 @@ subcollection: blockchain-sw-251
 </div>
 
 
-
 The {{site.data.keyword.blockchainfull}} Platform exposes RESTful APIs for you to create, import, edit, and delete your blockchain components, as well as to manage logging, notifications, and console settings. You can use the APIs, and the corresponding SDKs, to develop applications that interact with your blockchain network.
 {: shortdesc}
 
 This tutorial introduces the generic flow to build a blockchain network with {{site.data.keyword.blockchainfull_notm}} Platform APIs. For more information about each API, see [{{site.data.keyword.blockchainfull_notm}} Platform API reference doc](/apidocs/blockchain){: external}.
+
+## Swagger
+{: #ibp-v2-apis-swagger}
+
+After you review the instructions in this topic on how to use the APIs, you can alternatively access a Swagger version of the APIs instead of the [APIs in {{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/apidocs/blockchain){:external} where the current version is `v2`. If you need to access the `v1` version of the APIs, you can import the `v1` version into the [Swagger editor](http://editor.swagger.io){: external}.
+
+- [v1](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v1.yaml){: external}
+- [v2](https://github.com/ibm-cloud-docs/blockchain/tree/master/reference/ibp-v2.yaml){: external}
 
 ## Prerequisites
 {: #ibp-v2-apis-prereq}
@@ -1248,4 +1255,3 @@ If you want to use the {{site.data.keyword.blockchainfull_notm}} Platform consol
 - **Private Key:** Upload your admins private key. If you followed the instructions above, you can find this key in the `$HOME/fabric-ca-client/peer-admin/msp/keystore/` folder.
 
 After you import your admin identity, you can associate this identity with the components that you create. You can then use the console to operate your network.
-

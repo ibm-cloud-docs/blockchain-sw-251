@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-30"
+lastupdated: "2020-11-13"
 
 keywords: smart contract, lifecycle, package, definition
 

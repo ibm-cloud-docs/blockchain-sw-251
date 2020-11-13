@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-11-06"
+lastupdated: "2020-11-13"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -19,6 +19,7 @@ subcollection: blockchain-sw-251
 {:term: .term}
 {:tip: .tip}
 {:pre: .pre}
+
 
 
 # Deploy from Red Hat Marketplace
@@ -134,6 +135,7 @@ scc "blockchain-project" added to: ["system:serviceaccounts:blockchain-project"]
 
 There are four instances available listed under "Provided APIs":
 
+
 ![Blockchain instances available in Red Hat Marketplace](../images/rhm-operators.png "Blockchain instances available in Red Hat Marketplace"){: caption="Figure 1. Blockchain instances available in Red Hat Marketplace" caption-side="bottom"}
 
 - **IBP CA** - (Advanced users) Deploys an instance of an {{site.data.keyword.blockchainfull_notm}} Platform CA.
@@ -151,70 +153,42 @@ Note that this tutorial only includes instructions for deploying an instance of 
 Click **Create Instance** on the **IBPConsole** tile.
 ![Blockchain instances available in Red Hat Marketplace](../images/IBPConsole.png "Create instance on the IBPConsole tile"){: caption="Figure 2. Click Create Instance on the IBP Console tile" caption-side="bottom"}
 
-The YAML view shows a sample **console** specification of parameters that you need to customize. The spec is abbreviated to _only the required parameters_. A complete list of customizable options is provided in the following sample. Be aware that some fields can show up differently based on your configuration. Before you install the console, you should also review the Advanced deployment options in the next section in case any of the other options are relevant to your configuration. For example, if you are deploying your console on a multizone cluster, you need to configure that before you install the console.
+The YAML view shows a sample **console** specification of parameters that you need to customize. The spec is abbreviated to _only the required parameters_.  Be aware that some fields can show up differently based on your configuration. Before you install the console, you should also review the Advanced deployment options in the next section in case any of the other options are relevant to your configuration. For example, if you are deploying your console on a multizone cluster, you need to configure that before you install the console.
 {: important}
 
 ```yaml
-apiVersion: ibp.com/v1alpha2
+apiVersion: ibp.com/v1beta1
 kind: IBPConsole
 metadata:
   name: ibpconsole
-  namespace: your-project
+  namespace: example
+  labels:
+    app.kubernetes.io/name: "ibp"
+    app.kubernetes.io/instance: "ibp"
+    app.kubernetes.io/managed-by: "ibm-ibp"
 spec:
-  arch:
-  - amd64
-  license: <ACCEPT>
-  serviceAccountName: default
-  proxyIP:
   email: <EMAIL>
   password: <PASSWORD>
-  registryURL: cp.icr.io/cp
   imagePullSecrets:
-    - docker-key-secret
+  - regcred
+  registryURL: cp.icr.io/cp
+  license:
+    accept: <ACCEPT>
   networkinfo:
-      domain: <DOMAIN>
+    domain: <DOMAIN>
   storage:
     console:
-      class: default
-      size: 10Gi
-  clusterdata:
-    zones:
-  resources:
-    console:
-      requests:
-        cpu: 500m
-        memory: 1000Mi
-      limits:
-        cpu: 500m
-        memory: 1000Mi
-    configtxlator:
-      limits:
-        cpu: 25m
-        memory: 50Mi
-      requests:
-        cpu: 25m
-        memory: 50Mi
-    couchdb:
-      limits:
-        cpu: 500m
-        memory: 1000Mi
-      requests:
-        cpu: 500m
-        memory: 1000Mi
-    deployer:
-      limits:
-        cpu: 100m
-        memory: 200Mi
-      requests:
-        cpu: 100m
-        memory: 200Mi
+      class: ''
+      size: 5Gi
+  serviceAccountName: ibm-blockchain
+  version: 2.5.1
 ```
 {:codeblock}
 
-- Accept the IBM Blockchain Platform license by replacing `<ACCEPT>` with the text `accept`.
+- Accept the IBM Blockchain Platform license by replacing `<ACCEPT>` with the text `true`.
 - Replace `<EMAIL>` with the email address that you want to use for the console administrator.
 - Replace `<PASSWORD>` with the password of your choice. This password becomes the default password for the console administrator but they are required to change it the first time they log in.
-- Replace `<DOMAIN>` with the name of your cluster domain. You can find this value from your OpenShift web console URL. Examine the URL for the current page. It is similar to: `https://console-openshift-console.pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.0/ibp.com~v1alpha2~IBPConsole/~new`. The value of the domain then would be `pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud`, after you remove `console-openshift-console` and `/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.0/ibp.com~v1alpha2~IBPConsole/~new`.  
+- Replace `<DOMAIN>` with the name of your cluster domain. You can find this value from your OpenShift web console URL. Examine the URL for the current page. It is similar to: `https://console-openshift-console.pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.1/ibp.com~v1beta1~IBPConsole/~new`. The value of the domain then would be `pa-0803-ocp43-0defdaa0c51bd4a2dcb024eab4bf04a1-0000.us-south.containers.appdomain.cloud`, after you remove `console-openshift-console` and `/k8s/ns/pa0804/clusterserviceversions/ibm-blockchain.v2.5.1/ibp.com~v1beta1~IBPConsole/~new`.  
 
 
 You also need to make additional edits to the file depending on your choices in the deployment process. For example, if you created a new storage class for your network, provide the storage class that you created to the `class:` field.
@@ -236,28 +210,31 @@ After the console has been created, you can verify that the console deployment s
 Before you deploy the console, you can edit console specification to allocate more resources to your console or use zones for high availability in a multizone cluster. To take advantage of these deployment options, you can use the console resource definition with the `resources:` and `clusterdata:` sections added:
 
 ```yaml
-apiVersion: ibp.com/v1alpha2
+apiVersion: ibp.com/v1beta1
 kind: IBPConsole
 metadata:
   name: ibpconsole
   namespace: your-project
+  labels:
+    app.kubernetes.io/name: "ibp"
+    app.kubernetes.io/instance: "ibp"
+    app.kubernetes.io/managed-by: "ibm-ibp"
 spec:
-  arch:
-  - amd64
-  license: <ACCEPT>
-  serviceAccountName: default
-  proxyIP:
   email: <EMAIL>
   password: <PASSWORD>
-  registryURL: cp.icr.io/cp
   imagePullSecrets:
-    - docker-key-secret
+  - regcred
+  registryURL: cp.icr.io/cp
+  license:
+    accept: <ACCEPT>
   networkinfo:
-      domain: <DOMAIN>
+    domain: <DOMAIN>
   storage:
     console:
       class: default
-      size: 10Gi
+      size: 5Gi
+  serviceAccountName: ibm-blockchain
+  version: 2.5.1
   clusterdata:
     zones:
   resources:
@@ -336,28 +313,31 @@ Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainful
 After you create the secret, add the `tlsSecretName` field to the `spec:` section with one indent added, at the same level as the `resources:` and `clusterdata:` sections of the advanced deployment options. You must provide the name of the TLS secret that you created to the field. The following example deploys a console with the TLS certificate and key that is stored in a secret named `"console-tls-secret"`:
 
 ```yaml
-apiVersion: ibp.com/v1alpha2
+apiVersion: ibp.com/v1beta1
 kind: IBPConsole
 metadata:
   name: ibpconsole
   namespace: your-project
+  labels:
+    app.kubernetes.io/name: "ibp"
+    app.kubernetes.io/instance: "ibp"
+    app.kubernetes.io/managed-by: "ibm-ibp"
 spec:
-  arch:
-  - amd64
-  license: <ACCEPT>
-  serviceAccountName: default
-  proxyIP:
   email: <EMAIL>
   password: <PASSWORD>
-  registryURL: cp.icr.io/cp
   imagePullSecrets:
-    - docker-key-secret
+  - regcred
+  registryURL: cp.icr.io/cp
+  license:
+    accept: <ACCEPT>
   networkinfo:
-      domain: <DOMAIN>
+    domain: <DOMAIN>
   storage:
     console:
       class: default
-      size: 10Gi
+      size: 5Gi
+  serviceAccountName: ibm-blockchain
+  version: 2.5.1
   tlsSecretName: "console-tls-secret"
   clusterdata:
     zones:
@@ -504,3 +484,4 @@ You can also use the CLI to find the available storage classes for your namespac
 kubectl get storageclasses
 ```
 {:codeblock}
+

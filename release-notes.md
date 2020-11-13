@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-09"
+lastupdated: "2020-11-13"
 
 
 keywords: release note, latest changes, Hyperledger Fabric, multicloud
