@@ -303,6 +303,7 @@ subcollection: blockchain-sw-251
   * [Step five: Invoke the smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-five-invoke)
   * [Step six: Operate the sample as Digibank](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
 * [Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level)
+* [Highly available applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-ha)
 * [Using indexes with CouchDB](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-couchdb)
 * [Additional Resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-resources)
 
@@ -981,8 +982,8 @@ subcollection: blockchain-sw-251
 * [Application connectivity and availability](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-connectivity-availability)
   * [Managing transactions](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-managing-transactions)
   * [Opening and closing network connections](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-connections)
-  * [Highly available applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-ha-app)
 * [(Optional) Setting timeout values in Fabric SDKs](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-set-timeout-in-sdk)
+* [Resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-resources)
 
 
 ## Advanced tutorials
