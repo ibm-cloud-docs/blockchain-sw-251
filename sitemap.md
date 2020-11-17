@@ -726,6 +726,20 @@ subcollection: blockchain-sw-251
 * [Step Three: Delete the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-Removing-k8#Removing-k8-step-three)
 * [Step Four: Remove policies and secrets](/docs/blockchain-sw-251?topic=blockchain-sw-251-Removing-k8#Removing-k8-step-four)
 
+[Installing the 2.5.1 fix pack](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack)
+* [What this fix pack contains](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-contents)
+* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-begin)
+* [Step one: Update the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-operator)
+* [Step two: Update the {{site.data.keyword.blockchainfull_notm}} console](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-console)
+* [Step three: Apply fixes to your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-nodes)
+* [Rolling back the fix pack installation](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-rollback)
+* [Installing the 2.5.1 fix pack behind a firewall](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-firewall)
+  * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-begin-firewall)
+  * [Step one: Pull the latest {{site.data.keyword.blockchainfull_notm}} Platform images](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-images-firewall)
+  * [Step two: Update the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-operator-firewall)
+  * [Step three: Update the {{site.data.keyword.blockchainfull_notm}} console](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-console-firewall)
+  * [Step four: Update your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-nodes-firewall)
+
 
 ## Using the {{site.data.keyword.blockchainfull_notm}} images
 {: #sitemap_using_the__images}
