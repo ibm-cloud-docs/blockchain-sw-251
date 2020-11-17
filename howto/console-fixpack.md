@@ -37,7 +37,7 @@ You can use these steps if you deployed the platform on the OpenShift Container 
 ## What this fix pack contains
 {: #install-fixpack-contents}
 
-This fix pack contains security patches for the Fabric images and miscellaneous bug fixes.
+This fix pack contains security patches for the Fabric images and miscellaneous bug fixes. See the [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20) for more details.
 
 ## Before you begin
 {: #install-fixpack-begin}
