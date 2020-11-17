@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-13"
+lastupdated: "2020-11-17"
 
 
 keywords: release note, latest changes, Hyperledger Fabric, multicloud
@@ -33,7 +33,20 @@ subcollection: blockchain-sw-251
 Use these release notes that are grouped by date to learn about the latest changes to {{site.data.keyword.blockchainfull}} Platform for {{site.data.keyword.cloud_notm}} which is built on Hyperledger Fabric v1.4.9 and v2.2.1.
 {:shortdesc}
 
-See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.7-1`, are available for a node, you should always select the latest patch, `1.4.7-1` in this case, wherever possible because it includes the fixes from the previous patches as well.
+
+To apply the latest fix pack see [Installing the 2.5.1 fix pack](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack).
+
+
+See [Installing patches](/docs/blockchain?topic=blockchain-ibp-console-manage-console#ibp-console-manage-patch) for instructions on how to apply patches to your existing nodes. Patches are cumulative. This means that if multiple patches, for example `1.4.7-0` and `1.4.7-1`, are available for a node, you should always select the latest patch, `1.4.7-1` in this case, wherever possible because it includes the fixes from the previous patches as well.   
+
+## 19 Nov 2020
+{: #11-19-2020}
+
+**Certificate Authority (CA) patch 1.4.9-2, Peer and ordering node patch 1.4.9-2, 2.2.1-2**
+
+Miscellaneous bug fixes and security patches.  
+
+
 
 
 ## 30 Oct 2020
