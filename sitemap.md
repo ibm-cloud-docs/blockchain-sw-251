@@ -304,6 +304,7 @@ subcollection: blockchain-sw-251
   * [Step six: Operate the sample as Digibank](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
 * [Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level)
 * [Using indexes with CouchDB](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-couchdb)
+* [Additional Resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-resources)
 
 [{{site.data.keyword.blockchainfull_notm}} Platform getting started videos](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-videos)
 
@@ -982,7 +983,6 @@ subcollection: blockchain-sw-251
   * [Opening and closing network connections](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-connections)
   * [Highly available applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-ha-app)
 * [(Optional) Setting timeout values in Fabric SDKs](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-set-timeout-in-sdk)
-* [Best practices when using CouchDB](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-couchdb-indices)
 
 
 ## Advanced tutorials

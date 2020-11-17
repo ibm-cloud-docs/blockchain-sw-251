@@ -34,7 +34,7 @@ Use these release notes that are grouped by date to learn about the latest chang
 {:shortdesc}
 
 
-[Installing the 2.5.1 fix pack](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack).  
+[Installing the 2.5.1 fix pack](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack) 
 - For instructions on how to apply the latest fix pack to your blockchain instance.
 
 
