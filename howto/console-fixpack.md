@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-17"
+lastupdated: "2020-11-18"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, fix pack, multicloud
 
@@ -57,7 +57,7 @@ kubectl get deployment ibp-operator -n <namespace> -o yaml > operator.yaml
 
 Open `operator.yaml` in a text editor and save a new copy of the file as `operator-fixpack.yaml`. You need to update the `image:` field with the new operator image. You can find the name and tag of the latest operator image below:
 ```
-cp.icr.io/cp/ibp-operator:2.5.0-20201119-amd64
+cp.icr.io/cp/ibp-operator:2.5.1-20201119-amd64
 ```
 {:codeblock}
 
@@ -205,7 +205,7 @@ kubectl get deployment ibp-operator -n <namespace> -o yaml > operator.yaml
 
 Open `operator.yaml` in a text editor and save a new copy of the file as `operator-fixpack.yaml`. You need to update the `image:` field with the new operator image. You can find the name and tag of the latest operator image below:
 ```
-cp.icr.io/cp/ibp-operator:2.5.0-20201119-amd64
+cp.icr.io/cp/ibp-operator:2.5.1-20201119-amd64
 ```
 {:codeblock}
 
