@@ -1346,6 +1346,8 @@ subcollection: blockchain-sw-251
 
 [Why is my Node.js smart contract instantiation failing?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-instantiate)
 
+[Why is my Node.js smart contract endorsement failing?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-endorsement)
+
 [Why is the smart contract that I installed on the peer not listed in the UI?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-missing-sc)
 
 [My nodes, channels, smart contracts, and identities have disappeared from the console. How can I get them back?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-browser-storage)
