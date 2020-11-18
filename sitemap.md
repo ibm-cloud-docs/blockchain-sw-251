@@ -292,6 +292,7 @@ subcollection: blockchain-sw-251
   * [Smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sc)
 * [Registering an application identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-identities)
 * [Downloading your connection profile](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-profile)
+* [Service discovery](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-sd)
 * [Enrolling by using the SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-enroll)
 * [Invoking a smart contract by using the SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-invoke)
 * [Running the Commercial Paper sample](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper)
