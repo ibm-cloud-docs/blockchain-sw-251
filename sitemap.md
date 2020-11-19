@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-17"
+lastupdated: "2020-11-19"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -12,6 +12,7 @@ subcollection: blockchain-sw-251
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:android: data-hd-operatingsystem="android"}
+{:api: .ph data-hd-interface='api'}
 {:apikey: data-credential-placeholder='apikey'}
 {:app_key: data-hd-keyref="app_key"}
 {:app_name: data-hd-keyref="app_name"}
@@ -20,6 +21,7 @@ subcollection: blockchain-sw-251
 {:authenticated-content: .authenticated-content}
 {:beta: .beta}
 {:c#: data-hd-programlang="c#"}
+{:cli: .ph data-hd-interface='cli'}
 {:codeblock: .codeblock}
 {:curl: .ph data-hd-programlang='curl'}
 {:deprecated: .deprecated}
@@ -37,7 +39,6 @@ subcollection: blockchain-sw-251
 {:hide-in-docs: .hide-in-docs}
 {:important: .important}
 {:ios: data-hd-operatingsystem="ios"}
-{:java: #java .ph data-hd-programlang='java'}
 {:java: .ph data-hd-programlang='java'}
 {:java: data-hd-programlang="java"}
 {:javascript: .ph data-hd-programlang='javascript'}
@@ -71,7 +72,6 @@ subcollection: blockchain-sw-251
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift: #swift .ph data-hd-programlang='swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -83,6 +83,7 @@ subcollection: blockchain-sw-251
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
 {:tutorial: data-hd-content-type='tutorial'}
+{:ui: .ph data-hd-interface='ui'}
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
@@ -292,6 +293,7 @@ subcollection: blockchain-sw-251
   * [Smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sc)
 * [Registering an application identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-identities)
 * [Downloading your connection profile](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-profile)
+* [Service discovery](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-sd)
 * [Enrolling by using the SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-enroll)
 * [Invoking a smart contract by using the SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-invoke)
 * [Running the Commercial Paper sample](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper)
@@ -303,7 +305,9 @@ subcollection: blockchain-sw-251
   * [Step five: Invoke the smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-five-invoke)
   * [Step six: Operate the sample as Digibank](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
 * [Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level)
+* [Highly available applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-ha)
 * [Using indexes with CouchDB](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-couchdb)
+* [Additional Resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-resources)
 
 [{{site.data.keyword.blockchainfull_notm}} Platform getting started videos](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-videos)
 
@@ -726,6 +730,20 @@ subcollection: blockchain-sw-251
 * [Step Three: Delete the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-Removing-k8#Removing-k8-step-three)
 * [Step Four: Remove policies and secrets](/docs/blockchain-sw-251?topic=blockchain-sw-251-Removing-k8#Removing-k8-step-four)
 
+[Installing the 2.5.1 fix pack](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack)
+* [What this fix pack contains](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-contents)
+* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-begin)
+* [Step one: Update the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-operator)
+* [Step two: Update the {{site.data.keyword.blockchainfull_notm}} console](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-console)
+* [Step three: Apply fixes to your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-nodes)
+* [Rolling back the fix pack installation](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-rollback)
+* [Installing the 2.5.1 fix pack behind a firewall](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-firewall)
+  * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-begin-firewall)
+  * [Step one: Pull the latest {{site.data.keyword.blockchainfull_notm}} Platform images](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-images-firewall)
+  * [Step two: Update the {{site.data.keyword.blockchainfull_notm}} operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-operator-firewall)
+  * [Step three: Update the {{site.data.keyword.blockchainfull_notm}} console](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-console-firewall)
+  * [Step four: Update your blockchain nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-install-fixpack#install-fixpack-nodes-firewall)
+
 
 ## Using the {{site.data.keyword.blockchainfull_notm}} images
 {: #sitemap_using_the__images}
@@ -966,9 +984,8 @@ subcollection: blockchain-sw-251
 * [Application connectivity and availability](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-connectivity-availability)
   * [Managing transactions](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-managing-transactions)
   * [Opening and closing network connections](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-connections)
-  * [Highly available applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-ha-app)
 * [(Optional) Setting timeout values in Fabric SDKs](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-set-timeout-in-sdk)
-* [Best practices when using CouchDB](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-couchdb-indices)
+* [Resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-resources)
 
 
 ## Advanced tutorials
@@ -1248,9 +1265,11 @@ subcollection: blockchain-sw-251
 
 [Raft](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-raft)
 
+[SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-sdk)
+
 [Service credentials](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-service-credentials)
 
-[SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-sdk)
+[Service discovery](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-sd)
 
 [Shim](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-shim)
 
@@ -1278,6 +1297,8 @@ subcollection: blockchain-sw-251
 
 
 [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20)
+
+[19 Nov 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-19-2020)
 
 [30 Oct 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020)
 * [Fabric v2.x node upgrade](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-02-2020-upgrade)
@@ -1327,6 +1348,8 @@ subcollection: blockchain-sw-251
 [Why is my smart contract installation failing with an error on my peer?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-sc-install)
 
 [Why is my Node.js smart contract instantiation failing?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-instantiate)
+
+[Why is my Node.js smart contract endorsement failing?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-nodejs-endorsement)
 
 [Why is the smart contract that I installed on the peer not listed in the UI?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-console-build-network-troubleshoot-missing-sc)
 
