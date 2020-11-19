@@ -337,6 +337,7 @@ The peer restarts and then you can retry the smart contract installation. Becaus
 
 ## Why is my Node.js smart contract instantiation failing?
 {: #ibp-v2-troubleshooting-nodejs-instantiate}
+{: troubleshoot}
 
 {: tsSymptoms}
 Instantiating a Node.js smart contract fails with the timeout error:
@@ -354,6 +355,8 @@ Customers should wait for five minutes after the failure occurs and then retry t
 
 ## Why is my Node.js smart contract endorsement failing?
 {: #ibp-v2-troubleshooting-nodejs-endorsement}
+{: troubleshoot}
+{: support}
 
 {: tsSymptoms}
 My Node.js smart contract endorsement fails with the error:
