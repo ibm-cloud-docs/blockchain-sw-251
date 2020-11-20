@@ -204,7 +204,7 @@ If you are using Windows, you also must ensure the following:
 1. Go to the [GitHub releases page](https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases){: external}
 2. Select the most recent v2 release of the extension (tagged 2.0.x), scroll down to the **Assets** twistie and download the `.vsix` file.
 3. Navigate to the extensions panel within Visual Studio Code.
-4. Click the **...** in the top right of the extensions panel and select **Install from VSIX**. Select the downloaded `.vsix` file.
+4. Click the ellipses (...) in the top right of the extensions panel and select **Install from VSIX**. Select the downloaded `.vsix` file.
 5. If you are upgrading the extension, you will need to restart VS Code to complete installation of the extension.  
 
 It is currently not possible to upgrade v1 of the extension to v2.

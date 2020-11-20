@@ -465,7 +465,7 @@ As a best practice, you should have already stored your certificates and identit
 {: #ibp-console-transientfailure}
 {: troubleshoot}
 
-The following error appears on the console: "All SubConns are in TransientFailutre."
+The following error is shown on the console: "All SubConns are in TransientFailutre."
 {: tsSymptoms}
 
 An Out of Memory (OOM) situation can cause this error.
