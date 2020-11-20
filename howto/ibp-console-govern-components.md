@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-10-16"
+lastupdated: "2020-11-20"
 
 keywords: network components, Kubernetes, OpenShift, allocate resources, batch timeout, reallocate resources, LevelDB, CouchDB, ordering nodes, ordering, add and remove, governance
 
@@ -27,11 +27,10 @@ subcollection: blockchain-sw-251
   <p style="line-height: 10px;">
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-ibp-console-govern-components">2.1.2</a>,
-    <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-govern-components">2.1.3</a>
+    <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-govern-components">2.1.3</a>,
     <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-console-govern-components">2.5</a>
     </p>
 </div>
-
 
 After creating CAs, peers, and ordering nodes, you need to monitor the resources used by the nodes and potentially reallocate resources.
 {:shortdesc}
@@ -108,7 +107,7 @@ However, if you are not taking regular backups, it is recommended that you minim
 If you are upgrading both peer and ordering node binaries, it is a best practice to upgrade the ordering nodes first, as ensuring that the ordering nodes (and by extension, the ordering service) is functioning correctly is more important to the health of your network as a whole than the functioning of any particular peer.
 {: tip}
 
-The process for upgrading a node is relatively straightforward. First, make sure you are using the console where the node was created. You cannot use the console to update imported nodes. When a node upgrade is available, the **Upgrade available** appears on the tile representing the node on the **Nodes** panel. <blockchain-sw-25>If **Upgrade available** does not appear on the tile when it should be there, make sure you have upgraded to the latest version of the console.</blockchain-sw-25>
+The process for upgrading a node is relatively straightforward. First, make sure you are using the console where the node was created. You cannot use the console to update imported nodes. When a node upgrade is available, **Upgrade available** is visible on the node tile. <blockchain-sw-25>If **Upgrade available** does not appear on the tile when it should be there, make sure you have upgraded to the latest version of the console.</blockchain-sw-25>
 
 You can then update the node:
 
@@ -236,5 +235,3 @@ You may also choose to only delete all of a single type of node within a namespa
 
 Note that if you delete your entire project, your smart contract pods will also be deleted.
 {: tip}
-
-

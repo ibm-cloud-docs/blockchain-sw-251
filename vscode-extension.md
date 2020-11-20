@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-19"
+lastupdated: "2020-11-20"
 
 
 keywords: vs code extension, Visual Studio Code extension, smart contract, development tools, multicloud
@@ -29,7 +29,7 @@ subcollection: blockchain-sw-251
   <p style="line-height: 10px;">
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-develop-vscode">2.1.2</a>,
-    <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-develop-vscode">2.1.3</a>
+    <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-develop-vscode">2.1.3</a>,
     <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-develop-vscode">2.5</a>
     </p>
 </div>
@@ -204,7 +204,7 @@ If you are using Windows, you also must ensure the following:
 1. Go to the [GitHub releases page](https://github.com/IBM-Blockchain/blockchain-vscode-extension/releases){: external}
 2. Select the most recent v2 release of the extension (tagged 2.0.x), scroll down to the **Assets** twistie and download the `.vsix` file.
 3. Navigate to the extensions panel within Visual Studio Code.
-4. Click the **...** in the top right of the extensions panel and select **Install from VSIX**. Select the downloaded `.vsix` file.
+4. Click the ellipses (...) in the top right of the extensions panel and select **Install from VSIX**. Select the downloaded `.vsix` file.
 5. If you are upgrading the extension, you will need to restart VS Code to complete installation of the extension.  
 
 It is currently not possible to upgrade v1 of the extension to v2.
