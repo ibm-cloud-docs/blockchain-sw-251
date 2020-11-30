@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-10-21"
+lastupdated: "2020-11-30"
 
 keywords: HSM, Gemalto, IBM Cloud
 
@@ -13,6 +13,7 @@ subcollection: blockchain-sw-251
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:android: data-hd-operatingsystem="android"}
+{:api: .ph data-hd-interface='api'}
 {:apikey: data-credential-placeholder='apikey'}
 {:app_key: data-hd-keyref="app_key"}
 {:app_name: data-hd-keyref="app_name"}
@@ -21,6 +22,7 @@ subcollection: blockchain-sw-251
 {:authenticated-content: .authenticated-content}
 {:beta: .beta}
 {:c#: data-hd-programlang="c#"}
+{:cli: .ph data-hd-interface='cli'}
 {:codeblock: .codeblock}
 {:curl: .ph data-hd-programlang='curl'}
 {:deprecated: .deprecated}
@@ -38,7 +40,6 @@ subcollection: blockchain-sw-251
 {:hide-in-docs: .hide-in-docs}
 {:important: .important}
 {:ios: data-hd-operatingsystem="ios"}
-{:java: #java .ph data-hd-programlang='java'}
 {:java: .ph data-hd-programlang='java'}
 {:java: data-hd-programlang="java"}
 {:javascript: .ph data-hd-programlang='javascript'}
@@ -72,7 +73,6 @@ subcollection: blockchain-sw-251
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift: #swift .ph data-hd-programlang='swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -84,6 +84,7 @@ subcollection: blockchain-sw-251
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
 {:tutorial: data-hd-content-type='tutorial'}
+{:ui: .ph data-hd-interface='ui'}
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
@@ -354,7 +355,6 @@ LunaSA Client = {
 ```
 {: codeblock}
 
-
 ##### Step two: Build the HSM client image
 {: #ibp-hsm-gemalto-part-four-docker}
 
@@ -399,7 +399,6 @@ docker build -t hsm-client:v1 -f Dockerfile .
 ```
 {: codeblock}
 
-
 ##### Step three: Push the docker image to your container registry
 {: #ibp-hsm-gemalto-part-four-push}
 
@@ -414,7 +413,6 @@ docker push <DOCKER_HUB_ID>/hsm-client:v1
 
 - Replace `<DOCKER_HUB_ID>` with your Docker Hub id.
 - Replace `<DOCKER_HUB_PWD>` with your Docker Hub password.
-
 
 
 **Create a Kubernetes image pull secret**
@@ -438,7 +436,6 @@ Replace:
     - [Using an image pull secret to access images in other IBM Cloud accounts or external private registries from non-default Kubernetes namespaces](/docs/containers?topic=containers-registry#other)
     - [Copying an existing image pull secret](/docs/containers?topic=containers-registry#copy_imagePullSecret)
     - [Referring to the image pull secret in your pod deployment](/docs/containers?topic=containers-images#pod_imagePullSecret)
-
 
 #### Step four: Create a Kubernetes secret `hsmcrypto`
 {: #ibp-console-adv-deployment-hsm-client-crypto}
@@ -480,7 +477,6 @@ metadata:
   name: hsmcrypto
   namespace: <NAMESPACE>
 ```
-
 
 #### Step five: Create the HSM configmap
 {: #ibp-console-adv-deployment-hsm-configmap}
@@ -529,8 +525,8 @@ Replace the following values:
 - `HSM_LIBRARY_FILE_PATH`: Path to the HSM library file, for example, `/usr/lib/libCryptoki2_64.so`.
 - `MOUNTPATH`: Location where the file or folder should be mounted.
 - `MOUNTPATH_NAME`: Name you want to use for the `mountpath`.
-- `KEY`:  Name of the HSM client private key.
-- `PATH`: Mount location of the HSM client private key file.
+- `KEY`:  Name of the key inside the `hsmcrypto` Kubernetes secret.
+- `PATH`: Mount location of the file path where the key should be mounted.
 - `HSM_CRYPTO_SECRET`: Name of the Kubernetes secret that contains the keys and configuration files for the HSM that is used by the `mountpath`.
 
 Each HSM likely has a different set of keys that are required by the HSM client. Optionally replicate the "`key`" and "`path`" sections according to the number required by your HSM client. Similarly, if multiple sets of folders need to be mounted, you can replicate the "`mountpath`" section.  
@@ -605,7 +601,6 @@ metadata:
 ...
 ```
 
-
 Congratulations. You have completed the HSM configuration for your blockchain network. Now when you deploy a new CA, peer, or ordering node, you can configure it to use the HSM that you have configured here. See [What's next](#ibp-hsm-gemalto-next-steps) for details on how to configure a node to use the HSM.
 
 ### What's next
@@ -630,4 +625,3 @@ When the node is deployed, a private key for the specified node enroll ID and se
 {: #ibp-hsm-gemalto-multiple-partitions}
 
 If your HSM has multiple partitions, only one PKCS #11 proxy is required to communicate with the HSM.
-
