@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-13"
+lastupdated: "2020-11-30"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, Red Hat Marketplace, subscription, operators, on-prem, firewall, airgap environment, container registry, portable storage, Bastion server
 
@@ -13,6 +13,7 @@ subcollection: blockchain-sw-251
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:android: data-hd-operatingsystem="android"}
+{:api: .ph data-hd-interface='api'}
 {:apikey: data-credential-placeholder='apikey'}
 {:app_key: data-hd-keyref="app_key"}
 {:app_name: data-hd-keyref="app_name"}
@@ -21,6 +22,7 @@ subcollection: blockchain-sw-251
 {:authenticated-content: .authenticated-content}
 {:beta: .beta}
 {:c#: data-hd-programlang="c#"}
+{:cli: .ph data-hd-interface='cli'}
 {:codeblock: .codeblock}
 {:curl: .ph data-hd-programlang='curl'}
 {:deprecated: .deprecated}
@@ -38,7 +40,6 @@ subcollection: blockchain-sw-251
 {:hide-in-docs: .hide-in-docs}
 {:important: .important}
 {:ios: data-hd-operatingsystem="ios"}
-{:java: #java .ph data-hd-programlang='java'}
 {:java: .ph data-hd-programlang='java'}
 {:java: data-hd-programlang="java"}
 {:javascript: .ph data-hd-programlang='javascript'}
@@ -72,7 +73,6 @@ subcollection: blockchain-sw-251
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift: #swift .ph data-hd-programlang='swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -84,6 +84,7 @@ subcollection: blockchain-sw-251
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
 {:tutorial: data-hd-content-type='tutorial'}
+{:ui: .ph data-hd-interface='ui'}
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
@@ -193,12 +194,12 @@ You need to customize the following variables:
 - `EXTERNAL_REGISTRY_USER` - Provide the user name associated with your Red Hat Marketplace account.
 - `EXTERNAL_REGISTRY_PASSWORD` - Generate and paste your Red Hat Marketplace account pull secret.
 - `PORTABLE_REGISTRY_HOST` - (Optional) Provide the hostname of your intermediate server, if using.
-- `PORTABLE_REGISTRY_USER` - (Optional) Provide the user with access to the internal registry, if using an intermediate server.
-- `PORTABLE_REGISTRY_USER` - (Optional) Provide the password for the internal registry, if using an intermediate server.
-- `INTERNAL_REGISTRY_HOST` - Provide the hostname of the airgap env internal registry.
-- `INTERNAL_REGISTRY_PORT` - Provide the port for the airgap env internal registry.
-- `INTERNAL_REGISTRY_USER` - Provide the user with access to the internal registry in the airgap environment.
-- `INTERNAL_REGISTRY_PASSWORD` - Provide the password for the internal registry in the airgap environment.
+- `PORTABLE_REGISTRY_USER` - (Optional) Provide the name of the user with access to the portable registry, if using an intermediate server.
+- `PORTABLE_REGISTRY_PASSWORD` - (Optional) Provide the password for the portable registry, if using an intermediate server. 
+- `INTERNAL_REGISTRY_HOST` - Provide the hostname of the internal registry in the airgap environment.
+- `INTERNAL_REGISTRY_PORT` - Provide the port of the internal registry in the airgap environment .
+- `INTERNAL_REGISTRY_USER` - Provide the name of the user with access to the internal registry in the airgap environment.
+- `INTERNAL_REGISTRY_PASSWORD` - Provide the password for user with access to the internal registry in the airgap environment.
 
 The `OFFLINEDIR` folder (`${HOME}/offline`) is not automatically generated. You need to create this folder in your local environment before proceeding with the rest of the instructions.
 {: note}
@@ -382,12 +383,12 @@ You need to customize the following variables:
 - `EXTERNAL_REGISTRY_USER` - Provide the user name associated with your Red Hat Marketplace account.
 - `EXTERNAL_REGISTRY_PASSWORD` - Generate and paste your Red Hat Marketplace account pull secret.
 - `PORTABLE_REGISTRY_HOST` - (Optional) Provide the hostname of your intermediate server, if using.
-- `PORTABLE_REGISTRY_USER` - (Optional) Provide the user with access to the internal registry, if using an intermediate server.
-- `PORTABLE_REGISTRY_USER` - (Optional) Provide the password for the internal registry, if using an intermediate server.
-- `INTERNAL_REGISTRY_HOST` - Provide the hostname of the airgap env internal registry.
-- `INTERNAL_REGISTRY_PORT` - Provide the port for the airgap env internal registry.
-- `INTERNAL_REGISTRY_USER` - Provide the user with access to the internal registry in the airgap environment.
-- `INTERNAL_REGISTRY_PASSWORD` - Provide the password for the internal registry in the airgap environment.
+- `PORTABLE_REGISTRY_USER` - (Optional) Provide the name of the user with access to the portable registry, if using an intermediate server.
+- `PORTABLE_REGISTRY_PASSWORD` - (Optional) Provide the password for the portable registry, if using an intermediate server. 
+- `INTERNAL_REGISTRY_HOST` - Provide the hostname of the internal registry in the airgap environment.
+- `INTERNAL_REGISTRY_PORT` - Provide the port of the internal registry in the airgap environment .
+- `INTERNAL_REGISTRY_USER` - Provide the name of the user with access to the internal registry in the airgap environment.
+- `INTERNAL_REGISTRY_PASSWORD` - Provide the password for user with access to the internal registry in the airgap environment.
 
 The `OFFLINEDIR` folder (`${HOME}/offline`) is not automatically generated. You need to create this folder in your local environment before proceeding with the rest of the instructions.
 {: note}
@@ -528,12 +529,12 @@ You need to customize the following variables:
 - `EXTERNAL_REGISTRY_USER` - Provide the user name associated with your Red Hat Marketplace account.
 - `EXTERNAL_REGISTRY_PASSWORD` - Generate and paste your Red Hat Marketplace account pull secret.
 - `PORTABLE_REGISTRY_HOST` - (Optional) Provide the hostname of your intermediate server, if using.
-- `PORTABLE_REGISTRY_USER` - (Optional) Provide the user with access to the internal registry, if using an intermediate server.
-- `PORTABLE_REGISTRY_USER` - (Optional) Provide the password for the internal registry, if using an intermediate server.
-- `INTERNAL_REGISTRY_HOST` - Provide the hostname of the airgap env internal registry.
-- `INTERNAL_REGISTRY_PORT` - Provide the port for the airgap env internal registry.
-- `INTERNAL_REGISTRY_USER` - Provide the user with access to the internal registry in the airgap environment.
-- `INTERNAL_REGISTRY_PASSWORD` - Provide the password for the internal registry in the airgap environment.
+- `PORTABLE_REGISTRY_USER` - (Optional) Provide the name of the user with access to the portable registry, if using an intermediate server.
+- `PORTABLE_REGISTRY_PASSWORD` - (Optional) Provide the password for the portable registry, if using an intermediate server. 
+- `INTERNAL_REGISTRY_HOST` - Provide the hostname of the internal registry in the airgap environment.
+- `INTERNAL_REGISTRY_PORT` - Provide the port of the internal registry in the airgap environment .
+- `INTERNAL_REGISTRY_USER` - Provide the name of the user with access to the internal registry in the airgap environment.
+- `INTERNAL_REGISTRY_PASSWORD` - Provide the password for user with access to the internal registry in the airgap environment.
 
 The `OFFLINEDIR` folder (`${HOME}/offline`) is not automatically generated. You need to create this folder in your local environment before proceeding with the rest of the instructions.
 {: note}
@@ -729,12 +730,12 @@ You need to customize the following variables:
 - `EXTERNAL_REGISTRY_USER` - Provide the user name associated with your Red Hat Marketplace account.
 - `EXTERNAL_REGISTRY_PASSWORD` - Generate and paste your Red Hat Marketplace account pull secret.
 - `PORTABLE_REGISTRY_HOST` - (Optional) Provide the hostname of your intermediate server, if using.
-- `PORTABLE_REGISTRY_USER` - (Optional) Provide the user with access to the internal registry, if using an intermediate server.
-- `PORTABLE_REGISTRY_USER` - (Optional) Provide the password for the internal registry, if using an intermediate server.
-- `INTERNAL_REGISTRY_HOST` - Provide the hostname of the airgap env internal registry.
-- `INTERNAL_REGISTRY_PORT` - Provide the port for the airgap env internal registry.
-- `INTERNAL_REGISTRY_USER` - Provide the user with access to the internal registry in the airgap environment.
-- `INTERNAL_REGISTRY_PASSWORD` - Provide the password for the internal registry in the airgap environment.
+- `PORTABLE_REGISTRY_USER` - (Optional) Provide the name of the user with access to the portable registry, if using an intermediate server.
+- `PORTABLE_REGISTRY_PASSWORD` - (Optional) Provide the password for the portable registry, if using an intermediate server. 
+- `INTERNAL_REGISTRY_HOST` - Provide the hostname of the internal registry in the airgap environment.
+- `INTERNAL_REGISTRY_PORT` - Provide the port of the internal registry in the airgap environment .
+- `INTERNAL_REGISTRY_USER` - Provide the name of the user with access to the internal registry in the airgap environment.
+- `INTERNAL_REGISTRY_PASSWORD` - Provide the password for user with access to the internal registry in the airgap environment.
 
 The `OFFLINEDIR` folder (`${HOME}/offline`) is not automatically generated. You need to create this folder in your local environment before proceeding with the rest of the instructions.
 {: note}
@@ -885,12 +886,12 @@ You need to customize the following variables:
 - `EXTERNAL_REGISTRY_USER` - Provide the user name associated with your Red Hat Marketplace account.
 - `EXTERNAL_REGISTRY_PASSWORD` - Generate and paste your Red Hat Marketplace account pull secret.
 - `PORTABLE_REGISTRY_HOST` - (Optional) Provide the hostname of your intermediate server, if using.
-- `PORTABLE_REGISTRY_USER` - (Optional) Provide the user with access to the internal registry, if using an intermediate server.
-- `PORTABLE_REGISTRY_USER` - (Optional) Provide the password for the internal registry, if using an intermediate server.
-- `INTERNAL_REGISTRY_HOST` - Provide the hostname of the airgap env internal registry.
-- `INTERNAL_REGISTRY_PORT` - Provide the port for the airgap env internal registry.
-- `INTERNAL_REGISTRY_USER` - Provide the user with access to the internal registry in the airgap environment.
-- `INTERNAL_REGISTRY_PASSWORD` - Provide the password for the internal registry in the airgap environment.
+- `PORTABLE_REGISTRY_USER` - (Optional) Provide the name of the user with access to the portable registry, if using an intermediate server.
+- `PORTABLE_REGISTRY_PASSWORD` - (Optional) Provide the password for the portable registry, if using an intermediate server. 
+- `INTERNAL_REGISTRY_HOST` - Provide the hostname of the internal registry in the airgap environment.
+- `INTERNAL_REGISTRY_PORT` - Provide the port of the internal registry in the airgap environment .
+- `INTERNAL_REGISTRY_USER` - Provide the name of the user with access to the internal registry in the airgap environment.
+- `INTERNAL_REGISTRY_PASSWORD` - Provide the password for user with access to the internal registry in the airgap environment.
 
 The `OFFLINEDIR` folder (`${HOME}/offline`) is not automatically generated. You need to create this folder in your local environment before proceeding with the rest of the instructions.
 {: note}

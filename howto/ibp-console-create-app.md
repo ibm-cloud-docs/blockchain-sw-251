@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-20"
+lastupdated: "2020-11-30"
 
 keywords: client application, Commercial Paper, SDK, wallet, generate a certificate, generate a private key, fabric gateway, APIs, smart contract
 
@@ -725,5 +725,5 @@ data to an external database, see the [Off chain data sample](https://github.com
 [{{site.data.keyword.IBM_notm}} Developer](https://developer.ibm.com/technologies/blockchain/)   
 For tutorials, code patterns, and videos that help developers get started and learn best practices for developing blockchain applications.  
 
-[Blockchain Design patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns)    
+[Blockchain Design Patterns](https://developer.ibm.com/technologies/blockchain/articles/getting-started-with-blockchain-design-patterns)    
 For application developers who want to learn about common patterns for interacting with blockchain networks.
