@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-18"
+lastupdated: "2020-12-03"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, fix pack, multicloud
 
@@ -57,7 +57,7 @@ kubectl get deployment ibp-operator -n <namespace> -o yaml > operator.yaml
 
 Open `operator.yaml` in a text editor and save a new copy of the file as `operator-fixpack.yaml`. You need to update the `image:` field with the new operator image. You can find the name and tag of the latest operator image below:
 ```
-cp.icr.io/cp/ibp-operator:2.5.1-20201119-amd64
+cp.icr.io/cp/ibp-operator:2.5.1-20201208-amd64
 ```
 {:codeblock}
 
@@ -96,7 +96,7 @@ kubectl delete deployment -n <namespace> ibpconsole
 ```
 {:codeblock}
 
-After you delete the console deployment and ConfigMap, the console will restart and download the new images and configuration settings provided by the 2.5.1 fix pack from the updated operator. You can use the following commands to confirm that the console has been updated with the latest images and configuration. The new images used by the console and your blockchain nodes will have the tags with the date `20201119`.
+After you delete the console deployment and ConfigMap, the console will restart and download the new images and configuration settings provided by the 2.5.1 fix pack from the updated operator. You can use the following commands to confirm that the console has been updated with the latest images and configuration. The new images used by the console and your blockchain nodes will have the tags with the date `20201208`.
 ```
 kubectl get deployment -n <namespace> ibpconsole -o yaml
 kubectl get configmap -n <namespace> ibpconsole-deployer -o yaml
@@ -205,7 +205,7 @@ kubectl get deployment ibp-operator -n <namespace> -o yaml > operator.yaml
 
 Open `operator.yaml` in a text editor and save a new copy of the file as `operator-fixpack.yaml`. You need to update the `image:` field with the new operator image. You can find the name and tag of the latest operator image below:
 ```
-cp.icr.io/cp/ibp-operator:2.5.1-20201119-amd64
+cp.icr.io/cp/ibp-operator:2.5.1-20201208-amd64
 ```
 {:codeblock}
 
@@ -244,7 +244,7 @@ kubectl delete deployment -n <namespace> ibpconsole
 ```
 {:codeblock}
 
-After you delete the console deployment and ConfigMap, the console will restart and download the new images and configuration settings provided by the 2.5.1 fix pack from the updated operator. You can use the following commands to confirm that the console has been updated with the latest images and configuration. The new images used by the console and your blockchain nodes will have the tags with the date `20201119`.
+After you delete the console deployment and ConfigMap, the console will restart and download the new images and configuration settings provided by the 2.5.1 fix pack from the updated operator. You can use the following commands to confirm that the console has been updated with the latest images and configuration. The new images used by the console and your blockchain nodes will have the tags with the date `20201208`.
 ```
 kubectl get deployment -n <namespace> ibpconsole -o yaml
 kubectl get configmap -n <namespace> ibpconsole-deployer -o yaml
