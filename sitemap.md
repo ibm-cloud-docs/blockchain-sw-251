@@ -1302,7 +1302,7 @@ subcollection: blockchain-sw-251
 
 [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20)
 
-[08 December 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#12-08-2020)
+[08 Dec 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#12-08-2020)
 
 [19 Nov 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-19-2020)
 
