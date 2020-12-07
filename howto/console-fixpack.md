@@ -23,7 +23,7 @@ subcollection: blockchain-sw-251
 {: #install-fixpack}
 
 
-Use these instructions if you have already installed or upgraded to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 before Dec 08, 2020 and want to apply the latest 2.5.1 fix pack. This fix pack contains important bug fixes and should be applied to your network as soon as possible.  If you install the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 after Dec 08, 2020, the platform will contain all the bug fixes and improvements included in this fix pack, and you do not need to apply it.
+Use these instructions if you have already installed or upgraded to the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 before Dec 08, 2020 and want to apply the latest 2.5.1 fix pack. This fix pack is cumulative and contains important bug fixes and should be applied to your network as soon as possible.  If you install the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 after Dec 08, 2020, the platform will contain all the bug fixes and improvements included in this fix pack, and you do not need to apply it.
 {:shortdesc}
 
 You can install the fix pack by updating the {{site.data.keyword.blockchainfull_notm}} Platform deployment on your Kubernetes cluster to pull the latest images from the {{site.data.keyword.IBM_notm}} entitlement registry. You can apply the fix pack by using the following steps:
@@ -37,7 +37,7 @@ You can use these steps if you deployed the platform on the OpenShift Container 
 ## What this fix pack contains
 {: #install-fixpack-contents}
 
-This fix pack contains security patches for the Fabric images and miscellaneous bug fixes. See the [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20) for more details.
+This fix pack contains security patches for the Fabric images and miscellaneous bug fixes and is cumulative, which means that it contains all of the fixes from previous 2.5.1 fixpacks. See the [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20) for more details.
 
 ## Before you begin
 {: #install-fixpack-begin}
