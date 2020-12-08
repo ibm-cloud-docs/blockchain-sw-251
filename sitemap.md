@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-01"
+lastupdated: "2020-12-08"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -120,6 +120,11 @@ subcollection: blockchain-sw-251
 [Step three: Use the console to create your components](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp#get-started-console-ocp-build-network)
 
 [Step four: Connect networks across clouds](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp#get-started-console-ocp-import-nodes)
+
+
+## What is blockchain?
+
+[What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain){: external}
 
 
 ## About {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1
@@ -1301,6 +1306,8 @@ subcollection: blockchain-sw-251
 
 
 [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20)
+
+[08 Dec 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#12-08-2020)
 
 [19 Nov 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#11-19-2020)
 
