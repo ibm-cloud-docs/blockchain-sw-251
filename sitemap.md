@@ -122,11 +122,6 @@ subcollection: blockchain-sw-251
 [Step four: Connect networks across clouds](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp#get-started-console-ocp-import-nodes)
 
 
-## What is blockchain?
-
-[What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain){: external}
-
-
 ## About {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1
 {: #sitemap_about__platform_2.5.1}
 
@@ -148,6 +143,11 @@ subcollection: blockchain-sw-251
 [Getting support](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about#console-ocp-about-support)
 
 [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-ocp-about#console-ocp-about-next-steps)
+
+
+## What is blockchain?
+
+[What is blockchain?](https://www.ibm.com/blockchain/what-is-blockchain){: external}
 
 
 ## What's new
