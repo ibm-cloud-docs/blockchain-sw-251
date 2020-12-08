@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-11-20"
+lastupdated: "2020-12-08"
 
 keywords: APIs, build a network, authentication, service credentials, API key, API endpoint, IAM access token, Fabric CA client, import a network, generate certificates
 
@@ -64,6 +64,9 @@ To use the APIs, you will need to gather the following information:
 Each console provides its own identity and access management. You can use your console username and password to generate an API key and secret that can authorize your API calls.
 
 Each API key is associated with a role that governs the user's permissions. The API keys use the same access policy roles as exist for users who login to the console using a username and password. Refer to the table in the [Managing users](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-users) section for the list of actions each role is allowed to perform. Because only manager roles can create API keys, a console administrator needs to create API keys for reader and writer users. The API keys never expire. As a result, the console administrator should delete API keys that are not being used.
+
+Before you proceed, it is worth reviewing the topic on [Understanding how the API key works](/docs/containers?topic=containers-users#api_key_about) paying particular attention to the question `What happens if the user who set up the API key for a region and resource group leaves the company?`. The impact of this particular action could disable your network.
+{: important}  
 
 There are three APIs available to manage your API keys:
 - [Create an API key](#console-icp-manage-create-api-key)
