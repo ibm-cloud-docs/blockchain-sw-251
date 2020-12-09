@@ -33,7 +33,7 @@ You can install the fix pack by updating the {{site.data.keyword.blockchainfull_
 1. [Update the {{site.data.keyword.blockchainfull_notm}} console](#install-fixpack-console)
 1. [Update your blockchain nodes](#install-fixpack-nodes)
 
-You can use these steps if you deployed the platform on the OpenShift Container Platform, open source Kubernetes, or distributions such as Rancher. You will need to repeat steps 2-4 to update each 2.5.1 network because they run on separate namespaces. If you experience any problems, see the instructions for [rolling back the fix pack installation](#install-fixpack-rollback).  If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Installing the 2.5.1 fix pack behind a firewall](#install-fixpack-firewall). You can install the fix pack without disrupting a running network. However, you cannot use the console to deploy new nodes, deploy smart contracts, or create new channels during the process.
+You can use these steps if you deployed the platform on the OpenShift Container Platform, open source Kubernetes, or distributions such as Rancher.  If you have multiple networks deployed on your cluster, you will need to repeat steps 2-4 to update each 2.5.1 network because they run on separate namespaces. If you experience any problems, see the instructions for [rolling back the fix pack installation](#install-fixpack-rollback).  If you deployed your network behind a firewall, without access to the external internet, see the separate set of instructions for [Installing the 2.5.1 fix pack behind a firewall](#install-fixpack-firewall). You can install the fix pack without disrupting a running network. However, you cannot use the console to deploy new nodes, deploy smart contracts, or create new channels during the process.
 
 ## What this fix pack contains
 {: #install-fixpack-contents}
@@ -48,7 +48,7 @@ To upgrade your network, you need to [retrieve your entitlement key](/docs/block
 ## Step one: Update the webhook
 {: #install-fixpack-webhook}
 
-The process of updating your network begins with updating the webhook that you created when you initially deployed the blockchain service. Run the following command to update the webhook in the `ibpinfra` namespace or project:
+The process of updating your network begins with updating the webhook that you created when you initially deployed or upgraded to the 2.5.1 blockchain service. Run the following command to update the webhook in the `ibpinfra` namespace or project:
 
 ```
 kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook=us.icr.io/ibp2/ibp-crdwebhook:2.5.1-20201208-amd64
@@ -73,7 +73,6 @@ NAME                              READY   STATUS    RESTARTS   AGE
 ibp-webhook-5fd96f6c7d-gpwhr      1/1     Running   0          1m
 ```
 
-
 ## Step two: Update the {{site.data.keyword.blockchainfull_notm}} operator
 {: #install-fixpack-operator}
 
@@ -81,7 +80,7 @@ You can start applying the fix pack to your network by updating the {{site.data.
 
 Run the following command to download the operator deployment spec to your local file system. The default name of the operator deployment is `ibp-operator`. If you changed the name during the deployment process, you can use the `kubectl get deployment -n <namespace>` command to get the name of the deployments on your namespace. Replace `<namespace>` with the name of your namespace or OpenShift project:
 ```
-kubectl set image deploy/ibp-operator -n <namespace> ibp-operator=us.icr.io/ibp-temp/ibp-operator:2.5.1-20201208-amd64
+kubectl set image deploy/ibp-operator -n <namespace> ibp-operator=cp.icr.io/cp/ibp-operator:2.5.1-20201208-amd64
 ```
 {:codeblock}
 
@@ -94,14 +93,14 @@ kubectl get deployment ibp-operator
 ```
 {: codeblock}
 
-If the upgrade is successful, the output looks similar to:
+When the upgrade is successful, the output looks similar to:
 
 ```
 NAME           READY     UP-TO-DATE   AVAILABLE   AGE
 ibp-operator   1/1       1            1           1m
 ```
 
-If you experience a problem while you are updating the operator, go to this [troubleshooting topic](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-cr) for a list of commonly encountered problems. You can run the command to apply the original operator file, `kubectl apply -f operator.yaml` to restore your original operator deployment.
+If you experience a problem while you are updating the operator, go to this [troubleshooting topic](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-cr) for a list of commonly encountered problems.
 
 ## Step three: Update the {{site.data.keyword.blockchainfull_notm}} console
 {: #install-fixpack-console}
@@ -154,11 +153,12 @@ You can roll back an upgrade after you use the console to operate your network. 
 If you deployed the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall, without access to the external internet, you can install the  2.5.1 fix pack by using the following steps:
 
 1. [Pull the latest {{site.data.keyword.blockchainfull_notm}} Platform images](#install-fixpack-firewall)
-2. [Update the {{site.data.keyword.blockchainfull_notm}} Platform operator](#install-fixpack-operator-firewall)
-3. [Update the {{site.data.keyword.blockchainfull_notm}} console](#install-fixpack-console-firewall)
-4. [Update your blockchain nodes](#install-fixpack-nodes-firewall)
+1. [Update the webhook](#install-fixpack-webhook-firewall)
+1. [Update the {{site.data.keyword.blockchainfull_notm}} Platform operator](#install-fixpack-operator-firewall)
+1. [Update the {{site.data.keyword.blockchainfull_notm}} console](#install-fixpack-console-firewall)
+1. [Update your blockchain nodes](#install-fixpack-nodes-firewall)
 
-You can continue to submit transactions to your network while you are upgrading your network. However, you cannot use the console to deploy new nodes, deploy smart contracts, or create new channels during the upgrade process.
+You can continue to submit transactions to your network while you are upgrading your network. However, you cannot use the console to deploy new nodes, deploy smart contracts, or create new channels during the upgrade process. If you have multiple networks deployed on your cluster, you will need to repeat steps 3-5 to update each 2.5.1 network because they run on separate namespaces.
 
 ### Before you begin
 {: #install-fixpack-begin-firewall}
@@ -216,34 +216,56 @@ skopeo copy docker://cp.icr.io/cp/ibp-enroller:2.5.1-20201208-amd64 docker://<LO
 
 After you complete these steps, you can use the following instructions to deploy the {{site.data.keyword.blockchainfull_notm}} Platform with the images in your registry.
 
-### Step two: Update the {{site.data.keyword.blockchainfull_notm}} operator
+## Step two: Update the webhook
+{: #install-fixpack-webhook}
+
+First, you need to update the webhook that you created when you initially deployed or upgraded to the 2.5.1 blockchain service. Run the following command to update the webhook in the `ibpinfra` namespace or project:
+
+```
+kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook=us.icr.io/ibp2/ibp-crdwebhook:2.5.1-20201208-amd64
+```
+{: codeblock}
+
+When the webhook update is successful, you see something similar to:
+```
+deployment.apps/ibp-webhook image updated
+```
+
+Before you proceed with the next step, wait for the webhook to restart by running the following command:
+```
+kubectl get po -n ibpinfra -w | grep ibp-webhook
+```
+{: codeblock}
+
+When the webhook is successfully restarted, it looks similar to:
+
+```
+NAME                              READY   STATUS    RESTARTS   AGE
+ibp-webhook-5fd96f6c7d-gpwhr      1/1     Running   0          1m
+```
+
+### Step three: Update the {{site.data.keyword.blockchainfull_notm}} operator
 {: #install-fixpack-operator-firewall}
 
 You can start applying the fix pack to your network by updating the {{site.data.keyword.blockchainfull_notm}} operator. Log in to your cluster by using the kubectl CLI. You will need to provide the name of the Kubernetes namespace that you created to deploy your {{site.data.keyword.blockchainfull_notm}} network. If you deployed your network on Kubernetes, you can use the `kubectl get namespace` command to find the name of your namespace. If you deployed the platform on the OpenShift Container Platform, log in to your cluster using the `oc` Cli. You can find the name of your OpenShift project using the `oc get project` command. Use the project name as the value for `<namespace>`.
 
 Run the following command to download the operator deployment spec to your local file system. The default name of the operator deployment is `ibp-operator`. If you changed the name during the deployment process, you can use the `kubectl get deployment -n <namespace>` command to get the name of the deployments on your namespace. Replace `<namespace>` with the name of your namespace or OpenShift project:
 ```
-kubectl get deployment ibp-operator -n <namespace> -o yaml > operator.yaml
+kubectl set image deploy/ibp-operator -n <namespace> ibp-operator=cp.icr.io/cp/ibp-operator:2.5.1-20201208-amd64
 ```
 {:codeblock}
 
-Open `operator.yaml` in a text editor and save a new copy of the file as `operator-fixpack.yaml`. You need to update the `image:` field with the new operator image. You can find the name and tag of the latest operator image below:
-```
-cp.icr.io/cp/ibp-operator:2.5.1-20201208-amd64
-```
-{:codeblock}
+After you update the operator, it will restart and pull the latest operator image. While the operator is restarting, you can still access your console UI. However, you cannot use the console to deploy smart contracts, or use the console or the APIs to create or remove a node.
 
-Save the file on your local system. You can then issue the following command to apply the fix to the {{site.data.keyword.blockchainfull_notm}} operator:
+Check that the fix was applied successfully by running
+
 ```
-kubectl apply -f operator-fixpack.yaml
+kubectl get deployment ibp-operator
 ```
-{:codeblock}
+{: codeblock}
 
-You can use the `kubectl get deployment ibp-operator -o yaml` command to confirm that new image was added to your deployment.
+When the upgrade is successful, the output looks similar to:
 
-After you apply the `operator-fixpack.yaml` operator spec to your namespace, the operator will restart and pull the latest operator image. While the operator is restarting, you can still access your console UI. However, you cannot use the console to deploy a smart contract, or use the console or the APIs to create or remove a node.
-
-You can check that the fix was applied successfully by running the `kubectl get deployment ibp-operator` command. If the upgrade is successful, then you can see the following table with four ones displayed.
 ```
 NAME           READY     UP-TO-DATE   AVAILABLE   AGE
 ibp-operator   1/1       1            1           1m
@@ -251,7 +273,7 @@ ibp-operator   1/1       1            1           1m
 
 If you experience a problem while you are updating the operator, go to this [troubleshooting topic](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-cr) for a list of commonly encountered problems. You can run the command to apply the original operator file, `kubectl apply -f operator.yaml` to restore your original operator deployment.
 
-### Step three: Update the {{site.data.keyword.blockchainfull_notm}} console
+### Step four: Update the {{site.data.keyword.blockchainfull_notm}} console
 {: #install-fixpack-console-firewall}
 
 After you update to the {{site.data.keyword.blockchainfull_notm}} operator, you need to apply the fix pack to your console. You can update your console by removing the original ConfigMap and deployment spec that was created when the console was deployed. Removing these artifacts will allow your console to pull the latest configuration and images from the updated operator.
@@ -300,7 +322,7 @@ kubectl apply -f console-fixpack.yaml
 ```
 {:codeblock}
 
-### Step four: Update your blockchain nodes
+### Step five: Update your blockchain nodes
 {: #install-fixpack-nodes-firewall}
 
 After you upgrade your console, you can use the console UI to upgrade the nodes of your blockchain network. For more information, see [Upgrade your blockchain nodes](#install-fixpack-nodes).
