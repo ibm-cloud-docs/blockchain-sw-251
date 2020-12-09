@@ -51,7 +51,7 @@ To upgrade your network, you need to [retrieve your entitlement key](/docs/block
 The process of updating your network begins with updating the webhook that you created when you initially deployed or upgraded to the 2.5.1 blockchain service. Run the following command to update the webhook in the `ibpinfra` namespace or project:
 
 ```
-kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook=us.icr.io/ibp2/ibp-crdwebhook:2.5.1-20201208-amd64
+kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook=cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201208-amd64
 ```
 {: codeblock}
 
@@ -152,7 +152,7 @@ You can roll back an upgrade after you use the console to operate your network. 
 
 If you deployed the {{site.data.keyword.blockchainfull_notm}} Platform behind a firewall, without access to the external internet, you can install the  2.5.1 fix pack by using the following steps:
 
-1. [Pull the latest {{site.data.keyword.blockchainfull_notm}} Platform images](#install-fixpack-firewall)
+1. [Pull the latest {{site.data.keyword.blockchainfull_notm}} Platform images](#install-fixpack-images-firewall)
 1. [Update the webhook](#install-fixpack-webhook-firewall)
 1. [Update the {{site.data.keyword.blockchainfull_notm}} Platform operator](#install-fixpack-operator-firewall)
 1. [Update the {{site.data.keyword.blockchainfull_notm}} console](#install-fixpack-console-firewall)
@@ -222,7 +222,7 @@ After you complete these steps, you can use the following instructions to deploy
 First, you need to update the webhook that you created when you initially deployed or upgraded to the 2.5.1 blockchain service. Run the following command to update the webhook in the `ibpinfra` namespace or project:
 
 ```
-kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook=us.icr.io/ibp2/ibp-crdwebhook:2.5.1-20201208-amd64
+kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook=cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201208-amd64
 ```
 {: codeblock}
 
@@ -271,7 +271,7 @@ NAME           READY     UP-TO-DATE   AVAILABLE   AGE
 ibp-operator   1/1       1            1           1m
 ```
 
-If you experience a problem while you are updating the operator, go to this [troubleshooting topic](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-cr) for a list of commonly encountered problems. You can run the command to apply the original operator file, `kubectl apply -f operator.yaml` to restore your original operator deployment.
+If you experience a problem while you are updating the operator, go to this [troubleshooting topic](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-troubleshooting#ibp-v2-troubleshooting-deployment-cr) for a list of commonly encountered problems.
 
 ### Step four: Update the {{site.data.keyword.blockchainfull_notm}} console
 {: #install-fixpack-console-firewall}
