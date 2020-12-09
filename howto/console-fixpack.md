@@ -86,7 +86,7 @@ kubectl set image deploy/ibp-operator -n <namespace> ibp-operator=cp.icr.io/cp/i
 
 After you update the operator, it will restart and pull the latest operator image. While the operator is restarting, you can still access your console UI. However, you cannot use the console to deploy smart contracts, or use the console or the APIs to create or remove a node.
 
-Check that the fix was applied successfully by running
+Verify that the operator was successfully updated by running the command:
 
 ```
 kubectl get deployment ibp-operator
@@ -257,7 +257,7 @@ kubectl set image deploy/ibp-operator -n <namespace> ibp-operator=cp.icr.io/cp/i
 
 After you update the operator, it will restart and pull the latest operator image. While the operator is restarting, you can still access your console UI. However, you cannot use the console to deploy smart contracts, or use the console or the APIs to create or remove a node.
 
-Check that the fix was applied successfully by running
+Verify that the operator was successfully updated by running the command:
 
 ```
 kubectl get deployment ibp-operator
