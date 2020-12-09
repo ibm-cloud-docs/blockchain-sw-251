@@ -55,18 +55,22 @@ kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook=us.icr.io/ibp2/ibp-
 ```
 {: codeblock}
 
-Before you proceed with the next step, wait for the webhook to restart. You can run the following command to verify the webhook has restarted:
+When the webhook update is successful, you see something similar to:
 ```
-kubectl get po -n ibpinfra -w
+deployment.apps/ibp-webhook image updated
+```
+
+Before you proceed with the next step, wait for the webhook to restart by running the following command:
+```
+kubectl get po -n ibpinfra -w | grep ibp-webhook
 ```
 {: codeblock}
 
 When the webhook is successfully restarted, it looks similar to:
 
 ```
-kubectl get po -n ibpinfra -w
 NAME                              READY   STATUS    RESTARTS   AGE
-ibp-webhook-5fd96f6c7d-gpwhr      1/1     Running   0          6m
+ibp-webhook-5fd96f6c7d-gpwhr      1/1     Running   0          1m
 ```
 
 
