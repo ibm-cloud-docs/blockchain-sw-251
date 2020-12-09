@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-08"
+lastupdated: "2020-12-09"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -369,6 +369,30 @@ subcollection: blockchain-sw-251
   * [Step three: Import the metadata and identities in to cluster two and three](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr#ibp-console-hadr-import-meta23)
   * [Step four: Create new peers in cluster two and three and join a channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr#ibp-console-hadr-create-new-peers)
 
+[Setting up multiregion High Availability (HA) deployments for the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os)
+* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-prereq)
+* [Deploy the ordering service in Region 1](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1)
+  * [Create the ordering service CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-ca)
+  * [Associate the CA admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-ca-admin)
+  * [Use your CA to register identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-ca-reg)
+  * [Create the ordering service organization MSP definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-msp)
+  * [Create single node ordering service in Region 1.](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-osn1)
+  * [Add second ordering node in Region 1](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-osn2)
+  * [Add the `OS2-Region1` node to the orderer system channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-osn2-system)
+  * [Export components](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region1-export)
+* [Add a new ordering node in Region 2](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2)
+  * [Import components](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2-import)
+  * [Add third ordering node from Region 2](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2-osn3)
+  * [Add the `OS3-Region2` node to the orderer system channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2-osn3-system)
+  * [Export the ordering node](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2-osn3-export)
+* [Add two new ordering nodes in Region 3](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region3)
+  * [Import components](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region3-import)
+  * [Add fourth and fifth ordering nodes from Region 3](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region2-osn3)
+  * [Add the ordering nodes to the orderer system channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region3-system)
+  * [Export the ordering nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-region3-export)
+* [Update the ordering service in Region 1, Region 2, and Region 3.](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-update)
+* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os#ibp-console-hadr-mr-os-next)
+
 [Building a high availability Certificate Authority (CA)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-ha-ca)
 * [Configuring CA replica sets](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-ha-ca#ibp-console-build-ha-ca-replica-sets)
   * [Deploying a PostgreSQL database](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-ha-ca#ibp-console-build-ha-ca-postgresql)
@@ -557,13 +581,13 @@ subcollection: blockchain-sw-251
 * [Pull the {{site.data.keyword.blockchainfull_notm}} Platform images](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-images-firewall)
 * [Log in to your OpenShift cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-login-firewall)
 * [Create the `ibpinfra` project for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-ibpinfra)
-* [Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-secret-ibpinfra)
+* [Set up the entitlement for a local registry](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-secret-ibpinfra-fw)
 * [Deploy the webhook and custom resource definitions to your OpenShift cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-k8s-webhook-crd)
   * [1. Configure role-based access control (RBAC) for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#webhook-rbac)
   * [2. (OpenShift cluster only) Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#webhook-scc)
   * [3. Deploy the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#webhook-deploy)
 * [Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-project-firewall)
-* [Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-docker-registry-secret)
+* [Set up the entitlement for a local registry](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-docker-registry-secret)
 * [Add security and access policies](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-scc-firewall)
   * [Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-scc-firewall-apply)
   * [Apply the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-clusterrole-firewall)
@@ -682,13 +706,13 @@ subcollection: blockchain-sw-251
 * [Pull the {{site.data.keyword.blockchainfull_notm}} Platform images](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-images-firewall)
 * [Log in to your Kubernetes cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8s-login-firewall)
 * [Create the `ibpinfra` namespace for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-ibpinfra-fw)
-* [Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-secret-ibpinfra-fw)
+* [Set up the entitlement for a local registry](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-secret-ibpinfra-fw)
 * [Deploy the webhook and custom resource definitions to your OpenShift cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8s-webhook-crd-fw)
   * [1. Configure role-based access control (RBAC) for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#webhook-rbac)
   * [2. (OpenShift cluster only) Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#webhook-scc)
   * [3. Deploy the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#webhook-deploy)
 * [Create a new namespace for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-namespace-firewall)
-* [Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8s-docker-registry-secret-fw)
+* [Set up the entitlement for a local registry](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8s-docker-registry-secret-fw)
 * [Add security and access policies](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-scc-firewall)
   * [Apply the Pod Security Policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-scc-apply-fw)
   * [Apply the ClusterRole](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-clusterrole-fw)
