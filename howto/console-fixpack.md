@@ -216,8 +216,8 @@ skopeo copy docker://cp.icr.io/cp/ibp-enroller:2.5.1-20201208-amd64 docker://<LO
 
 After you complete these steps, you can use the following instructions to deploy the {{site.data.keyword.blockchainfull_notm}} Platform with the images in your registry.
 
-## Step two: Update the webhook
-{: #install-fixpack-webhook}
+### Step two: Update the webhook
+{: #install-fixpack-webhook-firewall}
 
 First, you need to update the webhook that you created when you initially deployed or upgraded to the 2.5.1 blockchain service. Run the following command to update the webhook in the `ibpinfra` namespace or project:
 
