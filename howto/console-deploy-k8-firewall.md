@@ -261,7 +261,22 @@ kubectl create namespace ibpinfra
 ## Set up the entitlement for a local registry
 {: #deploy-k8-secret-ibpinfra-fw}
 
-{[sw-create-secret-ibpinfra-fw]}
+After you push the {{site.data.keyword.blockchainfull_notm}} Platform images to your own Docker registry, you need to store the password to that registry on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Using a Kubernetes secret allows you to securely store the key on your cluster and pass it to the operator and the console deployments.
+
+Run the following command to create the secret and add it to your `ibpinfra` namespace or project:
+```
+kubectl create secret docker-registry docker-key-secret --docker-server=<LOCAL_REGISTRY> --docker-username=<USER> --docker-password=<LOCAL_REGISTRY_PASSWORD> --docker-email=<EMAIL> -n <NAMESPACE>
+```
+{:codeblock}
+
+- Replace `<USER>` with your username
+- Replace `<EMAIL>` with your email address.
+- Replace `<LOCAL_REGISTRY_PASSWORD>` with the password to your registry.
+- Replace `<LOCAL_REGISTRY>` with the url of your local registry.
+- Replace `<NAMESPACE>` with `ibpinfra`.
+
+The name of the secret that you are creating is `docker-key-secret`. It is required by the webhook that you will deploy later. If you change the name of any of secrets that you create, you need to change the corresponding name in future steps.
+{: note}
 
 ## Deploy the webhook and custom resource definitions to your OpenShift cluster
 {: #deploy-k8s-webhook-crd-fw}
