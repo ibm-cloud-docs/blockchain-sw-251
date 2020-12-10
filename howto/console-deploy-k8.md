@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2020
-lastupdated: "2020-12-07"
+lastupdated: "2020-12-10"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -88,7 +88,7 @@ subcollection: blockchain-sw-251
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -1442,3 +1442,4 @@ Before you attempt to install the {{site.data.keyword.blockchainfull_notm}} Plat
 7. Verify that all pods are running before you attempt to install the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 You can now [resume your installation](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-login).
+
