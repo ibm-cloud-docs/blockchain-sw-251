@@ -2,7 +2,7 @@
 
 copyright:
   years: 2020
-lastupdated: "2020-11-30"
+lastupdated: "2020-12-10"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -1519,7 +1519,6 @@ data:
   cafile.pem: ""
   cert.pem: ""
   key.pem: ""
-  server.pem: ""
 kind: Secret
 metadata:
   name: hsmcrypto
