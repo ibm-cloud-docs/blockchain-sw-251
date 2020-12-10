@@ -1472,7 +1472,7 @@ Before you attempt to install the {{site.data.keyword.blockchainfull_notm}} Plat
     ```
     {: codeblock}
 
-7. Verify that all pods are running before you attempt to install the {{site.data.keyword.blockchainfull_notm}} Platform.
+7. Verify that all pods are running before you attempt to [install](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-login) the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 You can now [resume your installation](#deploy-k8-images-firewall).
 
