@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-14"
+lastupdated: "2020-12-17"
 
 keywords: IBM Blockchain Platform, images, multicloud
 
@@ -156,7 +156,7 @@ When you purchase the {{site.data.keyword.blockchainfull_notm}} Platform from PP
 ## Downloading the {{site.data.keyword.blockchainfull_notm}} Platform images
 {: #blockchain-images-downloading}
 
-The platform requires that you use the `skopeo` utility to download and copy your images to your local container registry. [skopeo](https://www.redhat.com/en/blog/skopeo-10-released){: external} is a tool for moving container images between different types of container storages. In order to download the platform images and copy them to your container registry behind a firewall, you first need to [install skopeo](https://github.com/containers/skopeo/blob/master/install.md){: external}.
+The platform recommends that you use the `skopeo` utility to download and copy your images to your local container registry. [skopeo](https://www.redhat.com/en/blog/skopeo-10-released){: external} is a tool for moving container images between different types of container storages. In order to download the platform images and copy them to your container registry behind a firewall, you first need to [install skopeo](https://github.com/containers/skopeo/blob/master/install.md){: external}.
 
 Before attempting these instructions, you need to have your IBM Blockchain Platform entitlement key and container registry user id and password available. After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You can then use this key to access the {{site.data.keyword.blockchainfull_notm}} Platform images.
 
@@ -168,7 +168,7 @@ Replace
 - `<LOCAL_REGISTRY_PASSWORD>` with the password to your container registry.
 - `amd64` - with `s390x` if you are installing on LinuxONE.
 
-Depending on the level of permissions required for the target location for the images, you might need to prefix each command with `sudo`.
+The following commands only work with a Docker container registry. Depending on the level of permissions required for the target location for the images, you might need to prefix each command with `sudo`. 
 {: note}
 
 ```
