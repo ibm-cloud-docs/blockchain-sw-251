@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2020
-lastupdated: "2020-12-09"
+lastupdated: "2020-12-17"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, fix pack, multicloud
 
@@ -168,7 +168,7 @@ To upgrade your network, you need to [retrieve your entitlement key](/docs/block
 ### Step one: Pull the latest {{site.data.keyword.blockchainfull_notm}} Platform images
 {: #install-fixpack-images-firewall}
 
-The platform requires that you use the `skopeo` utility to download and copy your images to your local container registry. [skopeo](https://www.redhat.com/en/blog/skopeo-10-released){: external} is a tool for moving container images between different types of container storages. In order to download the platform images and copy them to your container registry behind a firewall, you first need to [install skopeo](https://github.com/containers/skopeo/blob/master/install.md){: external}.
+The platform recommends that you use the `skopeo` utility to download and copy your images to your local container registry. [skopeo](https://www.redhat.com/en/blog/skopeo-10-released){: external} is a tool for moving container images between different types of container storages. In order to download the platform images and copy them to your container registry behind a firewall, you first need to [install skopeo](https://github.com/containers/skopeo/blob/master/install.md){: external}.
 
 Before attempting these instructions, you need to have your IBM Blockchain Platform entitlement key and container registry user id and password available. After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You can then use this key to access the {{site.data.keyword.blockchainfull_notm}} Platform images.
 
@@ -180,37 +180,37 @@ Replace
 - `<LOCAL_REGISTRY_PASSWORD>` with the password to your container registry.
 - `amd64` - with `s390x` if you are installing on LinuxONE.
 
-Depending on the level of permissions required for the target location for the images, you might need to prefix each command with `sudo`.
+The following commands only work with a Docker container registry. Depending on the level of permissions required for the target location for the images, you might need to prefix each command with `sudo`. 
 {: note}
 
 ```
-skopeo copy docker://cp.icr.io/cp/ibp-operator:2.5.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-init:2.5.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-init:2.5.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-console:2.5.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-console:2.5.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-grpcweb:2.5.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-grpcweb:2.5.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-deployer:2.5.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-deployer:2.5.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-fluentd:2.5.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-fluentd:2.5.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-couchdb:2.3.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-couchdb:2.3.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-couchdb:3.1.0-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-couchdb:3.1.0-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-peer:1.4.9-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-peer:1.4.9-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-orderer:1.4.9-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-orderer:1.4.9-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-ca:1.4.9-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-ca:1.4.9-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-dind:1.4.9-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-dind:1.4.9-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-utilities:1.4.9-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-utilities:1.4.9-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-peer:2.2.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-peer:2.2.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-orderer:2.2.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-orderer:2.2.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-chaincode-launcher:2.2.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-chaincode-launcher:2.2.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-utilities:2.2.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-utilities:2.2.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-ccenv:2.2.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-ccenv:2.2.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-goenv:2.2.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-goenv:2.2.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-nodeenv:2.2.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-nodeenv:2.2.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-javaenv:2.2.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-javaenv:2.2.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-crdwebhook:2.5.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-ccenv:1.4.9-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-ccenv:1.4.9-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-goenv:1.4.9-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-goenv:1.4.9-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-nodeenv:1.4.9-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-nodeenv:1.4.9-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-javaenv:1.4.9-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-javaenv:1.4.9-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
-skopeo copy docker://cp.icr.io/cp/ibp-enroller:2.5.1-20201208-amd64 docker://<LOCAL_REGISTRY>/ibp-enroller:2.5.1-20201208-amd64 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD>
+skopeo copy docker://cp.icr.io/cp/ibp-operator:2.5.1-20201208 docker://<LOCAL_REGISTRY>/ibp-operator:2.5.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-init:2.5.1-20201208 docker://<LOCAL_REGISTRY>/ibp-init:2.5.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-console:2.5.1-20201208 docker://<LOCAL_REGISTRY>/ibp-console:2.5.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-grpcweb:2.5.1-20201208 docker://<LOCAL_REGISTRY>/ibp-grpcweb:2.5.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-deployer:2.5.1-20201208 docker://<LOCAL_REGISTRY>/ibp-deployer:2.5.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-fluentd:2.5.1-20201208 docker://<LOCAL_REGISTRY>/ibp-fluentd:2.5.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-couchdb:2.3.1-20201208 docker://<LOCAL_REGISTRY>/ibp-couchdb:2.3.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-couchdb:3.1.0-20201208 docker://<LOCAL_REGISTRY>/ibp-couchdb:3.1.0-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-peer:1.4.9-20201208 docker://<LOCAL_REGISTRY>/ibp-peer:1.4.9-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-orderer:1.4.9-20201208 docker://<LOCAL_REGISTRY>/ibp-orderer:1.4.9-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-ca:1.4.9-20201208 docker://<LOCAL_REGISTRY>/ibp-ca:1.4.9-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-dind:1.4.9-20201208 docker://<LOCAL_REGISTRY>/ibp-dind:1.4.9-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-utilities:1.4.9-20201208 docker://<LOCAL_REGISTRY>/ibp-utilities:1.4.9-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-peer:2.2.1-20201208 docker://<LOCAL_REGISTRY>/ibp-peer:2.2.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-orderer:2.2.1-20201208 docker://<LOCAL_REGISTRY>/ibp-orderer:2.2.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-chaincode-launcher:2.2.1-20201208 docker://<LOCAL_REGISTRY>/ibp-chaincode-launcher:2.2.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-utilities:2.2.1-20201208 docker://<LOCAL_REGISTRY>/ibp-utilities:2.2.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-ccenv:2.2.1-20201208 docker://<LOCAL_REGISTRY>/ibp-ccenv:2.2.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-goenv:2.2.1-20201208 docker://<LOCAL_REGISTRY>/ibp-goenv:2.2.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-nodeenv:2.2.1-20201208 docker://<LOCAL_REGISTRY>/ibp-nodeenv:2.2.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-javaenv:2.2.1-20201208 docker://<LOCAL_REGISTRY>/ibp-javaenv:2.2.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201208 docker://<LOCAL_REGISTRY>/ibp-crdwebhook:2.5.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-ccenv:1.4.9-20201208 docker://<LOCAL_REGISTRY>/ibp-ccenv:1.4.9-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-goenv:1.4.9-20201208 docker://<LOCAL_REGISTRY>/ibp-goenv:1.4.9-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-nodeenv:1.4.9-20201208 docker://<LOCAL_REGISTRY>/ibp-nodeenv:1.4.9-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-javaenv:1.4.9-20201208 docker://<LOCAL_REGISTRY>/ibp-javaenv:1.4.9-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
+skopeo copy docker://cp.icr.io/cp/ibp-enroller:2.5.1-20201208 docker://<LOCAL_REGISTRY>/ibp-enroller:2.5.1-20201208 -q --src-creds cp:<ENTITLEMENT_KEY> --dest-creds <LOCAL_REGISTRY_USER>:<LOCAL_REGISTRY_PASSWORD> --all
 ```
 {: codeblock}
 

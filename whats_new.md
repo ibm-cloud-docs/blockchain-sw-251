@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-11-20"
+lastupdated: "2020-12-11"
 
 keywords: IBM Blockchain Platform, release, new features, multicloud
 
@@ -31,11 +31,12 @@ subcollection: blockchain-sw-251
     </p>
 </div>
 
+
 ## October 30, 2020
 {: #whats-new-11-02-2020}
 
 
-{{site.data.keyword.blockchainfull}} Platform 2.5.1 is now available.
+{{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 is now available.
 
 {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 now supports the Fabric v2.x smart contract lifecycle that allows for decentralized governance of smart contract definitions on a channel. The platform has been updated to support Kubernetes v1.16-v1.18 and OpenShift container Platform 4.5, 4.6.
 

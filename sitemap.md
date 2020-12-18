@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2020
-lastupdated: "2020-12-11"
+lastupdated: "2020-12-18"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -417,6 +417,8 @@ subcollection: blockchain-sw-251
 [Option two: Private data collections on a separate channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-about-data-residency#console-icp-about-data-residency-use-case-private-data-channel)
 
 [Option three: A channel with all components in one country](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-about-data-residency#console-icp-about-data-residency-use-case-channel)
+
+[Option four: A separate channel with only ordering nodes from one country](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-about-data-residency#console-icp-about-data-residency-raft)
 
 [Considerations around using the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-about-data-residency#console-icp-about-data-residency-considerations)
 
