@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-12-07"
+  years: 2018, 2021
+lastupdated: "2021-01-03"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -88,7 +88,7 @@ subcollection: blockchain-sw-251
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -142,7 +142,7 @@ The command looks similar to the following example:
 ```
 oc login https://c100-e.us-south.containers.cloud.ibm.com:31394 --token=<TOKEN>
 ```
-If the command is successful, you can see the list of the projects in your cluster in your terminal by running the following command:
+If the command is successful, you can see the list of pods in your cluster in your terminal by running the following command:
 ```
 oc get pods
 ```
