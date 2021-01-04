@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-12-11"
+  years: 2019, 2021
+lastupdated: "2021-01-04"
 
 keywords: FAQs, can I, upgrade, what version, peer ledger database, supported languages, why do I, regions, multicloud
 
@@ -190,7 +190,6 @@ If you are moving from v1.4.x to v2.x, you may have to update your smart contrac
 {: faq}
 
 Yes. The {{site.data.keyword.blockchainfull_notm}} Platform v2.1.x or 2.5 uses Raft consensus. All of the applications and smart contracts that you are using on Fabric v1.4.x are able to work on your {{site.data.keyword.blockchainfull_notm}} Platform network. However, no mechanism exists to migrate your ledger data from one network to another. Instead, you can reinstall your smart contract packages on your {{site.data.keyword.blockchainfull_notm}} Platform network. See also [Can IBM Blockchain Platform components interoperate with Hyperledger Fabric components on the same network?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-interoperability).
-
 
 
 
