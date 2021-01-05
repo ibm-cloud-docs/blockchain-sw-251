@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-10-15"
+  years: 2021
+lastupdated: "2021-01-05"
 
 keywords: ansible playbooks, docker image, blockchain network, APIs, ansible galaxy
 
@@ -49,7 +49,7 @@ Before using the playbook, you must have completed the following steps:
 
 Before you can deploy the {{site.data.keyword.blockchainfull_notm}} Platform to your Kubernetes cluster, you need to gather the following information:
 
-- The name of your Kubernetes `namespace`, or `project`, if your are using OpenShift Container Platform.
+- The name of your Kubernetes `namespace`, or `project`, if you are using OpenShift Container Platform.
 - The domain name of your Kubernetes cluster. This domain name is used as the base domain name for all ingress or routes that are created by the IBM Blockchain Platform.
   - If you are running OpenShift Container Platform, you can find this value by using the OpenShift web console. After logging in to the console, use the drop-down menu next to **OpenShift Container Platform** at the upper left of the page to switch from Service Catalog to Cluster Console. Examine the URL for that page. It will be similar to `console.xyz.abc.com/k8s/cluster/projects`. The value of the domain then would be `xyz.abc.com`, after you remove `console` and `/k8s/cluster/projects`.
   - If you are running any other supported Kubernetes distribution, follow instructions from the distribution documentation to retrieve the domain name after configuring the NGINX Ingress controller.
@@ -75,9 +75,8 @@ The first time you log in, you are required to change your password, and then lo
 ## Next steps
 {: #ansible-install-ibp-playbook-next}
 
-If you are simply interested in automating the process of installing the {{site.data.keyword.blockchainfull_notm}} Platform, you are done. You can use the console UI or APIs to create your blockchain components. If you are not familiar with the process to build a network using the console, check out the [tutorial](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network) that walks you through the steps of building a sample network.
+If you are simply interested in automating the process of installing the {{site.data.keyword.blockchainfull_notm}} Platform, you are done. You can use the console UI or APIs to create your blockchain components. If you are not familiar with the process to build a network by using the console, check out the [tutorial](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network) that walks you through the steps of building a sample network.
 
-Already familiar with how to build a network and want to continue to learn more about the available Ansible playbooks? Then take a look at the tutorial on [Building an {{site.data.keyword.blockchainfull_notm}} Platform network using Ansible playbooks](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build).
-
+Already familiar with how to build a network and want to continue to learn more about the available Ansible playbooks? Then check out the tutorial on [Building an {{site.data.keyword.blockchainfull_notm}} Platform network using Ansible playbooks](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build).
 
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-03"
+lastupdated: "2021-01-05"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -1280,10 +1280,6 @@ subcollection: blockchain-sw-251
 
 [Network](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-network)
 
-[Network credentials](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-network-credentials)
-
-[Network Monitor](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-network-monitor)
-
 [Node](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-node)
 
 [Ordering node](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-orderer)
@@ -1291,8 +1287,6 @@ subcollection: blockchain-sw-251
 [Organization](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-organization)
 
 [Out of band](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-out-of-band)
-
-[Participant](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-participant)
 
 [Peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-glossary#glossary-peer)
 
