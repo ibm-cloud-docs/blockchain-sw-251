@@ -148,7 +148,7 @@ oc get pods
 ```
 {:codeblock}
 
-If successful, you can see the pods that are running in your default namespace:
+If this is not a new cluster, you can see the pods that are running in your default namespace:
 ```
 docker-registry-7d8875c7c5-5fv5j    1/1       Running   0          7d
 docker-registry-7d8875c7c5-x8dfq    1/1       Running   0          7d
