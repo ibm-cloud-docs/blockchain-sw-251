@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-06"
+lastupdated: "2021-01-07"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -264,11 +264,11 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`.
 
 ```yaml
-allowHostDirVolumePlugin: true
-allowHostIPC: true
-allowHostNetwork: true
-allowHostPID: true
-allowHostPorts: true
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
 allowPrivilegeEscalation: true
 allowPrivilegedContainer: true
 allowedCapabilities:
@@ -297,7 +297,6 @@ supplementalGroups:
   type: RunAsAny
 volumes:
 - "*"
-priority: 1
 ```
 {:codeblock}
 
@@ -774,11 +773,11 @@ The {{site.data.keyword.blockchainfull_notm}} Platform requires specific securit
 Copy the security context constraint object below and save it to your local system as `ibp-scc.yaml`. Edit the file and replace `<PROJECT_NAME>` with the name of your project.
 
 ```yaml
-allowHostDirVolumePlugin: true
-allowHostIPC: true
-allowHostNetwork: true
-allowHostPID: true
-allowHostPorts: true
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
 allowPrivilegeEscalation: true
 allowPrivilegedContainer: true
 allowedCapabilities:
@@ -807,7 +806,6 @@ supplementalGroups:
   type: RunAsAny
 volumes:
 - "*"
-priority: 1
 ```
 {:codeblock}
 

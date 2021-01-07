@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-11-17"
+  years: 2018, 2021
+lastupdated: "2021-01-07"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -78,11 +78,11 @@ The {{site.data.keyword.blockchainfull_notm}} Platform requires specific securit
 Copy and save the following security context constraint object to your local system as `ibp-scc.yaml`. Edit the file and replace `<PROJECT_NAME>` with the name of your project.
 
 ```yaml
-allowHostDirVolumePlugin: true
-allowHostIPC: true
-allowHostNetwork: true
-allowHostPID: true
-allowHostPorts: true
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
 allowPrivilegeEscalation: true
 allowPrivilegedContainer: true
 allowedCapabilities:
@@ -111,7 +111,6 @@ supplementalGroups:
   type: RunAsAny
 volumes:
 - "*"
-priority: 1
 ```
 {:codeblock}
 
