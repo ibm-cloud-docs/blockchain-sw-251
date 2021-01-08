@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-09-22"
+  years: 2021
+lastupdated: "2021-01-08"
 
 keywords: network components, Kubernetes, channel update, channels, governance, channel configuration, orderer, ordering node, ordering service, raft, tutorial
 
@@ -281,4 +281,3 @@ Note that you may have to edit the configuration of a peer multiple times, depen
 
 Don't copy the configuration snippet used as an override for one peer and use it on any other peers. Similarly, don't open the configuration of the peer and copy the section from that peer into another peer. **Use the code snippet provided on the Join a peer to a channel screen and paste it into the peer configuration** for each peer. This will ensure that the orderer override will work properly.
 {: important}
-
