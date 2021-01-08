@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-06"
+lastupdated: "2021-01-08"
 
 keywords: IBM Blockchain Platform, images, multicloud
 
@@ -551,7 +551,7 @@ After we deploy a network, we can use the gRPC web proxy to import a peer or ord
     ```
     {:codeblock}
 
-  - Use the `ssl.conf` file and your private key to create a certificate signing request. Click enter to acccept all the values you provided using the `_default` variables.
+  - Use the `ssl.conf` file and your private key to create a certificate signing request. Click enter to accept all the values you provided using the `_default` variables.
 
     ```
     openssl req -new -sha256 -out private.csr -key private.key -config ssl.conf
@@ -665,7 +665,7 @@ After we deploy a network, we can use the gRPC web proxy to import a peer or ord
   web_proxy.peer0.org1.example.com    | time="2020-01-29T22:18:37Z" level=info msg="listening for http on: [::]:8080"
   ```
 
-You can now view the node from a console by importing the ``peer0.org1.json`` file into an {{site.data.keyword.blockchainfull_notm}} Platform console deployed on {{site.data.keyword.cloud_notm}} or your own cluster using {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1. In order for the console to access your nodes, the URL of the web proxy, the peer, and the operations URL needs be externally accessbile.
+You can now view the node from a console by importing the ``peer0.org1.json`` file into an {{site.data.keyword.blockchainfull_notm}} Platform console deployed on {{site.data.keyword.cloud_notm}} or your own cluster using {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1. In order for the console to access your nodes, the URL of the web proxy, the peer, and the operations URL needs be externally accessible.
 
 You need to complete these steps for each node that you want to import into an instance of the {{site.data.keyword.blockchainfull_notm}} Platform console.
 
