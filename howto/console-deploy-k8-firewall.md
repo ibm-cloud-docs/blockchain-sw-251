@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-07"
+lastupdated: "2021-01-12"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, firewall, on-premises, air-gapped, on-prem, multicloud, on-prem
 
@@ -191,7 +191,7 @@ Replace
 - `<LOCAL_REGISTRY_PASSWORD>` with the password to your container registry.
 - `amd64` - with `s390x` if you are installing on LinuxONE.
 
-The following commands only work with a Docker container registry. Depending on the level of permissions required for the target location for the images, you might need to prefix each command with `sudo`. 
+The following commands only work with a Docker container registry. Depending on the level of permissions required for the target location for the images, you might need to prefix each command with `sudo`.
 {: note}
 
 ```
