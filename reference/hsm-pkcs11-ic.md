@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2020
-lastupdated: "2020-11-02"
+  years: 2021
+lastupdated: "2021-01-11"
 
 keywords: HSM, PKCS11 proxy, IBM Cloud HSM
 subcollection: blockchain-sw-251
@@ -12,6 +12,7 @@ subcollection: blockchain-sw-251
 {:DomainName: data-hd-keyref="APPDomain"}
 {:DomainName: data-hd-keyref="DomainName"}
 {:android: data-hd-operatingsystem="android"}
+{:api: .ph data-hd-interface='api'}
 {:apikey: data-credential-placeholder='apikey'}
 {:app_key: data-hd-keyref="app_key"}
 {:app_name: data-hd-keyref="app_name"}
@@ -20,6 +21,7 @@ subcollection: blockchain-sw-251
 {:authenticated-content: .authenticated-content}
 {:beta: .beta}
 {:c#: data-hd-programlang="c#"}
+{:cli: .ph data-hd-interface='cli'}
 {:codeblock: .codeblock}
 {:curl: .ph data-hd-programlang='curl'}
 {:deprecated: .deprecated}
@@ -37,7 +39,6 @@ subcollection: blockchain-sw-251
 {:hide-in-docs: .hide-in-docs}
 {:important: .important}
 {:ios: data-hd-operatingsystem="ios"}
-{:java: #java .ph data-hd-programlang='java'}
 {:java: .ph data-hd-programlang='java'}
 {:java: data-hd-programlang="java"}
 {:javascript: .ph data-hd-programlang='javascript'}
@@ -71,7 +72,6 @@ subcollection: blockchain-sw-251
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift: #swift .ph data-hd-programlang='swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -83,10 +83,11 @@ subcollection: blockchain-sw-251
 {:tsResolve: .tsResolve}
 {:tsSymptoms: .tsSymptoms}
 {:tutorial: data-hd-content-type='tutorial'}
+{:ui: .ph data-hd-interface='ui'}
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -270,8 +271,8 @@ After the local test in the previous step is successful, you are ready to deploy
   ```
   {: codeblock}
 
-  - Replace `<DOCKER_HUB_ID>` with the docker user name.
-  - Replace `<DOCKER_HUB_PWD>` with the docker password.
+  - Replace `<DOCKER_HUB_ID>` with the Docker user name.
+  - Replace `<DOCKER_HUB_PWD>` with the Docker password.
   - Replace `<EMAIL>` with your DockerHub email address.
 
   For example:

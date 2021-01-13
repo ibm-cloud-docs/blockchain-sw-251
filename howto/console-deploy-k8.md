@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2018, 2020
-lastupdated: "2020-12-10"
+  years: 2018, 2021
+lastupdated: "2021-01-07"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -297,11 +297,11 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`.
 
 ```yaml
-allowHostDirVolumePlugin: true
-allowHostIPC: true
-allowHostNetwork: true
-allowHostPID: true
-allowHostPorts: true
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
 allowPrivilegeEscalation: true
 allowPrivilegedContainer: true
 allowedCapabilities:
@@ -330,7 +330,6 @@ supplementalGroups:
   type: RunAsAny
 volumes:
 - "*"
-priority: 1
 ```
 {:codeblock}
 
@@ -345,7 +344,7 @@ oc adm policy add-scc-to-user ibpinfra system:serviceaccounts:ibpinfra
 If the commands are successful, you can see a response that is similar to the following example:
 ```
 securitycontextconstraints.security.openshift.io/ibpinfra created
-scc "ibpinfra" added to: ["system:serviceaccounts:ibpinfra"]
+clusterrole.rbac.authorization.k8s.io/system:openshift:scc:ibpinfra added: "system:serviceaccounts:ibpinfra"
 ```
 
 ### 3. Deploy the webhook
@@ -400,7 +399,7 @@ spec:
         fsGroup: 2000
       containers:
         - name: "ibp-webhook"
-          image: "cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201208-amd64"
+          image: "cp.icr.io/cp/ibp-crdwebhook:2.5.1-20210112-amd64"
           imagePullPolicy: Always
           securityContext:
             privileged: false
@@ -1039,7 +1038,7 @@ spec:
         - name: docker-key-secret
       containers:
         - name: ibp-operator
-          image: cp.icr.io/cp/ibp-operator:2.5.1-20201208-amd64
+          image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64
           command:
           - ibp-operator
           imagePullPolicy: Always

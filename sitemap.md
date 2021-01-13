@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-06"
+lastupdated: "2021-01-13"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -829,6 +829,9 @@ subcollection: blockchain-sw-251
   * [Using an API key](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-api-key)
   * [Manage your console API keys](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-api-keys)
   * [Managing users using the APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-users-apis)
+* [Configuring node logging](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#ibp-console-manage-logger)
+  * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#ibp-console-logger-before)
+  * [Customize logging](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#ibp-console-logger-custom)
 * [Viewing your logs](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#icp-console-manage-logs)
   * [Viewing your console logs](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-console-logs)
   * [Viewing your node logs](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-node-logs)
@@ -1328,6 +1331,9 @@ subcollection: blockchain-sw-251
 
 
 [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20)
+
+[12 Jan 2021](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#01-12-2021)
+* [New logging configuration panel](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#01-12-2021-logger-ui)
 
 [08 Dec 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#12-08-2020)
 

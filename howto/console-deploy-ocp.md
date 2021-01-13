@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-03"
+lastupdated: "2021-01-07"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -148,7 +148,7 @@ oc get pods
 ```
 {:codeblock}
 
-If successful, you can see the pods that are running in your default namespace:
+If this is not a new cluster, you can see the pods that are running in your default namespace:
 ```
 docker-registry-7d8875c7c5-5fv5j    1/1       Running   0          7d
 docker-registry-7d8875c7c5-x8dfq    1/1       Running   0          7d
@@ -264,11 +264,11 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`.
 
 ```yaml
-allowHostDirVolumePlugin: true
-allowHostIPC: true
-allowHostNetwork: true
-allowHostPID: true
-allowHostPorts: true
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
 allowPrivilegeEscalation: true
 allowPrivilegedContainer: true
 allowedCapabilities:
@@ -297,7 +297,6 @@ supplementalGroups:
   type: RunAsAny
 volumes:
 - "*"
-priority: 1
 ```
 {:codeblock}
 
@@ -312,7 +311,7 @@ oc adm policy add-scc-to-user ibpinfra system:serviceaccounts:ibpinfra
 If the commands are successful, you can see a response that is similar to the following example:
 ```
 securitycontextconstraints.security.openshift.io/ibpinfra created
-scc "ibpinfra" added to: ["system:serviceaccounts:ibpinfra"]
+clusterrole.rbac.authorization.k8s.io/system:openshift:scc:ibpinfra added: "system:serviceaccounts:ibpinfra"
 ```
 
 ### 3. Deploy the webhook
@@ -367,7 +366,7 @@ spec:
         fsGroup: 2000
       containers:
         - name: "ibp-webhook"
-          image: "cp.icr.io/cp/ibp-crdwebhook:2.5.1-20201208-amd64"
+          image: "cp.icr.io/cp/ibp-crdwebhook:2.5.1-20210112-amd64"
           imagePullPolicy: Always
           securityContext:
             privileged: false
@@ -774,11 +773,11 @@ The {{site.data.keyword.blockchainfull_notm}} Platform requires specific securit
 Copy the security context constraint object below and save it to your local system as `ibp-scc.yaml`. Edit the file and replace `<PROJECT_NAME>` with the name of your project.
 
 ```yaml
-allowHostDirVolumePlugin: true
-allowHostIPC: true
-allowHostNetwork: true
-allowHostPID: true
-allowHostPorts: true
+allowHostDirVolumePlugin: false
+allowHostIPC: false
+allowHostNetwork: false
+allowHostPID: false
+allowHostPorts: false
 allowPrivilegeEscalation: true
 allowPrivilegedContainer: true
 allowedCapabilities:
@@ -807,7 +806,6 @@ supplementalGroups:
   type: RunAsAny
 volumes:
 - "*"
-priority: 1
 ```
 {:codeblock}
 
@@ -1025,7 +1023,7 @@ spec:
         - name: docker-key-secret
       containers:
         - name: ibp-operator
-          image: cp.icr.io/cp/ibp-operator:2.5.1-20201208-amd64
+          image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64
           command:
           - ibp-operator
           imagePullPolicy: Always
@@ -1127,7 +1125,7 @@ spec:
 {:codeblock}
 
 You need to specify the external endpoint information of the console in the `ibp-console.yaml` file:
-- Replace `<DOMAIN>` with the name of your cluster domain. You can find this value by using the OpenShift web console. Use the dropdown menu next to **OpenShift Container Platform** at the top left of the page to switch from **Service Catalog** to **Cluster Console**. Examine the URL for that page. It will be similar to `console.xyz.abc.com/k8s/cluster/projects`. The value of the domain then would be `xyz.abc.com`, after removing `console` and `/k8s/cluster/projects`.
+- Replace `<DOMAIN>` with the name of your cluster domain. You can find this value by using the OpenShift web console. Examine the URL for that page. It will be similar to `console.xyz.abc.com/k8s/cluster/dashboards`. The value of the domain then would be `xyz.abc.com`, after removing `console` and `/k8s/cluster/dashboards`.
 
 You need to provide the user name and password that is used to access the console for the first time:
 - Replace `<EMAIL>` with the email address of the console administrator.
@@ -1265,7 +1263,7 @@ You can use a Certificate Authority or tool to create the TLS certificates for t
 **Proxy hostname:** ``<PROJECT_NAME>-ibpconsole-proxy.<DOMAIN>``  
 
 - Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
-- Replace `<DOMAIN>` with the name of your cluster domain. You can find this value by using the OpenShift web console. Use the dropdown menu next to **OpenShift Container Platform** at the top of the page to switch from **Service Catalog** to **Cluster Console**. Examine the URL for that page. It will be similar to `console.xyz.abc.com/k8s/cluster/projects`. The value of the domain then would be `xyz.abc.com`, after removing `console` and `/k8s/cluster/projects`.
+- - Replace `<DOMAIN>` with the name of your cluster domain. You can find this value by using the OpenShift web console. Examine the URL for that page. It will be similar to `console.xyz.abc.com/k8s/cluster/dashboards`. The value of the domain then would be `xyz.abc.com`, after removing `console` and `/k8s/cluster/dashboards`.
 
 Navigate to the TLS certificates that you plan to use on your local system. Name the TLS certificate `tlscert.pem` and the corresponding private key `tlskey.pem`. Run the following command to create the Kubernetes secret and add it to your OpenShift project. The TLS certificate and key need to be in PEM format.
 ```
