@@ -53,8 +53,6 @@ Miscellaneous bug fixes and security patches.
 
 A new panel is available to override peer and ordering node log levels for specific component loggers. See [Configuring node logging](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#ibp-console-manage-logger) for more information.
 
-/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#ibp-console-manage-logger
-
 ## 08 Dec 2020
 {: #12-08-2020}
 
@@ -110,5 +108,3 @@ Customers can now use the console to renew certificates that have expired or are
 {: #11-02-2020-delete-user}
 
 You can now delete registered users from a CA.
-
-
