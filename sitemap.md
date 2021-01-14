@@ -156,6 +156,8 @@ subcollection: blockchain-sw-251
 
 [What's new](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new)
 
+[January 14, 2021](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-01-14-2021)
+
 [October 30, 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-11-02-2020)
 
 
@@ -1000,8 +1002,8 @@ subcollection: blockchain-sw-251
   * [Exporting, importing, and deleting a smart contract package](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-exporting-deleting-smart-contract-package)
 * [Step four: Deploy a smart contract to a preconfigured Hyperledger Fabric network](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-deploy)
   * [Deploying a preconfigured Hyperledger Fabric network](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-connecting-and-disconnecting)
-  * [Deploying your smart contract (V2 channel capabilities)](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-deploy-smart-contract-v2)
-  * [Deploying your smart contract (V1 channel capabilities)](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-deploy-smart-contract)
+  * [Deploying your smart contract (channel application capability V2)](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-deploy-smart-contract-v2)
+  * [Deploying your smart contract (channel application capability V1)](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-deploy-smart-contract)
   * [Interacting with your smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-submitting-transactions)
   * [Connecting your applications to the preconfigured network](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-exploring-connection-details)
 * [Step five: Test a deployed smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-develop-vscode#develop-vscode-testing-instantiated-smart-contract)
