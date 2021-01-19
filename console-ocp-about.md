@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2019, 2020
-lastupdated: "2020-11-20"
+  years: 2019, 2021
+lastupdated: "2021-01-19"
 
 keywords: IBM Blockchain Platform, system requirements, Kubernetes, behind a firewall, azure, multicloud
 
@@ -88,7 +88,7 @@ subcollection: blockchain-sw-251
 {:unity: .ph data-hd-programlang='unity'}
 {:url: data-credential-placeholder='url'}
 {:user_ID: data-hd-keyref="user_ID"}
-{:vb.net: .ph data-hd-programlang='vb.net'}
+{:vbnet: .ph data-hd-programlang='vb.net'}
 {:video: .video}
 
 
@@ -212,7 +212,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 can be deployed wit
 |----|----|----|-----|
 | OpenShift Container Platform | 4.5, 4.6|  x86_64 | 4.5, 4.6|
 | OpenShift Container Platform on {{site.data.keyword.cloud_notm}} | 4.4, 4.5 | x86_64 | 4.4, 4.5 |
-| OpenShift Container Platform on LinuxONE | 4.5 | s390x |4.5 |
+| OpenShift Container Platform on LinuxONE | 4.5, 4.6 | s390x |4.5, 4.6 |
 | Kubernetes ***   | v1.16 - v1.19 | x86_64 | v1.16, v1.17, v1.19 |
 {: caption="Table 1. Supported platforms" caption-side="bottom"}
 *** If you want to use {{site.data.keyword.IBM_notm}} Kubernetes Service, we recommend that you check out the [{{site.data.keyword.blockchainfull_notm}} Platform for IBM Cloud](/docs/blockchain?topic=blockchain-ibp-v2-deploy-iks){: external} offering unless you specifically require this offering. See [Is IBM Blockchain Platform 2.5.1 suitable for you](/docs/blockchain-sw-251?topic=blockchain-sw-251-get-started-console-ocp#get-started-console-ocp-suitable).    
