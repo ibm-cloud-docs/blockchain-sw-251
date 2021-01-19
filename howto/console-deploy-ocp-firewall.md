@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-12"
+lastupdated: "2021-01-14"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, firewall, on-premises, air-gapped, on-prem, multicloud, on-prem
 
@@ -876,7 +876,7 @@ supplementalGroups:
 volumes:
 - "*"
 ```
-{:codeblock}
+{: codeblock}
 
 After you save and edit the file, run the following commands to add the file to your cluster and add the policy to your project. Replace `<PROJECT_NAME>` with your project.
 ```

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-07"
+lastupdated: "2021-01-14"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -112,7 +112,7 @@ supplementalGroups:
 volumes:
 - "*"
 ```
-{:codeblock}
+{: codeblock}
 
 Run the following commands to add the file to your cluster and add the constraint to your project.
 

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-12"
+lastupdated: "2021-01-15"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, firewall, on-premises, air-gapped, on-prem, multicloud, on-prem
 
@@ -1158,6 +1158,7 @@ ibp-operator   1/1     1            1           1m
 When the operator is running on your namespace, you can apply a custom resource to start the {{site.data.keyword.blockchainfull_notm}} Platform console on your cluster. You can then access the console from your browser. You can deploy only one console per Kubernetes namespace.
 
 Save the custom resource definition below as `ibp-console.yaml` on your local system.
+
 
 ```yaml
 apiVersion: ibp.com/v1beta1

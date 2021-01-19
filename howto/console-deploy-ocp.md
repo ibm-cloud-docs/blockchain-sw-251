@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-07"
+lastupdated: "2021-01-14"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -807,7 +807,7 @@ supplementalGroups:
 volumes:
 - "*"
 ```
-{:codeblock}
+{: codeblock}
 
 After you save and edit the file, run the following commands to add the file to your cluster and add the policy to your project.
 ```
