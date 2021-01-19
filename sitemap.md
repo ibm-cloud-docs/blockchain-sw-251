@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-15"
+lastupdated: "2021-01-19"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -156,7 +156,7 @@ subcollection: blockchain-sw-251
 
 [What's new](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new)
 
-[January 14, 2021](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-01-14-2021)
+[January 19, 2021](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-01-19-2021)
 
 [October 30, 2020](/docs/blockchain-sw-251?topic=blockchain-sw-251-whats-new#whats-new-11-02-2020)
 
