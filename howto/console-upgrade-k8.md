@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-12"
+lastupdated: "2021-01-20"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -181,7 +181,7 @@ kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook="cp.icr.io/cp/ibp-c
   {: codeblock}
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
-Run this command to update the CA CRD:  
+
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -249,6 +249,8 @@ customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 
 Run this command to update the peer CRD:  
 
+
+
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -307,6 +309,8 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:   
+
+
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -429,7 +433,9 @@ customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 ### Step three: Update the ClusterRole
 {: #upgrade-k8-steps-251-clusterrole}
 
-You need to update the ClusterRole that is applied to your namespace. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<NAMESPACE>` with the Kubernetes namespace for the platform.
+You need to update the ClusterRole that is applied to your namespace. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.  
+
+
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -690,8 +696,7 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 #### 2.(OpenShift cluster only) Apply the Security Context Constraint
 {: #upgrade-webhook-scc}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`.
-
+The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`. 
 ```yaml
 allowHostDirVolumePlugin: false
 allowHostIPC: false
@@ -900,7 +905,7 @@ service/ibp-webhook created
   {: codeblock}
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
-Run this command to update the CA CRD:  
+
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -968,6 +973,8 @@ customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 
 Run this command to update the peer CRD:  
 
+
+
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -1026,6 +1033,8 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:   
+
+
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1148,7 +1157,9 @@ customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 ### Step four: Update the ClusterRole
 {: #upgrade-k8-clusterrole}
 
-You need to update the ClusterRole that is applied to your project. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<NAMESPACE>` with the name of your project.
+You need to update the ClusterRole that is applied to your project. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
+
+
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -1497,8 +1508,7 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 #### 2.(OpenShift cluster only) Apply the Security Context Constraint
 {: #upgrade-webhook-scc}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`.
-
+The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`. 
 ```yaml
 allowHostDirVolumePlugin: false
 allowHostIPC: false
@@ -1707,7 +1717,7 @@ service/ibp-webhook created
   {: codeblock}
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
-Run this command to update the CA CRD:  
+
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1775,6 +1785,8 @@ customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 
 Run this command to update the peer CRD:  
 
+
+
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -1833,6 +1845,8 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:   
+
+
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1958,7 +1972,9 @@ customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 This step is only required if you are upgrading from v2.1.0 or v2.1.1. Otherwise, you can skip to [Step six](#upgrade-k8-operator-firewall).
 {: note}
 
-You need to update the ClusterRole that is applied to your project. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<NAMESPACE>` with the name of your project.
+You need to update the ClusterRole that is applied to your project. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.  
+
+
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1

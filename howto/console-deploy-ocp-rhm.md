@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-14"
+lastupdated: "2021-01-20"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -76,6 +76,7 @@ You must have the cluster administrator role to install the operators from the R
 The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to your project. The `ibp-scc.yaml` file is provided here for you to copy and edit to define the security policies for your project. Before attempting this step, you should be logged in to the `oc` CLI.   
 
 Copy and save the following security context constraint object to your local system as `ibp-scc.yaml`. Edit the file and replace `<PROJECT_NAME>` with the name of your project.
+
 
 ```yaml
 allowHostDirVolumePlugin: false
