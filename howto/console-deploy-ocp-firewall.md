@@ -313,6 +313,7 @@ roleRef:
 ```
 {: codeblock}
 
+
 Run the following command to add the file to your cluster definition:
 ```
 kubectl apply -f rbac.yaml -n ibpinfra
@@ -328,7 +329,7 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 ### 2. (OpenShift cluster only) Apply the Security Context Constraint
 {: #webhook-scc}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`.
+Skip this step if you are not using OpenShift. The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`.
 
 ```yaml
 allowHostDirVolumePlugin: false
@@ -481,6 +482,7 @@ spec:
 ```
 {: codeblock}
 
+
 Run the following command to add the file to your cluster definition:
 ```
 kubectl apply -n ibpinfra -f deployment.yaml
@@ -497,28 +499,7 @@ deployment.apps/ibp-webhook created
 
 Second, copy the following text to a file on your local system and save the file as `service.yaml`.
 
-```yaml
-apiVersion: v1
-kind: Service
-metadata:
-  name: "ibp-webhook"
-  labels:
-    type: "webhook"
-    app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibp-webhook"
-    helm.sh/chart: "ibm-ibp"
-spec:
-  type: ClusterIP
-  ports:
-    - name: server
-      port: 443
-      targetPort: server
-      protocol: TCP
-  selector:
-    app.kubernetes.io/instance: "ibp-webhook"
 
-```
-{: codeblock}
 
 ```yaml
 apiVersion: v1
@@ -562,7 +543,6 @@ service/ibp-webhook created
   ```
   {: codeblock}
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
-
 
 
 ```yaml
@@ -620,6 +600,7 @@ EOF
 ```
 {: codeblock}
 
+
 Depending on whether you are creating or updating the CRD, when successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
@@ -629,9 +610,8 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
-Run this command to update the peer CRD:  
 
-
+Run this command to update the peer CRD.
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -681,6 +661,7 @@ spec:
 EOF
 ```
 {: codeblock}
+
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com created
@@ -691,8 +672,6 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:   
-
-
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -752,6 +731,7 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
+
 Run this command to update the orderer CRD:  
 
 ```yaml
@@ -802,6 +782,7 @@ spec:
 EOF
 ```
 {: codeblock}
+
 
 When successful, you should see:
 ```
@@ -911,6 +892,7 @@ volumes:
 ```
 {: codeblock}
 
+
 After you save and edit the file, run the following commands to add the file to your cluster and add the policy to your project. Replace `<PROJECT_NAME>` with your project.
 ```
 oc apply -f ibp-scc.yaml -n <PROJECT_NAME>
@@ -929,7 +911,6 @@ scc "blockchain-project" added to: ["system:serviceaccounts:blockchain-project"]
 {: #deploy-ocp-clusterrole-firewall}
 
 Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. This file defines the required ClusterRole for the PodSecurityPolicy. Edit the file and replace `<PROJECT_NAME>` with the name of your project.
-
 
 
 
@@ -1020,6 +1001,7 @@ rules:
 ```
 {:codeblock}
 
+
 After you save and edit the file, run the following commands. Replace `<PROJECT_NAME>` with your project.
 ```
 oc apply -f ibp-clusterrole.yaml -n <PROJECT_NAME>
@@ -1056,6 +1038,7 @@ roleRef:
   apiGroup: rbac.authorization.k8s.io
 ```
 {:codeblock}
+
 
 After you save and edit the file, run the following commands. Replace `<PROJECT_NAME>` with your project.
 ```
@@ -1185,6 +1168,7 @@ spec:
               memory: 200Mi
 ```
 {:codeblock}
+
 - If you changed the name of the Docker key secret, then you need to edit the field of `name: docker-key-secret`.
 - If you are using OpenShift Container Platform on LinuxONE, you need to make the following additional customizations:
    1. In the `spec.affinity` section, change `amd64` to `s390x`.
@@ -1239,6 +1223,7 @@ spec:
 {:codeblock}
 
 
+
 You need to specify the external endpoint information of the console in the `ibp-console.yaml` file:
 - Replace `<LOCAL_REGISTRY>` with the URL of your local registry.
 - Replace `<DOMAIN>` with the name of your cluster domain. You can find this value by using the OpenShift web console. Use the dropdown menu next to **OpenShift Container Platform** at the top left of the page to switch from **Service Catalog** to **Cluster Console**. Examine the URL for that page. It will be similar to `console.xyz.abc.com/k8s/cluster/projects`. The value of the domain then would be `xyz.abc.com`, after removing `console` and `/k8s/cluster/projects`.
@@ -1279,7 +1264,6 @@ Replace `<PROJECT_NAME>` with the name of your project. Before you install the c
 {: #console-deploy-ocp-advanced-firewall}
 
 You can edit the `ibp-console.yaml` file to allocate more resources to your console or use zones for high availability in a multizone cluster. To take advantage of these deployment options, you can use the console resource definition with the `resources:` and `clusterdata:` sections added:
-
 
 
 
@@ -1339,6 +1323,7 @@ spec:
 ```
 {:codeblock}
 
+
 - You can use the `resources:` section to allocate more resources to your console. The values in the example file are the default values allocated to each container. Allocating more resources to your console allows you to operate a larger number of nodes or channels. You can allocate more resources to a currently running console by editing the resource file and applying it to your cluster. The console will restart and return to its previous state, allowing you to operate all of your exiting nodes and channels.
   ```
   kubectl apply -f ibp-console.yaml -n <PROJECT_NAME>
@@ -1391,7 +1376,6 @@ After you create the secret, add the `tlsSecretName` field to the `spec:` sectio
 
 
 
-
 ```yaml
 apiVersion: ibp.com/v1beta1
 kind: IBPConsole
@@ -1422,6 +1406,7 @@ spec:
       - dal13
 ```
 {:codeblock}
+
 
 When you finish editing the file, you can apply it to your cluster in order to secure communications with your own TLS certificates:
 ```

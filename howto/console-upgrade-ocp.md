@@ -190,7 +190,6 @@ If you are running the platform on LinuxONE, replace `-amd64` with `-s390x`.
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
 
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -246,6 +245,7 @@ EOF
 ```
 {: codeblock}
 
+
 Depending on whether you are creating or updating the CRD, when successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
@@ -255,9 +255,8 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
-Run this command to update the peer CRD:  
 
-
+Run this command to update the peer CRD.
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -307,6 +306,7 @@ spec:
 EOF
 ```
 {: codeblock}
+
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com created
@@ -317,8 +317,6 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:   
-
-
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -378,6 +376,7 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
+
 Run this command to update the orderer CRD:  
 
 ```yaml
@@ -428,6 +427,7 @@ spec:
 EOF
 ```
 {: codeblock}
+
 
 When successful, you should see:
 ```
@@ -531,6 +531,7 @@ rules:
   - '*'
 ```
 {:codeblock}
+
 
 After you edit and save the file, run the following commands. Replace `<PROJECT_NAME>` with the name of your project.
 ```
@@ -658,6 +659,7 @@ The first three steps are for deployment of the webhook. The last step is for cr
 
 Copy the following text to a file on your local system and save the file as `rbac.yaml`. This step allows the webhook to read and create a TLS secret in its own project.
 
+
 ```yaml
 apiVersion: v1
 kind: ServiceAccount
@@ -692,6 +694,7 @@ roleRef:
 ```
 {: codeblock}
 
+
 Run the following command to add the file to your cluster definition:
 ```
 kubectl apply -f rbac.yaml -n ibpinfra
@@ -707,7 +710,7 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 #### 2.(OpenShift cluster only) Apply the Security Context Constraint
 {: #upgrade-webhook-scc}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`. 
+Skip this step if you are not using OpenShift. The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`. 
 ```yaml
 allowHostDirVolumePlugin: false
 allowHostIPC: false
@@ -745,6 +748,7 @@ volumes:
 ```
 {:codeblock}
 
+
 After you save the file, run the following commands to add the file to your cluster and add the policy to your project.
 
 ```
@@ -768,6 +772,7 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 {: #upgrade-webhook-deployment-yaml}
 
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
+
 
 ```yaml
 apiVersion: apps/v1
@@ -872,6 +877,8 @@ deployment.apps/ibp-webhook created
 {: #upgrade-webhook-service-yaml}
 
 Secondly, copy the following text to a file on your local system and save the file as `service.yaml`.
+
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -894,6 +901,7 @@ spec:
 ```
 {: codeblock}
 
+
 Run the following command to add the configuration to your cluster definition:
 ```
 kubectl apply -n ibpinfra -f service.yaml
@@ -915,7 +923,6 @@ service/ibp-webhook created
   ```
   {: codeblock}
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
-
 
 
 ```yaml
@@ -973,6 +980,7 @@ EOF
 ```
 {: codeblock}
 
+
 Depending on whether you are creating or updating the CRD, when successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
@@ -982,9 +990,8 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
-Run this command to update the peer CRD:  
 
-
+Run this command to update the peer CRD.
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1034,6 +1041,7 @@ spec:
 EOF
 ```
 {: codeblock}
+
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com created
@@ -1044,8 +1052,6 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:   
-
-
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1105,6 +1111,7 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
+
 Run this command to update the orderer CRD:  
 
 ```yaml
@@ -1155,6 +1162,7 @@ spec:
 EOF
 ```
 {: codeblock}
+
 
 When successful, you should see:
 ```
@@ -1258,6 +1266,7 @@ rules:
   - '*'
 ```
 {:codeblock}
+
 
 After you save and edit the file, run the following commands. Replace `<PROJECT_NAME>` with your project.
 ```
@@ -1479,6 +1488,7 @@ The first three steps are for deployment of the webhook. The last step is for cr
 
 Copy the following text to a file on your local system and save the file as `rbac.yaml`. This step allows the webhook to read and create a TLS secret in its own project.
 
+
 ```yaml
 apiVersion: v1
 kind: ServiceAccount
@@ -1513,6 +1523,7 @@ roleRef:
 ```
 {: codeblock}
 
+
 Run the following command to add the file to your cluster definition:
 ```
 kubectl apply -f rbac.yaml -n ibpinfra
@@ -1528,7 +1539,7 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 #### 2.(OpenShift cluster only) Apply the Security Context Constraint
 {: #upgrade-webhook-scc}
 
-The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`. 
+Skip this step if you are not using OpenShift. The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`. 
 ```yaml
 allowHostDirVolumePlugin: false
 allowHostIPC: false
@@ -1566,6 +1577,7 @@ volumes:
 ```
 {:codeblock}
 
+
 After you save the file, run the following commands to add the file to your cluster and add the policy to your project.
 
 ```
@@ -1589,6 +1601,7 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 {: #upgrade-webhook-deployment-yaml}
 
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
+
 
 ```yaml
 apiVersion: apps/v1
@@ -1693,6 +1706,8 @@ deployment.apps/ibp-webhook created
 {: #upgrade-webhook-service-yaml}
 
 Secondly, copy the following text to a file on your local system and save the file as `service.yaml`.
+
+
 ```yaml
 apiVersion: v1
 kind: Service
@@ -1715,6 +1730,7 @@ spec:
 ```
 {: codeblock}
 
+
 Run the following command to add the configuration to your cluster definition:
 ```
 kubectl apply -n ibpinfra -f service.yaml
@@ -1736,7 +1752,6 @@ service/ibp-webhook created
   ```
   {: codeblock}
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
-
 
 
 ```yaml
@@ -1794,6 +1809,7 @@ EOF
 ```
 {: codeblock}
 
+
 Depending on whether you are creating or updating the CRD, when successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
@@ -1803,9 +1819,8 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
-Run this command to update the peer CRD:  
 
-
+Run this command to update the peer CRD.
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1855,6 +1870,7 @@ spec:
 EOF
 ```
 {: codeblock}
+
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com created
@@ -1865,8 +1881,6 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:   
-
-
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1926,6 +1940,7 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
+
 Run this command to update the orderer CRD:  
 
 ```yaml
@@ -1976,6 +1991,7 @@ spec:
 EOF
 ```
 {: codeblock}
+
 
 When successful, you should see:
 ```
@@ -2079,6 +2095,7 @@ rules:
   - '*'
 ```
 {:codeblock}
+
 
 After you save and edit the file, run the following commands. Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 ```
