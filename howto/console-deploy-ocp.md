@@ -329,6 +329,7 @@ Copy the following text to a file on your local system and save the file as `dep
 
 
 
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -989,6 +990,7 @@ cluster role "blockchain-project" added: "system:serviceaccounts:blockchain-proj
 The {{site.data.keyword.blockchainfull_notm}} Platform uses an operator to install the {{site.data.keyword.blockchainfull_notm}} Platform console. You can deploy the operator on your cluster by adding a custom resource to your project by using the OpenShift CLI. The custom resource pulls the operator image from the Docker registry and starts it on your cluster.   
 
 Copy the following text to a file on your local system and save the file as `ibp-operator.yaml`.
+
 
 
 ```yaml

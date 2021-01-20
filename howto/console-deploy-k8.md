@@ -362,6 +362,7 @@ Copy the following text to a file on your local system and save the file as `dep
 
 
 
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -1005,6 +1006,7 @@ Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_n
 The {{site.data.keyword.blockchainfull_notm}} Platform uses an operator to install the {{site.data.keyword.blockchainfull_notm}} Platform console. You can deploy the operator on your cluster by adding a custom resource to your namespace by using the kubectl CLI. The custom resource pulls the operator image from the Docker registry and starts it on your cluster.  
 
 Copy the following text to a file on your local system and save the file as `ibp-operator.yaml`.
+
 
 
 

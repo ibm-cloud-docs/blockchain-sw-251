@@ -394,6 +394,7 @@ Copy the following text to a file on your local system and save the file as `dep
 
 
 
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
