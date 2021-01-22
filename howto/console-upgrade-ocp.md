@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-20"
+lastupdated: "2021-01-22"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -189,6 +189,7 @@ If you are running the platform on LinuxONE, replace `-amd64` with `-s390x`.
   {: codeblock}
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
+Run this command to update the CA CRD:  
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -255,8 +256,8 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
-
-Run this command to update the peer CRD.
+Run this command to update the peer CRD:
+  
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -316,7 +317,8 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
-Run this command to update the console CRD:   
+Run this command to update the console CRD:
+  
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -367,6 +369,7 @@ EOF
 ```
 {: codeblock}
 
+
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
@@ -376,8 +379,9 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
-
 Run this command to update the orderer CRD:  
+  
+
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -926,6 +930,7 @@ service/ibp-webhook created
   {: codeblock}
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
+Run this command to update the CA CRD:  
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -992,8 +997,8 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
-
-Run this command to update the peer CRD.
+Run this command to update the peer CRD:
+  
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1053,7 +1058,8 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
-Run this command to update the console CRD:   
+Run this command to update the console CRD:
+  
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1104,6 +1110,7 @@ EOF
 ```
 {: codeblock}
 
+
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
@@ -1113,8 +1120,9 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
-
 Run this command to update the orderer CRD:  
+  
+
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1757,6 +1765,7 @@ service/ibp-webhook created
   {: codeblock}
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
+Run this command to update the CA CRD:  
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1823,8 +1832,8 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
-
-Run this command to update the peer CRD.
+Run this command to update the peer CRD:
+  
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1884,7 +1893,8 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
-Run this command to update the console CRD:   
+Run this command to update the console CRD:
+  
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
@@ -1935,6 +1945,7 @@ EOF
 ```
 {: codeblock}
 
+
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
@@ -1944,8 +1955,9 @@ or
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
-
 Run this command to update the orderer CRD:  
+  
+
 
 ```yaml
 cat <<EOF | kubectl apply  -f -
