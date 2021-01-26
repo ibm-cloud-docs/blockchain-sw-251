@@ -394,7 +394,6 @@ Copy the following text to a file on your local system and save the file as `dep
 
 
 
-
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -906,10 +905,13 @@ oc adm policy add-scc-to-user <PROJECT_NAME> system:serviceaccounts:<PROJECT_NAM
 {:codeblock}
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
+
 If the command is successful, you can see a response that is similar to the following example:
 ```
 securitycontextconstraints.security.openshift.io/blockchain-project created
 scc "blockchain-project" added to: ["system:serviceaccounts:blockchain-project"]
+```
+
 ```
 
 ### Apply the ClusterRole
@@ -1015,11 +1017,13 @@ oc adm policy add-scc-to-group <PROJECT_NAME> system:serviceaccounts:<PROJECT_NA
 {:codeblock}
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
+
 If successful, you can see a response that is similar to the following example:
 ```
 clusterrole.rbac.authorization.k8s.io/blockchain-project created
 scc "blockchain-project" added to groups: ["system:serviceaccounts:blockchain-project"]
 ```
+
 
 ### Apply the ClusterRoleBinding
 {: #deploy-ocp-clusterrolebinding-firewall}
@@ -1053,11 +1057,13 @@ oc adm policy add-cluster-role-to-user <PROJECT_NAME> system:serviceaccounts:<PR
 {:codeblock}
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
+
 If successful, you can see a response that is similar to the following example:
 ```
 clusterrolebinding.rbac.authorization.k8s.io/blockchain-project created
 cluster role "blockchain-project" added: "system:serviceaccounts:blockchain-project"
 ```
+
 
 ## Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator
 {: #deploy-ocp-operator-fw}
