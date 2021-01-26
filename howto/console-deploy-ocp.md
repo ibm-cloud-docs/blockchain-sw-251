@@ -329,6 +329,7 @@ Copy the following text to a file on your local system and save the file as `dep
 
 
 
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -998,6 +999,7 @@ Copy the following text to a file on your local system and save the file as `ibp
 
 
 
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -1132,6 +1134,7 @@ Save the custom resource definition below as `ibp-console.yaml` on your local sy
 
 
 
+
 ```yaml
 apiVersion: ibp.com/v1beta1
 kind: IBPConsole
@@ -1197,6 +1200,7 @@ Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainful
 {: #console-deploy-ocp-advanced}
 
 Before you deploy the console, you can edit the `ibp-console.yaml` file to allocate more resources to your console or use zones for high availability in a multizone cluster. To take advantage of these deployment options, you can use the console resource definition with the `resources:` and `clusterdata:` sections added:
+
 
 
 
