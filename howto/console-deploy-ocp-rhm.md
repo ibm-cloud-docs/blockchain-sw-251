@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-14"
+lastupdated: "2021-01-27"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, Red Hat Marketplace, subscription, operators
 
@@ -76,6 +76,7 @@ You must have the cluster administrator role to install the operators from the R
 The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to your project. The `ibp-scc.yaml` file is provided here for you to copy and edit to define the security policies for your project. Before attempting this step, you should be logged in to the `oc` CLI.   
 
 Copy and save the following security context constraint object to your local system as `ibp-scc.yaml`. Edit the file and replace `<PROJECT_NAME>` with the name of your project.
+
 
 ```yaml
 allowHostDirVolumePlugin: false
@@ -154,6 +155,8 @@ Click **Create Instance** on the **IBPConsole** tile.
 
 The YAML view shows a sample **console** specification of parameters that you need to customize. The spec is abbreviated to _only the required parameters_.  Be aware that some fields can show up differently based on your configuration. Before you install the console, you should also review the Advanced deployment options in the next section in case any of the other options are relevant to your configuration. For example, if you are deploying your console on a multizone cluster, you need to configure that before you install the console.
 {: important}
+
+
 
 ```yaml
 apiVersion: ibp.com/v1beta1
