@@ -108,6 +108,7 @@ IBM Blockchain Platform 2.5.1
 
 	/blockchain/blockchain-hyperledger-fabric
 	/blockchain/blockchain-k8s-overview
+	[IBM Developer](https://developer.ibm.com/technologies/blockchain/)
 	reference/metering.md
 	reference/hsm-pkcs11.md
 	reference/hsm-pkcs11-ic.md
@@ -121,4 +122,3 @@ IBM Blockchain Platform 2.5.1
 	ibmblockchain_support.md
 	sitemap.md
 	{: .navgroup-end}
-
