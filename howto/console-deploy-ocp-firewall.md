@@ -1237,6 +1237,7 @@ spec:
 {:codeblock}
 
 
+
 You need to specify the external endpoint information of the console in the `ibp-console.yaml` file:
 - Replace `<LOCAL_REGISTRY>` with the URL of your local registry.
 - Replace `<DOMAIN>` with the name of your cluster domain. You can find this value by using the OpenShift web console. Use the dropdown menu next to **OpenShift Container Platform** at the top left of the page to switch from **Service Catalog** to **Cluster Console**. Examine the URL for that page. It will be similar to `console.xyz.abc.com/k8s/cluster/projects`. The value of the domain then would be `xyz.abc.com`, after removing `console` and `/k8s/cluster/projects`.

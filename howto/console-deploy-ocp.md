@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-26"
+lastupdated: "2021-01-27"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -1159,6 +1159,7 @@ spec:
       size: 10Gi
 ```
 {:codeblock}
+
 
 
 You need to specify the external endpoint information of the console in the `ibp-console.yaml` file:
