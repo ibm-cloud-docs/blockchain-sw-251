@@ -88,7 +88,6 @@ IBM Blockchain Platform 2.5.1
 	Advanced tutorials
 		howto/ibp-console-int-ca.md
 		reference/hsm-gemalto.md
-		howto/backup-restore.md
 		howto/ibp-v2-tutorial-extca.md
 
 		{: .topicgroup}

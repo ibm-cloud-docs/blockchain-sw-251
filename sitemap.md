@@ -1059,17 +1059,6 @@ subcollection: blockchain-sw-251
   * [What's next](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
 * [Using multiple partitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
 
-[Backing up and restoring components and networks](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore)
-* [ Overview](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-overview)
-  * [Backup considerations for each node type](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-node-considerations)
-  * [Scheduling snapshots](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-schedule-snapshot)
-* [Taking snapshots](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-take-snapshot)
-  * [Node snapshots](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-peer-snapshot)
-* [Restoring nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-restore)
-  * [Sequencing restorations](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-restore-sequence)
-  * [Restoring a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-restore-peer)
-  * [Restoring an ordering node](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-restore-orderer)
-
 [Using certificates from an external Certificate Authority](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca)
 * [Objectives](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-objectives)
 * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-prereqs)
