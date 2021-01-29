@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-27"
+lastupdated: "2021-01-28"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -72,6 +72,8 @@ subcollection: blockchain-sw-251
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
+{:swift-ios: .ph data-hd-programlang='iOS Swift'}
+{:swift-server: .ph data-hd-programlang='server-side Swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -1056,17 +1058,6 @@ subcollection: blockchain-sw-251
   * [Part Four: Build a Docker image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-four)
   * [What's next](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
 * [Using multiple partitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
-
-[Backing up and restoring components and networks](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore)
-* [ Overview](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-overview)
-  * [Backup considerations for each node type](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-node-considerations)
-  * [Scheduling snapshots](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-schedule-snapshot)
-* [Taking snapshots](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-take-snapshot)
-  * [Node snapshots](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-peer-snapshot)
-* [Restoring nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-restore)
-  * [Sequencing restorations](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-restore-sequence)
-  * [Restoring a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-restore-peer)
-  * [Restoring an ordering node](/docs/blockchain-sw-251?topic=blockchain-sw-251-backup-restore#backup-restore-restore-orderer)
 
 [Using certificates from an external Certificate Authority](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca)
 * [Objectives](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-objectives)

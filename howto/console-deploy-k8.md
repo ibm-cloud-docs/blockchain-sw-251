@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-01-27"
+lastupdated: "2021-01-28"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -73,6 +73,8 @@ subcollection: blockchain-sw-251
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
+{:swift-ios: .ph data-hd-programlang='iOS Swift'}
+{:swift-server: .ph data-hd-programlang='server-side Swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -817,8 +819,10 @@ The {{site.data.keyword.blockchainfull_notm}} Platform requires specific securit
 
 Copy the PodSecurityPolicy object below and save it to your local system as `ibp-psp.yaml`.
 
+
 If you are running **Kubernetes v1.16 or higher**, you will need to change the line `apiVersion: extensions/v1beta1` in the following PodSecurityPolicy object to `apiVersion: policy/v1beta1`.
 {: important}
+
 
 
 
@@ -859,10 +863,9 @@ spec:
 
 After you save and edit the file, run the following command to add the file to your cluster and add the policy to your namespace.
 ```
-kubectl apply -f ibp-psp.yaml -n <NAMESPACE>
+kubectl apply -f ibp-psp.yaml
 ```
 {:codeblock}
-Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
 ### Apply the ClusterRole
 {: #deploy-k8-clusterrole}
@@ -1174,10 +1177,10 @@ spec:
 
 
 
-You need to specify the external endpoint information of the console in the `ibp-console.yaml` file:
+Specify the external endpoint information of the console in the `ibp-console.yaml` file:
 - Replace `<DOMAIN>` with the name of your cluster domain. You need to make sure that this domain is pointed to the load balancer of your cluster.  
 
-You also need to provide the user name and password that is used to access the console for the first time:
+Provide the user name and password that is used to access the console for the first time:
 - Replace `<EMAIL>` with the email address of the console administrator.
 - Replace `<PASSWORD>` with the password of your choice. This password also becomes the default password of the console until it is changed.
 
@@ -1402,6 +1405,7 @@ You can use your browser to access the console by using the console URL:
 ```
 https://<NAMESPACE>-ibpconsole-console.<DOMAIN>:443
 ```
+{: codeblock}
 
 - Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 - Replace `<DOMAIN>` with the name of your cluster domain. You passed this value to the `DOMAIN:` field of the `ibp-console.yaml` file.
@@ -1415,8 +1419,9 @@ If you navigate to the console URL in your browser, you can see the console logi
 - For the **User ID**, use the value you provided for the `email:` field in the `ibp-console.yaml` file.
 - For the **Password**, use the value you encoded for the `password:` field in the `ibp-console.yaml` file. This password becomes the default password for the console that all new users use to log in to the console. After you log in for the first time, you will be asked to provide a new password that you can use to log in to the console.
 
-Ensure that you are not using the ESR version of Firefox. If you are, switch to another browser such as Chrome and log in.
-{: important}
+If you are unable to log in, ensure that you are not using the ESR version of Firefox. If you are, switch to another
+browser such as Chrome and log in. Otherwise, clear your browser cache and try logging in again.
+{: tip}
 
 The administrator who provisions the console can grant access to other users and restrict the actions they can perform. For more information, see [Managing users from the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-console-icp-manage#console-icp-manage-users).
 
