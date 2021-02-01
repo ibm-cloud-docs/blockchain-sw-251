@@ -2,7 +2,7 @@
 
 copyright:
   years: 2019, 2021
-lastupdated: "2021-01-28"
+lastupdated: "2021-02-01"
 
 keywords: Kubernetes, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters
 
@@ -2004,9 +2004,6 @@ customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 
 ### Step five: Update the ClusterRole
 {: #upgrade-k8-clusterrole-firewall}
-
-This step is only required if you are upgrading from v2.1.0 or v2.1.1. Otherwise, you can skip to [Step six](#upgrade-k8-operator-firewall).
-{: note}
 
 You need to update the ClusterRole that is applied to your project. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.  
 
