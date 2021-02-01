@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-01-19"
+lastupdated: "2021-02-01"
 
 keywords: IBM Blockchain Platform, release, new features, multicloud
 
@@ -42,7 +42,7 @@ The {{site.data.keyword.blockchainfull}} Platform extension for VS Code V2.0 is 
 
 {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 is now available.
 
-{{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 now supports the Fabric v2.x smart contract lifecycle that allows for decentralized governance of smart contract definitions on a channel. The platform has been updated to support Kubernetes v1.16-v1.18 and OpenShift container Platform 4.5, 4.6.
+{{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 now supports the Fabric v2.x smart contract lifecycle that allows for decentralized governance of smart contract definitions on a channel. The platform has been updated to support Kubernetes v1.17-v1.19 and OpenShift container Platform 4.5, 4.6.
 
 **Support for Fabric v2.x lifecycle**
 
