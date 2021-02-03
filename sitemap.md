@@ -198,129 +198,6 @@ subcollection: blockchain-sw-251
 [An example network](/docs/blockchain-sw-251?topic=blockchain-sw-251-blockchain-component-overview#blockchain-component-overview-example-network)
 
 
-## Getting started tutorials
-{: #sitemap_getting_started_tutorials}
-
-
-[Build a network](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network)
-* [Sample network tutorial series](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-sample-tutorial)
-  * [The structure of this network](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-structure)
-* [Step one: Create a peer organization and a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-peer-org1)
-  * [Creating your peer organization's CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-CA-org1CA)
-  * [Associating the CA admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-ca-admin)
-  * [Using your CA to register identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-use-CA-org1)
-  * [Creating the peer organization MSP definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-peers-org1)
-  * [Creating a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-peer-create)
-* [Step two: Create the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-orderer)
-  * [Ordering in the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-ordering-console)
-  * [Creating your ordering service organization CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-orderer-ca)
-  * [Associating the CA admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-orderer-ca-admin)
-  * [Using your CA to register ordering service node and ordering service admin identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-use-CA-orderer)
-  * [Creating the ordering service organization MSP definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-orderer-org-msp)
-  * [Deploy the ordering nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-an-orderer)
-* [Step three: Join the consortium hosted by the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-add-org)
-  * [Add the organization to the consortium](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-add-org-consortium)
-* [Step four: Create a channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-channel)
-  * [Creating a channel: `channel1`](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-channel1)
-* [Step five: Join your peer to the channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-join-peer)
-* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-next-steps)
-
-[Join a network](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network)
-* [Sample network tutorial series](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-structure)
-* [Step one: Create a peer organization and a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-create-ca-org2)
-  * [Creating your peer organization CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-create-CA-org2CA)
-  * [Associating the CA admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-ca-admin)
-  * [Using your CA to register identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-use-CA-org2)
-  * [Creating the peer organization MSP](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-create-peers-org2)
-  * [Creating a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-peer-create)
-* [Step two: Add Org2 to an existing channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-add-channel)
-  * [Export the ordering service and its MSP](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-export-ordering-service)
-  * [Import the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-import-remote-orderer)
-* [Step three: Join your peer to the channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-join-peer-org2)
-* [Step four: Creating a channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-create-channel)
-  * [Join the consortium hosted by the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-add-org2)
-  * [Export your organization information](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-add-org2-remote)
-  * [Import the organization definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-import-remote-msp)
-  * [Add Org2 MSP to the ordering service consortium](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-add-org2-local)
-  * [Creating a channel: `channel2`](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-build-network-create-channel1)
-* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-next-steps)
-
-
-## Deploy a smart contract
-{: #sitemap_deploy_a_smart_contract}
-
-
-[Deploy a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts)
-* [Sample network tutorial series](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-structure)
-
-[Deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2)
-* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before)
-  * [Ensure peer is running Fabric v2.x image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-fabimage)
-  * [Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-update-consortium)
-  * [Create channel and join peers](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-peer)
-  * [Export and Import Membership Service Providers (MSPs)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-msps)
-  * [Peer admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-peer-admin)
-* [Limitations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-limitations)
-  * [Can I continue to use the Fabric SDK to deploy my smart contracts?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-sdk)
-  * [What happens to my existing smart contracts?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-existing-sc)
-* [Step one: Write and package your smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-pkg)
-  * [Vendoring smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-write-package-vendor)
-  * [Versioning smart contract definition and packages](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-pkg-best-practice)
-* [Step two: Install and Propose smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-install-propose)
-* [Step three: Approve smart contract definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-approve)
-* [Step four: Commit smart contract definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-commit)
-* [How do I?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-faq)
-* [Specifying a smart contract endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-endorse)
-  * [What does the user type have to do with the smart contract endorsement policy?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-endorse-user-type)
-* [Versioning a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-versioning)
-* [Important considerations when you update smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-upgrade-considerations)
-* [Private data](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-private-data)
-* [Implicit data collections](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-implicit-colln)
-
-[Deploy a smart contract using Fabric v1.4 (Legacy)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14)
-* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-before)
-* [Step one: Write and package your smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-write-package)
-  * [Vendoring smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-write-package-vendor)
-* [Step two: Install a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-install)
-* [Step three: Instantiate a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-instantiate)
-* [Step four: Send transactions by using your client applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-connect-to-SDK)
-  * [Connect with SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-connect-to-SDK-panel)
-* [Specifying an endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-endorse)
-  * [What does the user type have to do with the smart contract endorsement policy?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-endorse-user-type)
-* [Upgrading a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade)
-  * [How to upgrade a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade-howto)
-  * [Considerations when you upgrade smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade-considerations)
-* [Private data](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data)
-
-[Creating applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app)
-* [Learning resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-learning-resources)
-  * [High-Level Fabric contract APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-high-level)
-  * [Low-Level Fabric SDK APIs**](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level)
-  * [Network considerations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-networking)
-* [Application compatibility](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat)
-  * [SDKs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sdk)
-  * [Smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sc)
-* [Registering an application identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-identities)
-* [Downloading your connection profile](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-profile)
-* [Service discovery](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-sd)
-* [Enrolling by using the SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-enroll)
-* [Invoking a smart contract by using the SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-invoke)
-* [Running the Commercial Paper sample](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper)
-  * [Prerequisites](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-prereq)
-  * [Step one: Download the sample](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-one-download-sample)
-  * [Step two: Install and Propose smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-two-install-propose)
-  * [Step three: Generate certificates for your wallet](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-three-generate-certificates)
-  * [Step four: Use the connection profile to build a Fabric gateway](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-four-gateway)
-  * [Step five: Invoke the smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-five-invoke)
-  * [Step six: Operate the sample as Digibank](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
-* [Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level)
-* [Highly available applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-ha)
-* [Using indexes with CouchDB](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-couchdb)
-* [Additional Resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-resources)
-
-[{{site.data.keyword.blockchainfull_notm}} Platform getting started videos](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-videos)
-
-
 ## Security
 {: #sitemap_security}
 
@@ -498,6 +375,225 @@ subcollection: blockchain-sw-251
 [Do we have access to logging services and what logs are available to me?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-v2-Logging-and-Monitoring-11-6)
 
 [Is there a best practice for monitoring my blockchain resources?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-faq#ibp-v2-faq-mon-res)
+
+
+## Getting started
+{: #sitemap_getting_started}
+
+
+[Build a network](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network)
+* [Sample network tutorial series](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-sample-tutorial)
+  * [The structure of this network](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-structure)
+* [Step one: Create a peer organization and a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-peer-org1)
+  * [Creating your peer organization's CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-CA-org1CA)
+  * [Associating the CA admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-ca-admin)
+  * [Using your CA to register identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-use-CA-org1)
+  * [Creating the peer organization MSP definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-peers-org1)
+  * [Creating a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-peer-create)
+* [Step two: Create the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-orderer)
+  * [Ordering in the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-ordering-console)
+  * [Creating your ordering service organization CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-orderer-ca)
+  * [Associating the CA admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-orderer-ca-admin)
+  * [Using your CA to register ordering service node and ordering service admin identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-use-CA-orderer)
+  * [Creating the ordering service organization MSP definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-orderer-org-msp)
+  * [Deploy the ordering nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-an-orderer)
+* [Step three: Join the consortium hosted by the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-add-org)
+  * [Add the organization to the consortium](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-add-org-consortium)
+* [Step four: Create a channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-channel)
+  * [Creating a channel: `channel1`](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-create-channel1)
+* [Step five: Join your peer to the channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-join-peer)
+* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-build-network#ibp-console-build-network-next-steps)
+
+[Join a network](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network)
+* [Sample network tutorial series](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-structure)
+* [Step one: Create a peer organization and a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-create-ca-org2)
+  * [Creating your peer organization CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-create-CA-org2CA)
+  * [Associating the CA admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-ca-admin)
+  * [Using your CA to register identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-use-CA-org2)
+  * [Creating the peer organization MSP](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-create-peers-org2)
+  * [Creating a peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-peer-create)
+* [Step two: Add Org2 to an existing channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-add-channel)
+  * [Export the ordering service and its MSP](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-export-ordering-service)
+  * [Import the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-import-remote-orderer)
+* [Step three: Join your peer to the channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-join-peer-org2)
+* [Step four: Creating a channel](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-create-channel)
+  * [Join the consortium hosted by the ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-add-org2)
+  * [Export your organization information](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-add-org2-remote)
+  * [Import the organization definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-import-remote-msp)
+  * [Add Org2 MSP to the ordering service consortium](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-add-org2-local)
+  * [Creating a channel: `channel2`](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-build-network-create-channel1)
+* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-next-steps)
+
+[{{site.data.keyword.blockchainfull_notm}} Platform getting started videos](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-videos)
+
+
+## Deploy a smart contract
+{: #sitemap_deploy_a_smart_contract}
+
+
+[Deploy a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts)
+* [Sample network tutorial series](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts#ibp-console-smart-contracts-structure)
+
+[Deploy a smart contract using Fabric v2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2)
+* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before)
+  * [Ensure peer is running Fabric v2.x image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-fabimage)
+  * [Update MSPs in consortium to add organization-level endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-update-consortium)
+  * [Create channel and join peers](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-peer)
+  * [Export and Import Membership Service Providers (MSPs)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-before-msps)
+  * [Peer admin identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-peer-admin)
+* [Limitations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-limitations)
+  * [Can I continue to use the Fabric SDK to deploy my smart contracts?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-sdk)
+  * [What happens to my existing smart contracts?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-existing-sc)
+* [Step one: Write and package your smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-pkg)
+  * [Vendoring smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-write-package-vendor)
+  * [Versioning smart contract definition and packages](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-pkg-best-practice)
+* [Step two: Install and Propose smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-install-propose)
+* [Step three: Approve smart contract definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-approve)
+* [Step four: Commit smart contract definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-commit)
+* [How do I?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-faq)
+* [Specifying a smart contract endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-endorse)
+  * [What does the user type have to do with the smart contract endorsement policy?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-endorse-user-type)
+* [Versioning a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-versioning)
+* [Important considerations when you update smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-upgrade-considerations)
+* [Private data](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-private-data)
+* [Implicit data collections](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v2#ibp-console-smart-contracts-v2-implicit-colln)
+
+[Deploy a smart contract using Fabric v1.4 (Legacy)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14)
+* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-before)
+* [Step one: Write and package your smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-write-package)
+  * [Vendoring smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-write-package-vendor)
+* [Step two: Install a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-install)
+* [Step three: Instantiate a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-instantiate)
+* [Step four: Send transactions by using your client applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-connect-to-SDK)
+  * [Connect with SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-connect-to-SDK-panel)
+* [Specifying an endorsement policy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-endorse)
+  * [What does the user type have to do with the smart contract endorsement policy?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-endorse-user-type)
+* [Upgrading a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade)
+  * [How to upgrade a smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade-howto)
+  * [Considerations when you upgrade smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-upgrade-considerations)
+* [Private data](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-smart-contracts-v14#ibp-console-smart-contracts-private-data)
+
+
+## Creating applications
+{: #sitemap_creating_applications}
+
+
+[Creating applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app)
+
+[Learning resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-learning-resources)
+* [High-Level Fabric contract APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-high-level)
+* [Low-Level Fabric SDK APIs**](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level)
+* [Network considerations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-networking)
+
+[Application compatibility](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat)
+* [SDKs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sdk)
+* [Smart contracts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sc)
+
+[Registering an application identity](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-identities)
+
+[Downloading your connection profile](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-profile)
+
+[Service discovery](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-sd)
+
+[Enrolling by using the SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-enroll)
+
+[Invoking a smart contract by using the SDK](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-invoke)
+
+[Running the Commercial Paper sample](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper)
+* [Prerequisites](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-prereq)
+* [Step one: Download the sample](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-one-download-sample)
+* [Step two: Install and Propose smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-two-install-propose)
+* [Step three: Generate certificates for your wallet](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-three-generate-certificates)
+* [Step four: Use the connection profile to build a Fabric gateway](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-four-gateway)
+* [Step five: Invoke the smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-five-invoke)
+* [Step six: Operate the sample as Digibank](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
+
+[Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level)
+
+[Highly available applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-ha)
+
+[Using indexes with CouchDB](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-couchdb)
+
+[Additional Resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-resources)
+
+
+## Certificate Authority (CA) options
+{: #sitemap_certificate_authority_(ca)_options}
+
+
+[Creating an intermediate Certificate Authority (CA)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica)
+* [Why would I want to use an intermediate CA with my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-why)
+* [Can I convert an existing CA to be an intermediate CA?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-convert)
+* [Limitations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-limitations)
+* [Process overview](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-overview)
+* [Part One: Actions you perform from the root CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-part-one)
+* [Part Two: Build the intermediate CA JSON override](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-part-two)
+* [Part Three: Actions you perform on the intermediate CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-part-three)
+* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-next-steps)
+  * [Register and enroll identities against the intermediate CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-next-steps-reg-enroll)
+  * [Create organization MSPs using the intermediate CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-next-steps-msp)
+  * [Scale down the root CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-next-steps-scale)
+
+[Using certificates from an external Certificate Authority](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca)
+* [Objectives](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-objectives)
+* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-prereqs)
+* [Gather certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs)
+  * [Consideration when using an external CA to generate certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs-pkcs1)
+* [Build MSP definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-build-msp)
+* [Import MSP into the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-import-msp)
+* [Create and import the organization admin identity to the wallet](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-import-admin)
+* [Deploy a blockchain node](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-deploy-node)
+  * [Deploy peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-deploy-peer)
+  * [Deploy ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-deploy-orderer)
+* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-next-steps)
+
+
+## Hardware Security Module (HSM)
+{: #sitemap_hardware_security_module_(hsm)}
+
+
+[IBM Cloud Hardware Security Module (HSM)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto)
+* [Why would I want to use an HSM with my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-why)
+* [Using {{site.data.keyword.cloud_notm}} HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-using)
+* [Process overview](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-overview)
+  * [Part One: Set up the HSM device and HSM client](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-one)
+  * [Part Two: Configure communications between the HSM server and client](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-two)
+  * [Part Three: Register the client with the HSM server](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-three)
+  * [Part Four: Build a Docker image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-four)
+  * [What's next](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
+* [Using multiple partitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
+
+
+## Ansible Playbooks
+{: #sitemap_ansible_playbooks}
+
+
+[Getting started with Ansible playbooks on the IBM Blockchain Platform](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible)
+* [What is Ansible](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-whatis)
+* [How does the {{site.data.keyword.blockchainfull_notm}} Platform Ansible collection work?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-how)
+* [Why would I want to use an Ansible playbook?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-why)
+* [Considerations and Limitations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-limits)
+* [Getting started](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-getting-started)
+* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-next-steps)
+* [Where to find support](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-support)
+
+[Deploy the service from an Ansible playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp)
+* [Prerequisites](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-prereqs)
+  * [Gather your Kubernetes cluster details](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-k8s-cluster)
+* [Build the Ansible playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-playbook)
+* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-playbook-next)
+
+[Building an IBM Blockchain Platform network using Ansible playbooks](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build)
+* [Prerequisites](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-prereqs)
+* [Step one: Gather console connection information](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-console)
+* [Step two: Clone the Ansible collection](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-clone)
+* [Step three: Get started with using the playbooks](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-get-start)
+* [Step four: Run a playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-run-playbook)
+* [Step five: Run a script](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-run-script)
+* [Hints and Tips](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-hints)
+* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-next-steps)
+  * [Generated identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-import-identities)
+* [Summary](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-summary)
 
 
 ## Install on the OpenShift Container Platform
