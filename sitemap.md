@@ -480,10 +480,13 @@ subcollection: blockchain-sw-251
 
 [Creating applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app)
 
-[Learning resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-learning-resources)
-* [High-Level Fabric contract APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-high-level)
+[Overview](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-learning-resources)
+* [High-Level Programming Model APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-high-level)
 * [Low-Level Fabric SDK APIs**](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level)
-* [Network considerations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-networking)
+
+[Application connectivity and availability](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-transx)
+
+[Network considerations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-networking)
 
 [Application compatibility](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat)
 * [SDKs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-compat-sdk)
@@ -508,7 +511,7 @@ subcollection: blockchain-sw-251
 * [Step five: Invoke the smart contract](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-five-invoke)
 * [Step six: Operate the sample as Digibank](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-commercial-paper-step-six-operate-as-digibank)
 
-[Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level)
+[Connecting to your network by using low-level Fabric SDK APIs](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#ibp-console-app-low-level-api)
 
 [Highly available applications](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-app#console-app-ha)
 
@@ -1120,11 +1123,6 @@ subcollection: blockchain-sw-251
 * [Installing a package and proposing a definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts#write-powerful-smart-contracts-installing-proposing)
 
 [Best practices for application development](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app)
-* [Application connectivity and availability](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-connectivity-availability)
-  * [Managing transactions](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-managing-transactions)
-  * [Opening and closing network connections](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-connections)
-* [(Optional) Setting timeout values in Fabric SDKs](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-app-set-timeout-in-sdk)
-* [Resources](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app#best-practices-resources)
 
 
 ## Advanced tutorials
