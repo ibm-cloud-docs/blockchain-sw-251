@@ -1290,7 +1290,7 @@ spec:
 ```
 {: codeblock}
 
-- **Reminder:** Replace `registryURL: cp.icr.io/cp` with the URL of your local registry.
+- **Reminder:** Replace `registryURL: cp.icr.io/cp` with the URL of your local registry and accept the license.
 - You can use the `resources:` section to allocate more resources to your console. The values in the example file are the default values allocated to each container. Allocating more resources to your console allows you to operate a larger number of nodes or channels. You can allocate more resources to a currently running console by editing the resource file and applying it to your cluster. The console will restart and return to its previous state, allowing you to operate all of your exiting nodes and channels.
   ```
   kubectl apply -f ibp-console.yaml -n <NAMESPACE>
@@ -1331,7 +1331,7 @@ You can use a Certificate Authority or tool to create the TLS certificates for t
 
 - Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 - Replace `<DOMAIN>` with the name of your cluster domain.
-- **Reminder:** Replace `registryURL: cp.icr.io/cp` with the URL of your local registry.
+- **Reminder:** Replace `registryURL: cp.icr.io/cp` with the URL of your local registry and accept the license.
 
 
 Navigate to the TLS certificates that you plan to use on your local system. Name the TLS certificate `tlscert.pem` and the corresponding private key `tlskey.pem`. Run the following command to create the Kubernetes secret and add it to your Kubernetes namespace. The TLS certificate and key need to be in PEM format.
