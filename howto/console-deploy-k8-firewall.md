@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-01"
+lastupdated: "2021-02-04"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, firewall, on-premises, air-gapped, on-prem, multicloud, on-prem
 
@@ -73,8 +73,6 @@ subcollection: blockchain-sw-251
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift-ios: .ph data-hd-programlang='iOS Swift'}
-{:swift-server: .ph data-hd-programlang='server-side Swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -293,8 +291,6 @@ The first three steps are for deployment of the webhook. The last step is for th
 
 First, copy the following text to a file on your local system and save the file as `rbac.yaml`. This step allows the webhook to read and create a TLS secret in its own project.
 
-
-
 ```yaml
 apiVersion: v1
 kind: ServiceAccount
@@ -326,9 +322,9 @@ roleRef:
   kind: Role
   name: webhook
   apiGroup: rbac.authorization.k8s.io
+
 ```
 {: codeblock}
-
 
 Run the following command to add the file to your cluster definition:
 ```
@@ -346,7 +342,7 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 {: #webhook-scc}
 
 Skip this step if you are not using OpenShift. The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`.
-
+Replace `<PROJECT_NAME>` with `ibpinfra`.
 ```yaml
 allowHostDirVolumePlugin: false
 allowHostIPC: false
@@ -367,10 +363,10 @@ defaultAddCapabilities: []
 fsGroup:
   type: RunAsAny
 groups:
-- system:serviceaccounts:ibpinfra
+- system:serviceaccounts:<PROJECT_NAME>
 kind: SecurityContextConstraints
 metadata:
-  name: ibpinfra
+  name: <PROJECT_NAME>
 readOnlyRootFilesystem: false
 requiredDropCapabilities: []
 runAsUser:
@@ -379,10 +375,13 @@ seLinuxContext:
   type: RunAsAny
 supplementalGroups:
   type: RunAsAny
+users:
+- system:serviceaccounts:<PROJECT_NAME>
 volumes:
 - "*"
+
 ```
-{:codeblock}
+{: codeblock}
 
 After you save the file, run the following commands to add the file to your cluster and add the policy to your project.
 
@@ -409,8 +408,6 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
 
 
-
-
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -426,10 +423,7 @@ spec:
     matchLabels:
       app.kubernetes.io/instance: "ibp-webhook"
   strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+    type: Recreate
   template:
     metadata:
       labels:
@@ -496,10 +490,9 @@ spec:
             requests:
               cpu: 0.1
               memory: "100Mi"
+
 ```
 {: codeblock}
-
-
 Run the following command to add the file to your cluster definition:
 ```
 kubectl apply -n ibpinfra -f deployment.yaml
@@ -515,8 +508,6 @@ deployment.apps/ibp-webhook created
 {: #webhook-service-yaml}
 
 Second, copy the following text to a file on your local system and save the file as `service.yaml`.
-
-
 
 ```yaml
 apiVersion: v1
@@ -537,6 +528,7 @@ spec:
       protocol: TCP
   selector:
     app.kubernetes.io/instance: "ibp-webhook"
+
 ```
 {: codeblock}
 
@@ -562,7 +554,6 @@ service/ibp-webhook created
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
 Run this command to update the CA CRD:   
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -587,7 +578,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPCA
@@ -618,7 +609,6 @@ EOF
 ```
 {: codeblock}
 
-
 Depending on whether you are creating or updating the CRD, when successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
@@ -629,8 +619,6 @@ customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
 Run this command to update the peer CRD:
-  
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -641,7 +629,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibppeer"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -655,7 +643,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPPeer
@@ -690,8 +678,6 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:
-  
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -702,7 +688,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibpconsole"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -741,7 +727,6 @@ EOF
 ```
 {: codeblock}
 
-
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
@@ -752,9 +737,6 @@ customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
 Run this command to update the orderer CRD:  
-  
-
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -765,7 +747,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibporderer"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -779,7 +761,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPOrderer
@@ -803,7 +785,6 @@ spec:
 EOF
 ```
 {: codeblock}
-
 
 When successful, you should see:
 ```
@@ -868,15 +849,8 @@ The {{site.data.keyword.blockchainfull_notm}} Platform requires specific securit
 
 Copy the PodSecurityPolicy object below and save it to your local system as `ibp-psp.yaml`.
 
-
-If you are running **Kubernetes v1.16 or higher**, you will need to change the line `apiVersion: extensions/v1beta1` in the following PodSecurityPolicy object to `apiVersion: policy/v1beta1`.
-{: important}
-
-
-
-
 ```yaml
-apiVersion: extensions/v1beta1
+apiVersion: policy/v1beta1
 kind: PodSecurityPolicy
 metadata:
   name: ibm-blockchain-platform-psp
@@ -907,8 +881,7 @@ spec:
   volumes:
   - '*'
 ```
-{:codeblock}
-
+{: codeblock}
 
 After you save and edit the file, run the following commands to add the file to your cluster and add the policy to your namespace.
 ```
@@ -922,12 +895,17 @@ kubectl apply -f ibp-psp.yaml
 Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. This file defines the required ClusterRole for the PodSecurityPolicy. Edit the file and replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
 
-
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: <NAMESPACE>
+  labels:
+    release: "operator"
+    helm.sh/chart: "ibm-ibp"
+    app.kubernetes.io/name: "ibp"
+    app.kubernetes.io/instance: "ibp"
+    app.kubernetes.io/managed-by: "ibp-operator"
 rules:
 - apiGroups:
   - extensions
@@ -1004,8 +982,7 @@ rules:
   verbs:
   - '*'
 ```
-{:codeblock}
-
+{: codeblock}
 
 After you save and edit the file, run the following commands.
 ```
@@ -1020,12 +997,17 @@ Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_n
 Copy the following text to a file on your local system and save the file as `ibp-clusterrolebinding.yaml`. This file defines the ClusterRoleBinding. Edit the file and replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.  
 
 
-
 ```yaml
 kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: <NAMESPACE>
+  labels:
+    release: "operator"
+    helm.sh/chart: "ibm-ibp"
+    app.kubernetes.io/name: "ibp"
+    app.kubernetes.io/instance: "ibp"
+    app.kubernetes.io/managed-by: "ibp-operator"
 subjects:
 - kind: ServiceAccount
   name: default
@@ -1035,8 +1017,7 @@ roleRef:
   name: <NAMESPACE>
   apiGroup: rbac.authorization.k8s.io
 ```
-{:codeblock}
-
+{: codeblock}
 
 After you save and edit the file, run the following commands.
 ```
@@ -1061,7 +1042,6 @@ kubectl -n <NAMESPACE> create rolebinding ibp-operator-rolebinding --clusterrole
 The {{site.data.keyword.blockchainfull_notm}} Platform uses an operator to install the {{site.data.keyword.blockchainfull_notm}} Platform console. You can deploy the operator on your cluster by adding a custom resource to your namespace by using the kubectl CLI. The custom resource pulls the operator image from the Docker registry and starts it on your cluster.  
 
 Copy the following text to a file on your local system and save the file as `ibp-operator.yaml`.
-
 
 
 
@@ -1120,7 +1100,7 @@ spec:
         - name: docker-key-secret
       containers:
         - name: ibp-operator
-          image: <LOCAL_REGISTRY>/ibp-operator:2.5.1-20210112-amd64
+          image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64
           command:
           - ibp-operator
           imagePullPolicy: Always
@@ -1169,8 +1149,7 @@ spec:
               cpu: 100m
               memory: 200Mi
 ```
-{:codeblock}
-
+{: codeblock}
 
 - If you changed the name of the Docker key secret, then you need to edit the field of `name: docker-key-secret`.
 
@@ -1194,8 +1173,6 @@ ibp-operator   1/1     1            1           1m
 When the operator is running on your namespace, you can apply a custom resource to start the {{site.data.keyword.blockchainfull_notm}} Platform console on your cluster. You can then access the console from your browser. You can deploy only one console per Kubernetes namespace.
 
 Save the custom resource definition below as `ibp-console.yaml` on your local system.
-
-
 ```yaml
 apiVersion: ibp.com/v1beta1
 kind: IBPConsole
@@ -1205,23 +1182,26 @@ spec:
   arch:
   - amd64
   license:
-    accept: true
+    accept: false
   serviceAccountName: default
   email: "<EMAIL>"
   password: "<PASSWORD>"
-  registryURL: <LOCAL_REGISTRY>
+  registryURL: cp.icr.io/cp
   imagePullSecrets:
     - docker-key-secret
   networkinfo:
     domain: <DOMAIN>
   storage:
     console:
-      class: default
-      size: 10Gi
+      class: ""
+      size: 5Gi
+  version: 2.5.1
 ```
-{:codeblock}
+{: codeblock}
 
+Accept the license:  
 
+- Accept the [IBM Blockchain Platform license](https://www-03.ibm.com/software/sla/sladb.nsf/lilookup/6CE1C5684689691C852586000043982B?OpenDocument){: external} by replacing the `license` parameter `accept: false` with the text `accept: true`.
 
 Specify the external endpoint information of the console in the `ibp-console.yaml` file:
 - Replace `<LOCAL_REGISTRY>` with the URL of your local registry.
@@ -1250,8 +1230,6 @@ Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_n
 
 You can edit the `ibp-console.yaml` file to allocate more resources to your console or use zones for high availability in a multizone cluster. To take advantage of these deployment options, you can use the console resource definition with the `resources:` and `clusterdata:` sections added:
 
-
-
 ```yaml
 apiVersion: ibp.com/v1beta1
 kind: IBPConsole
@@ -1261,19 +1239,19 @@ spec:
   arch:
   - amd64
   license:
-    accept: true
+    accept: false
   serviceAccountName: default
   email: "<EMAIL>"
   password: "<PASSWORD>"
-  registryURL: <LOCAL_REGISTRY>
+  registryURL: cp.icr.io/cp
   imagePullSecrets:
     - docker-key-secret
   networkinfo:
     domain: <DOMAIN>
   storage:
     console:
-      class: default
-      size: 10Gi
+      class: ""
+      size: 5Gi
   clusterdata:
     zones:
   resources:
@@ -1305,9 +1283,9 @@ spec:
       requests:
         cpu: 100m
         memory: 200Mi
+  version: 2.5.1
 ```
-{:codeblock}
-
+{: codeblock}
 
 - You can use the `resources:` section to allocate more resources to your console. The values in the example file are the default values allocated to each container. Allocating more resources to your console allows you to operate a larger number of nodes or channels. You can allocate more resources to a currently running console by editing the resource file and applying it to your cluster. The console will restart and return to its previous state, allowing you to operate all of your exiting nodes and channels.
   ```
@@ -1356,8 +1334,7 @@ kubectl create secret generic console-tls-secret --from-file=tls.crt=./tlscert.p
 ```
 {:codeblock}
 
-After you create the secret, add the following field to the `spec:` section of `ibp-console.yaml` with one indent added, at the same level as the `resources:` and `clusterdata:` sections of the advanced deployment options. You must provide the name of the TLS secret that you created to the field. The following example deploys a console with the TLS certificate and key stored in a secret named `"console-tls-secret"`. 
-
+After you create the secret, add the following field to the `spec:` section of `ibp-console.yaml` with one indent added, at the same level as the `resources:` and `clusterdata:` sections of the advanced deployment options. You must provide the name of the TLS secret that you created to the field. The following example deploys a console with the TLS certificate and key stored in a secret named `"console-tls-secret"`. Replace `"<CONSOLE_TLS_SECRET_NAME>"` with `"console-tls-secret"` unless you used a different name for the secret.
 ```yaml
 apiVersion: ibp.com/v1beta1
 kind: IBPConsole
@@ -1371,26 +1348,18 @@ spec:
   serviceAccountName: default
   email: "<EMAIL>"
   password: "<PASSWORD>"
-  registryURL: <LOCAL_REGISTRY>
+  registryURL: cp.icr.io/cp
   imagePullSecrets:
     - docker-key-secret
   networkinfo:
-        domain: <DOMAIN>
-        consolePort: <CONSOLE_PORT>
-        proxyPort: <PROXY_PORT>
+    domain: <DOMAIN>
   storage:
     console:
       class: default
       size: 10Gi
-  tlsSecretName: "console-tls-secret"
-  clusterdata:
-    zones:
-      - dal10
-      - dal12
-      - dal13
+  tlsSecretName: "<CONSOLE_TLS_SECRET_NAME>"
 ```
-{:codeblock}
-
+{: codeblock}
 
 When you finish editing the file, you can apply it to your cluster in order to secure communications with your own TLS certificates:
 ```

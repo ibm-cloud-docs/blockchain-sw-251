@@ -73,8 +73,6 @@ subcollection: blockchain-sw-251
 {:step: data-tutorial-type='step'}
 {:subsection: outputclass="subsection"}
 {:support: data-reuse='support'}
-{:swift-ios: .ph data-hd-programlang='iOS Swift'}
-{:swift-server: .ph data-hd-programlang='server-side Swift'}
 {:swift: .ph data-hd-programlang='swift'}
 {:swift: data-hd-programlang="swift"}
 {:table: .aria-labeledby="caption"}
@@ -182,7 +180,6 @@ kubectl set image deploy/ibp-webhook -n ibpinfra ibp-webhook="cp.icr.io/cp/ibp-c
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
 Run this command to update the CA CRD:   
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -207,7 +204,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPCA
@@ -238,7 +235,6 @@ EOF
 ```
 {: codeblock}
 
-
 Depending on whether you are creating or updating the CRD, when successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
@@ -249,8 +245,6 @@ customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
 Run this command to update the peer CRD:
-  
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -261,7 +255,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibppeer"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -275,7 +269,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPPeer
@@ -310,8 +304,6 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:
-  
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -322,7 +314,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibpconsole"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -361,7 +353,6 @@ EOF
 ```
 {: codeblock}
 
-
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
@@ -372,9 +363,6 @@ customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
 Run this command to update the orderer CRD:  
-  
-
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -385,7 +373,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibporderer"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -399,7 +387,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPOrderer
@@ -424,7 +412,6 @@ EOF
 ```
 {: codeblock}
 
-
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com created
@@ -439,13 +426,17 @@ customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 
 You need to update the ClusterRole that is applied to your namespace. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.  
 
-
-
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: <NAMESPACE>
+  labels:
+    release: "operator"
+    helm.sh/chart: "ibm-ibp"
+    app.kubernetes.io/name: "ibp"
+    app.kubernetes.io/instance: "ibp"
+    app.kubernetes.io/managed-by: "ibp-operator"
 rules:
 - apiGroups:
   - extensions
@@ -521,9 +512,8 @@ rules:
   - statefulsets
   verbs:
   - '*'
-```  
-{:codeblock}
-
+```
+{: codeblock}
 
 After you edit and save the file, run the following commands.
 ```
@@ -628,6 +618,8 @@ kubectl create namespace ibpinfra
 
 After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
 
+
+
 Run the following command to create the secret and add it to your `ibpinfra` namespace or project:
 ```
 kubectl create secret docker-registry docker-key-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=<KEY> --docker-email=<EMAIL> -n ibpinfra
@@ -651,7 +643,6 @@ The first three steps are for deployment of the webhook. The last step is for cr
 {: #upgrade-webhook-rbac}
 
 Copy the following text to a file on your local system and save the file as `rbac.yaml`. This step allows the webhook to read and create a TLS secret in its own project.
-
 
 ```yaml
 apiVersion: v1
@@ -684,9 +675,9 @@ roleRef:
   kind: Role
   name: webhook
   apiGroup: rbac.authorization.k8s.io
+
 ```
 {: codeblock}
-
 
 Run the following command to add the file to your cluster definition:
 ```
@@ -703,7 +694,7 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 #### 2.(OpenShift cluster only) Apply the Security Context Constraint
 {: #upgrade-webhook-scc}
 
-Skip this step if you are not using OpenShift. The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`. 
+Skip this step if you are not using OpenShift. The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`. Replace `<PROJECT_NAME>` with `ibpinfra`.
 ```yaml
 allowHostDirVolumePlugin: false
 allowHostIPC: false
@@ -724,10 +715,10 @@ defaultAddCapabilities: []
 fsGroup:
   type: RunAsAny
 groups:
-- system:serviceaccounts:ibpinfra
+- system:serviceaccounts:<PROJECT_NAME>
 kind: SecurityContextConstraints
 metadata:
-  name: ibpinfra
+  name: <PROJECT_NAME>
 readOnlyRootFilesystem: false
 requiredDropCapabilities: []
 runAsUser:
@@ -736,11 +727,13 @@ seLinuxContext:
   type: RunAsAny
 supplementalGroups:
   type: RunAsAny
+users:
+- system:serviceaccounts:<PROJECT_NAME>
 volumes:
 - "*"
-```
-{:codeblock}
 
+```
+{: codeblock}
 
 After you save the file, run the following commands to add the file to your cluster and add the policy to your project.
 
@@ -768,8 +761,6 @@ Copy the following text to a file on your local system and save the file as `dep
 
 
 
-
-
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -785,10 +776,7 @@ spec:
     matchLabels:
       app.kubernetes.io/instance: "ibp-webhook"
   strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+    type: Recreate
   template:
     metadata:
       labels:
@@ -855,6 +843,7 @@ spec:
             requests:
               cpu: 0.1
               memory: "100Mi"
+
 ```
 {: codeblock}
 
@@ -873,7 +862,6 @@ deployment.apps/ibp-webhook created
 {: #upgrade-webhook-service-yaml}
 
 Secondly, copy the following text to a file on your local system and save the file as `service.yaml`.
-
 
 ```yaml
 apiVersion: v1
@@ -894,9 +882,9 @@ spec:
       protocol: TCP
   selector:
     app.kubernetes.io/instance: "ibp-webhook"
+
 ```
 {: codeblock}
-
 
 Run the following command to add the configuration to your cluster definition:
 ```
@@ -921,7 +909,6 @@ service/ibp-webhook created
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
 Run this command to update the CA CRD:   
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -946,7 +933,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPCA
@@ -977,7 +964,6 @@ EOF
 ```
 {: codeblock}
 
-
 Depending on whether you are creating or updating the CRD, when successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
@@ -988,8 +974,6 @@ customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
 Run this command to update the peer CRD:
-  
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -1000,7 +984,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibppeer"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -1014,7 +998,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPPeer
@@ -1049,8 +1033,6 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:
-  
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -1061,7 +1043,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibpconsole"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -1100,7 +1082,6 @@ EOF
 ```
 {: codeblock}
 
-
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
@@ -1111,9 +1092,6 @@ customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
 Run this command to update the orderer CRD:  
-  
-
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -1124,7 +1102,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibporderer"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -1138,7 +1116,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPOrderer
@@ -1163,7 +1141,6 @@ EOF
 ```
 {: codeblock}
 
-
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com created
@@ -1178,13 +1155,17 @@ customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 
 You need to update the ClusterRole that is applied to your project. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
-
-
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: <NAMESPACE>
+  labels:
+    release: "operator"
+    helm.sh/chart: "ibm-ibp"
+    app.kubernetes.io/name: "ibp"
+    app.kubernetes.io/instance: "ibp"
+    app.kubernetes.io/managed-by: "ibp-operator"
 rules:
 - apiGroups:
   - extensions
@@ -1261,8 +1242,7 @@ rules:
   verbs:
   - '*'
 ```
-{:codeblock}
-
+{: codeblock}
 
 After you save and edit the file, run the following commands. Replace `<NAMESPACE>` with your Kubernetes namespace.
 ```
@@ -1455,6 +1435,8 @@ kubectl create namespace ibpinfra
 
 After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
 
+
+
 Run the following command to create the secret and add it to your `ibpinfra` namespace or project:
 ```
 kubectl create secret docker-registry docker-key-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=<KEY> --docker-email=<EMAIL> -n ibpinfra
@@ -1478,7 +1460,6 @@ The first three steps are for deployment of the webhook. The last step is for cr
 {: #upgrade-webhook-rbac}
 
 Copy the following text to a file on your local system and save the file as `rbac.yaml`. This step allows the webhook to read and create a TLS secret in its own project.
-
 
 ```yaml
 apiVersion: v1
@@ -1511,9 +1492,9 @@ roleRef:
   kind: Role
   name: webhook
   apiGroup: rbac.authorization.k8s.io
+
 ```
 {: codeblock}
-
 
 Run the following command to add the file to your cluster definition:
 ```
@@ -1530,7 +1511,7 @@ rolebinding.rbac.authorization.k8s.io/ibpinfra created
 #### 2.(OpenShift cluster only) Apply the Security Context Constraint
 {: #upgrade-webhook-scc}
 
-Skip this step if you are not using OpenShift. The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`. 
+Skip this step if you are not using OpenShift. The {{site.data.keyword.blockchainfull_notm}} Platform requires specific security and access policies to be added to the `ibpinfra` project. Copy the security context constraint object below and save it to your local system as `ibpinfra-scc.yaml`. Replace `<PROJECT_NAME>` with `ibpinfra`.
 ```yaml
 allowHostDirVolumePlugin: false
 allowHostIPC: false
@@ -1551,10 +1532,10 @@ defaultAddCapabilities: []
 fsGroup:
   type: RunAsAny
 groups:
-- system:serviceaccounts:ibpinfra
+- system:serviceaccounts:<PROJECT_NAME>
 kind: SecurityContextConstraints
 metadata:
-  name: ibpinfra
+  name: <PROJECT_NAME>
 readOnlyRootFilesystem: false
 requiredDropCapabilities: []
 runAsUser:
@@ -1563,11 +1544,13 @@ seLinuxContext:
   type: RunAsAny
 supplementalGroups:
   type: RunAsAny
+users:
+- system:serviceaccounts:<PROJECT_NAME>
 volumes:
 - "*"
-```
-{:codeblock}
 
+```
+{: codeblock}
 
 After you save the file, run the following commands to add the file to your cluster and add the policy to your project.
 
@@ -1595,8 +1578,6 @@ Copy the following text to a file on your local system and save the file as `dep
 
 
 
-
-
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -1612,10 +1593,7 @@ spec:
     matchLabels:
       app.kubernetes.io/instance: "ibp-webhook"
   strategy:
-    rollingUpdate:
-      maxSurge: 25%
-      maxUnavailable: 25%
-    type: RollingUpdate
+    type: Recreate
   template:
     metadata:
       labels:
@@ -1682,6 +1660,7 @@ spec:
             requests:
               cpu: 0.1
               memory: "100Mi"
+
 ```
 {: codeblock}
 
@@ -1700,7 +1679,6 @@ deployment.apps/ibp-webhook created
 {: #upgrade-webhook-service-yaml}
 
 Secondly, copy the following text to a file on your local system and save the file as `service.yaml`.
-
 
 ```yaml
 apiVersion: v1
@@ -1721,9 +1699,9 @@ spec:
       protocol: TCP
   selector:
     app.kubernetes.io/instance: "ibp-webhook"
+
 ```
 {: codeblock}
-
 
 Run the following command to add the configuration to your cluster definition:
 ```
@@ -1748,7 +1726,6 @@ service/ibp-webhook created
 2. When you deploy the {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 you need to apply the following four CRDs for the CA, peer, orderer, and console. If you are upgrading to 2.5.1, before you can update the operator, you need to update the CRDs to include a new `v1beta1` section as well as the webhook TLS certificate that you just stored in the `TLS_CERT` environment variable. In either case, run the following four commands to apply or update each CRD.
 
 Run this command to update the CA CRD:   
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -1773,7 +1750,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPCA
@@ -1804,7 +1781,6 @@ EOF
 ```
 {: codeblock}
 
-
 Depending on whether you are creating or updating the CRD, when successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
@@ -1815,8 +1791,6 @@ customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
 
 Run this command to update the peer CRD:
-  
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -1827,7 +1801,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibppeer"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -1841,7 +1815,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPPeer
@@ -1876,8 +1850,6 @@ customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
 
 Run this command to update the console CRD:
-  
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -1888,7 +1860,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibpconsole"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -1927,7 +1899,6 @@ EOF
 ```
 {: codeblock}
 
-
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
@@ -1938,9 +1909,6 @@ customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
 
 Run this command to update the orderer CRD:  
-  
-
-
 ```yaml
 cat <<EOF | kubectl apply  -f -
 apiVersion: apiextensions.k8s.io/v1beta1
@@ -1951,7 +1919,7 @@ metadata:
     release: "operator"
     helm.sh/chart: "ibm-ibp"
     app.kubernetes.io/name: "ibp"
-    app.kubernetes.io/instance: "ibpca"
+    app.kubernetes.io/instance: "ibporderer"
     app.kubernetes.io/managed-by: "ibp-operator"
 spec:
   preserveUnknownFields: false
@@ -1965,7 +1933,7 @@ spec:
       caBundle: "${TLS_CERT}"
   validation:
     openAPIV3Schema:
-      x-kubernetes-preserve-unknown-fields: true
+      x-kubernetes-preserve-unknown-fields: true    
   group: ibp.com
   names:
     kind: IBPOrderer
@@ -1990,7 +1958,6 @@ EOF
 ```
 {: codeblock}
 
-
 When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com created
@@ -2005,13 +1972,17 @@ customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 
 You need to update the ClusterRole that is applied to your project. Copy the following text to a file on your local system and save the file as `ibp-clusterrole.yaml`. Edit the file and replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.  
 
-
-
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: <NAMESPACE>
+  labels:
+    release: "operator"
+    helm.sh/chart: "ibm-ibp"
+    app.kubernetes.io/name: "ibp"
+    app.kubernetes.io/instance: "ibp"
+    app.kubernetes.io/managed-by: "ibp-operator"
 rules:
 - apiGroups:
   - extensions
@@ -2088,8 +2059,7 @@ rules:
   verbs:
   - '*'
 ```
-{:codeblock}
-
+{: codeblock}
 
 After you save and edit the file, run the following commands. Replace `<NAMESPACE>` with your Kubernetes namespace.
 ```
