@@ -1326,13 +1326,11 @@ This step needs to be performed before the console is deployed.
 
 You can use a Certificate Authority or tool to create the TLS certificates for the console. The TLS certificate needs to include the hostname of the console and the proxy in the subject name or the alternative domain names. The console and proxy hostname are in the following format:
 
-**Console hostname:** `<NAMESPACE>-ibpconsole-console.<DOMAIN>`
+**Console hostname:** `<NAMESPACE>-ibpconsole-console.<DOMAIN>`  
 **Proxy hostname:** `<NAMESPACE>-ibpconsole-proxy.<DOMAIN>`
 
 - Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 - Replace `<DOMAIN>` with the name of your cluster domain.
-- **Reminder:** Replace `registryURL: cp.icr.io/cp` with the URL of your local registry and accept the license.
-
 
 Navigate to the TLS certificates that you plan to use on your local system. Name the TLS certificate `tlscert.pem` and the corresponding private key `tlskey.pem`. Run the following command to create the Kubernetes secret and add it to your Kubernetes namespace. The TLS certificate and key need to be in PEM format.
 ```
@@ -1366,6 +1364,8 @@ spec:
   tlsSecretName: "<CONSOLE_TLS_SECRET_NAME>"
 ```
 {: codeblock}
+
+- **Reminder:** Replace `registryURL: cp.icr.io/cp` with the URL of your local registry and accept the license.
 
 When you finish editing the file, you can apply it to your cluster in order to secure communications with your own TLS certificates:
 ```
