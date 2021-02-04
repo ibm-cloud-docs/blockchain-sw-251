@@ -1259,6 +1259,10 @@ spec:
   ```
   {:codeblock}
 
+Accept the license:  
+
+- Accept the [IBM Blockchain Platform license](https://www-03.ibm.com/software/sla/sladb.nsf/lilookup/6CE1C5684689691C852586000043982B?OpenDocument){: external} by replacing the `license` parameter `accept: false` with the text `accept: true`.
+
   When you finish editing the file, apply it to your cluster.
   ```
   kubectl apply -f ibp-console.yaml -n <NAMESPACE>
@@ -1319,6 +1323,10 @@ spec:
   tlsSecretName: "<CONSOLE_TLS_SECRET_NAME>"
 ```
 {: codeblock}
+
+Accept the license:  
+
+- Accept the [IBM Blockchain Platform license](https://www-03.ibm.com/software/sla/sladb.nsf/lilookup/6CE1C5684689691C852586000043982B?OpenDocument){: external} by replacing the `license` parameter `accept: false` with the text `accept: true`.
 
 When you finish editing the file, you can apply it to your cluster in order to secure communications with your own TLS certificates:
 ```

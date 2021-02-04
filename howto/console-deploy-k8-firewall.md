@@ -1045,6 +1045,9 @@ Copy the following text to a file on your local system and save the file as `ibp
 
 
 
+Replace `image: cp.icr.io/cp/` with `image: <LOCAL_REGISTRY>/`, the URL of your local registry.
+{: important}
+
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -1204,7 +1207,7 @@ Accept the license:
 - Accept the [IBM Blockchain Platform license](https://www-03.ibm.com/software/sla/sladb.nsf/lilookup/6CE1C5684689691C852586000043982B?OpenDocument){: external} by replacing the `license` parameter `accept: false` with the text `accept: true`.
 
 Specify the external endpoint information of the console in the `ibp-console.yaml` file:
-- Replace `<LOCAL_REGISTRY>` with the URL of your local registry.
+- Replace `registryURL: cp.icr.io/cp` with the URL of your local registry.
 - Replace `<DOMAIN>` with the name of your cluster domain. You need to make sure that this domain is pointed to the load balancer of your cluster.
 
 Provide the user name and password that is used to access the console for the first time:
@@ -1287,6 +1290,7 @@ spec:
 ```
 {: codeblock}
 
+- **Reminder:** Replace `registryURL: cp.icr.io/cp` with the URL of your local registry.
 - You can use the `resources:` section to allocate more resources to your console. The values in the example file are the default values allocated to each container. Allocating more resources to your console allows you to operate a larger number of nodes or channels. You can allocate more resources to a currently running console by editing the resource file and applying it to your cluster. The console will restart and return to its previous state, allowing you to operate all of your exiting nodes and channels.
   ```
   kubectl apply -f ibp-console.yaml -n <NAMESPACE>
@@ -1310,7 +1314,7 @@ spec:
   {:codeblock}
 
 Unlike the resource allocation, you cannot add zones to a running network. If you have already deployed a console and used it to create nodes on your cluster, you will lose your previous work. After the console restarts, you need to deploy new nodes.
-{: Important}
+{: important}
 
 ### Use your own TLS Certificates (Optional)
 {: #deploy-k8-tls-fw}
@@ -1327,6 +1331,8 @@ You can use a Certificate Authority or tool to create the TLS certificates for t
 
 - Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 - Replace `<DOMAIN>` with the name of your cluster domain.
+- **Reminder:** Replace `registryURL: cp.icr.io/cp` with the URL of your local registry.
+
 
 Navigate to the TLS certificates that you plan to use on your local system. Name the TLS certificate `tlscert.pem` and the corresponding private key `tlskey.pem`. Run the following command to create the Kubernetes secret and add it to your Kubernetes namespace. The TLS certificate and key need to be in PEM format.
 ```
