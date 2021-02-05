@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-04"
+lastupdated: "2021-02-05"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, firewall, on-premises, air-gapped, on-prem, multicloud, on-prem
 
@@ -1045,7 +1045,7 @@ Copy the following text to a file on your local system and save the file as `ibp
 
 
 
-Replace `image: cp.icr.io/cp/` with `image: <LOCAL_REGISTRY>/`, the URL of your local registry.
+Replace `image: cp.icr.io/cp/` with `image: <LOCAL_REGISTRY>/`, insert the URL of your local registry.
 {: important}
 
 ```yaml
