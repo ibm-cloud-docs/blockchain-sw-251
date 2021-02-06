@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-04"
+lastupdated: "2021-02-06"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -1307,7 +1307,7 @@ spec:
   arch:
   - amd64
   license:
-    accept: true
+    accept: false
   serviceAccountName: default
   email: "<EMAIL>"
   password: "<PASSWORD>"
