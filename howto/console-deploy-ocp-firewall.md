@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-06"
+lastupdated: "2021-02-08"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, firewall, on-premises, air-gapped, on-prem, multicloud, on-prem
 
@@ -1322,12 +1322,6 @@ spec:
 {: codeblock}
 
 - You can use the `resources:` section to allocate more resources to your console. The values in the example file are the default values allocated to each container. Allocating more resources to your console allows you to operate a larger number of nodes or channels. You can allocate more resources to a currently running console by editing the resource file and applying it to your cluster. The console will restart and return to its previous state, allowing you to operate all of your exiting nodes and channels.
-  ```
-  kubectl apply -f ibp-console.yaml -n <PROJECT_NAME>
-  ```
-  {:codeblock}
-  Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
-
 - If you plan to use the console with a multizone Kubernetes cluster, you need to add the zones to the `clusterdata.zones:` section of the file. When zones are provided to the deployment, you can select the zone that a node is deployed to using the console or the APIs. As an example, if you are deploying to a cluster across the zones of dal10, dal12, and dal13, you would add the zones to the file by using the format below.
   ```yaml
   clusterdata:
@@ -1338,15 +1332,15 @@ spec:
   ```
   {:codeblock}
 
-  When you finish editing the file, apply it to your cluster.
-  ```
-  kubectl apply -f ibp-console.yaml -n <PROJECT_NAME>
-  ```
-  {:codeblock}
-  Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
+When you finish editing the file, apply it to your cluster.
+```
+kubectl apply -f ibp-console.yaml -n <PROJECT_NAME>
+```
+{:codeblock}
+Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
 Unlike the resource allocation, you cannot add zones to a running network. If you have already deployed a console and used it to create nodes on your cluster, you will lose your previous work. After the console restarts, you need to deploy new nodes.    
-{: Important}
+{: important}
 
 ### Use your own TLS Certificates (Optional)
 
@@ -1399,7 +1393,7 @@ spec:
 ```
 {: codeblock}
 
-- **Reminder:** Replace `registryURL: cp.icr.io/cp` with the URL of your local registry and accept the license.
+- **Reminder:** Replace `registryURL: cp.icr.io/cp` with the URL of your local registry and accept the license.  
 
 When you finish editing the file, you can apply it to your cluster in order to secure communications with your own TLS certificates:
 ```
