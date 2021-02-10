@@ -609,6 +609,7 @@ subcollection: blockchain-sw-251
 
 [Getting started](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started)
 * [Resources required](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-resources-required)
+* [Browsers](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-browsers)
 * [Storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-storage)
 * [Filesystem permissions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-fs-perm)
 * [Choose your deployment option](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-choose)
@@ -772,6 +773,7 @@ subcollection: blockchain-sw-251
 
 [Deploying {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8)
 * [Resources required](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-resources-required)
+* [Browsers](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-browsers)
 * [Storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-storage)
 * [Filesystem permissions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-fs-perm)
 * [Get your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-entitlement-key)
@@ -801,6 +803,7 @@ subcollection: blockchain-sw-251
 
 [Deploying {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1 behind a firewall](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall)
 * [Resources required](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-resources-required-firewall)
+* [Browsers](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-browsers-firewall)
 * [Storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-storage-firewall)
 * [Get your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-entitlement-key-firewall)
 * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-prerequisites-firewall)

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-10"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, firewall, on-premises, air-gapped, on-prem, multicloud, on-prem
 
@@ -135,7 +135,12 @@ Ensure that your Kubernetes cluster has sufficient resources for the {{site.data
 
 Note that when smart contracts are installed on peers that run a Fabric v2.x image, the smart contract is launched in its own pod instead of a separate container on the peer, which accounts for the smaller amount of resources required on the peer.
 
+## Browsers
+{: #deploy-k8-browsers-firewall}
+The {{site.data.keyword.blockchainfull_notm}} Platform console has been successfully tested on the following browsers:
 
+- Chrome Version 85.0.4183.121 (Official Build) (64-bit)
+- Safari Version 13.0.3 (15608.3.10.1.4)
 
 ## Storage
 {: #deploy-k8-storage-firewall}

@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-09"
+lastupdated: "2021-02-10"
 
 keywords: OpenShift, IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -165,7 +165,12 @@ Note that when smart contracts are installed on peers that run a Fabric v2.x ima
 If you are deploying the OpenShift platform on {{site.data.keyword.cloud_notm}}, you must create a 4x16 cluster with multiple nodes. This cluster provides sufficient resources to get started by deploying a basic network. Note that one core in OpenShift is equivalent to one CPU (or vCPU) in {{site.data.keyword.blockchainfull_notm}} Platform.
 {: important}
 
+## Browsers
+{: #deploy-ocp-browsers}
+The {{site.data.keyword.blockchainfull_notm}} Platform console has been successfully tested on the following browsers:
 
+- Chrome Version 85.0.4183.121 (Official Build) (64-bit)
+- Safari Version 13.0.3 (15608.3.10.1.4)
 
 ## Storage
 {: #deploy-ocp-storage}
