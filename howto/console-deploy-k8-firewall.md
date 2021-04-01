@@ -100,7 +100,8 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-deploy-k8-firewall">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-deploy-k8-firewall">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-k8-firewall">2.5</a>
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-k8-firewall">2.5</a>,
+    <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-deploy-k8-firewall">2.5.2</a>
     </p>
 </div>
 
@@ -1488,5 +1489,3 @@ Before you attempt to install the {{site.data.keyword.blockchainfull_notm}} Plat
 7. Verify that all pods are running before you attempt to [install](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-login) the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 You can now [resume your installation](#deploy-k8-images-firewall).
-
-

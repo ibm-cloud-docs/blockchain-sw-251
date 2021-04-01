@@ -28,6 +28,7 @@ subcollection: blockchain-sw-251
     <a href="/docs/blockchain-sw?topic=blockchain-sw-blockchain-support">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-blockchain-support">2.1.3</a>,
     <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-blockchain-support">2.5</a>
+    <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-blockchain-support">2.5.2</a>
     </p>
 </div>
 

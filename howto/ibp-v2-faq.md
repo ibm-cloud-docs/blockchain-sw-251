@@ -31,7 +31,8 @@ content-type: faq
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-ibp-v2-faq">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-v2-faq">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-faq">2.5</a>
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-faq">2.5</a>,
+    <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-v2-faq">2.5.2</a>
     </p>
 </div>
 
@@ -346,8 +347,3 @@ You are responsible for the health monitoring and resource allocation of the blo
 
 You should be aware that JavaScript and TypeScript smart contracts require more resources than contracts written in Golang. Therefore, when you are allocating resources to your cluster, it is important to ensure adequate resources are available to your smart contract pods when they are deployed on a channel and during transaction processing. The pods containing the smart contracts will consume as much resources as they need to function.
 {: tip}
-
-
-
-
-

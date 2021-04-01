@@ -32,7 +32,8 @@ content-type: troubleshoot
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-ibp-v2-troubleshooting">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-v2-troubleshooting">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-troubleshooting">2.5</a>
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-v2-troubleshooting">2.5</a>,
+    <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-v2-troubleshooting">2.5.2</a>
     </p>
 </div>
 
@@ -334,7 +335,7 @@ In some cases, if you simply wait several minutes and then refresh the **Smart c
   ```
   {: codeblock}
 
-The peer restarts and then you can retry the smart contract installation. Because the original installation failed you need to specify a new smart contract name and version. 
+The peer restarts and then you can retry the smart contract installation. Because the original installation failed you need to specify a new smart contract name and version.
 
 ## Why is my Node.js smart contract instantiation failing?
 {: #ibp-v2-troubleshooting-nodejs-instantiate}
@@ -694,6 +695,3 @@ All contracts were lost after the procedure to upgrade the smart contract contai
 
 [Delete all the peer pods](#ibp-troubleshooting-delete-peer). This deletion triggers the peer to be created again and restarts the proxy.
 {: tsResolve}
-
-
-
