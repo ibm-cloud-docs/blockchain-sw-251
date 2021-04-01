@@ -27,7 +27,8 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-whats-new">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-whats-new">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-whats-new">2.5</a>
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-whats-new">2.5</a>,
+    <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-whats-new">2.5.2</a>
     </p>
 </div>
 
@@ -73,5 +74,3 @@ If you have an existing {{site.data.keyword.blockchainfull_notm}} Platform v2.1.
 
 
 See the [Release notes](/docs/blockchain-sw-251?topic=blockchain-sw-251-release-notes-saas-20#10-20-2020) for more details on the new features that are included in this release.
-
-

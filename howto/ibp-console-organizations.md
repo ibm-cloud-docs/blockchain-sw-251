@@ -28,7 +28,8 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-ibp-console-organizations">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-organizations">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-console-organizations">2.5</a>
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-console-organizations">2.5</a>,
+    <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-console-organizations">2.5.2</a>
     </p>
 </div>
 
@@ -417,4 +418,4 @@ If you want to stop using an instance of the {{site.data.keyword.blockchainfull_
 
   After you remove your ordering nodes from the consenter set of each channel, you can remove your nodes from the ordering service. Navigate to the **Nodes** tab and click the ordering service of your network. On the **Ordering service** panel, click the **Ordering nodes** tab. Click your ordering node and then click **Delete**. Because Raft consensus requires that a majority of ordering nodes are up to maintain a quorum, you need to remove one ordering node at a time. After you have deleted your ordering nodes, you can remove your organization from the set of ordering service administrators. Find your organization MSP definition on the list of **Orderer administrators** and click the **Delete** icon in the corner of the organization definition tile.
 
-After you complete these steps, your organization will no longer affect the governance of the network. 
+After you complete these steps, your organization will no longer affect the governance of the network.
