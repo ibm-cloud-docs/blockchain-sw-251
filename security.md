@@ -29,7 +29,7 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-ibp-security">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-security">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-security">2.5</a>,
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-security">2.5</a>, 2.51, 
     <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-security">2.5.2</a>
     </p>
 </div>
@@ -43,7 +43,7 @@ subcollection: blockchain-sw-251
 
 **Audience:** Tasks in this section are typically performed by **blockchain network operators**.  
 
- Configuration of an {{site.data.keyword.blockchainfull_notm}} Platform network includes deploying the blockchain console that can then be used to create blockchain nodes that reside in the customer Kubernetes cluster.
+ Configuration of an {{site.data.keyword.blockchainfull_notm}} Platform network includes deploying the blockchain console that can then be used to create blockchain nodes that reside in the customer Kubernetes cluster. 
 
 Considerations include:
 - [IAM (Identity and Access Management)](#ibp-security-ibp-iam)

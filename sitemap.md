@@ -2,7 +2,7 @@
 
 copyright:
   years: 2017, 2021
-lastupdated: "2021-04-01"
+lastupdated: "2021-04-05"
 
 keywords: site map
 subcollection: blockchain-sw-251
@@ -1140,80 +1140,6 @@ subcollection: blockchain-sw-251
 * [Installing a package and proposing a definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-write-powerful-smart-contracts#write-powerful-smart-contracts-installing-proposing)
 
 [Best practices for application development](/docs/blockchain-sw-251?topic=blockchain-sw-251-best-practices-app)
-
-
-## Advanced tutorials
-{: #sitemap_advanced_tutorials}
-
-
-[Creating an intermediate Certificate Authority (CA)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica)
-* [Why would I want to use an intermediate CA with my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-why)
-* [Can I convert an existing CA to be an intermediate CA?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-convert)
-* [Limitations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-limitations)
-* [Process overview](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-overview)
-* [Part One: Actions you perform from the root CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-part-one)
-* [Part Two: Build the intermediate CA JSON override](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-part-two)
-* [Part Three: Actions you perform on the intermediate CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-part-three)
-* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-next-steps)
-  * [Register and enroll identities against the intermediate CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-next-steps-reg-enroll)
-  * [Create organization MSPs using the intermediate CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-next-steps-msp)
-  * [Scale down the root CA](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-ica#ibp-ica-next-steps-scale)
-
-[IBM Cloud Hardware Security Module (HSM)](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto)
-* [Why would I want to use an HSM with my {{site.data.keyword.blockchainfull_notm}} Platform network?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-why)
-* [Using {{site.data.keyword.cloud_notm}} HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-using)
-* [Process overview](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-overview)
-  * [Part One: Set up the HSM device and HSM client](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-one)
-  * [Part Two: Configure communications between the HSM server and client](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-two)
-  * [Part Three: Register the client with the HSM server](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-three)
-  * [Part Four: Build a Docker image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-part-four)
-  * [What's next](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-next-steps)
-* [Using multiple partitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto#ibp-hsm-gemalto-multiple-partitions)
-
-[Using certificates from an external Certificate Authority](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca)
-* [Objectives](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-objectives)
-* [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-prereqs)
-* [Gather certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs)
-  * [Consideration when using an external CA to generate certificates](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-gather-certs-pkcs1)
-* [Build MSP definition](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-build-msp)
-* [Import MSP into the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-import-msp)
-* [Create and import the organization admin identity to the wallet](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-import-admin)
-* [Deploy a blockchain node](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-deploy-node)
-  * [Deploy peer](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-deploy-peer)
-  * [Deploy ordering service](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-deploy-orderer)
-* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-tutorial-extca#ibp-tutorial-extca-next-steps)
-
-
-## Using Ansible Playbooks
-{: #sitemap_using_ansible_playbooks}
-
-
-[Getting started with Ansible playbooks on the IBM Blockchain Platform](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible)
-* [What is Ansible](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-whatis)
-* [How does the {{site.data.keyword.blockchainfull_notm}} Platform Ansible collection work?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-how)
-* [Why would I want to use an Ansible playbook?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-why)
-* [Considerations and Limitations](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-limits)
-* [Getting started](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-getting-started)
-* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-next-steps)
-* [Where to find support](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible#ansible-support)
-
-[Deploy the service from an Ansible playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp)
-* [Prerequisites](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-prereqs)
-  * [Gather your Kubernetes cluster details](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-k8s-cluster)
-* [Build the Ansible playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-playbook)
-* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-install-ibp#ansible-install-ibp-playbook-next)
-
-[Building an IBM Blockchain Platform network using Ansible playbooks](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build)
-* [Prerequisites](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-prereqs)
-* [Step one: Gather console connection information](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-console)
-* [Step two: Clone the Ansible collection](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-clone)
-* [Step three: Get started with using the playbooks](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-get-start)
-* [Step four: Run a playbook](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-run-playbook)
-* [Step five: Run a script](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-run-script)
-* [Hints and Tips](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-hints)
-* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-next-steps)
-  * [Generated identities](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-import-identities)
-* [Summary](/docs/blockchain-sw-251?topic=blockchain-sw-251-ansible-build#ansible-build-summary)
 
 
 ## Backing up and restoring components and networks

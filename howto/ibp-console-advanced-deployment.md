@@ -2,7 +2,7 @@
 
 copyright:
   years: 2021
-lastupdated: "2021-02-11"
+lastupdated: "2021-02-12"
 
 keywords: deployment, advanced, CouchDB, LevelDB, external CA, HSM, resource allocation
 
@@ -85,7 +85,7 @@ While the figures in this topic endeavor to be precise, be aware that there are 
 
 The **Resource allocation** panel in the console provides default values for the various fields that are involved in creating a node. These values are chosen because they represent a good way to get started. However, every use case is different. While this topic provides guidance for ways to think about these values, it ultimately falls to the user to monitor their nodes and find sizings that work for them. Therefore, barring situations in which users are certain that they need values different from the defaults, a practical strategy is to use these defaults at first and adjust them later. For an overview of performance and scale of Hyperledger Fabric, which the {{site.data.keyword.blockchainfull_notm}} Platform is based on, see [Answering your questions on Hyperledger Fabric performance and scale](https://www.ibm.com/blogs/blockchain/2019/01/answering-your-questions-on-hyperledger-fabric-performance-and-scale/){: external}.
 
-After you have deployed the node, you need to **monitor the resource consumption of the node**. Configure a monitoring tool such as [Sysdig](https://sysdig.com/secure-devops-platform/){: external} to observe the nodes and ensure that adequate resources are available to the node containers when processing transactions.
+After you have deployed the node, you need to **monitor the resource consumption of the node**. Configure a monitoring tool such as [{{site.data.keyword.mon_full_notm}}](/docs/blockchain?topic=blockchain-ibp-monitoring){: external} to observe the nodes and ensure that adequate resources are available to the node containers when processing transactions.
 {: important}
 
 All of the containers that are associated with a node have **CPU** and **memory**, while certain containers that are associated with the peer, ordering node, and CA also have **storage**. For more information about storage, see [storage](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-getting-started#deploy-ocp-storage). 
@@ -621,7 +621,7 @@ As we noted in our section on [Considerations before you deploy a node](#ibp-con
 | **Smart contract container CPU and memory** | When you expect a high throughput on a channel, especially in cases where multiple smart contracts will be invoked at the same time. You should also increase the resource allocation of your peers if your smart contracts are written in JavaScript or TypeScript.|
 | **Smart contract launcher container CPU and memory** | Because the smart contract launcher container streams logs from smart contracts back to a peer, the more smart contracts are running the greater the load on the smart contract launcher. |
 
-The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default storage allocation for the peer container is sufficient for most smart contracts. However, when you instantiate a smart contract, you should actively monitor the resources consumed by the pod that contains the smart contract in your cluster by using a tool like [Sysdig](https://sysdig.com/secure-devops-platform/){: external} to ensure that adequate resources are available.
+The {{site.data.keyword.blockchainfull_notm}} Platform supports smart contracts that are written in JavaScript, TypeScript, Java, and Go. When you are allocating resources to your peer node, it is important to note that JavaScript and TypeScript smart contracts require more resources than contracts written in Go. The default storage allocation for the peer container is sufficient for most smart contracts. However, when you instantiate a smart contract, you should actively monitor the resources consumed by the pod that contains the smart contract in your cluster by using a tool like [{{site.data.keyword.mon_full_notm}}](https://www.ibm.com/cloud/cloud-monitoring){: external} to ensure that adequate resources are available.
 {: important}
 
 For more details on the resource allocation panel in the console see [Allocating resource](#ibp-console-adv-deployment-allocate-resources).
@@ -1341,7 +1341,6 @@ When a CA, peer, or ordering node is configured to use an HSM, their private key
 Configuring a node to use HSM is a three-part process:
 1. **Deploy an HSM**. Utilize the HSM appliance that is available in [{{site.data.keyword.cloud_notm}}](https://cloud.ibm.com/catalog/infrastructure/hardware-security-module){: external} or configure your own HSM. Record the value of the HSM `partition` and `PIN` to be used in the subsequent steps.
 	- If you plan to use {{site.data.keyword.cloud_notm}} HSM see this [tutorial](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-gemalto) for an example of how to configure {{site.data.keyword.cloud_notm}} HSM 6.0 with the {{site.data.keyword.blockchainfull_notm}} Platform. After that is completed you can skip to Part 3 **Configure the node to use HSM**. 
-	- If you want to use the [openCryptoki HSM](https://www.ibm.com/support/knowledgecenter/linuxonibm/com.ibm.linux.z.lxce/lxce_stackoverview.html){: external} with your Z environment, you should complete these [instructions in GitHub](https://github.com/IBM-Blockchain/HSM/tree/master/Z-HSM) and then skip to Part 3 **Configure the node to use HSM**. 
 2. **Configure an HSM client image** or **Set up a PKCS #11 proxy (Deprecated)** [See Build a Docker image](#ibp-console-adv-deployment-hsm-build-docker).
 3. **Configure the node to use HSM**.  From the APIs or the console, when you deploy a peer, CA, or ordering node, you can select the advanced option to use an HSM. See [Configure the node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node).
 
@@ -1530,8 +1529,6 @@ metadata:
 {: #ibp-console-adv-deployment-hsm-configmap}
 
 
-Because the console needs to know the configuration settings to use for your HSM, you need to create a Kubernetes [configmap](https://kubernetes.io/docs/concepts/configuration/configmap/){:external} to store these values. The {{site.data.keyword.blockchainfull_notm}} Platform operator uses the HSM configuration passed in this configmap to get the details about the HSM client image, such as what image pull secret to use, and the folder mounts that are required. Based on the information provided, when a CA, peer, or ordering node is deployed with HSM enabled, the operator mounts required the files for the HSM client image.
-
 
 
 
@@ -1628,32 +1625,6 @@ The output looks similar to:
 ```
 configmap/ibp-hsm-config created
 ```
-
-To view the contents of the configmap, run the command:
-```
-kubectl get configmap ibp-hsm-config -n <NAMESPACE>
-```
-{: codeblock}
-
-The output looks similar to:
-
-```
-apiVersion: v1
-data:
-  ibp-hsm-config.yaml: |+
-    library:
-      auth:
-        imagePullSecret: <>
-...
-    type: hsm
-    version: v1
-
-kind: ConfigMap
-metadata:
-...
-```
-
-Congratulations. You have completed the HSM configuration for your blockchain network. Now when you deploy a new CA, peer, or ordering node, you can configure it to use the HSM that you have configured here. See [Configuring a CA, peer, or ordering node to use the HSM](#ibp-console-adv-deployment-cfg-hsm-node) for details.
 
 
 ### Configuring a CA, peer, or ordering node to use the HSM

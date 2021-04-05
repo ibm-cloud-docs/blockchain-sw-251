@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-10"
+lastupdated: "2021-02-12"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, multicloud
 
@@ -100,7 +100,7 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-deploy-k8">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-deploy-k8">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-k8">2.5</a>,
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-k8">2.5</a>, 2.51, 
     <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-deploy-k8">2.5.2</a>
     </p>
 </div>
@@ -222,6 +222,8 @@ kubectl create namespace ibpinfra
 
 After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
 
+TESTER: Contact Mihir or Dhyey for the key that you need to use for pulling images from staging. Also the docker server should be `--docker-server=cp.stg.icr.io`
+{: note}
 
 
 Run the following command to create the secret and add it to your `ibpinfra` namespace or project:
@@ -364,6 +366,8 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
 
+TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
+{: note}
 
 ```yaml
 apiVersion: apps/v1
@@ -781,6 +785,8 @@ If you are not using the default storage class, additional configuration is requ
 
 You've already created a secret for the entitlement key in the `ibpinfra` namespace or project, now you need to create one in your {{site.data.keyword.blockchainfull_notm}} Platform namespace or project. After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
 
+TESTER: Contact Mihir or Dhyey for the key that you need to use for pulling images from staging. Also the docker server should be `--docker-server=cp.stg.icr.io`
+{: note}
 
 
 Run the following command to create the secret and add it to your namespace or project:
@@ -998,6 +1004,8 @@ The {{site.data.keyword.blockchainfull_notm}} Platform uses an operator to insta
 
 Copy the following text to a file on your local system and save the file as `ibp-operator.yaml`.
 
+TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
+{: note}
 
 
 ```yaml
@@ -1456,3 +1464,4 @@ Before you attempt to install the {{site.data.keyword.blockchainfull_notm}} Plat
 7. Verify that all pods are running before you attempt to [install](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-login) the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 You can now [resume your installation](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-login).
+

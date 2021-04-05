@@ -100,7 +100,7 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-upgrade-k8">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-upgrade-k8">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-upgrade-k8">2.5</a>,
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-upgrade-k8">2.5</a>, 2.51, 
     <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-upgrade-k8">2.5.2</a>
     </p>
 </div>
@@ -619,6 +619,8 @@ kubectl create namespace ibpinfra
 
 After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
 
+TESTER: Contact Mihir or Dhyey for the key that you need to use for pulling images from staging. Also the docker server should be `--docker-server=cp.stg.icr.io`
+{: note}
 
 
 Run the following command to create the secret and add it to your `ibpinfra` namespace or project:
@@ -760,6 +762,8 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
 
+TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
+{: note}
 
 
 ```yaml
@@ -1436,6 +1440,8 @@ kubectl create namespace ibpinfra
 
 After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
 
+TESTER: Contact Mihir or Dhyey for the key that you need to use for pulling images from staging. Also the docker server should be `--docker-server=cp.stg.icr.io`
+{: note}
 
 
 Run the following command to create the secret and add it to your `ibpinfra` namespace or project:
@@ -1577,6 +1583,8 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
 
+TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
+{: note}
 
 
 ```yaml

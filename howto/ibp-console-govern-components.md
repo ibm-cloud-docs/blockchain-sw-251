@@ -28,8 +28,8 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-ibp-console-govern-components">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-govern-components">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-console-govern-components">2.5</a>,
-    <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-console-govern-components">2.5.2</a>
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-console-govern-components">2.5</a>, 2.51, 
+	<a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-console-govern-components">2.5.2</a>
     </p>
 </div>
 
@@ -53,8 +53,7 @@ Resizing a node requires the containers to be rebuilt, which can cause a delay i
 {:important}
 
 
-
-Third party tools such as [Sysdig](https://sysdig.com/secure-devops-platform/){: external} can be used to help monitor the usage in your cluster. If you determine that a worker node is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
+Tools such as [{{site.data.keyword.mon_full_notm}}](https://www.ibm.com/cloud/cloud-monitoring){: external} can be used to help monitor the usage in your cluster. If you determine that a worker node is running out of resources, you can add a new larger worker node to your cluster and then delete the existing working node.
 {:note}
 
 

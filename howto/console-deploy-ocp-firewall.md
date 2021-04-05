@@ -100,7 +100,7 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-deploy-ocp-firewall">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-deploy-ocp-firewall">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp-firewall">2.5</a>,
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-ocp-firewall">2.5</a>, 2.51, 
     <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-deploy-ocp-firewall">2.5.2</a>
     </p>
 </div>
@@ -394,6 +394,8 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
 
+TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
+{: note}
 
 ```yaml
 apiVersion: apps/v1
@@ -1057,6 +1059,8 @@ The {{site.data.keyword.blockchainfull_notm}} Platform uses an operator to insta
 
 Copy the following text to a file on your local system and save the file as `ibp-operator.yaml`. If you changed the name of the Docker key secret, then you need to edit the field of `name: docker-key-secret`.
 
+TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
+{: note}
 
 
 Replace `image: cp.icr.io/cp/` with `image: <LOCAL_REGISTRY>/`, insert the URL of your local registry.
@@ -1192,6 +1196,8 @@ When the operator is running on your namespace, you can apply a custom resource 
 
 Save the custom resource definition below as `ibp-console.yaml` on your local system. If you changed the name of the entitlement key secret, then you need to edit the field of `name: docker-key-secret`.
 
+TESTER: Replace `registryURL: cp.icr.io/cp` with `registryURL: cp.stg.icr.io/cp`
+{: note}
 
 
 ```yaml
@@ -1264,6 +1270,8 @@ Replace `<PROJECT_NAME>` with the name of your project. Before you install the c
 
 You can edit the `ibp-console.yaml` file to allocate more resources to your console or use zones for high availability in a multizone cluster. To take advantage of these deployment options, you can use the console resource definition with the `resources:` and `clusterdata:` sections added:
 
+TESTER: Replace `registryURL: cp.icr.io/cp` with `registryURL: cp.stg.icr.io/cp`
+{: note}
 
 ```yaml
 apiVersion: ibp.com/v1beta1
@@ -1366,6 +1374,8 @@ kubectl create secret generic console-tls-secret --from-file=tls.crt=./tlscert.p
 
 After you create the secret, add the `tlsSecretName` field to the `spec:` section of `ibp-console.yaml` with one indent added, at the same level as the `resources:` and `clusterdata:` sections of the advanced deployment options. You must provide the name of the TLS secret that you created to the field. The following example deploys a console with the TLS certificate and key stored in a secret named `"console-tls-secret"`. Replace `"<CONSOLE_TLS_SECRET_NAME>"` with `"console-tls-secret"` unless you used a different name for the secret.
 
+TESTER: Replace `registryURL: cp.icr.io/cp` with `registryURL: cp.stg.icr.io/cp`
+{: note}
 
 ```yaml
 apiVersion: ibp.com/v1beta1
@@ -1390,7 +1400,7 @@ spec:
       class: default
       size: 10Gi
   tlsSecretName: "<CONSOLE_TLS_SECRET_NAME>"
-
+  
 ```
 {: codeblock}
 
