@@ -222,10 +222,6 @@ kubectl create namespace ibpinfra
 
 After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
 
-TESTER: Contact Mihir or Dhyey for the key that you need to use for pulling images from staging. Also the docker server should be `--docker-server=cp.stg.icr.io`
-{: note}
-
-
 Run the following command to create the secret and add it to your `ibpinfra` namespace or project:
 ```
 kubectl create secret docker-registry docker-key-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=<KEY> --docker-email=<EMAIL> -n ibpinfra
@@ -297,6 +293,8 @@ serviceaccount/webhook created
 role.rbac.authorization.k8s.io/webhook created
 rolebinding.rbac.authorization.k8s.io/ibpinfra created
 ```
+{:codeblock}
+
 ### 2. (OpenShift cluster only) Apply the Security Context Constraint
 {: #webhook-scc}
 
@@ -365,9 +363,6 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 {: #webhook-deployment-yaml}
 
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
-
-TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
-{: note}
 
 ```yaml
 apiVersion: apps/v1
@@ -464,6 +459,7 @@ When the command completes successfully, you should see something similar to:
 ```
 deployment.apps/ibp-webhook created
 ```
+{: codeblock}
 
 #### service.yaml
 {: #webhook-service-yaml}
@@ -503,6 +499,7 @@ When the command completes successfully, you should see something similar to:
 ```
 service/ibp-webhook created
 ```
+{: codeblock}
 
 ### 4. Extract the certificate and create the custom resource definitions
 
@@ -574,10 +571,13 @@ Depending on whether you are creating or updating the CRD, when successful, you 
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com created
 ```
+{: codeblock}
+
 or
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpcas.ibp.com configured
 ```
+{: codeblock}
 
 Run this command to update the peer CRD:
 ```yaml
@@ -633,10 +633,13 @@ When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com created
 ```
+{: codeblock}
+
 or
 ```
 customresourcedefinition.apiextensions.k8s.io/ibppeers.ibp.com configured
 ```
+{: codeblock}
 
 Run this command to update the console CRD:
 ```yaml
@@ -692,10 +695,13 @@ When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com created
 ```
+{: codeblock}
+
 or
 ```
 customresourcedefinition.apiextensions.k8s.io/ibpconsoles.ibp.com configured
 ```
+{: codeblock}
 
 Run this command to update the orderer CRD:  
 ```yaml
@@ -751,10 +757,13 @@ When successful, you should see:
 ```
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com created
 ```
+{: codeblock}
+
 or
 ```
 customresourcedefinition.apiextensions.k8s.io/ibporderers.ibp.com configured
 ```
+{: codeblock}
 
 ## Create a new namespace for your {{site.data.keyword.blockchainfull_notm}} Platform deployment
 {: #deploy-k8-namespace}
@@ -784,10 +793,6 @@ If you are not using the default storage class, additional configuration is requ
 {: #deploy-k8-docker-registry-secret}
 
 You've already created a secret for the entitlement key in the `ibpinfra` namespace or project, now you need to create one in your {{site.data.keyword.blockchainfull_notm}} Platform namespace or project. After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
-
-TESTER: Contact Mihir or Dhyey for the key that you need to use for pulling images from staging. Also the docker server should be `--docker-server=cp.stg.icr.io`
-{: note}
-
 
 Run the following command to create the secret and add it to your namespace or project:
 ```
@@ -950,6 +955,7 @@ After you save and edit the file, run the following commands.
 kubectl apply -f ibp-clusterrole.yaml -n <NAMESPACE>
 ```
 {:codeblock}
+
 Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
 
@@ -995,6 +1001,7 @@ After applying the policies, you must grant your service account the required le
 kubectl -n <NAMESPACE> create rolebinding ibp-operator-rolebinding --clusterrole=<NAMESPACE> --group=system:serviceaccounts:<NAMESPACE>
 ```
 {:codeblock}
+
 Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
 ## Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator
@@ -1003,10 +1010,6 @@ Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_n
 The {{site.data.keyword.blockchainfull_notm}} Platform uses an operator to install the {{site.data.keyword.blockchainfull_notm}} Platform console. You can deploy the operator on your cluster by adding a custom resource to your namespace by using the kubectl CLI. The custom resource pulls the operator image from the Docker registry and starts it on your cluster.  
 
 Copy the following text to a file on your local system and save the file as `ibp-operator.yaml`.
-
-TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
-{: note}
-
 
 ```yaml
 apiVersion: apps/v1
@@ -1122,6 +1125,7 @@ Then, use the kubectl CLI to add the custom resource to your namespace.
 kubectl apply -f ibp-operator.yaml -n <NAMESPACE>
 ```
 {:codeblock}
+
 Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
 You can confirm that the operator deployed by running the command `kubectl get deployment -n <NAMESPACE>`. If your operator deployment is successful, then you can see the following tables with four ones displayed. The operator takes about a minute to deploy.
@@ -1129,6 +1133,7 @@ You can confirm that the operator deployed by running the command `kubectl get d
 NAME           READY   UP-TO-DATE   AVAILABLE   AGE
 ibp-operator   1/1     1            1           1m
 ```
+{: codeblock}
 
 ## Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console
 {: #deploy-k8-console}
@@ -1269,8 +1274,8 @@ When you finish editing the file, apply it to your cluster.
 kubectl apply -f ibp-console.yaml -n <NAMESPACE>
 ```
 {:codeblock}
-Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
+Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
 Unlike the resource allocation, you cannot add zones to a running network. If you have already deployed a console and used it to create nodes on your cluster, you will lose your previous work. After the console restarts, you need to deploy new nodes.
 {: Important}
@@ -1296,6 +1301,7 @@ Navigate to the TLS certificates that you plan to use on your local system. Name
 kubectl create secret generic console-tls-secret --from-file=tls.crt=./tlscert.pem --from-file=tls.key=./tlskey.pem -n <NAMESPACE>
 ```
 {:codeblock}
+
 Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
 After you create the secret, add the `tlsSecretName` field to the `spec:` section of `ibp-console.yaml` with one indent added, at the same level as the `resources:` and `clusterdata:` sections of the advanced deployment options. You must provide the name of the TLS secret that you created to the field. The following example deploys a console with the TLS certificate and key stored in a secret named `"console-tls-secret"`. Replace `"<CONSOLE_TLS_SECRET_NAME>"` with `"console-tls-secret"` unless you used a different name for the secret.
@@ -1334,6 +1340,7 @@ When you finish editing the file, you can apply it to your cluster in order to s
 kubectl apply -f ibp-console.yaml -n <NAMESPACE>
 ```
 {:codeblock}
+
 Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
 ### Verifying the console installation
@@ -1345,6 +1352,7 @@ NAME           READY   UP-TO-DATE   AVAILABLE   AGE
 ibp-operator   1/1     1            1           10m
 ibpconsole     1/1     1            1           4m
 ```
+{: codeblock}
 
 The console consists of four containers that are deployed inside a single pod:
 - `optools`: The console UI.
@@ -1357,6 +1365,7 @@ If there is an issue with your deployment, you can view the logs from one of the
 kubectl get pods -n <NAMESPACE>
 ```
 {:codeblock}
+
 Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
 
@@ -1365,8 +1374,8 @@ Then, use the following command to get the logs from one of the four containers 
 kubectl logs -f <pod_name> <container_name> -n <NAMESPACE>
 ```
 {:codeblock}
-Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
+Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace.
 
 As an example, a command to get the logs from the UI container would look like the following example:
 ```
@@ -1391,6 +1400,7 @@ Your console URL looks similar to the following example:
 ```
 https://blockchain-project-ibpconsole-console.xyz.abc.com:443
 ```
+{: codeblock}
 
 If you navigate to the console URL in your browser, you can see the console login screen:
 - For the **User ID**, use the value you provided for the `email:` field in the `ibp-console.yaml` file.
@@ -1424,23 +1434,27 @@ Before you attempt to install the {{site.data.keyword.blockchainfull_notm}} Plat
     ```
     *.test.example.com
     ```
+    {: codeblock}
 
     that ultimately resolves to
     ```
     test.example.com
     ```
+    {: codeblock}
 
     When this host entry is configured, the following examples should all resolve to test.example.com:
     ```
     console.test.example.com
     peer.test.example.com
     ```
+    {: codeblock}
 
     You can use `nslookup` to verify that DNS is configured correctly:
 
     ```
     $ nslookup console.test.example.com
     ```
+    {: codeblock}
 
 4. The DNS entry for the load balancer should then be used as the **Domain name** during the installation of IBM Blockchain Platform.
 
