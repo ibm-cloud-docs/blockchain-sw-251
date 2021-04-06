@@ -102,7 +102,7 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-console-ocp-about">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-console-ocp-about">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-console-ocp-about">2.5</a>, 
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-console-ocp-about">2.5</a>, 2.51,
     <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-console-ocp-about">2.5.2</a>
     </p>
 </div>
@@ -195,7 +195,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform includes the following ke
 - **Manage access** of the users who can administer or monitor your nodes.
 - **Interact directly with your pods** using your Kubernetes service.
 - **Direct access to the logs** of your nodes from your  Kubernetes service. Use  any supported third-party service to extract and analyze your logs.
-- **Kubernetes service integration.** Leverage services such as LogDNA for logging and Prometheus and Sysdig for monitoring.
+- **Kubernetes service integration.** Leverage services such as {{site.data.keyword.la_full_notm}} for logging and Prometheus and {{site.data.keyword.mon_full_notm}} for monitoring.
 - **Upgrade the Fabric version of your nodes.** Nodes running Fabric version 1.4.x can be [upgraded to 2.x](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern-components#ibp-console-govern-components-upgrade). After which, the capabilities of your channels can also be increased to v2.0, allowing full access to the latest Fabric features like the smart contract lifecycle.
 
 **GROW --- Scalability and flexibility**

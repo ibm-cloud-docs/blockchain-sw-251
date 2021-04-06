@@ -29,7 +29,7 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-ibp-console-ha">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-ha">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-console-ha">2.5</a>,
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-console-ha">2.5</a>, 2.51, 
     <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-console-ha">2.5.2</a>
     </p>
 </div>
@@ -157,7 +157,7 @@ The {{site.data.keyword.blockchainfull_notm}} Platform deployer attempts to spre
 
    **Multizone clusters with multiple worker nodes and anti-affinity**:
 
-   Think of a zone as a data center. A zone failure affects all physical compute hosts and NFS storage. Failures include power, cooling, networking, or storage outages, and natural disasters, like flooding, earthquakes, and hurricanes. To protect against a zone failure, you must have clusters in at least two different zones that are load balanced by an external load balancer.
+   Think of a zone as a data center. A zone failure affects all physical compute hosts and NFS storage. Failures include power, cooling, networking, or storage outages, and natural disasters, like flooding, earthquakes, and hurricanes. To protect against a zone failure, you must have clusters in at least two different zones that are load balanced by an external load balancer. 
 
    A single zone is sufficient for a development and test environment if you can tolerate a zone outage. Therefore, to leverage the HA benefits of multiple zones,  when you provision your cluster, ensure that multiple zones are selected. Two zones are better than one, but three are recommended for HA to increase the likelihood that the two additional zones can absorb the workload of any single zone failure.  When redundant peers from the same organization and channel, and ordering nodes, are spread across multiple zones, a failure in any one zone should not affect the ability of the network to process transactions because the workload will shift to the blockchain nodes in the other zones.
 
@@ -196,7 +196,7 @@ This scenario offers the highest level of HA possible.
 
    This scenario uses redundant peers and ordering nodes across multiple worker nodes in multiple regions, which provide the highest degree of HA. This approach is also a recommended scenario for a production network when your resiliency requirements merit the investment. The five ordering nodes are spread across three clusters in a 2-1-2 pattern, meaning two nodes in Region 1, one node in Region 2, and two nodes in Region 3. This configuration allows any single region, or all of the ordering nodes in a region to go down, while still maintaining a quorum of nodes in the Raft cluster.
 
-   See the topics on setting up multi-region HA deployments for steps to configure your {{site.data.keyword.blockchainfull_notm}} Platform [peers](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr) and [ordering nodes](/docs/blockchain?topic=blockchain-ibp-console-hadr-mr-os) across multiple regions.
+   See the topics on setting up multi-region HA deployments for steps to configure your {{site.data.keyword.blockchainfull_notm}} Platform [peers](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr) and [ordering nodes](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-hadr-mr-os) across multiple regions.
 
 ## Disaster recovery (DR)
 {: #ibp-console-ha-dr}

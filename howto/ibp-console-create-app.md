@@ -29,7 +29,7 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-ibp-console-app">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-app">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-console-app">2.5</a>,
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-ibp-console-app">2.5</a>, 2.51, 
     <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-ibp-console-app">2.5.2</a>
     </p>
 </div>
@@ -704,7 +704,7 @@ fabric_client.createUser({
 ```
 {:codeblock}
 
-If you are using low-level SDK APIs to connect to your network, there are additional steps that you can take to manage the performance and availability of your application.
+If you are using low-level SDK APIs to connect to your network, there are additional steps that you can take to manage the performance and availability of your application. 
 
 ## Highly available applications
 {: #console-app-ha}

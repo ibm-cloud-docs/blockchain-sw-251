@@ -2,7 +2,7 @@
 
 copyright:
   years: 2018, 2021
-lastupdated: "2021-02-10"
+lastupdated: "2021-02-12"
 
 keywords: IBM Blockchain Platform console, deploy, resource requirements, storage, parameters, firewall, on-premises, air-gapped, on-prem, multicloud, on-prem
 
@@ -100,7 +100,7 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-deploy-k8-firewall">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-deploy-k8-firewall">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-k8-firewall">2.5</a>,
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-deploy-k8-firewall">2.5</a>, 2.51, 
     <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-deploy-k8-firewall">2.5.2</a>
     </p>
 </div>
@@ -408,6 +408,8 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
 
+TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
+{: note}
 
 ```yaml
 apiVersion: apps/v1
@@ -1044,6 +1046,8 @@ The {{site.data.keyword.blockchainfull_notm}} Platform uses an operator to insta
 
 Copy the following text to a file on your local system and save the file as `ibp-operator.yaml`.
 
+TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
+{: note}
 
 
 Replace `image: cp.icr.io/cp/` with `image: <LOCAL_REGISTRY>/`, insert the URL of your local registry.
@@ -1489,3 +1493,5 @@ Before you attempt to install the {{site.data.keyword.blockchainfull_notm}} Plat
 7. Verify that all pods are running before you attempt to [install](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-login) the {{site.data.keyword.blockchainfull_notm}} Platform.
 
 You can now [resume your installation](#deploy-k8-images-firewall).
+
+

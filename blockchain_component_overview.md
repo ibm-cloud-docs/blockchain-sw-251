@@ -28,7 +28,7 @@ subcollection: blockchain-sw-251
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-blockchain-component-overview">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-blockchain-component-overview">2.1.3</a>,
-    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-blockchain-component-overview">2.5</a>,
+    <a href="/docs/blockchain-sw-25?topic=blockchain-sw-25-blockchain-component-overview">2.5</a>, 2.51, 
     <a href="/docs/blockchain-sw-252?topic=blockchain-sw-252-blockchain-component-overview">2.5.2</a>
     </p>
 </div>
