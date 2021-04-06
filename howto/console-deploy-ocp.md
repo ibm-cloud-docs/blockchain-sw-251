@@ -189,9 +189,6 @@ ibpinfra                            Active    2m
 
 After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
 
-TESTER: Contact Mihir or Dhyey for the key that you need to use for pulling images from staging. Also the docker server should be `--docker-server=cp.stg.icr.io`
-{: note}
-
 
 Run the following command to create the secret and add it to your `ibpinfra` namespace or project:
 ```
@@ -332,9 +329,6 @@ In order to deploy the webhook, you need to create two `.yaml` files and apply t
 {: #webhook-deployment-yaml}
 
 Copy the following text to a file on your local system and save the file as `deployment.yaml`. If you are deploying on OpenShift Container Platform on LinuxONE, you need to replace `amd64` with `s390x`.
-
-TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
-{: note}
 
 ```yaml
 apiVersion: apps/v1
@@ -759,15 +753,12 @@ If you are not using the default storage class, additional configuration is requ
 
 You've already created a secret for the entitlement key in the `ibpinfra` namespace or project, now you need to create one in your {{site.data.keyword.blockchainfull_notm}} Platform namespace or project. After you purchase the {{site.data.keyword.blockchainfull_notm}} Platform, you can access the [My IBM dashboard](https://myibm.ibm.com/dashboard/){: external} to obtain your entitlement key for the offering. You need to store the entitlement key on your cluster by creating a [Kubernetes Secret](https://kubernetes.io/docs/concepts/configuration/secret/){: external}. Kubernetes secrets are used to securely store the key on your cluster and pass it to the operator and the console deployments.
 
-TESTER: Contact Mihir or Dhyey for the key that you need to use for pulling images from staging. Also the docker server should be `--docker-server=cp.stg.icr.io`
-{: note}
-
-
 Run the following command to create the secret and add it to your namespace or project:
 ```
 kubectl create secret docker-registry docker-key-secret --docker-server=cp.icr.io --docker-username=cp --docker-password=<KEY> --docker-email=<EMAIL> -n <NAMESPACE>
 ```
 {:codeblock}
+
 - Replace `<KEY>` with your entitlement key.
 - Replace `<EMAIL>` with your email address.
 - Replace `<NAMESPACE>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment namespace or OpenShift project.
@@ -994,10 +985,6 @@ The {{site.data.keyword.blockchainfull_notm}} Platform uses an operator to insta
 
 Copy the following text to a file on your local system and save the file as `ibp-operator.yaml`.
 
-TESTER: Edit the image tag, for example replace `image: cp.icr.io/cp/ibp-operator:2.5.1-20210112-amd64` with test image tag.
-{: note}
-
-
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -1130,10 +1117,6 @@ When the operator is running on your namespace, you can apply a custom resource 
 
 Save the custom resource definition below as `ibp-console.yaml` on your local system. If you changed the name of the entitlement key secret, then you need to edit the field of `name: docker-key-secret`.
 
-TESTER: Replace `registryURL: cp.icr.io/cp` with `registryURL: cp.stg.icr.io/cp`
-{: note}
-
-
 ```yaml
 apiVersion: ibp.com/v1beta1
 kind: IBPConsole
@@ -1179,11 +1162,14 @@ If you are deploying on OpenShift Container Platform on LinuxONE, you need to re
 arch:
 - amd64
 ```
+{:codeblock}
+
 in the `spec:` section with:
 ```yaml
 arch:
 - s390x
 ```
+{:codeblock}
 
 If you are running OpenShift on Azure, you also need to change the storage class from `default` to `azure-standard`, unless you created your own storage class.
 {: tip}
@@ -1196,16 +1182,13 @@ After you update the file, you can use the CLI to install the console.
 kubectl apply -f ibp-console.yaml -n <PROJECT_NAME>
 ```
 {:codeblock}
+
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project. The console can take a few minutes to deploy.
 
 ### Advanced deployment options
 {: #console-deploy-ocp-advanced}
 
 Before you deploy the console, you can edit the `ibp-console.yaml` file to allocate more resources to your console or use zones for high availability in a multizone cluster. To take advantage of these deployment options, you can use the console resource definition with the `resources:` and `clusterdata:` sections added:
-
-TESTER: Replace `registryURL: cp.icr.io/cp` with `registryURL: cp.stg.icr.io/cp`
-{: note}
-
 
 ```yaml
 apiVersion: ibp.com/v1beta1
@@ -1284,6 +1267,7 @@ When you finish editing the file, apply it to your cluster.
 kubectl apply -f ibp-console.yaml -n <PROJECT_NAME>
 ```
 {:codeblock}
+
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
 Unlike the resource allocation, you cannot add zones to a running network. If you have already deployed a console and used it to create nodes on your cluster, you will lose your previous work. After the console restarts, you need to deploy new nodes.
@@ -1310,12 +1294,10 @@ Navigate to the TLS certificates that you plan to use on your local system. Name
 kubectl create secret generic console-tls-secret --from-file=tls.crt=./tlscert.pem --from-file=tls.key=./tlskey.pem -n <PROJECT_NAME>
 ```
 {:codeblock}
+
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
 After you create the secret, add the `tlsSecretName` field to the `spec:` section of `ibp-console.yaml` with one indent added, at the same level as the `resources:` and `clusterdata:` sections of the advanced deployment options. You must provide the name of the TLS secret that you created to the field. The following example deploys a console with the TLS certificate and key stored in a secret named `"console-tls-secret"`. Replace `"<CONSOLE_TLS_SECRET_NAME>"` with `"console-tls-secret"` unless you used a different name for the secret.
-
-TESTER: Replace `registryURL: cp.icr.io/cp` with `registryURL: cp.stg.icr.io/cp`
-{: note}
 
 ```yaml
 apiVersion: ibp.com/v1beta1
@@ -1353,6 +1335,7 @@ When you finish editing the file, you can apply it to your cluster in order to s
 kubectl apply -f ibp-console.yaml -n <PROJECT_NAME>
 ```
 {:codeblock}
+
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
 ### Verifying the console installation
@@ -1363,6 +1346,7 @@ NAME           READY     UP-TO-DATE   AVAILABLE   AGE
 ibp-operator   1/1       1            1           10m
 ibpconsole     1/1       1            1           4m
 ```
+{:codeblock}
 
 The console consists of four containers that are deployed inside a single pod:
 - `optools`: The console UI.
@@ -1375,6 +1359,7 @@ If there is an issue with your deployment, you can view the logs from one of the
 kubectl get pods -n <PROJECT_NAME>
 ```
 {:codeblock}
+
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
 Then, use the following command to get the logs from one of the four containers listed above:
@@ -1382,6 +1367,7 @@ Then, use the following command to get the logs from one of the four containers 
 kubectl logs -f <pod_name> <container_name> -n <PROJECT_NAME>
 ```
 {:codeblock}
+
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
 As an example, a command to get the logs from the UI container would look like the following example:
@@ -1415,6 +1401,7 @@ You can also find your console URL by logging in to your OpenShift cluster and r
 oc get routes -n <PROJECT_NAME>
 ```
 {:codeblock}
+
 Replace `<PROJECT_NAME>` with the name of your {{site.data.keyword.blockchainfull_notm}} Platform deployment project.
 
 In the output of the command, you can see the URLs for the proxy and the console. You need to add `https://` to the beginning console URL to access the console. You do not need to add a port to the URL.
