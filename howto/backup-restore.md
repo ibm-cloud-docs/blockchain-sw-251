@@ -205,7 +205,7 @@ You might need more or less than 5 GB of space, depending on the size of the pod
 Taking a snapshot incurs charges on your account. Press `y` to accept the charges and order the snapshot.
 
 Alternatively, you can enable snapshots to be taken on a regular schedule for a particular volume. For information on how to set of a snapshot schedule, see
-[Adding a Snapshot schedule](/docs/FileStorage?topic=FileStorage-managingSnapshots#addschedule){: external}.
+[Adding a Snapshot schedule](/docs/FileStorage?topic=FileStorage-managingSnapshots#addscheduleUI){: external}.
 
 Again, for our example, we use the CLI to set up a daily snapshot of a CouchDB volume at 3:00 a.m. and retain seven snapshots.
 
@@ -333,7 +333,7 @@ Note that `peera` is not ready.
 
 Use the commands in the [Peer snapshot](#backup-restore-peer-snapshot) section to find the persistent volumes that are associated with the peer. Peers using CouchDB have two volumes.
 
-For each volume, list the available snapshots for that volume. For information on how to list available snapshots, see [Listing all Snapshots with Space Used Information and Management functions](/docs/FileStorage?topic=FileStorage-managingSnapshots#listing-all-snapshots-with-space-used-information-and-management-functions){: external}.
+For each volume, list the available snapshots for that volume. For information on how to list available snapshots, see [Listing all Snapshots with Space Used Information and Management functions](/docs/FileStorage?topic=FileStorage-managingSnapshots#listsnapshotUI){: external}.
 
 For our example, we use CLI and restore a specific snapshot from our volume ID for the CouchDB pod that is associated with `peera`:
 
@@ -349,7 +349,7 @@ id          user_name             created                     size_bytes   notes
 167189176   IBM02SEV2046428_106   2020-09-03T03:00:00-05:00   143089      
 ```
 
-Pick the snapshot you'd like to restore from the list, keeping in mind that the CouchDB backup must be older than the peer pod backup, and restore it. For information on how to restore the snapshot, see [Restoring storage volume to a specific point-in-time by using a snapshot](/docs/FileStorage?topic=FileStorage-managingSnapshots#restoring-storage-volume-to-a-specific-point-in-time-by-using-a-snapshot){: external}.
+Pick the snapshot you'd like to restore from the list, keeping in mind that the CouchDB backup must be older than the peer pod backup, and restore it. For information on how to restore the snapshot, see [Restoring storage volume to a specific point-in-time by using a snapshot](/docs/FileStorage?topic=FileStorage-managingSnapshots#restorefromsnapshotUI){: external}.
 
 Restore by using the snapshot:
 
