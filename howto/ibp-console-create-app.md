@@ -25,7 +25,7 @@ subcollection: blockchain-sw-251
 {: #ibp-console-app}
 
 <div style="background-color: #f4f4f4; padding-left: 20px; border-bottom: 2px solid #0f62fe; padding-top: 12px; padding-bottom: 4px; margin-bottom: 16px;">
-  <p style="line-height: 10px;">
+  <p style="line-height: 15px;">
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-ibp-console-app">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-app">2.1.3</a>,
@@ -174,7 +174,7 @@ Java and Node runtime versions are determined by {{site.data.keyword.blockchainf
 {: note}
 
 For more details on smart contract-API compatibility, see:
-- [Java smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-java/blob/master/COMPATIBILITY.md){: external}
+- [Java smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-java/blob/main/COMPATIBILITY.md){: external}
 - [Node smart contract-API compatibility](https://github.com/hyperledger/fabric-chaincode-node/blob/master/COMPATIBILITY.md){: external}
 
 ## Registering an application identity
