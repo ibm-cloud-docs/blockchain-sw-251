@@ -99,7 +99,7 @@ subcollection: blockchain-sw-251
 {: shortdesc}
 
 <div style="background-color: #f4f4f4; padding-left: 20px; border-bottom: 2px solid #0f62fe; padding-top: 12px; padding-bottom: 4px; margin-bottom: 16px;">
-  <p style="line-height: 10px;">
+  <p style="line-height: 15px;">
     <strong>Running a different version of IBM Blockchain Platform?</strong> Switch to version
     <a href="/docs/blockchain-sw?topic=blockchain-sw-ibp-console-smart-contracts">2.1.2</a>,
     <a href="/docs/blockchain-sw-213?topic=blockchain-sw-213-ibp-console-smart-contracts">2.1.3</a>
@@ -157,7 +157,7 @@ When you are ready to install and instantiate your smart contract to the {{site.
 {: #ibp-console-smart-contracts-write-package-vendor}
 
 If your smart contract uses the
-[fabric-chaincode-go](https://github.com/hyperledger/fabric-chaincode-go/tree/master/shim) shim or the [Go contract-api](https://github.com/hyperledger/fabric-contract-api-go) you need to repackage the smart contract before it can be installed on a peer that is running a Fabric v2.x image.
+[fabric-chaincode-go](https://github.com/hyperledger/fabric-chaincode-go/tree/main/shim) shim or the [Go contract-api](https://github.com/hyperledger/fabric-contract-api-go) you need to repackage the smart contract before it can be installed on a peer that is running a Fabric v2.x image.
 
 **Why is vendoring the shim required?**  
 
