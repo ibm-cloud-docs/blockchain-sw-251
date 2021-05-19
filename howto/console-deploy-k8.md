@@ -502,6 +502,7 @@ service/ibp-webhook created
 {: codeblock}
 
 ### 4. Extract the certificate and create the custom resource definitions
+{: #webhook-extract-cert}
 
 1. Extract the webhook TLS certificate from the `ibpinfra` namespace by running the following command:
 

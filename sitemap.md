@@ -969,6 +969,7 @@ subcollection: blockchain-sw-251
   * [Before you begin](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-before)
   * [Build a Docker image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-hsm-build-docker)
   * [Configuring a CA, peer, or ordering node to use the HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node)
+  
 
 [Advanced channel deployment and management](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern)
 * [General options](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-govern#ibp-console-govern-update-channel-available-parameters-general)
@@ -1850,7 +1851,7 @@ subcollection: blockchain-sw-251
 * [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-join-network#ibp-console-join-network-next-steps)
 
 [{{site.data.keyword.blockchainfull_notm}} Platform getting started videos](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-videos)
-* [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-videos#getting-started-with-{{site.data.keyword.blockchainfull_notm}}-platform-2.5.1)
+* [Getting started with {{site.data.keyword.blockchainfull_notm}} Platform 2.5.1](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-videos#ibp-videos-ibp-v2)
 
 
 ## Deploy a smart contract
@@ -2097,7 +2098,7 @@ subcollection: blockchain-sw-251
   * [1. Configure role-based access control (RBAC) for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#webhook-rbac)
   * [2. (OpenShift cluster only) Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#webhook-scc)
   * [3. Deploy the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#webhook-deploy)
-  * [4. Extract the certificate and create the custom resource definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#4.-extract-the-certificate-and-create-the-custom-resource-definitions)
+  * [4. Extract the certificate and create the custom resource definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-console-ocp-webhook-extract-cert)
 * [Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-project)
 * [Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-docker-registry-secret)
 * [Add security and access policies](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp#deploy-ocp-scc)
@@ -2124,7 +2125,7 @@ subcollection: blockchain-sw-251
   * [1. Configure role-based access control (RBAC) for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#webhook-rbac)
   * [2. (OpenShift cluster only) Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#webhook-scc)
   * [3. Deploy the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#webhook-deploy)
-  * [4. Extract the certificate and create the custom resource definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#4.-extract-the-certificate-and-create-the-custom-resource-definitions)
+  * [4. Extract the certificate and create the custom resource definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-console -webhook-extract-cert-fw)
 * [Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-project-firewall)
 * [Set up the entitlement for a local registry](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-docker-registry-secret)
 * [Add security and access policies](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-scc-firewall)
@@ -2134,7 +2135,7 @@ subcollection: blockchain-sw-251
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform operator](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-operator-fw)
 * [Deploy the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-console-fw)
   * [Advanced deployment options](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#console-deploy-ocp-advanced-firewall)
-  * [Use your own TLS Certificates (Optional)](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#use-your-own-tls-certificates-(optional))
+  * [Use your own TLS Certificates (Optional)](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-console-tls-fw)
   * [Verifying the console installation](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#verifying-the-console-installation)
 * [Log in to the console](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-log-in)
 * [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#console-deploy-ocp-next-steps-fw)
@@ -2225,7 +2226,7 @@ subcollection: blockchain-sw-251
   * [1. Configure role-based access control (RBAC) for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#webhook-rbac)
   * [2. (OpenShift cluster only) Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#webhook-scc)
   * [3. Deploy the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#webhook-deploy)
-  * [4. Extract the certificate and create the custom resource definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#4.-extract-the-certificate-and-create-the-custom-resource-definitions)
+  * [4. Extract the certificate and create the custom resource definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#webhook-extract-cert)
 * [Create a new namespace for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-namespace)
 * [Create a secret for your entitlement key](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-docker-registry-secret)
 * [Add security and access policies](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8#deploy-k8-scc)
@@ -2257,7 +2258,7 @@ subcollection: blockchain-sw-251
   * [1. Configure role-based access control (RBAC) for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#webhook-rbac)
   * [2. (OpenShift cluster only) Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#webhook-scc)
   * [3. Deploy the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#webhook-deploy)
-  * [4. Extract the certificate and create the custom resource definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#4.-extract-the-certificate-and-create-the-custom-resource-definitions)
+  * [4. Extract the certificate and create the custom resource definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#webhook-extract-cert-fw)
 * [Create a new namespace for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-namespace-firewall)
 * [Set up the entitlement for a local registry](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8s-docker-registry-secret-fw)
 * [Add security and access policies](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-k8-firewall#deploy-k8-scc-firewall)
@@ -2646,7 +2647,7 @@ subcollection: blockchain-sw-251
     * [Retrieve the CA connection information](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-config-connx-info)
     * [Provide your component enroll ID and secret](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#provide-your-component-enroll-id-and-secret)
     * [Provide the signCert of your organization administrator](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#provide-the-signcert-of-your-organization-administrator)
-    * [CSR (Certificate Signing Request) hosts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#csr-(certificate-signing-request)-hosts)
+    * [CSR (Certificate Signing Request) hosts](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#csr)
     * [Completing the configuration file](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-config-file)
     * [Importing an admin identity into the {{site.data.keyword.blockchainfull_notm}} Platform console](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-v2-apis#ibp-v2-apis-admin-console)
 
@@ -2672,19 +2673,19 @@ subcollection: blockchain-sw-251
 
 [HSM PKCS #11 proxy](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy)
 
-* [Setting up a PKCS #11 proxy for your HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#setting-up-a-pkcs-11-proxy-for-your-hsm)
+* [Setting up a PKCS #11 proxy for your HSM](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy)
 
-* [Why is a proxy required?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#why-is-a-proxy-required?)
+* [Why is a proxy required?](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-why)
 
-* [Building the proxy image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#building-the-proxy-image)
+* [Building the proxy image](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-build-img)
 
-* [Deploying the proxy to your cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#deploying-the-proxy-to-your-cluster)
-    * [**Step one:**  Create a new namespace](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#**step-one**--create-a-new-namespace)
-    * [**Step two:** Create a Kubernetes secret](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#**step-two**-create-a-kubernetes-secret)
-    * [**Step three:** Deploy the proxy pod](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#**step-three**-deploy-the-proxy-pod)
-    * [**Step four:** Configure communication between the proxy and the blockchain components](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#**step-four**-configure-communication-between-the-proxy-and-the-blockchain-components)
+* [Deploying the proxy to your cluster](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy)
+    * [**Step one:**  Create a new namespace](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s1)
+    * [**Step two:** Create a Kubernetes secret](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s2)
+    * [**Step three:** Deploy the proxy pod](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s3)
+    * [**Step four:** Configure communication between the proxy and the blockchain components](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-deploy-s4)
 
-* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#next-steps)
+* [Next steps](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-hsm-build-pkcs11-proxy#ibp-hsm-build-pkcs11-proxy-next-steps)
 
 
 ## IBM Cloud HSM PKCS #11 proxy
