@@ -580,7 +580,7 @@ configmap/ibp-hsm-config created
 ### What's next
 {: #ibp-hsm-gemalto-next-steps}
 
-After you have used these instructions to configure your {{site.data.keyword.cloud_notm}} HSM and build the  **HSM client image** or **PKCS #11 proxy**, you are ready to configure your blockchain nodes to use the HSM. When you create a CA, peer, or ordering node, select the [HSM Advanced deployment option](https://cloud.ibm.com/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) to configure the node to use this HSM.
+After you have used these instructions to configure your {{site.data.keyword.cloud_notm}} HSM and build the  **HSM client image** or **PKCS #11 proxy**, you are ready to configure your blockchain nodes to use the HSM. When you create a CA, peer, or ordering node, select the [HSM Advanced deployment option](/docs/blockchain-sw-251?topic=blockchain-sw-251-ibp-console-adv-deployment#ibp-console-adv-deployment-cfg-hsm-node) to configure the node to use this HSM.
 
 When a node is configured with HSM, a temporary Kubernetes job is started to run this HSM "enrollment" process. Before configuring a node to use HSM, ensure that you have enough resources in your cluster to support this job that takes approximately 0.1CPU and 100Mi memory.
 {: important}
