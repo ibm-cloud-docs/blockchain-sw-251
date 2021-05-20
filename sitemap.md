@@ -2125,7 +2125,7 @@ subcollection: blockchain-sw-251
   * [1. Configure role-based access control (RBAC) for the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#webhook-rbac)
   * [2. (OpenShift cluster only) Apply the Security Context Constraint](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#webhook-scc)
   * [3. Deploy the webhook](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#webhook-deploy)
-  * [4. Extract the certificate and create the custom resource definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-console -webhook-extract-cert-fw)
+  * [4. Extract the certificate and create the custom resource definitions](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-console-webhook-extract-cert-fw)
 * [Create a new project for your {{site.data.keyword.blockchainfull_notm}} Platform deployment](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-project-firewall)
 * [Set up the entitlement for a local registry](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-docker-registry-secret)
 * [Add security and access policies](/docs/blockchain-sw-251?topic=blockchain-sw-251-deploy-ocp-firewall#deploy-ocp-scc-firewall)
